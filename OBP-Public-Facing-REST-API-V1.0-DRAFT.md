@@ -389,7 +389,7 @@ JSON:
         ]
     }
     }
-
+> I'm not sure what is meant by the links here. We can't get the transactions for the other account unless it happens to be an OBP enabled account, and even then there would be issues with views/privileges. -E.S.
 
 ### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
 
@@ -415,7 +415,7 @@ JSON:
         ],
         "links": []
     }
-
+> We don't currently support replying to comments. As well, the meanings of the user_ fields above are not clear. If we have multiple user providers, then does this mean user_id is unique only for that provider? -E.S.
 
 ### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
 
