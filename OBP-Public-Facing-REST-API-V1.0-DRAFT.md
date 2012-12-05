@@ -106,7 +106,7 @@ JSON:
 
     }
 
-
+> This json format for a bank conflicts with the format defined in /banks. Do we really want two different formats or can we change one of both of them so that they share a common format? -E.S.
 
 ### GET /BANK_ALIAS/offices
 
