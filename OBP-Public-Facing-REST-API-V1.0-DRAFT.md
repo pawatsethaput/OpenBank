@@ -12,6 +12,9 @@ The API may be optionally navigated using the links returned for each end point.
 
 All calls should be prefixed with /obp/v1.0
 
+> None of these calls has been tested with OAUTH yet. -E.S.
+
+
 ### GET /
 
 Baseline 
@@ -185,6 +188,8 @@ JSON:
             }
         ]
     }
+
+> Exists, but owner_description is not implemented. -E.S.
 
 ### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/account/VIEW_NAME
 
