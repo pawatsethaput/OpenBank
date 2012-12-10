@@ -72,6 +72,7 @@ JSON:
             }
         ]
     }
+> To discuss: What do alias and name mean? Currently alias is the bank's permalink (e.g. postbank) and the name is the "name" field of the bank (e.g. POSTBANK). Also, we have no logo urls at the moment. -E.S.
 
 ### GET /BANK_ALIAS/bank
 
