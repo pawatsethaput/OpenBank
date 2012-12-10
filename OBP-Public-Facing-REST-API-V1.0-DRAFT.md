@@ -148,6 +148,7 @@ JSON:
 	    ]
 	}
 
+> Currently not supported. How do we propose to get this data? Getting a list of staff is probably out of the question without (or even with) bank integration of the API. -E.S.
 
 ### GET /BANK_ALIAS/accounts
 
