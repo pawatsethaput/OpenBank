@@ -333,7 +333,9 @@ JSON:
     ]
     }
 
+> Currently obp_fields is not implemented. The obp_sort_by header is not implemented for security reasons. To make this query efficient we would need to incorporate the sort in the mongodb query, but alias names are not currently in the obp_envelope "schema" as they are not transaction data but rather metadata. In general we can't sort on any fields unless we have full view permissions on that field.
 
+> I'm not sure how the pagination in links should work if we are including offset and limit as headers rather than url parameters. The links would have to assume the same headers. In any case, they aren't implemented yet. Also, shouldn't the "links" json actually be _outside_ of the array of transactions? -E.S.
 
 ### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
 
