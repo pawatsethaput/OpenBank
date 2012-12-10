@@ -107,6 +107,8 @@ JSON:
 
     }
 
+> Call currently exists but we currently aren't storing website or email so these fields are empty. -E.S.
+
 > This json format for a bank conflicts with the format defined in /banks. Do we really want two different formats or can we change one of both of them so that they share a common format? If we don't want the same format, then why does this particular information belong here and not in the other api call, and vice versa? -E.S.
 
 ### GET /BANK_ALIAS/offices
