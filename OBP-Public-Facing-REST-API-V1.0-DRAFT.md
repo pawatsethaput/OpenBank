@@ -12,7 +12,7 @@ The API may be optionally navigated using the links returned for each end point.
 
 All calls should be prefixed with /obp/v1.0
 
-> None of these calls has been tested with OAUTH yet. -E.S.
+> None of these calls has been tested with OAUTH yet. The default "owner" view is not currently implemented for any of the calls. -E.S.
 
 
 ### GET /
@@ -242,6 +242,8 @@ JSON:
             ]
         }
     }
+
+> Owners do not yet have ids (is this necessary?), date_opened does not exist yet. -E.S.
 
 ### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME
 
