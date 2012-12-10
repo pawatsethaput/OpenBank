@@ -404,6 +404,8 @@ JSON:
     }
 > I'm not sure what is meant by the links here. We can't get the transactions for the other account unless it happens to be an OBP enabled account, and even then there would be issues with views/privileges. -E.S.
 
+> As discussed before we will want to get rid of type_en and type_de. Should the type even be translated? Account types might not translate between languages/countries.  -E.S.
+
 ### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
 
 VIEW_NAME defaults to owner
