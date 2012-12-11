@@ -260,74 +260,58 @@ Returns:
 * Links related to pagination / search (optional) 
 
 JSON:
-
-    {
-    "transactions": [
-        {
-            "view": "the view of this transaction e.g. owner/anonymous/owner etc.",
-            "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
-            "bank_id": "The bank's id for the transaction",
-            "this_account": {
-                "holder": {
-                    "name": "MUSIC PICTURES LIMITED",
-                    "alias": "no (if no, this is the real name of the account, if yes, the name is an alias)"
+{
+        "transactions": [
+            {
+                "view": "the view of this transaction e.g. owner/anonymous/owner etc.",
+                "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
+                "bank_id": "The bank's id for the transaction",
+                "this_account": {
+                    "holder": {
+                        "name": "MUSIC PICTURES LIMITED",
+                        "alias": "no (if no, this is the real name of the account, if yes, the name is an alias)"
+                    },
+                    "number": "",
+                    "kind": "",
+                    "bank": {
+                        "IBAN": "",
+                        "national_identifier": "",
+                        "name": ""
+                    }
                 },
-                "number": "",
-                "kind": "",
-                "bank": {
-                    "IBAN": "",
-                    "national_identifier": "",
-                    "name": ""
-                }
-            },
-            "other_account": {
-                "holder": {
-                    "name": "DEUTSCHE POST AG, SSC ACC S",
-                    "alias": "no"
+                "other_account": {
+                    "holder": {
+                        "name": "DEUTSCHE POST AG, SSC ACC S",
+                        "alias": "no"
+                    },
+                    "number": "",
+                    "kind": "",
+                    "bank": {
+                        "IBAN": "",
+                        "national_identifier": "",
+                        "name": ""
+                    }
                 },
-                "number": "",
-                "kind": "",
-                "bank": {
-                    "IBAN": "",
-                    "national_identifier": "",
-                    "name": ""
+                "details": {
+                    "type_en": "",
+                    "type_de": "Lastschrift",
+                    "posted": "2012-03-07T00:00:00.001Z",
+                    "completed": "2012-03-07T00:00:00.001Z",
+                    "new_balance": {
+                        "currency": "EUR",
+                        "amount": "+ (depending on the view, this might show the balance or only +/-)"
+                    },
+                    "value": {
+                        "currency": "EUR",
+                        "amount": "-1.45"
+                    }
                 }
-            },
-            "details": {
-                "type_en": "",
-                "type_de": "Lastschrift",
-                "posted": "2012-03-07T00:00:00.001Z",
-                "completed": "2012-03-07T00:00:00.001Z",
-                "new_balance": {
-                    "currency": "EUR",
-                    "amount": "+ (depending on the view, this might show the balance or only +/-)"
-                },
-                "value": {
-                    "currency": "EUR",
-                    "amount": "-1.45"
-                }
-            },
-            "links": [
-                {
-                    "rel": "next",
-                    "href": "next URL",
-                    "method": "GET",
-                    "title": "Next transactions in list"
-                },
-                {
-                    "rel": "previous",
-                    "href": "previous URL",
-                    "method": "GET",
-                    "title": "Previous transactions in list"
-                }
-            ]
-        }
-    ]
+            }
+        ],
+        "links": []
     }
 
 > Currently obp_fields is not implemented. The obp_sort_by header is not implemented for security reasons. To make this query efficient we would need to incorporate the sort in the mongodb query, but alias names are not currently in the obp_envelope "schema" as they are not transaction data but rather metadata. In general we can't sort on any fields unless we have full view permissions on that field.
-
-> I'm not sure how the pagination in links should work if we are including offset and limit as headers rather than url parameters. The links would have to assume the same headers. In any case, they aren't implemented yet. Also, shouldn't the "links" json actually be _outside_ of the array of transactions? -E.S.
 
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
 
