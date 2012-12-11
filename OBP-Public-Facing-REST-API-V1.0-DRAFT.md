@@ -132,13 +132,6 @@ JSON:
                     "address": "address",
 	            "type": "HQ/branch/call center",
 	            "BIC_SWIFT": "ISO_9362 BIC / SWIFT code",
-	            "staff": [
-	                {
-	                    "name": "joe brown",
-	                    "email": "aze@aze.com",
-	                    "phone": "1234"
-	                }
-	            ],
 	            "fax": [
 	                {
 	                    "dept": "customer service",
@@ -154,8 +147,6 @@ JSON:
 	        }
 	    ]
 	}
-
-> Currently not supported. How do we propose to get this data? Getting a list of staff is probably out of the question without (or even with) bank integration of the API. -E.S.
 
 ### GET /BANK_PERMALINK/accounts
 
