@@ -56,6 +56,8 @@ Returns a list of banks supported on this server:
 * Long name of bank
 * Related links (optional)
 
+> TODO: banks / bank should have permalink, short_name, full_name. See if there is a standard for this.
+
 JSON:
 
     {
