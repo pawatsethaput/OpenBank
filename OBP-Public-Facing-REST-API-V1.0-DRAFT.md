@@ -63,7 +63,8 @@ JSON:
     {
         "banks": [
             {
-                "alias": "HSBC",
+                "permalink": "hsbc",
+                "abbreviation": "HSBC",
                 "name": "The Hongkong and Shanghai Banking Corporation Limited",
                 "logo": "url of logo.png 512 X 512 pixels",
                 "links": [
@@ -93,7 +94,9 @@ JSON:
 
     {
         "bank": {
-            "name": "Post Bank",
+            "permalink": "postbank",
+            "abbreviation": "Postbank",
+            "name": "Deutsche Postbank AG (DE)",
             "website": "www.postbank.de",
             "email": "email@bank.com"
         },
