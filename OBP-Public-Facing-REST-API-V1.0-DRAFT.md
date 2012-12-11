@@ -260,7 +260,8 @@ Returns:
 * Links related to pagination / search (optional) 
 
 JSON:
-{
+
+    {
         "transactions": [
             {
                 "view": "the view of this transaction e.g. owner/anonymous/owner etc.",
