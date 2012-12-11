@@ -68,25 +68,23 @@ JSON:
                 "links": [
                     {
                         "rel": "bank",
-                        "href": "/BANK_ALIAS/bank",
+                        "href": "/BANK_PERMALINK/bank",
                         "method": "GET",
-                        "title": "Get information about the bank identified by BANK_ALIAS"
+                        "title": "Get information about the bank identified by BANK_PERMALINK"
                     }
                 ]
             }
         ]
     }
-> To discuss: What do alias and name mean? Currently alias is the bank's permalink (e.g. postbank) and the name is the "name" field of the bank (e.g. POSTBANK). Also, we have no logo urls at the moment. -E.S.
+> We have no logo urls at the moment. -E.S.
 
-### GET /BANK_ALIAS/bank
+### GET /BANK_PERMALINK/bank
 
 Optional
 
-Returns information about the bank specified by BANK_ALIAS including: 
+Returns information about the bank specified by BANK_PERMALINK including: 
 * Name, Web & Email address. 
 * Related links (optional) 
-
-> TODO add the three fields in the previous call
 
 JSON: 
 
@@ -101,13 +99,13 @@ JSON:
         "links": [
             {
                 "rel": "accounts",
-                "href": "/BANK_ALIAS/accounts",
+                "href": "/BANK_PERMALINK/accounts",
                 "method": "GET",
                 "title": "Get list of accounts available"
             },
             {
                 "rel": "offices",
-                "href": "/BANK_ALIAS/offices",
+                "href": "/BANK_PERMALINK/offices",
                 "method": "GET",
                 "title": "Get list of offices"
             }
@@ -117,14 +115,13 @@ JSON:
 
 > Call currently exists but we currently aren't storing website or email so these fields are empty. -E.S.
 
-> This json format for a bank conflicts with the format defined in /banks. Do we really want two different formats or can we change one of both of them so that they share a common format? If we don't want the same format, then why does this particular information belong here and not in the other api call, and vice versa? -E.S.
 
-### GET /BANK_ALIAS/offices
+### GET /BANK_PERMALINK/offices
 
 Optional
 
 Information returned includes: 
-* The list of offices for the BANK_ALIAS
+* The list of offices for the BANK_PERMALINK
 * Related links (optional)
 
 JSON:
@@ -160,12 +157,12 @@ JSON:
 
 > Currently not supported. How do we propose to get this data? Getting a list of staff is probably out of the question without (or even with) bank integration of the API. -E.S.
 
-### GET /BANK_ALIAS/accounts
+### GET /BANK_PERMALINK/accounts
 
 Baseline 
 
 Information returned includes: 
-* The list of accounts the user has access to at the bank specified by BANK_ALIAS
+* The list of accounts the user has access to at the bank specified by BANK_PERMALINK
 * Related links (optional)
 
 JSON:
@@ -185,7 +182,7 @@ JSON:
                 "links": [
                     {
                         "rel": "account",
-                        "href": "/BANK_ALIAS/account/ACCOUNT_ALIAS/account/VIEW_NAME",
+                        "href": "/BANK_PERMALINK/account/ACCOUNT_ALIAS/account/VIEW_NAME",
                         "method": "GET",
                         "title": "Get information about one account"
                     }
@@ -196,7 +193,7 @@ JSON:
 
 > Exists, but owner_description is not implemented. -E.S.
 
-### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/account/VIEW_NAME
+### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/account/VIEW_NAME
 
 Baseline
 
@@ -224,7 +221,6 @@ JSON:
                 "amount": "+ (depending on the view, this might show the balance or only +/-)"
             },
             "IBAN": "123080FZAFA9124AZE",
-            "date_opened": "01/02/2010",
             "views_available": [
                 {
                     "name": "view 1 e.g. anonymous",
@@ -234,13 +230,13 @@ JSON:
             "links": [
                 {
                     "rel": "owner",
-                    "href": "/BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions",
+                    "href": "/BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions",
                     "method": "GET",
                     "title": "Account owner's perspective of the account. The full privileges view."
                 },
                 {
                     "rel": "VIEW_NAME",
-                    "href": "/BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME",
+                    "href": "/BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME",
                     "method": "GET",
                     "title": "Transactions of the account as mediated by VIEW_NAME"
                 }
@@ -248,9 +244,9 @@ JSON:
         }
     }
 
-> Owners do not yet have ids (is this necessary?), date_opened does not exist yet. -E.S.
+> Owners do not yet have ids (is this necessary?) -E.S.
 
-### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME
+### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME
 
 Baseline
 
@@ -342,7 +338,7 @@ JSON:
 
 > I'm not sure how the pagination in links should work if we are including offset and limit as headers rather than url parameters. The links would have to assume the same headers. In any case, they aren't implemented yet. Also, shouldn't the "links" json actually be _outside_ of the array of transactions? -E.S.
 
-### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
+### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
 
 Optional
 
@@ -411,7 +407,7 @@ JSON:
 
 > As discussed before we will want to get rid of type_en and type_de. Should the type even be translated? Account types might not translate between languages/countries.  -E.S.
 
-### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
+### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
 
 VIEW_NAME defaults to owner
 
@@ -437,7 +433,7 @@ JSON:
     }
 > We don't currently support replying to comments. As well, the meanings of the user_ fields above are not clear. If we have multiple user providers, then does this mean user_id is unique only for that provider? -E.S.
 
-### GET /BANK_ALIAS/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
+### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
 
 Returns tags about a specific transaction:
 * All the tags are moderated by VIEW_NAME
