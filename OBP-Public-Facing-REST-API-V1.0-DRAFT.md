@@ -191,7 +191,7 @@ Baseline
 Information returned about an account specified by ACCOUNT_ALIAS moderated by VIEW_NAME.
 If VIEW_NAME is not specified, it defaults to "owner" i.e. the traditional account owner's view of the account.
 
-* Number, date_opened, owners, balance
+* Number, owners, balance
 * Views of the account that are available
 * Related links (optional)
 
