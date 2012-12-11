@@ -87,6 +87,8 @@ Returns information about the bank specified by BANK_ALIAS including:
 * Name, Web & Email address. 
 * Related links (optional) 
 
+> TODO add the three fields in the previous call
+
 JSON: 
 
     {
