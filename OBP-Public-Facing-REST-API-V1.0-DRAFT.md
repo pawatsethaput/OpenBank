@@ -428,9 +428,9 @@ JSON:
                 "type": "type of tag e.g. url,text",
                 "view": "view the tag was made on",
                 "user": {
-                "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
-                "id": "provider id of the user making the comment",
-                "display_name": "display name of user"
+                    "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
+                    "id": "provider id of the user making the comment",
+                    "display_name": "display name of user"
                 }
             }
         ],
