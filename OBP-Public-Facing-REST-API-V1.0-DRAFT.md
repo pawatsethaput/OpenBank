@@ -397,6 +397,7 @@ JSON:
         "comments": [
             {
                 "id": "id of the comment",
+                "date": "date of posting the comment",   
                 "comment": "the comment",
                 "view": "view the comment was made on",
                 "user": {
