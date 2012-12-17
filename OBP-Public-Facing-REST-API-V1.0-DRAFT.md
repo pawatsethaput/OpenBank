@@ -427,9 +427,11 @@ JSON:
                 "tag": "the tag",
                 "type": "type of tag e.g. url,text",
                 "view": "view the tag was made on",
-                "user_provider": "name of party that authorised the user e.g. bank,facebook,twitter",
-                "user_id": "id of the tagging user",
-                "user_name": "name of user"
+                "user": {
+                "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
+                "id": "provider id of the user making the comment",
+                "display_name": "display name of user"
+                }
             }
         ],
                 "links": [
