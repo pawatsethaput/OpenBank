@@ -399,6 +399,7 @@ JSON:
                 "id": "id of the comment",
                 "date": "date of posting the comment",   
                 "comment": "the comment",
+                "external_link": "url for related image etc."
                 "view": "view the comment was made on",
                 "user": {
                     "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
@@ -425,9 +426,7 @@ JSON:
         "tags": [
             {
                 "id": "id of the tag",
-                "tag": "the tag",
-                "type": "type of tag e.g. url,text",
-                "view": "view the tag was made on",
+                "tag": "#thehashtag",
                 "user": {
                     "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
                     "id": "provider id of the user making the comment",
