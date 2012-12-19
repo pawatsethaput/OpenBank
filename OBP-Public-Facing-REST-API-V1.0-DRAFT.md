@@ -154,7 +154,7 @@ Baseline
 
 Information returned includes: 
 * The list of accounts the user has access to at the bank specified by BANK_PERMALINK
-* Related links (optional)
+* Related links (optional). The links include each VIEW_NAME available to the current user. 
 
 JSON:
 
