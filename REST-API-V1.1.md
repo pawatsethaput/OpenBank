@@ -18,13 +18,15 @@ _Problem: the links would be helpful for a human using a browser to explore and 
 _Solution: the HTTP Accept header would be the httpish way of differentiating between these two cases. Browser sent an Accept header of text/html. In this case an implementation should return the data rendered as html and the links as a-tags with title and href attributes. This way the API can quickly be explored and tested by a human. API consuming applications on the other send would send an Accept header of x-application/json in which case we'd return the json doc as is._
 
 
-_Some proposed naming changes by Jan
+_Some proposed naming changes by Jan_
 
-Under Bank:
+_Under Bank:
 permalink -> id
-abbreviation -> short_name
+abbreviation -> short_name_
 
-But note that we currently have a bank_id under transaction so we'd have to change that to bank_transaction_id ?
+_But note that we currently have a bank_id under transaction so we'd have to change that to bank_transaction_id ?_
+
+Thus if we want to rename a field, we should check the whole spec so we don't introduce confusion.
 
 - Simon_
 
