@@ -63,7 +63,7 @@ JSON:
                 "permalink": "hsbc",
                 "abbreviation": "HSBC",
                 "name": "The Hongkong and Shanghai Banking Corporation Limited",
-                "logo": "url of logo.png 512 X 512 pixels",
+                "logo": "url of internet standard image",
                 "links": [
                     {
                         "rel": "bank",
@@ -75,7 +75,6 @@ JSON:
             }
         ]
     }
-> We have no logo urls at the moment. -E.S.
 
 ### GET /BANK_PERMALINK/bank
 
