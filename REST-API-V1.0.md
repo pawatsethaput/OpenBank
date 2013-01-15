@@ -400,7 +400,7 @@ JSON:
         "links": []
     }
 
-> We don't currently support replying to comments. As well, the meanings of the user_ fields above are not clear. If we have multiple user providers, then does this mean user_id is unique only for that provider? -E.S.
+> Note: user.provider + user.id is unique
 
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
 
