@@ -12,7 +12,7 @@ The API may be optionally navigated using the links returned for each end point.
 
 All calls should be prefixed with /obp/v1.0
 
-> See https://github.com/OpenBankProject/OBP-API/issues/ for open issues.
+> Note: see https://github.com/OpenBankProject/OBP-API/issues/ for open implementation issues.
 
 ### GET /
 
