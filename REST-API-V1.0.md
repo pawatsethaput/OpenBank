@@ -303,8 +303,6 @@ JSON:
         "links": []
     }
 
-> Currently obp_fields is not implemented. The obp_sort_by header is not implemented for security reasons. To make this query efficient we would need to incorporate the sort in the mongodb query, but alias names are not currently in the obp_envelope "schema" as they are not transaction data but rather metadata. In general we can't sort on any fields unless we have full view permissions on that field.
-
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
 
 Optional
