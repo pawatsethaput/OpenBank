@@ -111,9 +111,6 @@ JSON:
 
     }
 
-> Call currently exists but we currently aren't storing website or email so these fields are empty. -E.S.
-
-
 ### GET /BANK_PERMALINK/offices
 
 Optional
@@ -180,8 +177,6 @@ JSON:
         ]
     }
 
-> Exists, but owner_description is not implemented. -E.S.
-
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/account/VIEW_NAME
 
 Baseline
@@ -232,8 +227,6 @@ JSON:
             ]
         }
     }
-
-> Owners do not yet have ids (is this necessary?) -E.S.
 
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME
 
