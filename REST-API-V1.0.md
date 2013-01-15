@@ -12,8 +12,7 @@ The API may be optionally navigated using the links returned for each end point.
 
 All calls should be prefixed with /obp/v1.0
 
-> None of these calls has been tested with OAUTH yet. The default "owner" view is not currently implemented for any of the calls. -E.S.
-
+> See https://github.com/OpenBankProject/OBP-API/issues/ for open issues.
 
 ### GET /
 
