@@ -36,7 +36,6 @@ All calls should be prefixed with /obp/v1.0
 
 > None of these calls has been tested with OAUTH yet. The default "owner" view is not currently implemented for any of the calls. -E.S.
 
-
 ### GET /
 
 Baseline 
@@ -86,7 +85,7 @@ JSON:
                 "permalink": "hsbc",
                 "abbreviation": "HSBC",
                 "name": "The Hongkong and Shanghai Banking Corporation Limited",
-                "logo": "url of logo.png 512 X 512 pixels",
+                "logo": "url of internet standard image",
                 "links": [
                     {
                         "rel": "bank",
@@ -98,7 +97,6 @@ JSON:
             }
         ]
     }
-> We have no logo urls at the moment. -E.S.
 
 ### GET /BANK_PERMALINK/bank
 
@@ -134,9 +132,6 @@ JSON:
         ],
 
     }
-
-> Call currently exists but we currently aren't storing website or email so these fields are empty. -E.S.
-
 
 ### GET /BANK_PERMALINK/offices
 
@@ -204,8 +199,6 @@ JSON:
         ]
     }
 
-> Exists, but owner_description is not implemented. -E.S.
-
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/account/VIEW_NAME
 
 Baseline
@@ -256,8 +249,6 @@ JSON:
             ]
         }
     }
-
-> Owners do not yet have ids (is this necessary?) -E.S.
 
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME
 
@@ -334,8 +325,6 @@ JSON:
         "links": []
     }
 
-> Currently obp_fields is not implemented. The obp_sort_by header is not implemented for security reasons. To make this query efficient we would need to incorporate the sort in the mongodb query, but alias names are not currently in the obp_envelope "schema" as they are not transaction data but rather metadata. In general we can't sort on any fields unless we have full view permissions on that field.
-
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
 
 Optional
@@ -401,9 +390,8 @@ JSON:
         ]
     }
     }
-> I'm not sure what is meant by the links here. We can't get the transactions for the other account unless it happens to be an OBP enabled account, and even then there would be issues with views/privileges. -E.S.
 
-> As discussed before we will want to get rid of type_en and type_de. Should the type even be translated? Account types might not translate between languages/countries.  -E.S.
+> Note: transactions_by_other_account is a filter
 
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
 
@@ -434,7 +422,7 @@ JSON:
         "links": []
     }
 
-> We don't currently support replying to comments. As well, the meanings of the user_ fields above are not clear. If we have multiple user providers, then does this mean user_id is unique only for that provider? -E.S.
+> Note: user.provider + user.id is unique
 
 ### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
 
