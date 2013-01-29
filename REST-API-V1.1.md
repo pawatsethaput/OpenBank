@@ -13,7 +13,7 @@ Parameters within the URL are written in CAPITAL_LETTERS
 The API may be optionally navigated using the links returned for each end point.
 All calls should be prefixed with /obp/v1.1
 
-> Note: see https://github.com/OpenBankProject/OBP-API/issues/ for open implementation issues.
+> Implementation Note: V1.1 is not currently implemented
 
 > See https://github.com/OpenBankProject/OBP-API/wiki/How-links-should-work for a note about links
 
