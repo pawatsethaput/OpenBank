@@ -1,5 +1,4 @@
-# EXPERIMENTAL DRAFT.
-
+# DRAFT
 
 A RESTful API for banks that supports multiple views on transaction data, comments and tags - and a flexible JSON data structure.
 
@@ -17,24 +16,51 @@ _I (Jan) propose the following:_
 _Problem: the links would be helpful for a human using a browser to explore and test the API, however the links are not clickable and the data returned as JSON is not ideal for human consumption. The links returned in the JSON on the other side are not really helpful for API consuming applications, because they are typically not exploring the API._
 _Solution: the HTTP Accept header would be the httpish way of differentiating between these two cases. Browser sent an Accept header of text/html. In this case an implementation should return the data rendered as html and the links as a-tags with title and href attributes. This way the API can quickly be explored and tested by a human. API consuming applications on the other send would send an Accept header of x-application/json in which case we'd return the json doc as is._
 
+A RESTful API for banks that supports multiple views on transaction data, comments and tags - and a flexible JSON data structure.
 
-_Some proposed naming changes by Jan_
+Status: DRAFT
 
-_Under Bank:
-permalink -> id
-abbreviation -> short_name_
+The protocol consists of *baseline* and *optional* end points.
+For baseline compliance, all the baseline URLs must be implemented.
+For full compliance, all the baseline and optional end points must be implemented.
 
-_But note that we currently have a bank_id under transaction so we'd have to change that to bank_transaction_id ?_
+The OBP API returns JSON as specified here: http://www.json.org/ and validated here: http://jsonlint.com/ 
 
-Thus if we want to rename a field, we should check the whole spec so we don't introduce confusion.
+Parameters within the URL are written in CAPITAL_LETTERS
 
-- Simon_
+The API may be optionally navigated using the links returned for each end point.
 
+All calls should be prefixed with /obp/v1.1
 
+> Note: see https://github.com/OpenBankProject/OBP-API/issues/ for open implementation issues.
 
-All calls should be prefixed with /obp/v1.0
+### Implementation hints
 
-> None of these calls has been tested with OAUTH yet. The default "owner" view is not currently implemented for any of the calls. -E.S.
+Each call can optionally contain a meta data object e.g.: 
+
+    {
+        "meta_data": {
+            "count": 64,
+            "total_count": 411,
+            "offset": 200,
+            "limit": 100
+        }
+    }
+
+Each returned call or object can optionally have a list of links relavent to the resource e.g.:
+
+    {
+        "links": [
+            {
+                "link": {
+                    "rel": "banks",
+                    "href": "/banks",
+                    "method": "GET",
+                    "title": "Returns a list of banks supported on this server"
+                }
+            }
+        ]
+    }
 
 ### GET /
 
@@ -56,15 +82,7 @@ JSON:
                 "email": "contact@tesobe.com",
                 "phone": "+49 (0)30 8145 3994"
             }
-        },
-        "links": [
-            {
-                "rel": "banks",
-                "href": "/banks",
-                "method": "GET",
-                "title": "Returns a list of banks supported on this server"
-            }
-        ]
+        }
     }
 
 ### GET /banks
@@ -82,27 +100,21 @@ JSON:
     {
         "banks": [
             {
-                "permalink": "hsbc",
-                "abbreviation": "HSBC",
-                "name": "The Hongkong and Shanghai Banking Corporation Limited",
-                "logo": "url of internet standard image",
-                "links": [
-                    {
-                        "rel": "bank",
-                        "href": "/BANK_PERMALINK/bank",
-                        "method": "GET",
-                        "title": "Get information about the bank identified by BANK_PERMALINK"
-                    }
-                ]
+                "bank": {
+                    "id": "hsbc",
+                    "short_name": "HSBC",
+                    "full_name": "The Hongkong and Shanghai Banking Corporation Limited",
+                    "logo": "url of internet standard image"
+                }
             }
         ]
     }
 
-### GET /BANK_PERMALINK/bank
+### GET /banks/BANK_ID
 
 Optional
 
-Returns information about the bank specified by BANK_PERMALINK including: 
+Returns information about the bank specified by BANK_ID including: 
 * Name, Web & Email address. 
 * Related links (optional) 
 
@@ -110,96 +122,76 @@ JSON:
 
     {
         "bank": {
-            "permalink": "postbank",
-            "abbreviation": "Postbank",
-            "name": "Deutsche Postbank AG (DE)",
-            "website": "www.postbank.de",
-            "email": "email@bank.com"
-        },
-        "links": [
-            {
-                "rel": "accounts",
-                "href": "/BANK_PERMALINK/accounts",
-                "method": "GET",
-                "title": "Get list of accounts available"
-            },
-            {
-                "rel": "offices",
-                "href": "/BANK_PERMALINK/offices",
-                "method": "GET",
-                "title": "Get list of offices"
-            }
-        ],
-
+            "id": "postbank",
+            "short_name": "Postbank",
+            "full_name": "Deutsche Postbank AG (DE)",
+            "website": "www.postbank.de"
+        }
     }
 
-### GET /BANK_PERMALINK/offices
+### GET /banks/BANK_ID/offices
 
 Optional
 
 Information returned includes: 
-* The list of offices for the BANK_PERMALINK
+* The list of offices for the BANK_ID
 * Related links (optional)
 
 JSON:
 
     {
-	    "offices": [
-	        {
-                    "address": "address",
-	            "type": "HQ/branch/call center",
-	            "BIC_SWIFT": "ISO_9362 BIC / SWIFT code",
-	            "fax": [
-	                {
-	                    "dept": "customer service",
-	                    "number": "004401293801"
-	                }
-	            ],
-	            "phone": [
-	                {
-	                    "dept": "customer service",
-	                    "number": "004912312302"
-	                }
-	            ]
-	        }
-	    ]
-	}
-
-### GET /BANK_PERMALINK/accounts
-
-Baseline 
-
-Information returned includes: 
-* The list of accounts the user has access to at the bank specified by BANK_PERMALINK
-* Related links (optional). The links include each VIEW_NAME available to the current user. 
-
-JSON:
-
-    {
-        "accounts": [
+        "offices": [
             {
-                "number": "the account number e.g. 01203123",
-                "account_alias": "public account alias e.g. TESOBE_current",
-                "owner_description": "account owners description e.g. TESOBE current account",
-                "views_available": [
+                "address": "address",
+                "type": "HQ/branch/call center",
+                "BIC_SWIFT": "ISO_9362 BIC / SWIFT code",
+                "fax": [
                     {
-                        "name": "view 1 e.g. anonymous",
-                        "description": "this is the public view of the account"
+                        "dept": "customer service",
+                        "number": "004401293801"
                     }
                 ],
-                "links": [
+                "phone": [
                     {
-                        "rel": "account",
-                        "href": "/BANK_PERMALINK/account/ACCOUNT_ALIAS/account/VIEW_NAME",
-                        "method": "GET",
-                        "title": "Get information about one account"
+                        "dept": "customer service",
+                        "number": "004912312302"
                     }
                 ]
             }
         ]
     }
 
-### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/account/VIEW_NAME
+### GET /banks/BANK_ID/accounts
+
+Baseline 
+
+Information returned includes: 
+* The list of accounts the user has access to at the bank specified by BANK_ID
+* Related links (optional). The links include each VIEW_NAME available to the current user. 
+
+JSON:
+
+{
+    "accounts": [
+        {
+            "account": {
+                "number": "the account number e.g. 01203123",
+                "alias": "public account alias e.g. TESOBE_current",
+                "owner_description": "account owners description e.g. TESOBE current account",
+                "views_available": [
+                    {
+                        "view": {
+                            "name": "view 1 e.g. anonymous",
+                            "description": "this is the public view of the account"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/account
 
 Baseline
 
@@ -215,9 +207,11 @@ JSON:
     {
         "account": {
             "number": "01203123",
+            "alias": "public account alias e.g. TESOBE_current",
             "owners": [
                 {
-                    "id": "123213",
+                    "user_id": "123213",
+                    "user_provider": "bank name",
                     "name": "Name of person/Company/..."
                 }
             ],
@@ -229,28 +223,16 @@ JSON:
             "IBAN": "123080FZAFA9124AZE",
             "views_available": [
                 {
-                    "name": "view 1 e.g. anonymous",
-                    "description": "this is the public view of the account"
-                }
-            ],
-            "links": [
-                {
-                    "rel": "owner",
-                    "href": "/BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions",
-                    "method": "GET",
-                    "title": "Account owner's perspective of the account. The full privileges view."
-                },
-                {
-                    "rel": "VIEW_NAME",
-                    "href": "/BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME",
-                    "method": "GET",
-                    "title": "Transactions of the account as mediated by VIEW_NAME"
+                    "view": {
+                        "name": "view 1 e.g. anonymous",
+                        "description": "this is the public view of the account"
+                    }
                 }
             ]
         }
     }
 
-### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME
 
 Baseline
 
@@ -259,8 +241,8 @@ If VIEW_NAME is null it defaults to owner (the traditional account owners view o
 With the following custom headers: 
 * obp_sort_by=CRITERIA
 * obp_sort_direction=ASC/DESC
-* obp_offset=NUMBER
 * obp_limit=NUMBER
+* obp_offset=NUMBER
 * obp_from_date=DATE
 * obp_to_date=DATE
 * obp_fields=LIST
@@ -274,58 +256,57 @@ Returns:
 
 JSON:
 
-    {
+     {
         "transactions": [
             {
-                "view": "the view of this transaction e.g. owner/anonymous/owner etc.",
-                "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
-                "bank_id": "The bank's id for the transaction",
-                "this_account": {
-                    "holder": {
-                        "name": "MUSIC PICTURES LIMITED",
-                        "alias": "no (if no, this is the real name of the account, if yes, the name is an alias)"
+                "transaction": {
+                    "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
+                    "id": "The bank's id for the transaction",
+                    "this_account": {
+                        "holder": {
+                            "name": "MUSIC PICTURES LIMITED",
+                            "is_alias": "true/false"
+                        },
+                        "number": "",
+                        "kind": "",
+                        "bank": {
+                            "IBAN": "",
+                            "national_identifier": "",
+                            "name": ""
+                        }
                     },
-                    "number": "",
-                    "kind": "",
-                    "bank": {
-                        "IBAN": "",
-                        "national_identifier": "",
-                        "name": ""
-                    }
-                },
-                "other_account": {
-                    "holder": {
-                        "name": "DEUTSCHE POST AG, SSC ACC S",
-                        "alias": "no"
+                    "other_account": {
+                        "holder": {
+                            "name": "DEUTSCHE POST AG, SSC ACC S",
+                            "is_alias": "true/false"
+                        },
+                        "number": "",
+                        "kind": "",
+                        "bank": {
+                            "IBAN": "",
+                            "national_identifier": "",
+                            "name": ""
+                        }
                     },
-                    "number": "",
-                    "kind": "",
-                    "bank": {
-                        "IBAN": "",
-                        "national_identifier": "",
-                        "name": ""
-                    }
-                },
-                "details": {
-                    "type_en": "",
-                    "type_de": "Lastschrift",
-                    "posted": "2012-03-07T00:00:00.001Z",
-                    "completed": "2012-03-07T00:00:00.001Z",
-                    "new_balance": {
-                        "currency": "EUR",
-                        "amount": "+ (depending on the view, this might show the balance or only +/-)"
-                    },
-                    "value": {
-                        "currency": "EUR",
-                        "amount": "-1.45"
+                    "details": {
+                        "type": "cash",
+                        "posted": "2012-03-07T00:00:00.001Z",
+                        "completed": "2012-03-07T00:00:00.001Z",
+                        "new_balance": {
+                            "currency": "EUR",
+                            "amount": "+ (depending on the view, this might show the balance or only +/-)"
+                        },
+                        "value": {
+                            "currency": "EUR",
+                            "amount": "-1.45"
+                        }
                     }
                 }
             }
-        ],
-        "links": []
+        ]
     }
 
-### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
 
 Optional
 
@@ -335,65 +316,56 @@ Returns information about a specific transaction:
 
 JSON:
 
+
     {
-    "transaction": {
-        "view": "the view of this transaction e.g. owner/anonymous/owner etc.",
-        "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
-        "bank_id": "The bank's id for the transaction",
-        "this_account": {
-            "holder": {
-                "name": "MUSIC PICTURES LIMITED",
-                "alias": "no (if no, this is the real name of the account, if yes, the name is an alias)"
+        "transaction": {
+            "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
+            "id": "The bank's id for the transaction",
+            "this_account": {
+                "holder": {
+                    "name": "MUSIC PICTURES LIMITED",
+                    "is_alias": "true/false"
+                },
+                "number": "",
+                "kind": "",
+                "bank": {
+                    "IBAN": "",
+                    "national_identifier": "",
+                    "name": ""
+                }
             },
-            "number": "",
-            "kind": "",
-            "bank": {
-                "IBAN": "",
-                "national_identifier": "",
-                "name": ""
-            }
-        },
-        "other_account": {
-            "holder": {
-                "name": "DEUTSCHE POST AG, SSC ACC S",
-                "alias": "no"
+            "other_account": {
+                "holder": {
+                    "name": "DEUTSCHE POST AG, SSC ACC S",
+                    "is_alias": "true/false"
+                },
+                "number": "",
+                "kind": "",
+                "bank": {
+                    "IBAN": "",
+                    "national_identifier": "",
+                    "name": ""
+                }
             },
-            "number": "",
-            "kind": "",
-            "bank": {
-                "IBAN": "",
-                "national_identifier": "",
-                "name": ""
+            "details": {
+                "type": "cash",
+                "posted": "2012-03-07T00:00:00.001Z",
+                "completed": "2012-03-07T00:00:00.001Z",
+                "new_balance": {
+                    "currency": "EUR",
+                    "amount": "+ (depending on the view, this might show the balance or only +/-)"
+                },
+                "value": {
+                    "currency": "EUR",
+                    "amount": "-1.45"
+                }
             }
-        },
-        "details": {
-            "type_en": "",
-            "type_de": "Lastschrift",
-            "posted": "2012-03-07T00:00:00.001Z",
-            "completed": "2012-03-07T00:00:00.001Z",
-            "new_balance": {
-                "currency": "EUR",
-                "amount": "+ (depending on the view, this might show the balance or only +/-)"
-            },
-            "value": {
-                "currency": "EUR",
-                "amount": "-1.45"
-            }
-        },
-        "links": [
-            {
-                "rel": "transactions_by_other_account",
-                "href": "/transactions by other account URL",
-                "method": "GET",
-                "title": "Transactions related to other account"
-            }
-        ]
-    }
+        }
     }
 
 > Note: transactions_by_other_account is a filter
 
-### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
 
 VIEW_NAME defaults to owner
 
@@ -406,25 +378,26 @@ JSON:
     {
         "comments": [
             {
-                "id": "id of the comment",
-                "date": "date of posting the comment",   
-                "comment": "the comment",
-                "external_link": "url for related image etc."
-                "view": "view the comment was made on",
-                "user": {
-                    "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
-                    "id": "provider id of the user making the comment",
-                    "display_name": "display name of user"
-                },
-                "reply_to": "if this is a reply, the id of the original comment"
+                "comment": {
+                    "id": "id of the comment",
+                    "date": "date of posting the comment",
+                    "comment": "the comment",
+                    "external_link": "url for related image etc.",
+                    "view": "view the comment was made on",
+                    "user": {
+                        "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
+                        "id": "provider id of the user making the comment",
+                        "display_name": "display name of user"
+                    },
+                    "reply_to": "if this is a reply, the id of the original comment"
+                }
             }
-        ],
-        "links": []
+        ]
     }
 
 > Note: user.provider + user.id is unique
 
-### GET /BANK_PERMALINK/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
 
 Returns tags about a specific transaction:
 * All the tags are moderated by VIEW_NAME
@@ -435,21 +408,15 @@ JSON:
     {
         "tags": [
             {
-                "id": "id of the tag",
-                "tag": "#thehashtag",
-                "user": {
-                    "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
-                    "id": "provider id of the user making the comment",
-                    "display_name": "display name of user"
+                "tag": {
+                    "id": "id of the tag",
+                    "tag": "#thehashtag",
+                    "user": {
+                        "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
+                        "id": "provider id of the user making the comment",
+                        "display_name": "display name of user"
+                    }
                 }
-            }
-        ],
-                "links": [
-            {
-                "rel": "transactions_by_tags",
-                "href": "transactions by tags",
-                "method": "GET",
-                "title": "Related transactions by tags"
             }
         ]
     }
