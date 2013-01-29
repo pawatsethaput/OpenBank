@@ -11,27 +11,10 @@ The OBP API returns JSON as specified here: http://www.json.org/ and validated h
 Parameters within the URL are written in CAPITAL_LETTERS
 
 The API may be optionally navigated using the links returned for each end point.
-
-
-
-A RESTful API for banks that supports multiple views on transaction data, comments and tags - and a flexible JSON data structure.
-
-Status: DRAFT
-
-The protocol consists of *baseline* and *optional* end points.
-For baseline compliance, all the baseline URLs must be implemented.
-For full compliance, all the baseline and optional end points must be implemented.
-
-The OBP API returns JSON as specified here: http://www.json.org/ and validated here: http://jsonlint.com/ 
-
-Parameters within the URL are written in CAPITAL_LETTERS
-
-The API may be optionally navigated using the links returned for each end point.
-
 All calls should be prefixed with /obp/v1.1
 
 > Note: see https://github.com/OpenBankProject/OBP-API/issues/ for open implementation issues.
-
+> See How-links-should-work
 ### Implementation hints
 
 Each call can optionally contain a meta data object e.g.: 
