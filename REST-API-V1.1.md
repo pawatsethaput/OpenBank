@@ -14,7 +14,9 @@ The API may be optionally navigated using the links returned for each end point.
 All calls should be prefixed with /obp/v1.1
 
 > Note: see https://github.com/OpenBankProject/OBP-API/issues/ for open implementation issues.
-> See How-links-should-work
+
+> See https://github.com/OpenBankProject/OBP-API/wiki/How-links-should-work for a note about links
+
 ### Implementation hints
 
 Each call can optionally contain a meta data object e.g.: 
