@@ -1,3 +1,23 @@
+# Index 
+
+* Bank
+    * [All](#banks)
+    * [One](#bank)
+    * [Offices](#offices)
+* Account
+    * [All](#accounts)
+    * [One](#account)
+* Transaction
+    * [All](#transactions)
+    * [One](#transaction)
+        * [Other account](#other-account)
+        * Meta data 
+            * [Owner comment](#ownercomment)
+            * [Comments](#comments)
+            * [Tags](#tags)
+
+
+
 # DRAFT
 
 A RESTful API for banks that supports multiple views on transaction data, comments and tags - and a flexible JSON data structure.
@@ -17,7 +37,7 @@ All calls should be prefixed with /obp/v1.1
 
 > See https://github.com/OpenBankProject/OBP-API/wiki/How-links-should-work for a note about links
 
-### Implementation hints
+### Implementation hints 
 
 Each call can optionally contain a meta data object e.g.: 
 
@@ -45,6 +65,7 @@ Each returned call or object can optionally have a list of links relavent to the
         ]
     }
 
+<span id="root"></span>
 ### GET /
 
 Baseline 
@@ -68,6 +89,9 @@ JSON:
         }
     }
 
+#Bank
+
+<span id="banks"></span>
 ### GET /banks
 
 Baseline 
@@ -93,6 +117,7 @@ JSON:
         ]
     }
 
+<span id="bank"></span>
 ### GET /banks/BANK_ID
 
 Optional
@@ -112,6 +137,7 @@ JSON:
         }
     }
 
+<span id="offices"></span>
 ### GET /banks/BANK_ID/offices
 
 Optional
@@ -144,12 +170,15 @@ JSON:
         ]
     }
 
+#Account
+
+<span id="accounts"></span>
 ### GET /banks/BANK_ID/accounts
 
 Baseline 
 
 Information returned includes: 
-* The list of accounts the user has access to at the bank specified by BANK_ID
+* If the user is authentcated via OAuth, he will get he list of accounts he has access to at the bank specified by * * BANK_ID. Otherwise the list will contains the public accounts.
 * Related links (optional). The links include each VIEW_NAME available to the current user. 
 
 JSON:
@@ -164,8 +193,8 @@ JSON:
                 "views_available": [
                     {
                         "view": {
-                            "name": "view 1 e.g. anonymous",
-                            "description": "this is the public view of the account"
+                            "name": "public / team / ...",
+                            "description": "eg this is the public view of the account"
                         }
                     }
                 ]
@@ -174,16 +203,18 @@ JSON:
     ]
 }
 
+<span id="account"></span>
 ### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/account
 
 Baseline
 
-Information returned about an account specified by ACCOUNT_ALIAS moderated by VIEW_NAME.
-If VIEW_NAME is not specified, it defaults to "owner" i.e. the traditional account owner's view of the account.
+Information returned about an account specified by ACCOUNT_ALIAS.
 
 * Number, owners, balance
 * Views of the account that are available
 * Related links (optional)
+
+Authentication via OAuth is required if the account is not public.
 
 JSON:
 
@@ -207,7 +238,7 @@ JSON:
             "views_available": [
                 {
                     "view": {
-                        "name": "view 1 e.g. anonymous",
+                        "name": "view 1 e.g. public",
                         "description": "this is the public view of the account"
                     }
                 }
@@ -215,9 +246,14 @@ JSON:
         }
     }
 
+#Transaction
+
+<span id="transactions"></span>
 ### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/VIEW_NAME
 
 Baseline
+
+Authentication via OAuth is required if the view is not public.
 
 If VIEW_NAME is null it defaults to owner (the traditional account owners view of the account)
 
@@ -228,10 +264,9 @@ With the following custom headers:
 * obp_offset=NUMBER
 * obp_from_date=DATE
 * obp_to_date=DATE
-* obp_fields=LIST
 
 Returns transactions of the account specified by ACCOUNT_ALIAS and mediated by VIEW_NAME
-Other available views might include anonymous, team, shareholders and auditors.
+Other available views might include public, team, shareholders and auditors.
 
 Returns:
 * Data specified by fields (default is to show all available fields)
@@ -273,6 +308,7 @@ JSON:
                     },
                     "details": {
                         "type": "cash",
+                        "label": "transaction label",
                         "posted": "2012-03-07T00:00:00.001Z",
                         "completed": "2012-03-07T00:00:00.001Z",
                         "new_balance": {
@@ -289,9 +325,10 @@ JSON:
         ]
     }
 
+<span id="transaction"></span>
 ### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/transaction/VIEW_NAME
 
-Optional
+Authentication via OAuth is required if the view is not public.
 
 Returns information about a specific transaction:
 * Information moderated by VIEW_NAME (defaults to owner)
@@ -332,6 +369,7 @@ JSON:
             },
             "details": {
                 "type": "cash",
+                "label": "transaction label",
                 "posted": "2012-03-07T00:00:00.001Z",
                 "completed": "2012-03-07T00:00:00.001Z",
                 "new_balance": {
@@ -346,11 +384,58 @@ JSON:
         }
     }
 
-> Note: transactions_by_other_account is a filter
+<span id="other-account"></span>
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/VIEW_NAME
 
+JSON:
+
+    {
+        "number": "19123",
+        "holder": "Bob",
+        "nationalIdentifier": "the national identifier of the account e.g. aze1239SQx",
+        "IBAN":"the international identifier of the account e.g. AZEDSQDA",
+        "bankName":"the bank name e.g. POSTBANK"
+        "swift_bic":"the international identifier of the bank e.g. 12321SDXSAZEAZD1"
+
+    }
+
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/VIEW_NAME
+
+JSON:
+
+    {
+        "number": "19123",
+        "holder": "Bob",
+        "nationalIdentifier": "the national identifier of the account e.g. aze1239SQx",
+        "IBAN":"the international identifier of the account e.g. AZEDSQDA",
+        "bankName":"the bank name e.g. POSTBANK"
+        "swift_bic":"the international identifier of the bank e.g. 12321SDXSAZEAZD1"
+
+    }    
+
+#Transaction Metadata
+
+<span id="ownercomment"></span>
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/ownercomment/VIEW_NAME
+
+Authentication via OAuth is required if the view is not public. 
+
+Returns the account owner comment about the a specific transaction:
+* the comment my be moderated (not visible) by the view
+* Related links (optional)
+
+JSON:
+
+    {
+        "ownerComment" : "text explaining the purpose of the transaction"
+    }
+
+<span id="comments"></span>
 ### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
 
 VIEW_NAME defaults to owner
+
+Authentication via OAuth is required if the view is not public. 
 
 Returns comments about a specific transaction:
 * All the comments are moderated by VIEW_NAME
@@ -365,8 +450,7 @@ JSON:
                     "id": "id of the comment",
                     "date": "date of posting the comment",
                     "comment": "the comment",
-                    "external_link": "url for related image etc.",
-                    "view": "view the comment was made on",
+                    "view": "view permalink the comment was made on",
                     "user": {
                         "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
                         "id": "provider id of the user making the comment",
@@ -378,9 +462,25 @@ JSON:
         ]
     }
 
+### POST /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/comments/VIEW_NAME
+
+Post a comment about a transaction on a specific view.
+
+OAuth Header is required since the comment are linked with the user.
+
+JSON:
+ 
+    {
+        "value" : "the comment",
+        "datePosted" : "2012-03-07T00:00:00.001Z"
+    }
+
 > Note: user.provider + user.id is unique
 
+<span id="tags"></span>
 ### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
+
+Authentication via OAuth is required if the view is not public.
 
 Returns tags about a specific transaction:
 * All the tags are moderated by VIEW_NAME
@@ -393,7 +493,9 @@ JSON:
             {
                 "tag": {
                     "id": "id of the tag",
-                    "tag": "#thehashtag",
+                    "value": "thetag",
+                    "view": "view permalink the tag was made on",
+                    "date": "date of posting the tag",
                     "user": {
                         "provider": "name of party that authorised the user e.g. bankname/facebook/twitter",
                         "id": "provider id of the user making the comment",
@@ -403,6 +505,19 @@ JSON:
             }
         ]
     }
+
+### POST /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/tags/VIEW_NAME
+OAuth Header is required since the tag is linked with the user.
+
+JSON:
+
+    {
+        "value" : "atag",
+        "datePosted" : "2012-03-07T00:00:00.001Z"
+    }
+
+> Note: the value on the tag MUST NOT contain a white space.
+
 
 ### Note on JSON formatting in this document: 
 * Use JSON.stringify({}, null, 4); or http://jsonlint.com to validate the JSON
