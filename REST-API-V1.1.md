@@ -1,5 +1,7 @@
 # Index 
 
+* [About](#about)
+* [Implementation hints](#Implementation-hints)
 * Bank
     * [All](#banks)
     * [One](#bank)
@@ -10,14 +12,18 @@
 * Transaction
     * [All](#transactions)
     * [One](#transaction)
-        * [Other account](#other-account)
-        * Meta data 
-            * [Owner comment](#ownercomment)
-            * [Comments](#comments)
-            * [Tags](#tags)
+    * [Other account](#other-account)
+    * [Other account meta data](#other-account-metadata)
+        * [more info](#more-info)
+        * [URL](#URL)
+        * [image URL](#image-URL)
+        * [Open Corporates](#opencorporates-URL)                        
+    * Meta data 
+        * [Owner comment](#ownercomment)
+        * [Comments](#comments)
+        * [Tags](#tags)
 
-
-
+<span id="about"></span>
 # DRAFT
 
 A RESTful API for banks that supports multiple views on transaction data, comments and tags - and a flexible JSON data structure.
@@ -37,6 +43,7 @@ All calls should be prefixed with /obp/v1.1
 
 > See https://github.com/OpenBankProject/OBP-API/wiki/How-links-should-work for a note about links
 
+<span id="Implementation-hints"></span>
 ### Implementation hints 
 
 Each call can optionally contain a meta data object e.g.: 
@@ -50,7 +57,7 @@ Each call can optionally contain a meta data object e.g.:
         }
     }
 
-Each returned call or object can optionally have a list of links relavent to the resource e.g.:
+Each returned call or object can optionally have a list of links relevant to the resource e.g.:
 
     {
         "links": [
@@ -178,7 +185,7 @@ JSON:
 Baseline 
 
 Information returned includes: 
-* If the user is authentcated via OAuth, he will get he list of accounts he has access to at the bank specified by * * BANK_ID. Otherwise the list will contains the public accounts.
+* If the user is authenticated via OAuth, he will get he list of accounts he has access to at the bank specified by * * BANK_ID. Otherwise the list will contains the public accounts.
 * Related links (optional). The links include each VIEW_NAME available to the current user. 
 
 JSON:
@@ -194,7 +201,7 @@ JSON:
                     {
                         "view": {
                             "name": "public / team / ...",
-                            "description": "eg this is the public view of the account"
+                            "description": "e.g. this is the public view of the account"
                         }
                     }
                 ]
@@ -385,7 +392,13 @@ JSON:
     }
 
 <span id="other-account"></span>
-### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/VIEW_NAME
+### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/details/VIEW_NAME
+
+Authentication via OAuth is required if the view is not public.
+
+Returns account information of the other party involved in the transaction:
+* Information moderated by VIEW_NAME
+* Related links (optional)
 
 JSON:
 
@@ -394,24 +407,136 @@ JSON:
         "holder": "Bob",
         "nationalIdentifier": "the national identifier of the account e.g. aze1239SQx",
         "IBAN":"the international identifier of the account e.g. AZEDSQDA",
-        "bankName":"the bank name e.g. POSTBANK"
+        "bankName":"the bank name e.g. POSTBANK",
         "swift_bic":"the international identifier of the bank e.g. 12321SDXSAZEAZD1"
 
     }
 
+<span id="other-account-metadata"></span>
 ### GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/VIEW_NAME
+
+Authentication via OAuth is required if the view is not public.
+
+Returns account meta data of the other party involved in the transaction:
+* Information moderated by VIEW_NAME
+* Related links (optional)
 
 JSON:
 
     {
-        "number": "19123",
-        "holder": "Bob",
-        "nationalIdentifier": "the national identifier of the account e.g. aze1239SQx",
-        "IBAN":"the international identifier of the account e.g. AZEDSQDA",
-        "bankName":"the bank name e.g. POSTBANK"
-        "swift_bic":"the international identifier of the bank e.g. 12321SDXSAZEAZD1"
-
+        "moreInfo": "short text explaining who the other party of the transaction is",
+        "URL": "a URL related to the other party e.g. the website of the company",
+        "imageUrl":"an image URL related to the other party e.g. company logo",
+        "openCorporatesUrl":"the company corporate URL in the http://opencorporates.com/ web service "
     }    
+
+<span id="more-info"></span>
+### POST /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/more-info/
+
+Authentication via OAuth is required.
+
+Save data in the "more-info" field of other account meta data (the other party involved in the transaction):
+* Related links (optional)
+
+JSON:
+
+    {
+        "moreInfo": "short text explaining who the other party of the transaction is"
+    }   
+
+### PUT /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/more-info/
+
+Authentication via OAuth is required.
+
+update data in the "more-info" field of other account meta data (the other party involved in the transaction):
+* Related links (optional)
+
+JSON:
+
+    {
+        "moreInfo": "short text explaining who the other party of the transaction is"
+    }       
+
+<span id="URL"></span>
+### POST /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/url/
+
+Authentication via OAuth is required.
+
+Save data in the "URL" field of other account meta data (the other party involved in the transaction):
+* Related links (optional)
+
+JSON:
+
+    {
+        "URL": "a URL related to the other party e.g. the website of the company"
+    }   
+
+### PUT /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/url/
+
+Authentication via OAuth is required.
+
+update data in the "URL" field of other account meta data (the other party involved in the transaction):
+* Related links (optional)
+
+JSON:
+
+    {
+        "URL": "a URL related to the other party e.g. the website of the company"
+    }        
+
+<span id="image-URL"></span>
+### POST /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/image-url/
+
+Authentication via OAuth is required.
+
+Save data in the "image-URL" field of other account meta data (the other party involved in the transaction):
+* Related links (optional)
+
+JSON:
+
+    {
+        "imageUrl":"an image URL related to the other party e.g. company logo"
+    }   
+
+### PUT /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/image-url/
+
+Authentication via OAuth is required.
+
+update data in the "image-URL" field of other account meta data (the other party involved in the transaction):
+* Related links (optional)
+
+JSON:
+
+    {
+        "imageUrl":"an image URL related to the other party e.g. company logo"
+    } 
+
+<span id="opencorporates-URL"></span>
+### POST /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/opencorporates-url/
+
+Authentication via OAuth is required.
+
+Save data in the "opencorporate-URL" field of other account meta data (the other party involved in the transaction):
+* Related links (optional)
+
+JSON:
+
+    {
+        "openCorporatesUrl":"the company corporate URL in the http://opencorporates.com/ web service "
+    }   
+
+### PUT /banks/BANK_ID/accounts/ACCOUNT_ALIAS/transactions/TRANSACTION_ID/other-account/metadata/opencorporates-url/
+
+Authentication via OAuth is required.
+
+update data in the "opencorporate-URL" field of other account meta data (the other party involved in the transaction):
+* Related links (optional)
+
+JSON:
+
+    {
+        "openCorporatesUrl":"the company corporate URL in the http://opencorporates.com/ web service "
+    } 
 
 #Transaction Metadata
 
