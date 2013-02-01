@@ -2,14 +2,14 @@
 
 * [About](#about)
 * [Implementation hints](#Implementation-hints)
-* Bank
+* Banks
     * [All](#banks)
     * [One](#bank)
     * [Offices](#offices)
-* Account
+* Accounts
     * [All](#accounts)
     * [One](#account)
-* Transaction
+* Transactions
     * [All](#transactions)
     * [One](#transaction)
     * [Other account](#other-account)
