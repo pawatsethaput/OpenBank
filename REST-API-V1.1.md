@@ -101,7 +101,7 @@ JSON:
         }
     }
 
-#Bank
+#Banks
 
 <span id="banks"></span>
 ### GET /banks
@@ -180,7 +180,7 @@ JSON:
         ]
     }
 
-#Account
+#Accounts
 
 <span id="accounts"></span>
 ### GET /banks/BANK_ID/accounts
