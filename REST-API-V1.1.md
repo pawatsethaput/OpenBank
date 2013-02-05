@@ -663,13 +663,16 @@ JSON:
 
 <span id="views"></span>
 ### The views
-A view on a account or a transaction manage to allows (or not) the user to see some data, like the account name, balance, etc and to perform an action, like posting a comment, editing a metadata etc.
+Views on accounts and transactions filter the underlying data so that some users only have access to some (blurred) fields. For instance the balance on an account may be hidden from the public or replaced by + or -.
 
 **data** : 
-When a view moderate a set of data like transactions details some fields my contains the value "unauthorized" rather than the original value. This indicates that the user is not allowed to see the original data.
+When a view moderates a set of data like transactions details some fields my contains the value "unauthorized" rather than the original value. This indicates that the user is not allowed to see the original data.
 
-This rules does not apply for tow fields. First the "holder" field in the JSon will always contains a name. It could be an alias or the real name, this is indicated by the "is_alias" field.
-In the same idea the "balance" field (in a transaction or account details) may contain a amount, or the sing plus(+), or the sign minus (-) or "unauthorized".
+There are currently two exceptions to this rule: 
+
+1) The "holder" field in the JSon contains a value which is either an alias or the real name - indicated by the "is_alias" field.
+
+2) The "balance" field (in a transaction or account details) may contain the real amount, a plus sign (+), a minus sign (-) or "unauthorized".
  
 **action:** 
 When a user performs an action like trying to post a comment (with POST API call), if he is no allowed, the repose will be an "unauthorized" http code 401.
