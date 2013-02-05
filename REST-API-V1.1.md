@@ -23,9 +23,9 @@
         * [Images](#images)
     * [Other account](#other_account)
         * [Meta data](#other_account-metadata)
-            * [more info](#more_info)
+            * [More info](#more_info)
             * [URL](#URL)
-            * [image URL](#image_url)
+            * [Image URL](#image_url)
             * [Open Corporates URL](#opencorporates-URL) 
 * [The views](#views)
 
@@ -97,9 +97,8 @@ JSON:
         }
     }
 
-#Banks
-
 <span id="banks"></span>
+#Banks
 
 **GET /banks**
 
@@ -130,6 +129,8 @@ JSON:
     }
 
 <span id="bank"></span>
+#Bank
+
 **GET /banks/BANK_ID**
 
 *Optional* 
@@ -153,6 +154,8 @@ JSON:
     }
 
 <span id="offices"></span>
+#Offices
+
 **GET /banks/BANK_ID/offices**
 
 *Optional*
@@ -186,9 +189,9 @@ JSON:
         ]
     }
 
+<span id="accounts"></span>
 #Accounts
 
-<span id="accounts"></span>
 **GET /banks/BANK_ID/accounts**
 
 *Baseline*  
@@ -221,8 +224,9 @@ JSON:
     }
 
 
-
 <span id="account"></span>
+#Account
+
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/account**
 
 *Baseline* 
@@ -271,9 +275,9 @@ JSON:
         }
     }
 
+<span id="transactions"></span>
 #Transactions
 
-<span id="transactions"></span>
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions**
 
 *Baseline* 
@@ -345,6 +349,8 @@ JSON:
     }
 
 <span id="transaction"></span>
+#Transaction
+
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/transaction**
 
 *Optional* 
@@ -452,8 +458,9 @@ JSON:
         "narrative" : "text explaining the purpose of the transaction"
     }
 
-
 <span id="comments"></span>
+### Comments
+
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments**
 
 *Optional*
@@ -499,7 +506,10 @@ JSON:
         "posted_date" : "2012-03-07T00:00:00.001Z"
     }
 
+
 <span id="tags"></span>
+### Tags
+
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/tags**
 
 *Optional*
@@ -545,8 +555,9 @@ JSON:
 
 **Note**: the value on the tag MUST NOT contain a white space.
 
-
 <span id="images"></span>
+### Images
+
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images**
 
 *Optional*
@@ -585,10 +596,9 @@ JSON:
         "URL":"http://www.mysuperimage.com"
     }
 
-
+<span id="other_account"></span>
 #Other account
 
-<span id="other_account"></span>
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/other_account**
 
 *Baseline*
@@ -631,6 +641,8 @@ JSON:
     }    
 
 <span id="more_info"></span>
+### More info
+
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/more_info**
 
 *Optional*
@@ -662,6 +674,8 @@ JSON:
     }       
 
 <span id="URL"></span>
+### URL
+
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/url**
 
 *Optional*
@@ -692,6 +706,7 @@ JSON:
     }        
 
 <span id="image_url"></span>
+### Image URL
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/image_url**
 
 *Optional*
@@ -721,6 +736,8 @@ JSON:
     } 
 
 <span id="opencorporates-URL"></span>
+### Open corporates URL
+
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/open_corporates_url**
 
 *Optional*
@@ -751,6 +768,7 @@ JSON:
 
 <span id="views"></span>
 ### The views
+
 Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public or replaced by + or -.
 
 **data:** When a view moderates a set of data, some fields my contain the value "unauthorized" rather than the original value. This indicates that the user is not allowed to see the original data.
