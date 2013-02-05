@@ -296,7 +296,7 @@ JSON:
                             "is_alias": "true/false"
                         },
                         "number": "",
-                        "kind": "",
+                        "type": "",
                         "bank": {
                             "IBAN": "",
                             "national_identifier": "",
@@ -368,7 +368,7 @@ JSON:
                     "is_alias": "true/false"
                 },
                 "number": "",
-                "kind": "",
+                "type": "",
                 "bank": {
                     "IBAN": "",
                     "national_identifier": "",
