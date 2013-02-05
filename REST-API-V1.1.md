@@ -41,7 +41,7 @@ For full compliance, all the baseline and optional end points must be implemente
 
  * All calls should be prefixed with /obp/v1.1
 
- * The OBP API returns JSON as specified [here(]http://www.json.org/) and validated [here](http://jsonlint.com/). 
+ * The OBP API returns JSON as specified [here](http://www.json.org/) and validated [here](http://jsonlint.com/). 
 
  * Parameters within the URL are written in CAPITAL_LETTERS.
 
