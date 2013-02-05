@@ -36,6 +36,8 @@ Authorization:<br />
               oauth_timestamp="1318467427",<br />
               oauth_version="1.0"<br />
 
+**important:** We will explain below in the "signature" section how to calculate the value of the "oauth_signature" field. 
+
 **Note :**  line breaks are for display purposes only, the application MUST send the parameters on one line and the only separator between the parameters is a coma “,”.
 
 The server validates the request and replies with a set of temporary credentials in the body of the HTTP response.
@@ -149,4 +151,4 @@ The base 64 encoder used during signing process may add “=” at the end of th
 # Step 4 : Accessing to protected resources :
 
 Once the application have an a access token an secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included.
-The request URLs to access to protected resources are specified in this [page](https://github.com/OpenBankProject/OpenBankProject-Server/wiki/Open-Bank-project-API). 
+The request URLs to access to protected resources are specified in this [page](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.0). 
