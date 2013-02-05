@@ -662,11 +662,11 @@ JSON:
     } 
 
 <span id="views"></span>
-### The views
-Views on accounts and transactions filter the underlying data so that some users only have access to some (blurred) fields. For instance the balance on an account may be hidden from the public or replaced by + or -.
+### The Views
+Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public or replaced by + or -.
 
 **data** : 
-When a view moderates a set of data like transactions details some fields my contains the value "unauthorized" rather than the original value. This indicates that the user is not allowed to see the original data.
+When a view moderates a set of data, some fields my contain the value "unauthorized" rather than the original value. This indicates that the user is not allowed to see the original data.
 
 There are currently two exceptions to this rule: 
 
@@ -675,11 +675,11 @@ There are currently two exceptions to this rule:
 2) The "balance" field (in a transaction or account details) may contain the real amount, a plus sign (+), a minus sign (-) or "unauthorized".
  
 **action:** 
-When a user performs an action like trying to post a comment (with POST API call), if he is no allowed, the repose will be an "unauthorized" http code 401.
+When a user performs an action like trying to post a comment (with POST API call), if he is not allowed, the repose will be an "unauthorized" http code 401.
 
 
 **comments and tags:**
-The comments and tags added to a transaction in a view will appears ONLY on this view.
+The comments and tags added to a transaction in a view will appears ONLY on this view. e.g. comments posted to the public view only appear on the public view.
 
 ### Note on JSON formatting in this document: 
 * Use JSON.stringify({}, null, 4); or http://jsonlint.com to validate the JSON
