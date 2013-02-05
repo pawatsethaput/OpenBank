@@ -20,6 +20,7 @@
         * [Narrative](#narrative)
         * [Comments](#comments)
         * [Tags](#tags)
+        * [Images](#images)
     * [Other account](#other_account)
         * [Meta data](#other_account-metadata)
             * [more info](#more_info)
@@ -543,6 +544,47 @@ JSON:
     }
 
 **Note**: the value on the tag MUST NOT contain a white space.
+
+
+<span id="images"></span>
+**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images**
+
+*Optional*
+
+Authentication via OAuth is required if the view is not public.
+
+Returns the images added to a specific transaction made on a [view](#views) (VIEW_ID).
+
+
+JSON:
+
+    {
+        "images": [
+            {
+                "image": {
+                    "id": "1239qsxezad0123",
+                    "label": "cool image",
+                    "URL":"http://www.mysuperimage.com"
+                }
+            }
+        ]
+    }
+
+**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images**
+
+*Optional*
+
+OAuth Header is required since the tag is linked with the user.
+
+Post an image on a transaction in a [view](#views).
+
+JSON:
+
+    "image": {
+        "label": "cool image",
+        "URL":"http://www.mysuperimage.com"
+    }
+
 
 #Other account
 
