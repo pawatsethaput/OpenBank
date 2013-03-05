@@ -146,7 +146,6 @@ The key to sign the base string is : oauth_consumer_secret, for the 1st step (ob
 For the 3rd step (obtaining the access token) and the access for protected resources the key is the concatenation of the consumer secret and the token secret with the “&” character in the middle like this:oauth_consumer_secret&oauth_token_secret 
 
 The signature that results from the signature process MUST be encoded also since the protocol requires encoding all the OAuth parameters.
-The base 64 encoder used during signing process may add “=” at the end of the signature, it MUST be removed.
 
 # Step 4 : Accessing to protected resources :
 
