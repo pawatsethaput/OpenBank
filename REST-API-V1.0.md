@@ -1,6 +1,6 @@
 A RESTful API for banks that supports multiple views on transaction data, comments and tags - and a flexible JSON data structure.
 
-Status: DRAFT
+Status: DEPRECIATED See [V1.1](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.1)
 
 The protocol consists of *baseline* and *optional* end points.
 For baseline compliance, all the baseline URLs must be implemented.
