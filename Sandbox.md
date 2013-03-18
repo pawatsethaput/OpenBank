@@ -12,7 +12,7 @@ To use the API with the sandbox data please register your application [here](htt
 You will find a "how to" documentation for the OAuth server [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server). 
 
 ##API 
-The API specification is available for the version 1.0 [here](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.1) and [here](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.1) for the 1.1 version.
+The API specification is available for the version 1.1 [here](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.1).
 
 ### Note: 
 the version 1.1 of the API is still a draft so not all the API calls have been implemented yet and the specification may change.
