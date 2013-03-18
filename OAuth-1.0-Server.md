@@ -155,3 +155,10 @@ The signature that results from the signature process MUST be encoded in base 64
 Once the application have an a access token an secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the header.
 
 Please see the API documentation for more details how to access protected resources. 
+
+
+# Recommended OAuth 1.0 libraries:
+If you want to use a OAuth library to handle the OAuth process for your application, we have successfully tested these ones: 
+* JAVA: [signpost](http://code.google.com/p/oauth-signpost/)
+* PHP: [OAuth Consumer And Server Library](https://code.google.com/p/oauth-php/)
+ 
