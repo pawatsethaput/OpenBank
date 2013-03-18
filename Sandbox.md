@@ -1,5 +1,5 @@
 ##Dataset 
-The sandbox data are available [here](https://demo.openbankproject.com/sandbox/) and the default user login and password are: 
+The sandbox data is available [here](https://demo.openbankproject.com/sandbox/) and the default user login and password are: 
 
 login: joe.bloggs@example.com
 
@@ -15,7 +15,7 @@ You will find a "how to" documentation for the OAuth server [here](https://githu
 The API specification is available for the version 1.1 [here](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.1).
 
 ### Note: 
-the version 1.1 of the API is still a draft so not all the API calls have been implemented yet and the specification may change.
+Version 1.1 of the API is still a draft so not all the API calls have been implemented yet and the specification may change.
 
 
 ### Important: 
