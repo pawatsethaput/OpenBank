@@ -55,12 +55,14 @@ and oauth_callback_confirmed parameters. The application should verify that oau
 
 # Step 2 : Redirecting the user: 
 The next step is to direct the user to Open Bank Project so that he may complete the authentication. 
-Direct the user to : _GET oauth/authorize_ and the request token obtained in step 1 should be passed as the oauth_token parameter.
+Direct the user to : _GET oauth/authorize_ (or _GET sanbox/oauth/authorize_ if you use the sandbox) and the request token obtained in step 1 should be passed as the oauth_token parameter.
 
 The most seamless way for a website to implement this would be to issue a HTTP 302 redirect as the response to the original request. Mobile and desktop applications should open a new browser window or direct to the URL via an embedded web view.
 
 **Example :** <br />
 https://demo.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
+or
+https://demo.openbankproject.com/sandbox/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
 
 Upon a successful authentication, the callback URL would receive a request containing the oauth_token and oauth_verifier parameters. The application should verify that the token matches the request token received in step 1.
 
