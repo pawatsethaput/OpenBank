@@ -17,7 +17,7 @@ _POST oauth/initiate_ with the following parameters :
 
 * **oauth_signature** : the result of signing the request. 
 
-* **oauth_signature_method** : The name of the signature method that will be used by the application to sign the request, as defined in [OAuth protocol](http://tools.ietf.org/html/rfc5849#section-3.4) . In our case, the parameter MUST be set to “HMAC-SHA256”.
+* **oauth_signature_method** : The name of the signature method that will be used by the application to sign the request, as defined in [OAuth protocol](http://tools.ietf.org/html/rfc5849#section-3.4) . In our case, the parameter MUST be set to “HMAC-SHA1" or “HMAC-SHA256” 
 
 * **oauth_timestamp** : The timestamp value MUST be a positive integer and is expressed in the number of seconds since January 1, 1970 00:00:00 GMT.
 
@@ -141,7 +141,7 @@ POST&https%3A%2F%2Fdemo.openbankproject.com&oauth_consumer_key%3D91919%26oauth_n
 
 ## B)  Signing the request :
 
-The Open Bank Project OAuth 1.0 implementation uses the “HMAC-SHA256” as signing method. 
+The Open Bank Project OAuth 1.0 implementation uses the “HMAC-SHA128” and “HMAC-SHA256” as signing methods. 
 The key to sign the base string is : oauth_consumer_secret, for the 1st step (obtaining the request token).
 For the 3rd step (obtaining the access token) and the access for protected resources the key is the concatenation of the consumer secret and the token secret with the “&” character in the middle like this:oauth_consumer_secret&oauth_token_secret 
 
