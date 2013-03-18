@@ -1,4 +1,3 @@
-
 #Dataset 
 The sandbox data are available [here](https://demo.openbankproject.com/sandbox/) and the default user login and password are: 
 
@@ -15,7 +14,9 @@ You will find a "how to" documentation for the OAuth server [here](https://githu
 #API 
 The API specification is available for the version 1.0 [here](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.1) and [here] for the 1.1 version.
 
-#Note: the version 1.1 of the API is still a draft so not all the API calls have been implemented yet and the specification may change.
+#Note: 
+the version 1.1 of the API is still a draft so not all the API calls have been implemented yet and the specification may change.
 
 
-Important: You will find links to use the real data set,like [https://demo.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0](https://demo.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0) please add "sandbox" in the query string like this: [https://demo.openbankproject.com/sanbox/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0](https://demo.openbankproject.com/sanbox/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0) to use the proper set of data otherwise you will have error messages.
+Important: 
+You will find links to use the real data set,like [https://demo.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0](https://demo.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0) please add "sandbox" in the query string like this: [https://demo.openbankproject.com/sanbox/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0](https://demo.openbankproject.com/sanbox/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0) to use the proper set of data otherwise you will have error messages.
