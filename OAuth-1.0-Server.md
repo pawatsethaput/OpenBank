@@ -7,7 +7,7 @@ Before to start interact with the API, third party applications needs to get OAu
 ## Step 1 : Obtaining a request token :
 To start a sign in flow, the application must obtain a request token by sending a signed message to : 
 
-_POST oauth/initiate_ with the following parameters : 
+_POST oauth/initiate_ (or POST sandbox/oauth/initiate if you use the sandbox) with the following parameters : 
 
 * **oauth_callback**:  an absolute URI back to witch the server will redirect the resource owner (user) when Authorization step is completed. If the application is unable to receive callbacks the parameter value MUST be set to “oob” (case sensitive), to indicate an out-of-band configuration.
 
