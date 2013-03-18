@@ -1,8 +1,8 @@
-The following steps will explain how to connect to the [Open Bank project demo](https://api.openbankproject.com) OAuth Server 1.0. This authentication mechanism is necessary so a third party application can consume the [Open Bank project API](https://api.openbankproject.com/api) securely.    
+The following steps will explain how to connect to the [Open Bank project demo](https://openbankproject.com) OAuth Server 1.0. This authentication mechanism is necessary so a third party application can consume the Open Bank project API securely.    
 
 The following documentation is based on the [OAuth 1.0 specification](http://tools.ietf.org/html/rfc5849) so if need more details your can refer to it.  
 
-The Open Bank project does not have yet a registration page for third party applications, so if you need a pair of application key and secret please send us an email at :  simon AT tesobe DOT com with "oauth application key" as a subject so we can register your application manually.  
+Here is the [registration page](https://demo.openbankproject.com/consumer-registration) for third party applications. If you want to use just the sandbox it is [here](https://demo.openbankproject.com/sandbox/consumer-registration) 
 
 ## Step 1 : Obtaining a request token :
 To start a sign in flow, the application must obtain a request token by sending a signed message to : 
