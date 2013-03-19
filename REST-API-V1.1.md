@@ -304,10 +304,12 @@ JSON:
                     "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
                     "id": "The bank's id for the transaction",
                     "this_account": {
-                        "holder": {
-                            "name": "MUSIC PICTURES LIMITED",
-                            "is_alias": "true/false"
-                        },
+                        "holder": [
+                             {
+                                "name": "MUSIC PICTURES LIMITED",
+                                "is_alias": "true/false"
+                             }
+                        ],
                         "number": "",
                         "kind": "",
                         "bank": {
@@ -367,10 +369,12 @@ JSON:
             "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
             "id": "The bank's id for the transaction",
             "this_account": {
-                "holder": {
-                    "name": "MUSIC PICTURES LIMITED",
-                    "is_alias": "true/false"
-                },
+                "holder": [
+                    {
+                        "name": "MUSIC PICTURES LIMITED",
+                        "is_alias": "true/false"
+                    }
+                ],
                 "number": "",
                 "type": "",
                 "bank": {
