@@ -159,6 +159,8 @@ Please see the API documentation for more details how to access protected resour
 
 # Recommended OAuth 1.0 libraries:
 If you want to use a OAuth library to handle the OAuth process for your application, we have successfully tested these ones: 
-* JAVA: [signpost](http://code.google.com/p/oauth-signpost/)
-* PHP: [OAuth Consumer And Server Library](https://code.google.com/p/oauth-php/)
+* JAVA: 
+   * [signpost](http://code.google.com/p/oauth-signpost/). **Warning** any version below 1.2.1.2 probably will not work. Version 1.2 which is the current Maven version seems to cause problems. 
+* PHP: 
+  * [OAuth Consumer And Server Library](https://code.google.com/p/oauth-php/)
  
