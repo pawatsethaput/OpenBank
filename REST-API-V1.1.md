@@ -26,7 +26,13 @@
             * [More info](#more_info)
             * [URL](#URL)
             * [Image URL](#image_url)
-            * [Open Corporates URL](#opencorporates-URL) 
+            * [Open Corporates URL](#opencorporates-URL)
+            * [Corporate Location](#corporate_location)
+            * [Physical Location](#physical_location)
+
+
+
+
 * [The views](#views)
 
 
@@ -168,8 +174,8 @@ Information returned includes:
 JSON:
 
     {
-        "offices": [
-            {
+        "offices": [{
+            "office" :{
                 "address": "address",
                 "type": "HQ/branch/call center",
                 "BIC_SWIFT": "ISO_9362 BIC / SWIFT code",
@@ -186,7 +192,7 @@ JSON:
                     }
                 ]
             }
-        ]
+        }]
     }
 
 <span id="accounts"></span>
@@ -600,6 +606,64 @@ JSON:
         "URL":"http://www.mysuperimage.com"
     }
 
+
+
+
+
+
+
+<span id="where"></span>
+### Where
+
+**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where**
+
+*Optional*
+
+Authentication via OAuth is required if the view is not public.
+
+(only public is currently implemented)
+
+Returns the where added to a specific transaction made on a [view](#views) (VIEW_ID).
+
+
+JSON:
+
+    {
+        "where": {
+                "latitude": 37.423021,
+                "longitude": -122.083739
+        }
+    }
+
+POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where
+    {
+        "where": {
+                "latitude": 37.423021,
+                "longitude": -122.083739
+        }
+    }
+
+
+**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where**
+
+*Optional*
+
+OAuth Header is required since the tag is linked with the user.
+
+Post the where on a transaction in a [view](#views).
+
+JSON:
+
+    {
+        "where": {
+                "latitude": 37.423021,
+                "longitude": -122.083739
+        }
+    }
+
+
+
+
 <span id="other_account"></span>
 #Other account
 
@@ -769,6 +833,95 @@ JSON:
     {
         "open_corporates_URL":"the company corporate URL in the http://opencorporates.com/ web service "
     } 
+
+
+
+
+
+<span id="corporate_location"></span>
+### Corporate location
+
+
+**POST /banks/BANK_ID/accounts/ACCOUNT_ID/public/other_accounts/OTHER_ACCOUNT_ID/metadata/corporate_location**
+
+*Optional*
+
+Authentication via OAuth is not currently required. (public)
+
+Save data in the "corporate_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
+
+JSON:
+
+    {
+        "corporate_location": {
+                "latitude": 37.423021,
+                "longitude": -122.083739
+        }
+    }
+
+**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/corporate_location**
+
+*Optional*
+
+Authentication via OAuth is only required if the view is not public.
+
+(only public is currently supported)
+
+update data in the "corporate_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
+
+JSON:
+
+    {
+        "corporate_location": {
+                "latitude": 37.423021,
+                "longitude": -122.083739
+        }
+    }
+
+
+
+<span id="physical_location"></span>
+### Physical location
+
+
+**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/physical_location**
+
+*Optional*
+
+Authentication via OAuth is only required if the view is not public.
+
+(only public is currently supported)
+
+Save data in the "physical_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
+
+JSON:
+
+    {
+        "physical_location": {
+                "latitude": 37.423021,
+                "longitude": -122.083739
+        }
+    }
+
+**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/physical_location**
+
+*Optional*
+
+Authentication via OAuth is required if the view is not public
+
+(only public is currently implemented)
+
+update data in the "physical_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
+
+JSON:
+
+    {
+        "physical_location": {
+                "latitude": 37.423021,
+                "longitude": -122.083739
+        }
+    }
+
 
 <span id="views"></span>
 ### The views
