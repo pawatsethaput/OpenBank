@@ -637,6 +637,7 @@ JSON:
     }
 
 POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where
+
     {
         "where": {
                 "latitude": 37.423021,
