@@ -1,6 +1,6 @@
 Welcome to the OBP-API wiki!
 
-* [REST API V1.0 Depreciated](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.0)
+* [REST API V1.0 Deprecated](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.0)
 
 * [REST API V1.1 ](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.1)
 
