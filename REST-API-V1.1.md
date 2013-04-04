@@ -331,7 +331,7 @@ JSON:
                             "is_alias": "true/false"
                         },
                         "number": "",
-                        "type": "",
+                        "kind": "",
                         "bank": {
                             "IBAN": "",
                             "national_identifier": "",
@@ -383,7 +383,7 @@ JSON:
                     }
                 ],
                 "number": "",
-                "type": "",
+                "kind": "",
                 "bank": {
                     "IBAN": "",
                     "national_identifier": "",
@@ -607,12 +607,6 @@ JSON:
         "URL":"http://www.mysuperimage.com"
     }
 
-
-
-
-
-
-
 <span id="where"></span>
 ### Where
 
@@ -662,9 +656,6 @@ JSON:
                 "longitude": -122.083739
         }
     }
-
-
-
 
 <span id="other_account"></span>
 #Other account
@@ -836,10 +827,6 @@ JSON:
         "open_corporates_URL":"the company corporate URL in the http://opencorporates.com/ web service "
     } 
 
-
-
-
-
 <span id="corporate_location"></span>
 ### Corporate location
 
@@ -879,8 +866,6 @@ JSON:
                 "longitude": -122.083739
         }
     }
-
-
 
 <span id="physical_location"></span>
 ### Physical location
