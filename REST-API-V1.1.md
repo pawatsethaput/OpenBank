@@ -586,7 +586,12 @@ JSON:
                 "image": {
                     "id": "1239qsxezad0123",
                     "label": "cool image",
-                    "URL":"http://www.mysuperimage.com"
+                    "URL":"http://www.mysuperimage.com",
+                    "user": {
+                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                        "id": "provider id of the user making the comment",
+                        "display_name": "display name of user"
+                    }
                 }
             }
         ]
