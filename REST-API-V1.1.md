@@ -268,7 +268,7 @@ JSON:
                 "currency": "currency in ISO_4217 one of EUR/GBP,USD/...",
                 "amount": "number or +/-"
             },
-            "IBAN": "123080FZAFA9124AZE",
+            "IBAN": "International Bank Account Number e.g. 123080FZAFA9124AZE",
             "views_available": [
                 {
                     "view": {
@@ -691,12 +691,14 @@ JSON:
     {
         "id": "unique identifier",
         "number": "19123",
-        "holder": "Bob",
+        "holder": {
+            "name": "Bob",
+            "is_alias": false
+        },
         "national_identifier": "the national identifier of the account e.g. aze1239SQx",
-        "IBAN":"the international identifier of the account e.g. AZEDSQDA",
+        "IBAN":"the International Bank Account Number e.g. AZEDSQDA",
         "bank_name":"the bank name e.g. POSTBANK",
-        "swift_bic":"the international identifier of the bank e.g. 12321SDXSAZEAZD1"
-
+        "swift_bic":"the international identifier of the bank (ISO 9362) e.g. COBADEFFXXX"
     }
 
 <span id="other_account-metadata"></span>
