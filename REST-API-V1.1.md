@@ -623,7 +623,7 @@ JSON:
 Authentication via OAuth is required if the view is not public.
 
 Returns the "where" Geo tag added to a specific transaction made on a [view](#views) (VIEW_ID).
-It represents the location where the transaction have been initiated.
+It represents the location where the transaction has been initiated.
 
 JSON:
 
