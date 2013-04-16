@@ -719,8 +719,26 @@ JSON:
         "URL": "a URL related to the other party e.g. the website of the company",
         "image_URL":"an image URL related to the other party e.g. company logo",
         "open_corporates_URL":"the company corporate URL in the http://opencorporates.com/ web service ",
-        "corporate_location": "",
-        "physical_location": ""
+        "corporate_location": {
+                "latitude": 37.423021,
+                "longitude": -122.083739,
+                "date": "date of posting the geo tag",
+                "user": {
+                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                    "id": "provider id of the user making the tag",
+                    "display_name": "display name of user"
+                }
+        },
+        "physical_location": {
+                "latitude": 37.423021,
+                "longitude": -122.083739,
+                "date": "date of posting the geo tag",
+                "user": {
+                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                    "id": "provider id of the user making the tag",
+                    "display_name": "display name of user"
+                }
+        }
     }
 
 <span id="more_info"></span>
