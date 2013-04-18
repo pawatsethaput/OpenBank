@@ -748,7 +748,7 @@ JSON:
 
 *Optional*
 
-Authentication via OAuth is required.
+Authentication via OAuth is required if the view is not public.
 
 Save data in the "more_info" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
@@ -763,7 +763,7 @@ JSON:
 
 *Optional*
 
-Authentication via OAuth is required.
+Authentication via OAuth is required if the view is not public.
 
 update data in the "more_info" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
@@ -781,10 +781,9 @@ JSON:
 
 *Optional*
 
-Authentication via OAuth is required.
+Authentication via OAuth is required if the view is not public.
 
 Save data in the "URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
 
 JSON:
 
@@ -796,7 +795,7 @@ JSON:
 
 *Optional*
 
-Authentication via OAuth is required.
+Authentication via OAuth is required if the view is not public.
 
 update data in the "URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
@@ -812,7 +811,7 @@ JSON:
 
 *Optional*
 
-Authentication via OAuth is required.
+Authentication via OAuth is required if the view is not public.
 
 Save data in the "image_url" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
@@ -826,7 +825,7 @@ JSON:
 
 *Optional*
 
-Authentication via OAuth is required.
+Authentication via OAuth is required if the view is not public.
 
 update data in the "image_url" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
@@ -843,7 +842,7 @@ JSON:
 
 *Optional*
 
-Authentication via OAuth is required.
+Authentication via OAuth is required if the view is not public.
 
 Save data in the "opencorporate-URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
@@ -857,7 +856,7 @@ JSON:
 
 *Optional*
 
-Authentication via OAuth is required.
+Authentication via OAuth is required if the view is not public.
 
 update data in the "opencorporate-URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
