@@ -978,109 +978,115 @@ Returns transactions of the account specified by ACCOUNT_ID and [moderated](#vie
 
 JSON:
 
-     {
-        "transactions": [
-            {
-			    "transaction": {
-			        "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
-			        "id": "The bank's id for the transaction",
-			        "this_account": {
-			            "holders": [
-			                {
-			                    "name": "MUSIC PICTURES LIMITED",
-			                    "is_alias": "true/false"
-			                }
-			            ],
-			            "number": "",
-			            "kind": "",
-			            "IBAN": "",
-			            "bank": {
-			                "national_identifier": "",
-			                "name": ""
-			            }
-			        },
-			        "other_account": {
-			            "holder": {
-			                "name": "DEUTSCHE POST AG, SSC ACC S",
-			                "is_alias": "true/false"
-			            },
-			            "number": "",
-			            "kind": "",
-			            "IBAN": "",
-			            "bank": {
-			                "national_identifier": "",
-			                "name": ""
-			            },
-			            "metadata": {
-			                "more_info": "short text explaining who the other party of the transaction is",
-			                "URL": "a URL related to the other party e.g. the website of the company",
-			                "image_URL": "an image URL related to the other party e.g. company logo",
-			                "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service "
-			            }
-			        },
-			        "details": {
-			            "type": "cash",
-			            "label": "transaction label",
-			            "posted": "2012-03-07T00:00:00.001Z",
-			            "completed": "2012-03-07T00:00:00.001Z",
-			            "new_balance": {
-			                "currency": "EUR",
-			                "amount": "+ (depending on the view, this might show the balance or only +/-)"
-			            },
-			            "value": {
-			                "currency": "EUR",
-			                "amount": "-1.45"
-			            }
-			        },
-			        "metadata": {
-			            "narrative": "text explaining the purpose of the transaction",
-			            "comments": [
-			                {
-			                    "comment": {
-			                        "id": "id of the comment",
-			                        "date": "date of posting the comment",
-			                        "value": "the comment",
-			                        "user": {
-			                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-			                            "id": "OBP UUID of the user making the comment",
-			                            "display_name": "display name of user"
-			                        },
-			                        "reply_to": "if this is a reply, the id of the original comment"
-			                    }
-			                }
-			            ],
-			            "tags": [
-			                {
-			                    "tag": {
-			                        "id": "id of the tag",
-			                        "value": "thetag",
-			                        "date": "date of posting the tag",
-			                        "user": {
-			                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-			                            "id": "OBP UUID of the user making the comment",
-			                            "display_name": "display name of user"
-			                        }
-			                    }
-			                }
-			            ],
-			            "images": [
-			                {
-			                    "image": {
-			                        "id": "1239qsxezad0123",
-			                        "label": "cool image",
-			                        "URL": "http://www.mysuperimage.com"
-			                    }
-			                }
-			            ],
-			            "where": {
-			                "latitude": 37.423021,
-			                "longitude": -122.083739
-			            }
-			        }
-			    }
-			}
-        ]
-    }
+	{
+	    "transactions": [
+	        {
+	            "transaction": {
+	                "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
+	                "id": "The bank's id for the transaction",
+	                "this_account": {
+	                    "holders": [
+	                        {
+	                            "name": "MUSIC PICTURES LIMITED",
+	                            "is_alias": "true/false"
+	                        }
+	                    ],
+	                    "number": "",
+	                    "kind": "",
+	                    "IBAN": "",
+	                    "bank": {
+	                        "national_identifier": "",
+	                        "name": ""
+	                    }
+	                },
+	                "other_account": {
+	                    "holder": {
+	                        "name": "DEUTSCHE POST AG, SSC ACC S",
+	                        "is_alias": "true/false"
+	                    },
+	                    "number": "",
+	                    "kind": "",
+	                    "IBAN": "",
+	                    "bank": {
+	                        "national_identifier": "",
+	                        "name": ""
+	                    },
+	                    "metadata": {
+	                        "more_info": "short text explaining who the other party of the transaction is",
+	                        "URL": "a URL related to the other party e.g. the website of the company",
+	                        "image_URL": "an image URL related to the other party e.g. company logo",
+	                        "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service "
+	                    }
+	                },
+	                "details": {
+	                    "type": "cash",
+	                    "label": "transaction label",
+	                    "posted": "2012-03-07T00:00:00.001Z",
+	                    "completed": "2012-03-07T00:00:00.001Z",
+	                    "new_balance": {
+	                        "currency": "EUR",
+	                        "amount": "+ (depending on the view, this might show the balance or only +/-)"
+	                    },
+	                    "value": {
+	                        "currency": "EUR",
+	                        "amount": "-1.45"
+	                    }
+	                },
+	                "metadata": {
+	                    "narrative": "text explaining the purpose of the transaction",
+	                    "comments": [
+	                        {
+	                            "comment": {
+	                                "id": "id of the comment",
+	                                "date": "date of posting the comment",
+	                                "value": "the comment",
+	                                "user": {
+	                                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+	                                    "id": "OBP UUID of the user making the comment",
+	                                    "display_name": "display name of user"
+	                                },
+	                                "reply_to": "if this is a reply, the id of the original comment"
+	                            }
+	                        }
+	                    ],
+	                    "tags": [
+	                        {
+	                            "tag": {
+	                                "id": "id of the tag",
+	                                "value": "thetag",
+	                                "date": "date of posting the tag",
+	                                "user": {
+	                                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+	                                    "id": "OBP UUID of the user making the comment",
+	                                    "display_name": "display name of user"
+	                                }
+	                            }
+	                        }
+	                    ],
+	                    "images": [
+	                        {
+	                            "image": {
+	                                "id": "1239qsxezad0123",
+	                                "label": "cool image",
+	                                "URL": "http://www.mysuperimage.com"
+	                            }
+	                        }
+	                    ],
+	                    "where": {
+	                        "latitude": 37.423021,
+	                        "longitude": -122.083739,
+	                        "date": "date of posting the tag",
+	                        "user": {
+	                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+	                            "id": "provider id of the user making the tag",
+	                            "display_name": "display name of user"
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    ]
+	}
 
 <span id="transaction"></span>
 #Transaction
@@ -1189,9 +1195,15 @@ JSON:
 	                }
 	            ],
 	            "where": {
-	                "latitude": 37.423021,
-	                "longitude": -122.083739
-	            }
+		            "latitude": 37.423021,
+		            "longitude": -122.083739,
+		            "date": "date of posting the tag",
+		            "user": {
+		                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+		                "id": "provider id of the user making the tag",
+		                "display_name": "display name of user"
+		            }
+		        }
 	        }
 	    }
 	}
@@ -1425,21 +1437,33 @@ Delete an image on a transaction in a [view](#views).
 
 Authentication via OAuth is required if the view is not public.
 
-(only public is currently implemented)
-
-Returns the where added to a specific transaction made on a [view](#views) (VIEW_ID).
-
+Returns the "where" Geo tag added to a specific transaction made on a [view](#views) (VIEW_ID).
+It represents the location where the transaction has been initiated.
 
 JSON:
 
     {
         "where": {
                 "latitude": 37.423021,
-                "longitude": -122.083739
+                "longitude": -122.083739,
+                "date": "date of posting the tag",
+                "user": {
+                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                    "id": "provider id of the user making the tag",
+                    "display_name": "display name of user"
+                }
         }
     }
 
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where**
+
+*Optional*
+
+OAuth Header is required since the tag is linked with the user.
+
+Post the "where" Geo tag on a transaction in a [view](#views).
+
+JSON:
 
     {
         "where": {
@@ -1455,7 +1479,7 @@ JSON:
 
 OAuth Header is required since the tag is linked with the user.
 
-Post the where on a transaction in a [view](#views).
+Update the "where" Geo tag on a transaction in a [view](#views).
 
 JSON:
 
