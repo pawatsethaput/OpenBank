@@ -48,7 +48,7 @@ The protocol consists of *baseline* and *optional* end points.
 For baseline compliance, all the baseline URLs must be implemented.
 For full compliance, all the baseline and optional end points must be implemented.
 
- * All calls should be prefixed with /obp/v1.1
+ * All calls should be prefixed with /obp/v1.2
 
  * The OBP API returns JSON as specified [here](http://www.json.org/) and validated [here](http://jsonlint.com/). 
 
