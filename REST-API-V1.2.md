@@ -54,7 +54,23 @@ For full compliance, all the baseline and optional end points must be implemente
 
  * Parameters within the URL are written in CAPITAL_LETTERS.
 
- * Some calls require OAuth headers ([See here for more details](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)) to access to protected resources.   
+ * Some calls require OAuth headers ([See here for more details](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)) to access to protected resources.
+ 
+ * If information is not available (whether missing or blocked by access control), its value will be null. This applies to normal values (Strings, Numbers, etc.) and to Arrays/Objects E.g.
+
+    {
+        "info" : "Some info",
+        "info2" : {
+            "info3" : "Some more info"
+        }
+    }
+ 	
+ 	could be returned as:
+ 	
+    {
+        "info" : null,
+        "info2" : null
+    }   
 
 <span id="implementation-hints"></span>
 ### Implementation hints and notes.
