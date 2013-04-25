@@ -267,7 +267,7 @@ JSON:
 
 **GET /banks/BANK_ID/accounts/public**
 
-*Baseline*
+*Optional*
 
 Returns a list of the public accounts list at BANK_ID. For each account the API returns the ID and the available views.
 
