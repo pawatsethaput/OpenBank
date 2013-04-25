@@ -313,7 +313,7 @@ JSON:
 
 **GET /banks/BANK_ID/accounts/private**
 
-*Baseline*
+*Optional*
 
 Returns the list of accounts at BANK_ID that the user has private (non-public) access to.
 For each account the API returns the ID and the available views.
