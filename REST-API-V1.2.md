@@ -15,17 +15,18 @@
     * [Public](#accounts-public)
     * [Private](#accounts-private)
     * [One](#account)
-    * [Access Control] (#account-access-control)
-    * [Other Accounts] (#account-other-accounts)
-      * [Other account](#account-other-account)
-        * [Alias] (#alias)
-        * [Meta data](#other_account-metadata)
-            * [More info](#more_info)
-            * [URL](#URL)
-            * [Image URL](#image_url)
-            * [Open Corporates URL](#opencorporates-URL)
-            * [Corporate Location](#corporate_location)
-            * [Physical Location](#physical_location)
+    * [Access Control](#account-access-control)
+    * Other Accounts
+        * [All](#account-other-accounts)
+        * [One](#account-other-account)
+          * [Meta data](#other_account-metadata)
+              * [Alias](#alias)
+              * [More info](#more_info)
+              * [URL](#URL)
+              * [Image URL](#image_url)
+              * [Open Corporates URL](#opencorporates-URL)
+              * [Corporate Location](#corporate_location)
+              * [Physical Location](#physical_location)
 * Transactions
     * [All](#transactions)
     * [One](#transaction)
@@ -56,7 +57,9 @@ For full compliance, all the baseline and optional end points must be implemente
 
  * Some calls require OAuth headers ([See here for more details](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)) to access to protected resources.
 
- * If information is not available (whether missing or blocked by access control), its value will be null. This applies to normal values (Strings, Numbers, etc.) and to Arrays/Objects E.g.
+ * If information is not available (whether missing or blocked by access control), its value will be null. This applies to normal values (Strings, Numbers, etc.) and to Arrays/Objects.
+
+ Example:
 
     {
         "info" : "Some info",
@@ -271,6 +274,8 @@ JSON:
 
 Returns a list of the public accounts list at BANK_ID. For each account the API returns the ID and the available views.
 
+Authentication via OAuth is not required.
+
 JSON:
 
     {
@@ -318,7 +323,7 @@ JSON:
 Returns the list of accounts at BANK_ID that the user has private (non-public) access to.
 For each account the API returns the ID and the available views.
 
-The user must be authenticated via OAuth for this call.
+Authentication via OAuth is required.
 
 JSON:
 
@@ -407,244 +412,203 @@ JSON:
         }
     }
 
-<span id="account-access-control"></span>
 #Access Control
+<span id="account-access-control"></span>
 
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/account/users**
 
-*Baseline*
+*Optional*
 
-Requires the user to be authenticated via OAuth as an owner for this account.
+OAuth authentication is required.
 
-Returns a list users and the non-public views they are permitted access to at BANK_ID for account ACCOUNT_ID.
+Returns a list of users and the non-public views they are permitted access to at BANK_ID for account ACCOUNT_ID.
 
 JSON:
 
     {
-      "permissions": [
-          {
-              "permission": {
-                  "user": {
-                      "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                      "id": "OBP UUID of the user making the comment",
-                      "display_name": "display name of user"
-                  },
+        "permissions": [
+            {
+                "permission": {
+                    "user": {
+                        "display_name": "display name of user",
+                        "id": "OBP UUID of the user making the comment",
+                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter"
+                    },
                   "views": [
                       {
                           "view": {
-                              "id": "A unique identifier used for VIEW_ID",
-                              "short_name": "Public / Team / Auditors...",
-                              "description": "e.g. this is the public view of the TESOBE account",
-                              "is_public": false
+                            "description": "e.g. this is the public view of the TESOBE account",
+                            "id": "A unique identifier used for VIEW_ID",
+                            "is_public": false,
+                            "short_name": "Public / Team / Auditors..."
                           }
                       }
                   ]
-              }
-          }
-      ]
-  }
+                }
+            }
+        ]
+    }
 
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/account/users/USER_ID**
 
-*Baseline*
+*Optional*
 
-Requires the user to be authenticated via OAuth as an owner for this account.
+OAuth authentication is required.
 
 Returns the list of non-public views that user USER_ID is permitted access to at BANK_ID for account ACCOUNT_ID.
 
 JSON:
 
-  {
-      "views": [
-          {
-              "view": {
-                  "id": "A unique identifier used for VIEW_ID",
-                  "short_name": "Team / Auditors...",
-                  "description": "e.g. this is the public view of the TESOBE account",
-                  "is_public": false
-              }
-          }
-      ]
-  }
+    {
+        "views": [
+            {
+                "view": {
+                    "id": "A unique identifier used for VIEW_ID",
+                    "short_name": "Team / Auditors...",
+                    "description": "e.g. this is the public view of the TESOBE account",
+                    "is_public": false
+                }
+            }
+        ]
+    }
 
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/account/users/USER_ID/views/VIEW_ID**
 
-Requires the user to be authenticated via OAuth as an owner for this account.
+*Optional*
 
-Grants the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID. Granting access
-to a public view is considered an error, as the user already has access.
+OAuth authentication is required.
+
+Grants the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
+
+Granting access to a public view will return an error message, as the user already has access.
 
 
 **DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/account/users/USER_ID/views/VIEW_ID**
 
-Requires the user to be authenticated via OAuth as an owner for this account.
+*Optional*
 
-Revokes the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID. Revoking
-a user access to a public view is not permitted.
+OAuth authentication is required.
+
+Revokes the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
+
+Revoking a user access to a public view will return an error message.
 
 <span id="account-other-accounts"></span>
 #Other Accounts
 
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts**
 
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Returns data about all the other bank accounts that have been involved with the ACCOUNT_ID.
+
 JSON:
 
-  {
-      "other_accounts": [
-          {
-              "other_account": {
-                "id" : "the other account's id",
-                  "holder": {
-                      "name": "DEUTSCHEPOSTAG, SSCACCS",
-                      "is_alias": "true/false"
-                  },
-                  "number": "",
-                  "kind": "",
-                  "IBAN": "",
-                  "bank": {
-                      "national_identifier": "",
-                      "name": ""
-                  },
-                  "metadata": {
-                      "more_info": "short text explaining who the other party of the transaction is",
-                      "URL": "a URL related to the other party e.g. the website of the company",
-                      "image_URL": "an image URL related to the other party e.g. company logo",
-                      "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service "
-                  }
-              }
-          }
-      ]
-  }
+    {
+        "other_accounts": [
+            {
+                "other_account": {
+                    "id" : "the other account's id",
+                    "holder": {
+                        "name": "DEUTSCHEPOSTAG, SSCACCS",
+                        "is_alias": "true/false"
+                    },
+                    "number": "",
+                    "kind": "",
+                    "IBAN": "",
+                    "bank": {
+                        "national_identifier": "",
+                        "name": ""
+                    },
+                    "metadata": {
+                        "more_info": "short text explaining who the other party of the transaction is",
+                        "URL": "a URL related to the other party e.g. the website of the company",
+                        "image_URL": "an image URL related to the other party e.g. company logo",
+                        "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
+                        "corporate_location": {
+                                "latitude": 37.423021,
+                                "longitude": -122.083739,
+                                "date": "date of posting the geo tag",
+                                "user": {
+                                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                    "id": "provider id of the user making the tag",
+                                    "display_name": "display name of user"
+                                }
+                        },
+                        "physical_location": {
+                                "latitude": 37.423021,
+                                "longitude": -122.083739,
+                                "date": "date of posting the geo tag",
+                                "user": {
+                                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                    "id": "provider id of the user making the tag",
+                                    "display_name": "display name of user"
+                                }
+                        }
+                    }
+                }
+            }
+        ]
+    }
 
 <span id="account-other-account"></span>
 #Other Account
 
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID**
 
-JSON:
+*Optional*
 
-  {
-      "other_account": {
-        "id" : "the other account's id",
-          "holder": {
-              "name": "DEUTSCHEPOSTAG, SSCACCS",
-              "is_alias": "true/false"
-          },
-          "number": "",
-          "kind": "",
-          "IBAN": "",
-          "bank": {
-              "national_identifier": "",
-              "name": ""
-          },
-          "metadata": {
-              "more_info": "short text explaining who the other party of the transaction is",
-              "URL": "a URL related to the other party e.g. the website of the company",
-              "image_URL": "an image URL related to the other party e.g. company logo",
-              "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service "
-          }
-      }
-  }
+OAuth authentication is required if the view is not public.
 
-<span id="alias"></span>
-### Alias
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/holder**
-
-Gets the holder for other account OTHER_ACCOUNT_ID for view VIEW_ID on account ACCOUNT_ID.
+Returns data about one other bank accounts (OTHER_ACCOUNT_ID) that have been involved with the ACCOUNT_ID.
 
 JSON:
 
-  {
-      "holder": {
-          "name": "Joe Bloggs",
-          "is_alias": "true/false"
-      }
-  }
+    {
+        "other_account": {
+          "id" : "the other account's id",
+            "holder": {
+                "name": "DEUTSCHEPOSTAG, SSCACCS",
+                "is_alias": "true/false"
+            },
+            "number": "",
+            "kind": "",
+            "IBAN": "",
+            "bank": {
+                "national_identifier": "",
+                "name": ""
+            },
+            "metadata": {
+                "more_info": "short text explaining who the other party of the transaction is",
+                "URL": "a URL related to the other party e.g. the website of the company",
+                "image_URL": "an image URL related to the other party e.g. company logo",
+                "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
+                "corporate_location": {
+                        "latitude": 37.423021,
+                        "longitude": -122.083739,
+                        "date": "date of posting the geo tag",
+                        "user": {
+                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                            "id": "provider id of the user making the tag",
+                            "display_name": "display name of user"
+                        }
+                },
+                "physical_location": {
+                        "latitude": 37.423021,
+                        "longitude": -122.083739,
+                        "date": "date of posting the geo tag",
+                        "user": {
+                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                            "id": "provider id of the user making the tag",
+                            "display_name": "display name of user"
+                        }
+                }
+            }
+        }
+    }
 
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
-
-Get the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
-
-Note: If there is no public alias set, the JSON will contain an empty string as the value for "alias".
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to view public aliases.
-
-JSON:
-
-  {
-      "alias" : "An alias to display instead of the real name"
-  }
-
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
-
-Creates the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID. Note: Public
-aliases are automatically generated for new "other accounts", so this call should only be used if
-the public alias was deleted. The VIEW_ID parameter should be a view the caller is permitted to access
-that has permission to edit public aliases.
-
-JSON:
-
-  {
-      "alias" : "An alias to display instead of the real name"
-  }
-
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
-
-Updates the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID. The VIEW_ID parameter
-should be a view the caller is permitted to access that has permission to edit public aliases.
-
-JSON:
-
-  {
-      "alias" : "An alias to display instead of the real name"
-  }
-
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
-
-Deletes the public alias for other account OTHER_ACCOUNT_ID for ACCOUNT_ID. The VIEW_ID parameter
-should be a view the caller is permitted to access that has permission to edit public aliases.
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
-
-Get the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
-
-Note: If there is no private alias set, the JSON will contain an empty string as the value for "alias".
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to view private aliases.
-
-JSON:
-
-  {
-      "alias" : "An alias to display instead of the real name"
-  }
-
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
-
-Creates the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID. The VIEW_ID parameter
-should be a view the caller is permitted to access that has permission to edit private aliases.
-
-JSON:
-
-  {
-      "alias" : "An alias to display instead of the real name"
-  }
-
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
-
-Updates the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID. The VIEW_ID parameter
-should be a view the caller is permitted to access that has permission to edit private aliases.
-
-JSON:
-
-  {
-      "alias" : "An alias to display instead of the real name"
-  }
-
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
-
-Deletes the private alias for other account OTHER_ACCOUNT_ID for ACCOUNT_ID. The VIEW_ID parameter
-should be a view the caller is permitted to access that has permission to edit public aliases.
 
 <span id="other_account-metadata"></span>
 #Other account metadata
@@ -663,8 +627,167 @@ JSON:
         "more_info": "short text explaining who the other party of the transaction is",
         "URL": "a URL related to the other party e.g. the website of the company",
         "image_URL":"an image URL related to the other party e.g. company logo",
-        "open_corporates_URL":"the company corporate URL in the http://opencorporates.com/ web service "
+        "open_corporates_URL":"the company corporate URL in the http://opencorporates.com/ web service",
+        "corporate_location": {
+                "latitude": 37.423021,
+                "longitude": -122.083739,
+                "date": "date of posting the geo tag",
+                "user": {
+                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                    "id": "provider id of the user making the tag",
+                    "display_name": "display name of user"
+                }
+        },
+        "physical_location": {
+                "latitude": 37.423021,
+                "longitude": -122.083739,
+                "date": "date of posting the geo tag",
+                "user": {
+                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                    "id": "provider id of the user making the tag",
+                    "display_name": "display name of user"
+                }
+        }
     }
+
+<span id="alias"></span>
+### Alias
+
+**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/holder**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Gets the holder for other account OTHER_ACCOUNT_ID for view VIEW_ID on account ACCOUNT_ID.
+
+JSON:
+
+    {
+        "holder": {
+            "name": "Joe Bloggs",
+            "is_alias": "true/false"
+        }
+    }
+
+**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Get the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+
+The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to view public aliases.
+
+JSON:
+
+    {
+        "alias" : "An alias to display instead of the real name"
+    }
+
+**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Creates the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+
+Note: Public aliases are automatically generated for new "other accounts", so this call should only be used if
+the public alias was deleted.
+
+The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to create public aliases.
+
+JSON:
+
+    {
+        "alias" : "An alias to display instead of the real name"
+    }
+
+**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Updates the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+
+The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to edit public aliases.
+
+JSON:
+
+    {
+        "alias" : "An alias to display instead of the real name"
+    }
+
+**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Deletes the public alias for other account OTHER_ACCOUNT_ID for ACCOUNT_ID.
+
+The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to delete public aliases.
+
+**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Get the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+
+The VIEW_ID parameter should be a view the caller is permitted to access that has permission to view private aliases.
+
+JSON:
+
+    {
+        "alias" : "An alias to display instead of the real name"
+    }
+
+**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Creates the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+
+The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to create private aliases.
+
+JSON:
+
+    {
+        "alias" : "An alias to display instead of the real name"
+    }
+
+**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Updates the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+
+The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to edit private aliases.
+
+JSON:
+
+    {
+        "alias" : "An alias to display instead of the real name"
+    }
+
+**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
+
+*Optional*
+
+OAuth authentication is required if the view is not public.
+
+Deletes the private alias for other account OTHER_ACCOUNT_ID for ACCOUNT_ID.
+
+The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to delete public aliases.
 
 <span id="more_info"></span>
 ### More info
@@ -978,115 +1101,135 @@ Returns transactions of the account specified by ACCOUNT_ID and [moderated](#vie
 
 JSON:
 
-  {
-      "transactions": [
-          {
-              "transaction": {
-                  "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
-                  "id": "The bank's id for the transaction",
-                  "this_account": {
-                      "holders": [
-                          {
-                              "name": "MUSIC PICTURES LIMITED",
-                              "is_alias": "true/false"
-                          }
-                      ],
-                      "number": "",
-                      "kind": "",
-                      "IBAN": "",
-                      "bank": {
-                          "national_identifier": "",
-                          "name": ""
-                      }
-                  },
-                  "other_account": {
-                      "holder": {
-                          "name": "DEUTSCHE POST AG, SSC ACC S",
-                          "is_alias": "true/false"
-                      },
-                      "number": "",
-                      "kind": "",
-                      "IBAN": "",
-                      "bank": {
-                          "national_identifier": "",
-                          "name": ""
-                      },
-                      "metadata": {
-                          "more_info": "short text explaining who the other party of the transaction is",
-                          "URL": "a URL related to the other party e.g. the website of the company",
-                          "image_URL": "an image URL related to the other party e.g. company logo",
-                          "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service "
-                      }
-                  },
-                  "details": {
-                      "type": "cash",
-                      "label": "transaction label",
-                      "posted": "2012-03-07T00:00:00.001Z",
-                      "completed": "2012-03-07T00:00:00.001Z",
-                      "new_balance": {
-                          "currency": "EUR",
-                          "amount": "+ (depending on the view, this might show the balance or only +/-)"
-                      },
-                      "value": {
-                          "currency": "EUR",
-                          "amount": "-1.45"
-                      }
-                  },
-                  "metadata": {
-                      "narrative": "text explaining the purpose of the transaction",
-                      "comments": [
-                          {
-                              "comment": {
-                                  "id": "id of the comment",
-                                  "date": "date of posting the comment",
-                                  "value": "the comment",
-                                  "user": {
-                                      "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                      "id": "OBP UUID of the user making the comment",
-                                      "display_name": "display name of user"
-                                  },
-                                  "reply_to": "if this is a reply, the id of the original comment"
-                              }
-                          }
-                      ],
-                      "tags": [
-                          {
-                              "tag": {
-                                  "id": "id of the tag",
-                                  "value": "thetag",
-                                  "date": "date of posting the tag",
-                                  "user": {
-                                      "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                      "id": "OBP UUID of the user making the comment",
-                                      "display_name": "display name of user"
-                                  }
-                              }
-                          }
-                      ],
-                      "images": [
-                          {
-                              "image": {
-                                  "id": "1239qsxezad0123",
-                                  "label": "cool image",
-                                  "URL": "http://www.mysuperimage.com"
-                              }
-                          }
-                      ],
-                      "where": {
-                          "latitude": 37.423021,
-                          "longitude": -122.083739,
-                          "date": "date of posting the tag",
-                          "user": {
-                              "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                              "id": "provider id of the user making the tag",
-                              "display_name": "display name of user"
-                          }
-                      }
-                  }
-              }
-          }
-      ]
-  }
+    {
+        "transactions": [
+            {
+                "transaction": {
+                    "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
+                    "id": "The bank's id for the transaction",
+                    "this_account": {
+                        "holders": [
+                            {
+                                "name": "MUSIC PICTURES LIMITED",
+                                "is_alias": "true/false"
+                            }
+                        ],
+                        "number": "",
+                        "kind": "",
+                        "IBAN": "",
+                        "bank": {
+                            "national_identifier": "",
+                            "name": ""
+                        }
+                    },
+                    "other_account": {
+                        "holder": {
+                            "name": "DEUTSCHE POST AG, SSC ACC S",
+                            "is_alias": "true/false"
+                        },
+                        "number": "",
+                        "kind": "",
+                        "IBAN": "",
+                        "bank": {
+                            "national_identifier": "",
+                            "name": ""
+                        },
+                        "metadata": {
+                            "more_info": "short text explaining who the other party of the transaction is",
+                            "URL": "a URL related to the other party e.g. the website of the company",
+                            "image_URL": "an image URL related to the other party e.g. company logo",
+                            "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
+                            "corporate_location": {
+                                    "latitude": 37.423021,
+                                    "longitude": -122.083739,
+                                    "date": "date of posting the geo tag",
+                                    "user": {
+                                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                        "id": "provider id of the user making the tag",
+                                        "display_name": "display name of user"
+                                    }
+                            },
+                            "physical_location": {
+                                    "latitude": 37.423021,
+                                    "longitude": -122.083739,
+                                    "date": "date of posting the geo tag",
+                                    "user": {
+                                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                        "id": "provider id of the user making the tag",
+                                        "display_name": "display name of user"
+                                    }
+                            }
+                        }
+                    },
+                    "details": {
+                        "type": "cash",
+                        "label": "transaction label",
+                        "posted": "2012-03-07T00:00:00.001Z",
+                        "completed": "2012-03-07T00:00:00.001Z",
+                        "new_balance": {
+                            "currency": "EUR",
+                            "amount": "+ (depending on the view, this might show the balance or only +/-)"
+                        },
+                        "value": {
+                            "currency": "EUR",
+                            "amount": "-1.45"
+                        }
+                    },
+                    "metadata": {
+                        "narrative": "text explaining the purpose of the transaction",
+                        "comments": [
+                            {
+                                "comment": {
+                                    "id": "id of the comment",
+                                    "date": "date of posting the comment",
+                                    "value": "the comment",
+                                    "user": {
+                                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                        "id": "OBP UUID of the user making the comment",
+                                        "display_name": "display name of user"
+                                    },
+                                    "reply_to": "if this is a reply, the id of the original comment"
+                                }
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": {
+                                    "id": "id of the tag",
+                                    "value": "thetag",
+                                    "date": "date of posting the tag",
+                                    "user": {
+                                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                        "id": "OBP UUID of the user making the comment",
+                                        "display_name": "display name of user"
+                                    }
+                                }
+                            }
+                        ],
+                        "images": [
+                            {
+                                "image": {
+                                    "id": "1239qsxezad0123",
+                                    "label": "cool image",
+                                    "URL": "http://www.mysuperimage.com"
+                                }
+                            }
+                        ],
+                        "where": {
+                            "latitude": 37.423021,
+                            "longitude": -122.083739,
+                            "date": "date of posting the tag",
+                            "user": {
+                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                "id": "provider id of the user making the tag",
+                                "display_name": "display name of user"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
 
 <span id="transaction"></span>
 #Transaction
@@ -1103,110 +1246,130 @@ JSON:
 
 
     {
-      "transaction": {
-          "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
-          "id": "The bank's id for the transaction",
-          "this_account": {
-              "holders": [
-                  {
-                      "name": "MUSIC PICTURES LIMITED",
-                      "is_alias": "true/false"
-                  }
-              ],
-              "number": "",
-              "kind": "",
-              "IBAN": "",
-              "bank": {
-                  "national_identifier": "",
-                  "name": ""
-              }
-          },
-          "other_account": {
-              "holder": {
-                  "name": "DEUTSCHE POST AG, SSC ACC S",
-                  "is_alias": "true/false"
-              },
-              "number": "",
-              "kind": "",
-              "IBAN": "",
-              "bank": {
-                  "national_identifier": "",
-                  "name": ""
-              },
-              "metadata": {
-                  "more_info": "short text explaining who the other party of the transaction is",
-                  "URL": "a URL related to the other party e.g. the website of the company",
-                  "image_URL": "an image URL related to the other party e.g. company logo",
-                  "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service "
-              }
-          },
-          "details": {
-              "type": "cash",
-              "label": "transaction label",
-              "posted": "2012-03-07T00:00:00.001Z",
-              "completed": "2012-03-07T00:00:00.001Z",
-              "new_balance": {
-                  "currency": "EUR",
-                  "amount": "+ (depending on the view, this might show the balance or only +/-)"
-              },
-              "value": {
-                  "currency": "EUR",
-                  "amount": "-1.45"
-              }
-          },
-          "metadata": {
-              "narrative": "text explaining the purpose of the transaction",
-              "comments": [
-                  {
-                      "comment": {
-                          "id": "id of the comment",
-                          "date": "date of posting the comment",
-                          "value": "the comment",
-                          "user": {
-                              "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                              "id": "OBP UUID of the user making the comment",
-                              "display_name": "display name of user"
-                          },
-                          "reply_to": "if this is a reply, the id of the original comment"
-                      }
-                  }
-              ],
-              "tags": [
-                  {
-                      "tag": {
-                          "id": "id of the tag",
-                          "value": "thetag",
-                          "date": "date of posting the tag",
-                          "user": {
-                              "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                              "id": "OBP UUID of the user making the comment",
-                              "display_name": "display name of user"
-                          }
-                      }
-                  }
-              ],
-              "images": [
-                  {
-                      "image": {
-                          "id": "1239qsxezad0123",
-                          "label": "cool image",
-                          "URL": "http://www.mysuperimage.com"
-                      }
-                  }
-              ],
-              "where": {
-                "latitude": 37.423021,
-                "longitude": -122.083739,
-                "date": "date of posting the tag",
-                "user": {
-                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "provider id of the user making the tag",
-                    "display_name": "display name of user"
+        "transaction": {
+            "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
+            "id": "The bank's id for the transaction",
+            "this_account": {
+                "holders": [
+                    {
+                        "name": "MUSIC PICTURES LIMITED",
+                        "is_alias": "true/false"
+                    }
+                ],
+                "number": "",
+                "kind": "",
+                "IBAN": "",
+                "bank": {
+                    "national_identifier": "",
+                    "name": ""
                 }
+            },
+            "other_account": {
+                "holder": {
+                    "name": "DEUTSCHE POST AG, SSC ACC S",
+                    "is_alias": "true/false"
+                },
+                "number": "",
+                "kind": "",
+                "IBAN": "",
+                "bank": {
+                    "national_identifier": "",
+                    "name": ""
+                },
+                "metadata": {
+                    "more_info": "short text explaining who the other party of the transaction is",
+                    "URL": "a URL related to the other party e.g. the website of the company",
+                    "image_URL": "an image URL related to the other party e.g. company logo",
+                    "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
+                    "corporate_location": {
+                            "latitude": 37.423021,
+                            "longitude": -122.083739,
+                            "date": "date of posting the geo tag",
+                            "user": {
+                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                "id": "provider id of the user making the tag",
+                                "display_name": "display name of user"
+                            }
+                    },
+                    "physical_location": {
+                            "latitude": 37.423021,
+                            "longitude": -122.083739,
+                            "date": "date of posting the geo tag",
+                            "user": {
+                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                "id": "provider id of the user making the tag",
+                                "display_name": "display name of user"
+                            }
+                    }
+                }
+            },
+            "details": {
+                "type": "cash",
+                "label": "transaction label",
+                "posted": "2012-03-07T00:00:00.001Z",
+                "completed": "2012-03-07T00:00:00.001Z",
+                "new_balance": {
+                    "currency": "EUR",
+                    "amount": "+ (depending on the view, this might show the balance or only +/-)"
+                },
+                "value": {
+                    "currency": "EUR",
+                    "amount": "-1.45"
+                }
+            },
+            "metadata": {
+                "narrative": "text explaining the purpose of the transaction",
+                "comments": [
+                    {
+                        "comment": {
+                            "id": "id of the comment",
+                            "date": "date of posting the comment",
+                            "value": "the comment",
+                            "user": {
+                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                "id": "OBP UUID of the user making the comment",
+                                "display_name": "display name of user"
+                            },
+                            "reply_to": "if this is a reply, the id of the original comment"
+                        }
+                    }
+                ],
+                "tags": [
+                    {
+                        "tag": {
+                            "id": "id of the tag",
+                            "value": "thetag",
+                            "date": "date of posting the tag",
+                            "user": {
+                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                "id": "OBP UUID of the user making the comment",
+                                "display_name": "display name of user"
+                            }
+                        }
+                    }
+                ],
+                "images": [
+                    {
+                        "image": {
+                            "id": "1239qsxezad0123",
+                            "label": "cool image",
+                            "URL": "http://www.mysuperimage.com"
+                        }
+                    }
+                ],
+                "where": {
+                  "latitude": 37.423021,
+                  "longitude": -122.083739,
+                  "date": "date of posting the tag",
+                  "user": {
+                      "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                      "id": "provider id of the user making the tag",
+                      "display_name": "display name of user"
+                  }
+              }
             }
-          }
-      }
-  }
+        }
+    }
 
 #Transaction Metadata
 
@@ -1512,37 +1675,46 @@ Returns account information, of the other party involved in the transaction, mod
 JSON:
 
     {
-        "accounts": [
-            {
-                "account": {
-                    "id": "A unique identifier used for ACCOUNT_ID",
-                    "number": "account number (moderated by the view)",
-                    "owners": [
-                        {
-                            "user_id": "123213",
-                            "user_provider": "bank name",
-                            "display_name": "Name of person/Company/..."
+        "other_account": {
+          "id" : "the other account's id",
+            "holder": {
+                "name": "DEUTSCHEPOSTAG, SSCACCS",
+                "is_alias": "true/false"
+            },
+            "number": "",
+            "kind": "",
+            "IBAN": "",
+            "bank": {
+                "national_identifier": "",
+                "name": ""
+            },
+            "metadata": {
+                "more_info": "short text explaining who the other party of the transaction is",
+                "URL": "a URL related to the other party e.g. the website of the company",
+                "image_URL": "an image URL related to the other party e.g. company logo",
+                "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
+                "corporate_location": {
+                        "latitude": 37.423021,
+                        "longitude": -122.083739,
+                        "date": "date of posting the geo tag",
+                        "user": {
+                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                            "id": "provider id of the user making the tag",
+                            "display_name": "display name of user"
                         }
-                    ],
-                    "type": "e.g. current, savings",
-                    "balance": {
-                        "currency": "currency in ISO_4217 one of EUR/GBP,USD/...",
-                        "amount": "number or +/-"
-                     },
-                    "IBAN": "123080FZAFA9124AZE",
-                    "views_available": [
-                        {
-                            "view": {
-                                "id": "A unique identifier used for VIEW_ID",
-                                "short_name": "Public / Team / Auditors...",
-                                "description": "e.g. this is the public view of the TESOBE account",
-                                "is_public": "boolean. true if the public (user not logged in) can see this view."
-                            }
+                },
+                "physical_location": {
+                        "latitude": 37.423021,
+                        "longitude": -122.083739,
+                        "date": "date of posting the geo tag",
+                        "user": {
+                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                            "id": "provider id of the user making the tag",
+                            "display_name": "display name of user"
                         }
-                    ]
                 }
             }
-        ]
+        }
     }
 
 <span id="views"></span>
@@ -1550,7 +1722,7 @@ JSON:
 
 Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public or replaced by + or -.
 
-**data:** When a view moderates a set of data, some fields my contain the value "unauthorized" rather than the original value. This indicates that the user is not allowed to see the original data.
+**data:** When a view moderates a set of data, some fields my contain the value null rather than the original value. This indicates either that the user is not allowed to see the original data or the field is empty.
 
 There are currently two exceptions to this rule:
 
@@ -1558,22 +1730,10 @@ There are currently two exceptions to this rule:
 
 2) The "balance" field (in a transaction or account details) may contain the real amount, a plus sign (+), a minus sign (-) or "unauthorized".
 
-**action:** When a user performs an action like trying to post a comment (with POST API call), if he is not allowed, the repose will be an "unauthorized" http code 401.
+**action:** When a user performs an action like trying to post a comment (with POST API call), if he is not allowed, the repose will be an "unauthorized" HTTP code 401.
 
 **Metadata:**
-The comments and tags added to a transaction in a view will appears ONLY on this view. e.g. comments posted to the public view only appear on the public view.
+Transaction metadata like (images, tags, comments, etc.) will appears ONLY on the view where they have been created e.g. comments posted to the public view only appear on the public view.
 
-The other account metadata fields like image_URL, more_info etc are unique through all the views. Example, if a user edit the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
-
-
-### Note on JSON formatting in this document:
-* Use JSON.stringify({}, null, 4); or http://jsonlint.com to validate the JSON
-* Ensure the JSON block is separated from other text by a line and it is indented by 4 spaces
-
-e.g.
-
-JSON:
-
-    {}
-
-Ends
+The other account metadata fields like image_URL, more_info, etc are unique through all the views. Example, if a user edit the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
+Except the two Geo tags corporate_location and physical_location which have the same behavior as the transaction metadata.
