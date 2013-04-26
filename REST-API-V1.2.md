@@ -216,20 +216,6 @@ JSON:
             {
                 "account": {
                     "id": "A unique identifier used for ACCOUNT_ID",
-                    "number": "account number (moderated by the view)",
-                    "owners": [
-                        {
-                            "user_id": "123213",
-                            "user_provider": "bank name",
-                            "display_name": "Name of person/Company/..."
-                        }
-                    ],
-                    "type": "e.g. current, savings",
-                    "balance": {
-                        "currency": "currency in ISO_4217 one of EUR/GBP,USD/...",
-                        "amount": "number or +/-"
-                     },
-                    "IBAN": "123080FZAFA9124AZE",
                     "views_available": [
                         {
                             "view": {
@@ -264,20 +250,6 @@ JSON:
             {
                 "account": {
                     "id": "A unique identifier used for ACCOUNT_ID",
-                    "number": "account number (moderated by the view)",
-                    "owners": [
-                        {
-                            "user_id": "123213",
-                            "user_provider": "bank name",
-                            "display_name": "Name of person/Company/..."
-                        }
-                    ],
-                    "type": "e.g. current, savings",
-                    "balance": {
-                        "currency": "currency in ISO_4217 one of EUR/GBP,USD/...",
-                        "amount": "number or +/-"
-                     },
-                    "IBAN": "123080FZAFA9124AZE",
                     "views_available": [
                         {
                             "view": {
@@ -313,20 +285,6 @@ JSON:
             {
                 "account": {
                     "id": "A unique identifier used for ACCOUNT_ID",
-                    "number": "account number (moderated by the view)",
-                    "owners": [
-                        {
-                            "user_id": "123213",
-                            "user_provider": "bank name",
-                            "display_name": "Name of person/Company/..."
-                        }
-                    ],
-                    "type": "e.g. current, savings",
-                    "balance": {
-                        "currency": "currency in ISO_4217 one of EUR/GBP,USD/...",
-                        "amount": "number or +/-"
-                     },
-                    "IBAN": "123080FZAFA9124AZE",
                     "views_available": [
                         {
                             "view": {
