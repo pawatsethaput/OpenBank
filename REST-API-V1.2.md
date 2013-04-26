@@ -523,6 +523,8 @@ JSON:
                         "name": ""
                     },
                     "metadata": {
+                        "public_alias":"the public alias of the other account holder",
+                        "private_alias":"the private alias of the other account holder",
                         "more_info": "short text explaining who the other party of the transaction is",
                         "URL": "a URL related to the other party e.g. the website of the company",
                         "image_URL": "an image URL related to the other party e.g. company logo",
@@ -581,6 +583,8 @@ JSON:
                 "name": ""
             },
             "metadata": {
+                "public_alias":"the public alias of the other account holder",
+                "private_alias":"the private alias of the other account holder",
                 "more_info": "short text explaining who the other party of the transaction is",
                 "URL": "a URL related to the other party e.g. the website of the company",
                 "image_URL": "an image URL related to the other party e.g. company logo",
@@ -624,6 +628,8 @@ Returns account meta data of the other party involved in the transaction ([here]
 JSON:
 
     {
+        "public_alias":"the public alias of the other account holder",
+        "private_alias":"the private alias of the other account holder",
         "more_info": "short text explaining who the other party of the transaction is",
         "URL": "a URL related to the other party e.g. the website of the company",
         "image_URL":"an image URL related to the other party e.g. company logo",
@@ -1135,6 +1141,8 @@ JSON:
                             "name": ""
                         },
                         "metadata": {
+                            "public_alias":"the public alias of the other account holder",
+                            "private_alias":"the private alias of the other account holder",
                             "more_info": "short text explaining who the other party of the transaction is",
                             "URL": "a URL related to the other party e.g. the website of the company",
                             "image_URL": "an image URL related to the other party e.g. company logo",
@@ -1277,6 +1285,8 @@ JSON:
                     "name": ""
                 },
                 "metadata": {
+                    "public_alias":"the public alias of the other account holder",
+                    "private_alias":"the private alias of the other account holder",
                     "more_info": "short text explaining who the other party of the transaction is",
                     "URL": "a URL related to the other party e.g. the website of the company",
                     "image_URL": "an image URL related to the other party e.g. company logo",
@@ -1689,6 +1699,8 @@ JSON:
                 "name": ""
             },
             "metadata": {
+                "public_alias":"the public alias of the other account holder",
+                "private_alias":"the private alias of the other account holder",
                 "more_info": "short text explaining who the other party of the transaction is",
                 "URL": "a URL related to the other party e.g. the website of the company",
                 "image_URL": "an image URL related to the other party e.g. company logo",
