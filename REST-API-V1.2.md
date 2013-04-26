@@ -80,25 +80,6 @@ For full compliance, all the baseline and optional end points must be implemente
 
 The implementation of V1.2 is work in progress
 
-The API may be optionally navigated using the links returned for each end point / object e.g.:
-
-    {
-        "links": [
-            {
-                "link": {
-                    "rel": "banks",
-                    "href": "/banks",
-                    "method": "GET",
-                    "title": "Returns a list of banks supported on this server"
-                }
-            }
-        ]
-    }
-
-See [this discussion about how links may work](https://github.com/OpenBankProject/OBP-API/wiki/How-links-should-work)
-
-
-
 <span id="root"></span>
 **GET /**
 
