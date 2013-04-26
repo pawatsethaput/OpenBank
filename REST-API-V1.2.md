@@ -216,6 +216,7 @@ JSON:
             {
                 "account": {
                     "id": "A unique identifier used for ACCOUNT_ID",
+                    "label" : "account label e.g. TESOBE main account",
                     "views_available": [
                         {
                             "view": {
@@ -250,6 +251,7 @@ JSON:
             {
                 "account": {
                     "id": "A unique identifier used for ACCOUNT_ID",
+                    "label" : "account label e.g. TESOBE main account",
                     "views_available": [
                         {
                             "view": {
@@ -285,6 +287,7 @@ JSON:
             {
                 "account": {
                     "id": "A unique identifier used for ACCOUNT_ID",
+                    "label" : "account label e.g. TESOBE main account",
                     "views_available": [
                         {
                             "view": {
@@ -324,6 +327,8 @@ JSON:
 
     {
         "account": {
+            "id": "A unique identifier used for ACCOUNT_ID",
+            "label" : "account label e.g. TESOBE main account",
             "number": "account number (moderated by the view)",
             "owners": [
                 {
@@ -372,17 +377,17 @@ JSON:
                         "display_name": "display name of user",
                         "id": "OBP UUID of the user making the comment",
                         "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter"
-                    },
-                  "views": [
-                      {
-                          "view": {
+                },
+                "views": [
+                    {
+                        "view": {
                             "description": "e.g. this is the public view of the TESOBE account",
                             "id": "A unique identifier used for VIEW_ID",
                             "is_public": false,
                             "short_name": "Public / Team / Auditors..."
-                          }
-                      }
-                  ]
+                        }
+                    }
+                ]
                 }
             }
         ]
