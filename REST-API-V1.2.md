@@ -125,13 +125,11 @@ JSON:
     {
         "banks": [
             {
-                "bank": {
-                    "id": "hsbc",
-                    "short_name": "HSBC",
-                    "full_name": "The Hongkong and Shanghai Banking Corporation Limited",
-                    "logo": "url of internet standard image",
-                    "website": "www.postbank.de"
-                }
+                "id": "hsbc",
+                "short_name": "HSBC",
+                "full_name": "The Hongkong and Shanghai Banking Corporation Limited",
+                "logo": "url of internet standard image",
+                "website": "www.postbank.de"
             }
         ]
     }
@@ -176,8 +174,8 @@ Information returned includes:
 JSON:
 
     {
-        "offices": [{
-            "office" :{
+        "offices": [
+            {
                 "address": "address",
                 "type": "HQ/branch/call center",
                 "BIC_SWIFT": "ISO_9362 BIC / SWIFT code",
@@ -194,7 +192,7 @@ JSON:
                     }
                 ]
             }
-        }]
+        ]
     }
 
 <span id="accounts"></span>
@@ -214,20 +212,18 @@ JSON:
     {
         "accounts": [
             {
-                "account": {
-                    "id": "A unique identifier used for ACCOUNT_ID",
-                    "label" : "account label e.g. TESOBE main account",
-                    "views_available": [
-                        {
-                            "view": {
-                                "id": "A unique identifier used for VIEW_ID",
-                                "short_name": "Public / Team / Auditors...",
-                                "description": "e.g. this is the public view of the TESOBE account",
-                                "is_public": "boolean. true if the public (user not logged in) can see this view."
-                            }
+                "id": "A unique identifier used for ACCOUNT_ID",
+                "label" : "account label e.g. TESOBE main account",
+                "views_available": [
+                    {
+                        "view": {
+                            "id": "A unique identifier used for VIEW_ID",
+                            "short_name": "Public / Team / Auditors...",
+                            "description": "e.g. this is the public view of the TESOBE account",
+                            "is_public": "boolean. true if the public (user not logged in) can see this view."
                         }
-                    ]
-                }
+                    }
+                ]
             }
         ]
     }
@@ -249,20 +245,18 @@ JSON:
     {
         "accounts": [
             {
-                "account": {
-                    "id": "A unique identifier used for ACCOUNT_ID",
-                    "label" : "account label e.g. TESOBE main account",
-                    "views_available": [
-                        {
-                            "view": {
-                                "id": "A unique identifier used for VIEW_ID",
-                                "short_name": "Public / Team / Auditors...",
-                                "description": "e.g. this is the public view of the TESOBE account",
-                                "is_public": "boolean. true if the public (user not logged in) can see this view."
-                            }
+                "id": "A unique identifier used for ACCOUNT_ID",
+                "label" : "account label e.g. TESOBE main account",
+                "views_available": [
+                    {
+                        "view": {
+                            "id": "A unique identifier used for VIEW_ID",
+                            "short_name": "Public / Team / Auditors...",
+                            "description": "e.g. this is the public view of the TESOBE account",
+                            "is_public": "boolean. true if the public (user not logged in) can see this view."
                         }
-                    ]
-                }
+                    }
+                ]
             }
         ]
     }
@@ -285,20 +279,18 @@ JSON:
     {
         "accounts": [
             {
-                "account": {
-                    "id": "A unique identifier used for ACCOUNT_ID",
-                    "label" : "account label e.g. TESOBE main account",
-                    "views_available": [
-                        {
-                            "view": {
-                                "id": "A unique identifier used for VIEW_ID",
-                                "short_name": "Public / Team / Auditors...",
-                                "description": "e.g. this is the public view of the TESOBE account",
-                                "is_public": "boolean. true if the public (user not logged in) can see this view."
-                            }
+                "id": "A unique identifier used for ACCOUNT_ID",
+                "label" : "account label e.g. TESOBE main account",
+                "views_available": [
+                    {
+                        "view": {
+                            "id": "A unique identifier used for VIEW_ID",
+                            "short_name": "Public / Team / Auditors...",
+                            "description": "e.g. this is the public view of the TESOBE account",
+                            "is_public": "boolean. true if the public (user not logged in) can see this view."
                         }
-                    ]
-                }
+                    }
+                ]
             }
         ]
     }
@@ -372,23 +364,19 @@ JSON:
     {
         "permissions": [
             {
-                "permission": {
-                    "user": {
+                "user": {
                         "display_name": "display name of user",
                         "id": "OBP UUID of the user making the comment",
                         "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter"
                 },
                 "views": [
                     {
-                        "view": {
-                            "description": "e.g. this is the public view of the TESOBE account",
-                            "id": "A unique identifier used for VIEW_ID",
-                            "is_public": false,
-                            "short_name": "Public / Team / Auditors..."
-                        }
+                        "description": "e.g. this is the public view of the TESOBE account",
+                        "id": "A unique identifier used for VIEW_ID",
+                        "is_public": false,
+                        "short_name": "Public / Team / Auditors..."
                     }
                 ]
-                }
             }
         ]
     }
@@ -406,12 +394,10 @@ JSON:
     {
         "views": [
             {
-                "view": {
-                    "id": "A unique identifier used for VIEW_ID",
-                    "short_name": "Team / Auditors...",
-                    "description": "e.g. this is the public view of the TESOBE account",
-                    "is_public": false
-                }
+                "id": "A unique identifier used for VIEW_ID",
+                "short_name": "Team / Auditors...",
+                "description": "e.g. this is the public view of the TESOBE account",
+                "is_public": false
             }
         ]
     }
@@ -452,47 +438,45 @@ JSON:
 
     {
         "other_accounts": [
-            {
-                "other_account": {
-                    "id" : "the other account's id",
-                    "holder": {
-                        "name": "DEUTSCHEPOSTAG, SSCACCS",
-                        "is_alias": "true/false"
+            "{
+                "id" : "the other account's id",
+                "holder": {
+                    "name": "DEUTSCHEPOSTAG, SSCACCS",
+                    "is_alias": "true/false"
+                },
+                "number": "",
+                "kind": "",
+                "IBAN": "",
+                "bank": {
+                    "national_identifier": "",
+                    "name": ""
+                },
+                "metadata": {
+                    "public_alias":"the public alias of the other account holder",
+                    "private_alias":"the private alias of the other account holder",
+                    "more_info": "short text explaining who the other party of the transaction is",
+                    "URL": "a URL related to the other party e.g. the website of the company",
+                    "image_URL": "an image URL related to the other party e.g. company logo",
+                    "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
+                    "corporate_location": {
+                            "latitude": 37.423021,
+                            "longitude": -122.083739,
+                            "date": "date of posting the geo tag",
+                            "user": {
+                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                "id": "provider id of the user making the tag",
+                                "display_name": "display name of user"
+                            }
                     },
-                    "number": "",
-                    "kind": "",
-                    "IBAN": "",
-                    "bank": {
-                        "national_identifier": "",
-                        "name": ""
-                    },
-                    "metadata": {
-                        "public_alias":"the public alias of the other account holder",
-                        "private_alias":"the private alias of the other account holder",
-                        "more_info": "short text explaining who the other party of the transaction is",
-                        "URL": "a URL related to the other party e.g. the website of the company",
-                        "image_URL": "an image URL related to the other party e.g. company logo",
-                        "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
-                        "corporate_location": {
-                                "latitude": 37.423021,
-                                "longitude": -122.083739,
-                                "date": "date of posting the geo tag",
-                                "user": {
-                                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                    "id": "provider id of the user making the tag",
-                                    "display_name": "display name of user"
-                                }
-                        },
-                        "physical_location": {
-                                "latitude": 37.423021,
-                                "longitude": -122.083739,
-                                "date": "date of posting the geo tag",
-                                "user": {
-                                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                    "id": "provider id of the user making the tag",
-                                    "display_name": "display name of user"
-                                }
-                        }
+                    "physical_location": {
+                            "latitude": 37.423021,
+                            "longitude": -122.083739,
+                            "date": "date of posting the geo tag",
+                            "user": {
+                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                "id": "provider id of the user making the tag",
+                                "display_name": "display name of user"
+                            }
                     }
                 }
             }
@@ -1054,128 +1038,120 @@ JSON:
     {
         "transactions": [
             {
-                "transaction": {
-                    "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
-                    "id": "The bank's id for the transaction",
-                    "this_account": {
-                        "holders": [
-                            {
-                                "name": "MUSIC PICTURES LIMITED",
-                                "is_alias": "true/false"
-                            }
-                        ],
-                        "number": "",
-                        "kind": "",
-                        "IBAN": "",
-                        "bank": {
-                            "national_identifier": "",
-                            "name": ""
-                        }
-                    },
-                    "other_account": {
-                        "holder": {
-                            "name": "DEUTSCHE POST AG, SSC ACC S",
+                "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
+                "id": "The bank's id for the transaction",
+                "this_account": {
+                    "holders": [
+                        {
+                            "name": "MUSIC PICTURES LIMITED",
                             "is_alias": "true/false"
-                        },
-                        "number": "",
-                        "kind": "",
-                        "IBAN": "",
-                        "bank": {
-                            "national_identifier": "",
-                            "name": ""
-                        },
-                        "metadata": {
-                            "public_alias":"the public alias of the other account holder",
-                            "private_alias":"the private alias of the other account holder",
-                            "more_info": "short text explaining who the other party of the transaction is",
-                            "URL": "a URL related to the other party e.g. the website of the company",
-                            "image_URL": "an image URL related to the other party e.g. company logo",
-                            "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
-                            "corporate_location": {
-                                    "latitude": 37.423021,
-                                    "longitude": -122.083739,
-                                    "date": "date of posting the geo tag",
-                                    "user": {
-                                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                        "id": "provider id of the user making the tag",
-                                        "display_name": "display name of user"
-                                    }
-                            },
-                            "physical_location": {
-                                    "latitude": 37.423021,
-                                    "longitude": -122.083739,
-                                    "date": "date of posting the geo tag",
-                                    "user": {
-                                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                        "id": "provider id of the user making the tag",
-                                        "display_name": "display name of user"
-                                    }
-                            }
                         }
+                    ],
+                    "number": "",
+                    "kind": "",
+                    "IBAN": "",
+                    "bank": {
+                        "national_identifier": "",
+                        "name": ""
+                    }
+                },
+                "other_account": {
+                    "holder": {
+                        "name": "DEUTSCHE POST AG, SSC ACC S",
+                        "is_alias": "true/false"
                     },
-                    "details": {
-                        "type": "cash",
-                        "label": "transaction label",
-                        "posted": "2012-03-07T00:00:00.001Z",
-                        "completed": "2012-03-07T00:00:00.001Z",
-                        "new_balance": {
-                            "currency": "EUR",
-                            "amount": "+ (depending on the view, this might show the balance or only +/-)"
-                        },
-                        "value": {
-                            "currency": "EUR",
-                            "amount": "-1.45"
-                        }
+                    "number": "",
+                    "kind": "",
+                    "IBAN": "",
+                    "bank": {
+                        "national_identifier": "",
+                        "name": ""
                     },
                     "metadata": {
-                        "narrative": "text explaining the purpose of the transaction",
-                        "comments": [
-                            {
-                                "comment": {
-                                    "id": "id of the comment",
-                                    "date": "date of posting the comment",
-                                    "value": "the comment",
-                                    "user": {
-                                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                        "id": "OBP UUID of the user making the comment",
-                                        "display_name": "display name of user"
-                                    },
-                                    "reply_to": "if this is a reply, the id of the original comment"
+                        "public_alias":"the public alias of the other account holder",
+                        "private_alias":"the private alias of the other account holder",
+                        "more_info": "short text explaining who the other party of the transaction is",
+                        "URL": "a URL related to the other party e.g. the website of the company",
+                        "image_URL": "an image URL related to the other party e.g. company logo",
+                        "open_corporates_URL": "the company corporate URL in the http://opencorporates.com/ web service",
+                        "corporate_location": {
+                                "latitude": 37.423021,
+                                "longitude": -122.083739,
+                                "date": "date of posting the geo tag",
+                                "user": {
+                                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                    "id": "provider id of the user making the tag",
+                                    "display_name": "display name of user"
                                 }
-                            }
-                        ],
-                        "tags": [
-                            {
-                                "tag": {
-                                    "id": "id of the tag",
-                                    "value": "thetag",
-                                    "date": "date of posting the tag",
-                                    "user": {
-                                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                        "id": "OBP UUID of the user making the comment",
-                                        "display_name": "display name of user"
-                                    }
+                        },
+                        "physical_location": {
+                                "latitude": 37.423021,
+                                "longitude": -122.083739,
+                                "date": "date of posting the geo tag",
+                                "user": {
+                                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                    "id": "provider id of the user making the tag",
+                                    "display_name": "display name of user"
                                 }
-                            }
-                        ],
-                        "images": [
-                            {
-                                "image": {
-                                    "id": "1239qsxezad0123",
-                                    "label": "cool image",
-                                    "URL": "http://www.mysuperimage.com"
-                                }
-                            }
-                        ],
-                        "where": {
-                            "latitude": 37.423021,
-                            "longitude": -122.083739,
+                        }
+                    }
+                },
+                "details": {
+                    "type": "cash",
+                    "label": "transaction label",
+                    "posted": "2012-03-07T00:00:00.001Z",
+                    "completed": "2012-03-07T00:00:00.001Z",
+                    "new_balance": {
+                        "currency": "EUR",
+                        "amount": "+ (depending on the view, this might show the balance or only +/-)"
+                    },
+                    "value": {
+                        "currency": "EUR",
+                        "amount": "-1.45"
+                    }
+                },
+                "metadata": {
+                    "narrative": "text explaining the purpose of the transaction",
+                    "comments": [
+                        {
+                            "id": "id of the comment",
+                            "date": "date of posting the comment",
+                            "value": "the comment",
+                            "user": {
+                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                                "id": "OBP UUID of the user making the comment",
+                                "display_name": "display name of user"
+                            },
+                            "reply_to": "if this is a reply, the id of the original comment"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "id": "id of the tag",
+                            "value": "thetag",
                             "date": "date of posting the tag",
                             "user": {
                                 "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                "id": "provider id of the user making the tag",
+                                "id": "OBP UUID of the user making the comment",
                                 "display_name": "display name of user"
                             }
+                        }
+                    ],
+                    "images": [
+                        {
+                            "id": "1239qsxezad0123",
+                            "label": "cool image",
+                            "URL": "http://www.mysuperimage.com"
+                        }
+                    ],
+                    "where": {
+                        "latitude": 37.423021,
+                        "longitude": -122.083739,
+                        "date": "date of posting the tag",
+                        "user": {
+                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                            "id": "provider id of the user making the tag",
+                            "display_name": "display name of user"
                         }
                     }
                 }
@@ -1198,7 +1174,8 @@ JSON:
 
 
     {
-        "transaction": {
+        "transaction":
+        {
             "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
             "id": "The bank's id for the transaction",
             "this_account": {
@@ -1275,52 +1252,46 @@ JSON:
                 "narrative": "text explaining the purpose of the transaction",
                 "comments": [
                     {
-                        "comment": {
-                            "id": "id of the comment",
-                            "date": "date of posting the comment",
-                            "value": "the comment",
-                            "user": {
-                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                "id": "OBP UUID of the user making the comment",
-                                "display_name": "display name of user"
-                            },
-                            "reply_to": "if this is a reply, the id of the original comment"
-                        }
+                        "id": "id of the comment",
+                        "date": "date of posting the comment",
+                        "value": "the comment",
+                        "user": {
+                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                            "id": "OBP UUID of the user making the comment",
+                            "display_name": "display name of user"
+                        },
+                        "reply_to": "if this is a reply, the id of the original comment"
                     }
                 ],
                 "tags": [
                     {
-                        "tag": {
-                            "id": "id of the tag",
-                            "value": "thetag",
-                            "date": "date of posting the tag",
-                            "user": {
-                                "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                "id": "OBP UUID of the user making the comment",
-                                "display_name": "display name of user"
-                            }
+                        "id": "id of the tag",
+                        "value": "thetag",
+                        "date": "date of posting the tag",
+                        "user": {
+                            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                            "id": "OBP UUID of the user making the comment",
+                            "display_name": "display name of user"
                         }
                     }
                 ],
                 "images": [
                     {
-                        "image": {
-                            "id": "1239qsxezad0123",
-                            "label": "cool image",
-                            "URL": "http://www.mysuperimage.com"
-                        }
+                        "id": "1239qsxezad0123",
+                        "label": "cool image",
+                        "URL": "http://www.mysuperimage.com"
                     }
                 ],
                 "where": {
-                  "latitude": 37.423021,
-                  "longitude": -122.083739,
-                  "date": "date of posting the tag",
-                  "user": {
-                      "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                      "id": "provider id of the user making the tag",
-                      "display_name": "display name of user"
-                  }
-              }
+                    "latitude": 37.423021,
+                    "longitude": -122.083739,
+                    "date": "date of posting the tag",
+                    "user": {
+                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                        "id": "provider id of the user making the tag",
+                        "display_name": "display name of user"
+                    }
+                }
             }
         }
     }
@@ -1399,17 +1370,15 @@ JSON:
     {
         "comments": [
             {
-                "comment": {
-                    "id": "id of the comment",
-                    "date": "date of posting the comment",
-                    "value": "the comment",
-                    "user": {
-                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                        "id": "OBP UUID of the user making the comment",
-                        "display_name": "display name of user"
-                    },
-                    "reply_to": "if this is a reply, the id of the original comment"
-                }
+                "id": "id of the comment",
+                "date": "date of posting the comment",
+                "value": "the comment",
+                "user": {
+                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                    "id": "OBP UUID of the user making the comment",
+                    "display_name": "display name of user"
+                },
+                "reply_to": "if this is a reply, the id of the original comment"
             }
         ]
     }
@@ -1456,15 +1425,13 @@ JSON:
     {
         "tags": [
             {
-                "tag": {
-                    "id": "id of the tag",
-                    "value": "thetag",
-                    "date": "date of posting the tag",
-                    "user": {
-                        "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                        "id": "OBP UUID of the user making the comment",
-                        "display_name": "display name of user"
-                    }
+                "id": "id of the tag",
+                "value": "thetag",
+                "date": "date of posting the tag",
+                "user": {
+                    "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+                    "id": "OBP UUID of the user making the comment",
+                    "display_name": "display name of user"
                 }
             }
         ]
@@ -1512,11 +1479,9 @@ JSON:
     {
         "images": [
             {
-                "image": {
-                    "id": "1239qsxezad0123",
-                    "label": "cool image",
-                    "URL":"http://www.mysuperimage.com"
-                }
+                "id": "1239qsxezad0123",
+                "label": "cool image",
+                "URL":"http://www.mysuperimage.com"
             }
         ]
     }
