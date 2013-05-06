@@ -1378,6 +1378,24 @@ JSON:
         "value" : "the comment"
     }
 
+Response:
+
+Header: 201
+
+Body:
+
+    {
+        "id": "id of the comment",
+        "date": "date of posting the comment",
+        "value": "the comment",
+        "user": {
+            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+            "id": "OBP UUID of the user making the comment",
+            "display_name": "display name of user"
+        },
+        "reply_to": "if this is a reply, the id of the original comment"
+    }
+
 **DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments/COMMENT_ID**
 
 *Optional*
@@ -1429,6 +1447,23 @@ JSON:
         "value": "a_tag"
     }
 
+Response:
+
+Header: 201
+
+Body:
+
+    {
+        "id": "id of the tag",
+        "value": "thetag",
+        "date": "date of posting the tag",
+        "user": {
+            "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
+            "id": "OBP UUID of the user making the comment",
+            "display_name": "display name of user"
+        }
+    }
+
 **Note**: the value on the tag MUST NOT contain a white space.
 
 **DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/tags/TAG_ID**
@@ -1474,6 +1509,18 @@ Post an image on a transaction in a [view](#views).
 JSON:
 
     "image": {
+        "label": "cool image",
+        "URL":"http://www.mysuperimage.com"
+    }
+
+Response:
+
+Header: 201
+
+Body:
+
+    {
+        "id": "1239qsxezad0123",
         "label": "cool image",
         "URL":"http://www.mysuperimage.com"
     }
