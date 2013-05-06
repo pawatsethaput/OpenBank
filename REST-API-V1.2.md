@@ -1105,8 +1105,7 @@ JSON:
                                 "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
                                 "id": "OBP UUID of the user making the comment",
                                 "display_name": "display name of user"
-                            },
-                            "reply_to": "if this is a reply, the id of the original comment"
+                            }
                         }
                     ],
                     "tags": [
@@ -1239,8 +1238,7 @@ JSON:
                         "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
                         "id": "OBP UUID of the user making the comment",
                         "display_name": "display name of user"
-                    },
-                    "reply_to": "if this is a reply, the id of the original comment"
+                    }
                 }
             ],
             "tags": [
@@ -1356,8 +1354,7 @@ JSON:
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
                     "id": "OBP UUID of the user making the comment",
                     "display_name": "display name of user"
-                },
-                "reply_to": "if this is a reply, the id of the original comment"
+                }
             }
         ]
     }
@@ -1392,8 +1389,7 @@ Body:
             "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
             "id": "OBP UUID of the user making the comment",
             "display_name": "display name of user"
-        },
-        "reply_to": "if this is a reply, the id of the original comment"
+        }
     }
 
 **DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments/COMMENT_ID**
