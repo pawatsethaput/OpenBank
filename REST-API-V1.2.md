@@ -1375,8 +1375,7 @@ OAuth authentication is required since the comment are linked with the user.
 JSON:
 
     {
-        "value" : "the comment",
-        "posted_date" : "2012-03-07T00:00:00.001Z"
+        "value" : "the comment"
     }
 
 **DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments/COMMENT_ID**
@@ -1427,8 +1426,7 @@ Post a tag on a transaction in a [view](#views).
 JSON:
 
     {
-        "value": "a_tag",
-        "posted_date": "2012-03-07T00:00:00.001Z"
+        "value": "a_tag"
     }
 
 **Note**: the value on the tag MUST NOT contain a white space.
