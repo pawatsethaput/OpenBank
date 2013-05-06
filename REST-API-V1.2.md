@@ -217,7 +217,8 @@ JSON:
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
                     }
-                ]
+                ],
+                "bank_id":"the id of the bank where the account is hosted"
             }
         ]
     }
@@ -248,7 +249,8 @@ JSON:
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
                     }
-                ]
+                ],
+                "bank_id":"the id of the bank where the account is hosted"
             }
         ]
     }
@@ -280,7 +282,8 @@ JSON:
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
                     }
-                ]
+                ],
+                "bank_id":"the id of the bank where the account is hosted"
             }
         ]
     }
@@ -331,7 +334,8 @@ JSON:
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": "boolean. true if the public can see this view."
             }
-        ]
+        ],
+        "bank_id":"the id of the bank where the account is hosted"
     }
 
 #Access Control
