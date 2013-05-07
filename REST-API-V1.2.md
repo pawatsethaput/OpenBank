@@ -345,7 +345,7 @@ JSON:
 
 *Optional*
 
-OAuth authentication is required.
+OAuth authentication is required and the user needs to have access to the owner view.
 
 Returns a list of users and the non-public views they are permitted access to at BANK_ID for account ACCOUNT_ID.
 
@@ -375,7 +375,7 @@ JSON:
 
 *Optional*
 
-OAuth authentication is required.
+OAuth authentication is required and the user needs to have access to the owner view.
 
 Returns the list of non-public views that user USER_ID is permitted access to at BANK_ID for account ACCOUNT_ID.
 
@@ -396,7 +396,7 @@ JSON:
 
 *Optional*
 
-OAuth authentication is required.
+OAuth authentication is required and the user needs to have access to the owner view.
 
 Grants the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
 
@@ -407,7 +407,7 @@ Granting access to a public view will return an error message, as the user alrea
 
 *Optional*
 
-OAuth authentication is required.
+OAuth authentication is required and the user needs to have access to the owner view.
 
 Revokes the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
 
