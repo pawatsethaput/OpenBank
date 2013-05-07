@@ -1494,6 +1494,7 @@ JSON:
                 "id": "1239qsxezad0123",
                 "label": "cool image",
                 "URL":"http://www.mysuperimage.com",
+                "date": "date of posting the image",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
                     "id": "OBP UUID of the user who have posted the image",
@@ -1528,6 +1529,7 @@ Body:
         "id": "1239qsxezad0123",
         "label": "cool image",
         "URL":"http://www.mysuperimage.com",
+        "date": "date of posting the image",
         "user": {
             "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
             "id": "OBP UUID of the user posting the image",
