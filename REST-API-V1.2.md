@@ -316,8 +316,8 @@ JSON:
         "number": "account number (moderated by the view)",
         "owners": [
             {
-                "user_id": "123213",
-                "user_provider": "bank name",
+                "id": "123213",
+                "provider": "bank name",
                 "display_name": "Name of person/Company/..."
             }
         ],
