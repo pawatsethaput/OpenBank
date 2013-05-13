@@ -75,6 +75,9 @@ For full compliance, all the baseline and optional end points must be implemente
         "info2" : null
     }
 
+ * DELETE requests will return code 204 if successful with an empty body.
+
+
 <span id="implementation-hints"></span>
 ### Implementation hints and notes.
 
