@@ -371,7 +371,7 @@ JSON:
         ]
     }
 
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/account/users/USER_ID**
+**GET /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID**
 
 *Optional*
 
@@ -392,7 +392,7 @@ JSON:
         ]
     }
 
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/account/users/USER_ID/views/VIEW_ID**
+**POST /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID**
 
 *Optional*
 
@@ -403,7 +403,7 @@ Grants the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUN
 Granting access to a public view will return an error message, as the user already has access.
 
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/account/users/USER_ID/views/VIEW_ID**
+**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID**
 
 *Optional*
 
