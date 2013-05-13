@@ -55,7 +55,7 @@ For full compliance, all the baseline and optional end points must be implemente
 
  * Parameters within the URL are written in CAPITAL_LETTERS.
 
- * Some calls require OAuth headers ([See here for more details](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)) to access to protected resources.
+ * In some calls you will see the mention "OAuth authentication is required", that means that to access to the protected resource, the OAuth header is required with all the parameters like oauth_token, oauth_nonce, etc. ([See here for more details](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)).
 
  * If information is not available (whether missing or blocked by access control), its value will be null. This applies to normal values (Strings, Numbers, etc.) and to Arrays/Objects.
 
