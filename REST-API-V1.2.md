@@ -362,7 +362,7 @@ JSON:
                 "views": [
                     {
                         "description": "e.g. this is the public view of the TESOBE account",
-                        "id": "A unique identifier used for VIEW_ID",
+                        "id": "A unique identifier used for the view",
                         "is_public": false,
                         "short_name": "Public / Team / Auditors..."
                     }
@@ -384,7 +384,7 @@ JSON:
     {
         "views": [
             {
-                "id": "A unique identifier used for VIEW_ID",
+                "id": "A unique identifier used for the view",
                 "short_name": "Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": false
@@ -401,6 +401,21 @@ OAuth authentication is required and the user needs to have access to the owner 
 Grants the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
 
 Granting access to a public view will return an error message, as the user already has access.
+
+Response:
+
+Header: 201
+
+Body:
+
+    {
+        {
+            "id": "A unique identifier used for the view",
+            "short_name": "Team / Auditors...",
+            "description": "e.g. this is the public view of the TESOBE account",
+            "is_public": false
+        }
+    }
 
 
 **DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID**
