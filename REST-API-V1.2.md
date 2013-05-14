@@ -75,8 +75,6 @@ For full compliance, all the baseline and optional end points must be implemente
         "info2" : null
     }
 
- * DELETE requests will return code 204 if successful with an empty body.
-
 
 <span id="implementation-hints"></span>
 ### Implementation hints and notes.
@@ -729,6 +727,12 @@ Deletes the private alias for other account OTHER_ACCOUNT_ID for ACCOUNT_ID.
 
 The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to delete public aliases.
 
+Response:
+
+Header: 204
+
+Body: No content
+
 <span id="more_info"></span>
 ### More info
 
@@ -775,6 +779,11 @@ Delete data in the "more_info" field of other account meta data (the other party
 
 The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit more info.
 
+Response:
+
+Header: 204
+
+Body: No content
 <span id="URL"></span>
 ### URL
 
@@ -820,6 +829,12 @@ Delete data in the "URL" field of other account meta data (the other party invol
 
 The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the url.
 
+Response:
+
+Header: 204
+
+Body: No content
+
 <span id="image_url"></span>
 ### Image URL
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/image_url**
@@ -863,6 +878,12 @@ Authentication via OAuth is required.
 Delete data in the "image_url" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
 The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the image url.
+
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="opencorporates-URL"></span>
 ### Open corporates URL
@@ -908,6 +929,12 @@ Authentication via OAuth is required.
 Delete data in the "opencorporate-URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
 The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the open corporates url.
+
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="corporate_location"></span>
 ### Corporate location
@@ -962,6 +989,12 @@ Authentication via OAuth is required.
 Delete data in the "corporate_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
 The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the corporate location.
+
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="physical_location"></span>
 ### Physical location
@@ -1018,6 +1051,12 @@ Authentication via OAuth is required.
 Delete data in the "physical_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
 
 The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the physical location.
+
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="transactions"></span>
 #Transactions
@@ -1352,6 +1391,11 @@ Authentication via OAuth is required.
 
 Deletes the account owner description of the transaction for a [view](#views).
 
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="comments"></span>
 ### Comments
@@ -1422,6 +1466,12 @@ Authentication via OAuth is required. The user must either have owner privileges
 
 Delete a comment about a transaction on a specific [view](#views).
 
+Response:
+
+Header: 204
+
+Body: No content
+
 <span id="tags"></span>
 ### Tags
 
@@ -1491,6 +1541,12 @@ Body:
 Authentication via OAuth is required. The user must either have owner privileges for this account, or must be the user that posted the tag.
 
 Delete a tag on a transaction in a [view](#views).
+
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="images"></span>
 ### Images
@@ -1563,6 +1619,11 @@ Authentication via OAuth is required. The user must either have owner privileges
 
 Delete an image on a transaction in a [view](#views).
 
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="where"></span>
 ### Where
@@ -1633,6 +1694,12 @@ JSON:
 Authentication via OAuth is required. The user must either have owner privileges for this account, or must be the user that posted the 'where'.
 
 Delete the where on a transaction in a [view](#views).
+
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="transaction_other_account"></span>
 #Other account
