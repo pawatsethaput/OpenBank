@@ -1086,6 +1086,7 @@ JSON:
                 "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
                 "id": "The bank's id for the transaction",
                 "this_account": {
+                    "id":"ACCOUNT_ID",
                     "holders": [
                         {
                             "name": "MUSIC PICTURES LIMITED",
@@ -1101,6 +1102,7 @@ JSON:
                     }
                 },
                 "other_account": {
+                    "id":"123213",
                     "holder": {
                         "name": "DEUTSCHE POST AG, SSC ACC S",
                         "is_alias": "true/false"
@@ -1219,6 +1221,7 @@ JSON:
     {
         "id": "The bank's id for the transaction",
         "this_account": {
+            "id":"ACCOUNT_ID",
             "holders": [
                 {
                     "name": "MUSIC PICTURES LIMITED",
@@ -1234,6 +1237,7 @@ JSON:
             }
         },
         "other_account": {
+            "id":"123213",
             "holder": {
                 "name": "DEUTSCHE POST AG, SSC ACC S",
                 "is_alias": "true/false"
