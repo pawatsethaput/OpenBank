@@ -643,6 +643,16 @@ JSON:
         "alias" : "An alias to display instead of the real name"
     }
 
+Response:
+
+Header: 201
+
+Body:
+
+    {
+        "success" : "public alias added"
+    }
+
 **PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
 
 *Optional*
@@ -715,6 +725,16 @@ JSON:
 
     {
         "alias" : "An alias to display instead of the real name"
+    }
+
+Response:
+
+Header: 201
+
+Body:
+
+    {
+        "success" : "private alias added"
     }
 
 **DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
