@@ -1363,7 +1363,7 @@ JSON:
 <span id="narrative"></span>
 ### Narrative
 
-**GET /banks/BANK_ID/accounts/ACCOUNT_ALIAS/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
+**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
 
 *Optional*
 
@@ -1378,7 +1378,7 @@ JSON:
         "narrative" : "text explaining the purpose of the transaction"
     }
 
-**POST /banks/BANK_ID/accounts/ACCOUNT_ALIAS/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
+**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
 
 *Optional*
 
@@ -1392,7 +1392,7 @@ JSON:
         "narrative" : "text explaining the purpose of the transaction"
     }
 
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ALIAS/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
+**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
 
 *Optional*
 
@@ -1407,7 +1407,7 @@ JSON:
         "narrative" : "text explaining the purpose of the transaction"
     }
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ALIAS/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
+**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
 
 *Optional*
 
