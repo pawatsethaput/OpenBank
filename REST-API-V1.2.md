@@ -6,6 +6,7 @@
 
 * [About](#about)
 * [Implementation hints](#implementation-hints)
+* [Root](#root)
 * Banks
     * [All](#banks)
     * [One](#bank)
@@ -82,8 +83,7 @@ For full compliance, all the baseline and optional end points must be implemente
 The implementation of V1.2 is work in progress
 
 <span id="root"></span>
-**GET /**
-
+#Root
 *Baseline*
 
 Returns information about :
@@ -91,8 +91,13 @@ Returns information about :
 * API version
 * Hosted by information
 
+**Request:**  
+Verb: GET  
+URL: /
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "version": "1.2",
@@ -428,6 +433,12 @@ OAuth authentication is required and the user needs to have access to the owner 
 Revokes the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
 
 Revoking a user access to a public view will return an error message.
+
+Response:
+
+Header: 204
+
+Body: No content
 
 <span id="account-other-accounts"></span>
 #Other Accounts
