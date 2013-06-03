@@ -10,24 +10,29 @@
 * Banks
     * [All](#banks)
     * [One](#bank)
-    * [Offices](#offices)
 * Accounts
     * [All](#accounts)
     * [Public](#accounts-public)
     * [Private](#accounts-private)
     * [One](#account)
-    * [Access Control](#account-access-control)
+    * Permissions
+        * [All](#permissions)
+        * [One](#permission)
+        * [Grant](#grant-permission)
+        * [Revoke](#revoke-permission)
     * Other Accounts
         * [All](#account-other-accounts)
         * [One](#account-other-account)
-          * [Meta data](#other_account-metadata)
-              * [Alias](#alias)
-              * [More info](#more_info)
-              * [URL](#URL)
-              * [Image URL](#image_url)
-              * [Open Corporates URL](#opencorporates-URL)
-              * [Corporate Location](#corporate_location)
-              * [Physical Location](#physical_location)
+            * [Meta data](#other_account-metadata)
+                * [Holder](#holder)
+                * [Public Alias](#public-alias)
+                * [Private Alias](#private-alias)
+                * [More info](#more_info)
+                * [URL](#URL)
+                * [Image URL](#image_url)
+                * [Open Corporates URL](#opencorporates-URL)
+                * [Corporate Location](#corporate_location)
+                * [Physical Location](#physical_location)
 * Transactions
     * [All](#transactions)
     * [One](#transaction)
@@ -111,9 +116,6 @@ Body:
 
 <span id="banks"></span>
 #Banks
-
-**GET /banks**
-
 *Baseline*
 
 Returns a list of banks supported on this server:
@@ -123,8 +125,13 @@ Returns a list of banks supported on this server:
 * Logo URL
 * Website
 
+**Request:**  
+Verb: GET  
+URL: /banks
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "banks": [
@@ -140,9 +147,6 @@ JSON:
 
 <span id="bank"></span>
 #Bank
-
-**GET /banks/BANK_ID**
-
 *Optional*
 
 Returns information about a single bank specified by BANK_ID including:
@@ -151,8 +155,13 @@ Returns information about a single bank specified by BANK_ID including:
 * Logo URL
 * Website
 
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "short_name": "Postbank",
@@ -161,55 +170,22 @@ JSON:
         "website": "www.postbank.de"
     }
 
-<span id="offices"></span>
-#Offices
-
-**GET /banks/BANK_ID/offices**
-
-*Optional*
-
-Information returned includes:
-
-* The list of offices for the BANK_ID.
-
-
-JSON:
-
-    {
-        "offices": [
-            {
-                "address": "address",
-                "type": "HQ/branch/call center",
-                "BIC_SWIFT": "ISO_9362 BIC / SWIFT code",
-                "fax": [
-                    {
-                        "department": "customer service",
-                        "number": "004401293801"
-                    }
-                ],
-                "phone": [
-                    {
-                        "department": "customer service",
-                        "number": "004912312302"
-                    }
-                ]
-            }
-        ]
-    }
-
 <span id="accounts"></span>
 #Accounts
-
-**GET /banks/BANK_ID/accounts**
-
 *Baseline*
 
-Returns the list of accounts at BANK_ID that the user has access to.
-For each account the API returns the ID and the available views.
+Returns the list of accounts at BANK_ID that the user has access to.  
+For each account the API returns the account ID and the available views.
 
 If the user is not authenticated via OAuth, the list will contains only the accounts providing public views.
 
-JSON:
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts
+
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "accounts": [
@@ -231,17 +207,19 @@ JSON:
 
 <span id="accounts-public"></span>
 #Public Accounts
-
-
-**GET /banks/BANK_ID/accounts/public**
-
 *Optional*
 
-Returns a list of the public accounts list at BANK_ID. For each account the API returns the ID and the available views.
+Returns a list of the public accounts at BANK_ID. For each account the API returns the ID and the available views.
 
 Authentication via OAuth is not required.
 
-JSON:
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/public
+
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "accounts": [
@@ -263,18 +241,20 @@ JSON:
 
 <span id="accounts-private"></span>
 #Private Accounts
-
-
-**GET /banks/BANK_ID/accounts/private**
-
 *Optional*
 
-Returns the list of accounts at BANK_ID that the user has private (non-public) access to.
+Returns the list of accounts private (non-public) at BANK_ID that the user has access to.  
 For each account the API returns the ID and the available views.
 
 Authentication via OAuth is required.
 
-JSON:
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/private
+
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "accounts": [
@@ -296,9 +276,6 @@ JSON:
 
 <span id="account"></span>
 #Account
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/account**
-
 *Baseline*
 
 Information returned about an account specified by ACCOUNT_ID as moderated by the view (VIEW_ID) :
@@ -314,7 +291,13 @@ More details about the data moderation by the view [here](#views).
 
 OAuth authentication is required if the "is_public" field in view (VIEW_ID) is not set to "true".
 
-JSON:
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/account
+
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "id": "A unique identifier used for ACCOUNT_ID",
@@ -344,18 +327,23 @@ JSON:
         "bank_id":"the id of the bank where the account is hosted"
     }
 
-#Access Control
-<span id="account-access-control"></span>
 
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/account/users**
+<span id="permissions"></span>
+#Permissions
 
 *Optional*
 
+Returns the list of the permissions at BANK_ID for account ACCOUNT_ID, with each time a pair composed of the user and the views that he has access to.
+
 OAuth authentication is required and the user needs to have access to the owner view.
 
-Returns a list of users and the non-public views they are permitted access to at BANK_ID for account ACCOUNT_ID.
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/account/users
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "permissions": [
@@ -377,15 +365,21 @@ JSON:
         ]
     }
 
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID**
-
+<span id="permission"></span>
+#Permission
 *Optional*
+
+Returns the list of the views at BANK_ID for account ACCOUNT_ID that a USER_ID has access to.
 
 OAuth authentication is required and the user needs to have access to the owner view.
 
-Returns the list of non-public views that user USER_ID is permitted access to at BANK_ID for account ACCOUNT_ID.
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "views": [
@@ -398,20 +392,22 @@ JSON:
         ]
     }
 
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID**
-
+<span id="grant-permission"></span>
+#Grant Permission
 *Optional*
-
-OAuth authentication is required and the user needs to have access to the owner view.
 
 Grants the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
 
+OAuth authentication is required and the user needs to have access to the owner view.
+
 Granting access to a public view will return an error message, as the user already has access.
 
-Response:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID
 
-Header: 201
-
+**Response:**  
+HTTP code: 201  
 Body:
 
     {
@@ -424,34 +420,39 @@ Body:
     }
 
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID**
-
+<span id="revoke-permission"></span>
+#Revoke Permission
 *Optional*
-
-OAuth authentication is required and the user needs to have access to the owner view.
 
 Revokes the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
 
 Revoking a user access to a public view will return an error message.
 
-Response:
+OAuth authentication is required and the user needs to have access to the owner view.
 
-Header: 204
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID
 
+**Response:**  
+HTTP code: 204  
 Body: No content
 
 <span id="account-other-accounts"></span>
 #Other Accounts
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts**
-
 *Optional*
 
-OAuth authentication is required if the view is not public.
+Returns data about all the other bank accounts that have shared at least one transaction with the ACCOUNT_ID at BANK_ID.
 
-Returns data about all the other bank accounts that have been involved with the ACCOUNT_ID.
+OAuth authentication is required if the view VIEW_ID is not public.
 
-JSON:
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts
+
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "other_accounts": [
@@ -502,16 +503,19 @@ JSON:
 
 <span id="account-other-account"></span>
 #Other Account
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID**
-
 *Optional*
+
+Returns data about one other bank account (OTHER_ACCOUNT_ID) that had shared at least one transaction with ACCOUNT_ID at BANK_ID.
 
 OAuth authentication is required if the view is not public.
 
-Returns data about one other bank accounts (OTHER_ACCOUNT_ID) that have been involved with the ACCOUNT_ID.
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
       "id" : "the other account's id",
@@ -558,17 +562,20 @@ JSON:
 
 
 <span id="other_account-metadata"></span>
-#Other account metadata
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata**
-
+###Other account metadata
 *Optional*
+
+Returns only the metadata about one other bank account (OTHER_ACCOUNT_ID) that had shared at least one transaction with ACCOUNT_ID at BANK_ID.
 
 Authentication via OAuth is required if the view is not public.
 
-Returns account meta data of the other party involved in the transaction ([here](#transaction)) moderated by the [view](#views) (VIEW_ID).
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "public_alias":"the public alias of the other account holder",
@@ -599,97 +606,124 @@ JSON:
         }
     }
 
-<span id="alias"></span>
-### Alias
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/holder**
-
+<span id="holder"></span>
+### Holder
 *Optional*
+
+Returns the holder name of the other bank account OTHER_ACCOUNT_ID.
 
 OAuth authentication is required if the view is not public.
 
-Gets the holder for other account OTHER_ACCOUNT_ID for view VIEW_ID on account ACCOUNT_ID.
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/holder
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "holder": {
             "name": "Joe Bloggs",
-            "is_alias": "true/false"
+            "is_alias": true
         }
     }
 
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
-
+<span id="public-alias"></span>
+### Public Alias
+####Get the Public Alias
 *Optional*
+
+Returns the public alias of the other account OTHER_ACCOUNT_ID.
 
 OAuth authentication is required if the view is not public.
 
-Get the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias
 
-The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to view public aliases.
-
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "alias" : "An alias to display instead of the real name"
     }
 
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
-
+####Create a Public Alias
 *Optional*
 
-OAuth authentication is required if the view is not public.
+Creates the public alias for the other account OTHER_ACCOUNT_ID.
 
-Creates the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+OAuth authentication is required if the view is not public.
 
 Note: Public aliases are automatically generated for new "other accounts", so this call should only be used if
 the public alias was deleted.
 
 The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to create public aliases.
 
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias  
+Body:
 
     {
         "alias" : "An alias to display instead of the real name"
     }
 
-Response:
-
-Header: 201
-
+**Response:**  
+HTTP code: 201  
 Body:
 
     {
         "success" : "public alias added"
     }
 
+####Update the Public Alias
+
 **PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
 
 *Optional*
 
+Updates the public alias of the other account OTHER_ACCOUNT_ID.
+
 OAuth authentication is required if the view is not public.
 
-Updates the public alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
-
-The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to edit public aliases.
-
-JSON:
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias  
+Body:
 
     {
         "alias" : "An alias to display instead of the real name"
     }
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias**
+**Response:**  
+HTTP code: 200
+Body:
 
+    {
+        "success" : "public alias updated"
+    }
+
+####Delete the Public Alias
 *Optional*
+
+Deletes the public alias of the other account OTHER_ACCOUNT_ID.
 
 OAuth authentication is required if the view is not public.
 
-Deletes the public alias for other account OTHER_ACCOUNT_ID for ACCOUNT_ID.
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/public_alias  
 
-The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to delete public aliases.
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
+<span id="private-alias"></span>
+### Private Alias
+####Get the Private Alias
 **GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
 
 *Optional*
