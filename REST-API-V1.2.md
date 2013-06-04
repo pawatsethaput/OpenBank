@@ -91,7 +91,7 @@ The implementation of V1.2 is work in progress
 #Root
 *Baseline*
 
-Returns information about :
+Returns information about:
 
 * API version
 * Hosted by information
@@ -724,415 +724,488 @@ Body: No Content
 <span id="private-alias"></span>
 ### Private Alias
 ####Get the Private Alias
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
-
 *Optional*
+
+Returns the private alias of the other account OTHER_ACCOUNT_ID.
 
 OAuth authentication is required if the view is not public.
 
-Get the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to view private aliases.
-
-JSON:
+**Response:**  
+HTTP code: 200
+Body:
 
     {
         "alias" : "An alias to display instead of the real name"
     }
 
+####Create the Private Alias
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
-
 *Optional*
+
+Creates an private alias for the other account OTHER_ACCOUNT_ID.
 
 OAuth authentication is required if the view is not public.
 
-Creates the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
-
-The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to create private aliases.
-
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias  
+Body: 
 
     {
         "alias" : "An alias to display instead of the real name"
     }
 
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
-
-*Optional*
-
-OAuth authentication is required if the view is not public.
-
-Updates the private alias for other account OTHER_ACCOUNT_ID for account ACCOUNT_ID.
-
-The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to edit private aliases.
-
-JSON:
-
-    {
-        "alias" : "An alias to display instead of the real name"
-    }
-
-Response:
-
-Header: 201
-
+**Response:**  
+HTTP code: 201  
 Body:
 
     {
         "success" : "private alias added"
     }
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
-
+####Update the Private Alias
 *Optional*
+
+Updates the private alias of the other account OTHER_ACCOUNT_ID.
 
 OAuth authentication is required if the view is not public.
 
-Deletes the private alias for other account OTHER_ACCOUNT_ID for ACCOUNT_ID.
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias  
+Body: 
 
-The VIEW_ID parameter should be a view the caller is permitted to access to and that has permission to delete public aliases.
+    {
+        "alias" : "An alias to display instead of the real name"
+    }
 
-Response:
+**Response:**  
+HTTP code: 200  
+Body:
 
-Header: 204
+    {
+        "success" : "private alias added"
+    }
 
-Body: No content
+
+####Delete the Private Alias
+*Optional*
+
+Deletes the private alias of the other account OTHER_ACCOUNT_ID.
+
+OAuth authentication is required if the view is not public.
+
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias  
+
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="more_info"></span>
 ### More info
-
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/more_info**
-
+####Create
 *Optional*
+
+Saves data in the "more_info" field of the other account (OTHER_ACCOUNT_ID) metadata (the other party involved in the transaction [here](#transaction))
 
 Authentication via OAuth is required.
 
-Save data in the "more_info" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit more info.
-
-
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/more_info  
+Body: 
 
     {
-        "more_info": "short text explaining who the other party of the transaction is"
+        "more_info": "short text explaining who is the other party of the transaction is"
     }
-
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/more_info**
-
-*Optional*
-
-Authentication via OAuth is required.
-
-Update data in the "more_info" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit more info.
-
-JSON:
+**Response:**  
+HTTP code: 201  
+Body: 
 
     {
-        "more_info": "short text explaining who the other party of the transaction is"
+        "success": "more info added"
     }
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/more_info**
-
+####Update
 *Optional*
+
+Updates the data in the "more_info" field of the other account (OTHER_ACCOUNT_ID) metadata (the other party involved in the transaction [here](#transaction))
 
 Authentication via OAuth is required.
 
-Delete data in the "more_info" field of other account meta data (the other party involved in the transaction [here](#transaction))
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/more_info  
+Body: 
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit more info.
+    {
+        "more_info": "short text explaining who is the other party of the transaction is"
+    }
+**Response:**  
+HTTP code: 200  
+Body: 
 
-Response:
+    {
+        "success": "more info updated"
+    }
 
-Header: 204
+####Delete
+*Optional*
 
-Body: No content
+Deletes the data in the "more_info" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
+
+Authentication via OAuth is required.
+
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/more_info  
+
+**Response:**  
+HTTP code: 204  
+Body: No Content
+
 <span id="URL"></span>
 ### URL
-
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/url**
-
+####Create
 *Optional*
 
 Authentication via OAuth is required.
 
-Save data in the "URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
+Saves data in the "URL" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the url.
-
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/url  
+Body:  
 
     {
         "URL": "a URL related to the other party e.g. the website of the company"
     }
+**Response:**  
+HTTP code: 201  
+Body:  
 
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/url**
+    {
+        "success": "url added"
+    }
 
+####Update
 *Optional*
+
+Update data in the "URL" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
 Authentication via OAuth is required.
 
-Update data in the "URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the url.
-
-JSON:
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/url  
+Body:  
 
     {
         "URL": "a URL related to the other party e.g. the website of the company"
     }
+**Response:**  
+HTTP code: 200  
+Body:  
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/url**
+    {
+        "success": "url updated"
+    }
 
+####Delete
 *Optional*
+
+Deletes the data in the "URL" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
 Authentication via OAuth is required.
 
-Delete data in the "URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/url  
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the url.
-
-Response:
-
-Header: 204
-
-Body: No content
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="image_url"></span>
 ### Image URL
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/image_url**
-
+####Create
 *Optional*
 
 Authentication via OAuth is required.
 
-Save data in the "image_url" field of other account meta data (the other party involved in the transaction [here](#transaction))
+Saves data in the "image_url" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the image url.
-
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/image_url  
+Body:  
 
     {
         "image_URL":"an image URL related to the other party e.g. company logo"
     }
+**Response:**  
+HTTP code: 201  
+Body:  
 
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/image_url**
+    {
+        "success": "image url added"
+    }
 
+####Update
 *Optional*
+
+Update data in the "image_url" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
 Authentication via OAuth is required.
 
-Update data in the "image_url" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the image url.
-
-JSON:
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/image_url  
+Body:  
 
     {
         "image_URL":"an image URL related to the other party e.g. company logo"
     }
+**Response:**  
+HTTP code: 200  
+Body:  
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/image_url**
+    {
+        "success": "image url updated"
+    }
 
+####Delete
 *Optional*
+
+Deletes the data in the "image_url" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
 Authentication via OAuth is required.
 
-Delete data in the "image_url" field of other account meta data (the other party involved in the transaction [here](#transaction))
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/image_url  
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the image url.
-
-Response:
-
-Header: 204
-
-Body: No content
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="opencorporates-URL"></span>
 ### Open corporates URL
-
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/open_corporates_url**
-
+####Create
 *Optional*
 
 Authentication via OAuth is required.
 
-Save data in the "opencorporate-URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
+Saves data in the "opencorporate-URL" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the open corporates url.
-
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/open_corporates_url  
+Body:  
 
     {
         "open_corporates_URL":"the company corporate URL in the http://opencorporates.com/ web service "
     }
+**Response:**  
+HTTP code: 201  
+Body:  
 
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/open_corporates_url**
+    {
+        "success": "open corporate url added"
+    }
 
+####Update
 *Optional*
+
+Update data in the "opencorporate-URL" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
 Authentication via OAuth is required.
 
-Update data in the "opencorporate-URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the open corporates url.
-
-JSON:
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/open_corporates_url  
+Body:  
 
     {
         "open_corporates_URL":"the company corporate URL in the http://opencorporates.com/ web service "
     }
+**Response:**  
+HTTP code: 200  
+Body:  
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/open_corporates_url**
+    {
+        "success": "open corporate url updated"
+    }
 
+####Delete
 *Optional*
+
+Deletes the data in the "opencorporate-URL" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
 Authentication via OAuth is required.
 
-Delete data in the "opencorporate-URL" field of other account meta data (the other party involved in the transaction [here](#transaction))
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/open_corporates_url  
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the open corporates url.
-
-Response:
-
-Header: 204
-
-Body: No content
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="corporate_location"></span>
 ### Corporate location
-
-
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/public/other_accounts/OTHER_ACCOUNT_ID/metadata/corporate_location**
-
-*Optional*
-
-Authentication via OAuth is not currently required. (public)
-
-Save data in the "corporate_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the corporate location.
-
-JSON:
-
-    {
-        "corporate_location": {
-            "latitude": 37.423021,
-            "longitude": -122.083739
-        }
-    }
-
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/corporate_location**
-
-*Optional*
-
-Authentication via OAuth is only required if the view is not public.
-
-(only public is currently supported)
-
-Update data in the "corporate_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the corporate location.
-
-JSON:
-
-    {
-        "corporate_location": {
-            "latitude": 37.423021,
-            "longitude": -122.083739
-        }
-    }
-
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/corporate_location**
-
+####Create
 *Optional*
 
 Authentication via OAuth is required.
 
-Delete data in the "corporate_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
+Saves data in the "corporate_location" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the corporate location.
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/public/other_accounts/OTHER_ACCOUNT_ID/metadata/corporate_location  
+Body:  
 
-Response:
+    {
+        "corporate_location": {
+            "latitude": 37.423021,
+            "longitude": -122.083739
+        }
+    }
+**Response:**  
+HTTP code: 201  
+Body:  
 
-Header: 204
+    {
+        "success": "corporate location added"
+    }
 
-Body: No content
+####Update
+*Optional*
+
+Update data in the "corporate_location" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
+
+Authentication via OAuth is required.
+
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/corporate_location  
+Body:  
+
+    {
+        "corporate_location": {
+            "latitude": 37.423021,
+            "longitude": -122.083739
+        }
+    }
+**Response:**  
+HTTP code: 200  
+Body:  
+
+    {
+        "success": "corporate location updated"
+    }
+
+####Delete
+*Optional*
+
+Deletes the data in the "corporate_location" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
+
+Authentication via OAuth is required.
+
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/corporate_location  
+
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="physical_location"></span>
 ### Physical location
-
-
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/physical_location**
-
-*Optional*
-
-Authentication via OAuth is only required if the view is not public.
-
-(only public is currently supported)
-
-Save data in the "physical_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the physical location.
-
-JSON:
-
-    {
-        "physical_location": {
-            "latitude": 37.423021,
-            "longitude": -122.083739
-        }
-    }
-
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/physical_location**
-
-*Optional*
-
-Authentication via OAuth is required if the view is not public
-
-(only public is currently implemented)
-
-Update data in the "physical_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
-
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the physical location.
-
-JSON:
-
-    {
-        "physical_location": {
-            "latitude": 37.423021,
-            "longitude": -122.083739
-        }
-    }
-
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/physical_location**
-
+####Create
 *Optional*
 
 Authentication via OAuth is required.
 
-Delete data in the "physical_location" field of other account meta data (the other party involved in the transaction [here](#transaction))
+Saves data in the "physical_location" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
 
-The VIEW_ID parameter should be a view the caller is permitted to access that has permission to edit the physical location.
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/physical_location  
+Body:  
 
-Response:
+    {
+        "physical_location": {
+            "latitude": 37.423021,
+            "longitude": -122.083739
+        }
+    }
+**Response:**  
+HTTP code: 201  
+Body:  
 
-Header: 204
+    {
+        "success": "physical location added"
+    }
 
-Body: No content
+####Update
+*Optional*
+
+Update data in the "physical_location" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
+
+Authentication via OAuth is required.
+
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/physical_location  
+Body:  
+
+    {
+        "physical_location": {
+            "latitude": 37.423021,
+            "longitude": -122.083739
+        }
+    }
+**Response:**  
+HTTP code: 200  
+Body:  
+
+    {
+        "success": "physical location updated"
+    }
+
+####Delete
+*Optional*
+
+Deletes the data in the "physical_location" field of the other account (OTHER_ACCOUNT_ID) meta data (the other party involved in the transaction [here](#transaction))
+
+Authentication via OAuth is required.
+
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/metadata/physical_location  
+
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="transactions"></span>
 #Transactions
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions**
-
 *Baseline*
+
+Returns transactions list of the account specified by ACCOUNT_ID and [moderated](#views) by the view (VIEW_ID).
 
 Authentication via OAuth is required if the view is not public.
 
-With the following custom headers:
+Possible custom headers for pagination:
 
 * obp_sort_by=CRITERIA ==> default value: "completed" field
 * obp_sort_direction=ASC/DESC ==> default value: DESC
@@ -1141,9 +1214,13 @@ With the following custom headers:
 * obp_from_date=DATE => default value: date of the oldest transaction registered
 * obp_to_date=DATE => default value: date of the newest transaction registered
 
-Returns transactions of the account specified by ACCOUNT_ID and [moderated](#views) by the view (VIEW_ID).
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions  
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "transactions": [
@@ -1272,16 +1349,19 @@ JSON:
 
 <span id="transaction"></span>
 #Transaction
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/transaction**
-
 *Optional*
+
+Returns one transaction specified by TRANSACTION_ID of the account ACCOUNT_ID and [moderated](#views) by the view (VIEW_ID).
 
 Authentication via OAuth is required if the view is not public.
 
-Returns information [moderated](#views) by the view about a specific transaction
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/transaction  
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "id": "The bank's id for the transaction",
@@ -1404,80 +1484,106 @@ JSON:
     }
 
 #Transaction Metadata
-
 <span id="narrative"></span>
 ### Narrative
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
-
+#### Get
 *Optional*
+
+Returns the account owner description of the transaction [moderated](#views) by the view.
 
 Authentication via OAuth is required if the view is not public.
 
-Returns the account owner description, [moderated](#views) by the view, of the transaction.
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative  
 
-
-JSON:
-
-    {
-        "narrative" : "text explaining the purpose of the transaction"
-    }
-
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
-
-*Optional*
-
-Authentication via OAuth is required.
-
-Saves the account owner description of the transaction if the [view](#views) allow it.
-
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "narrative" : "text explaining the purpose of the transaction"
     }
 
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
-
+#### Create
 *Optional*
 
-Authentication via OAuth is required.
+Creates a description of the transaction TRANSACTION_ID.
 
-Updates the account owner description of the transaction if the [view](#views) allow it.
+Authentication via OAuth is required if the view is not public.
 
-
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative  
+Body:
 
     {
         "narrative" : "text explaining the purpose of the transaction"
     }
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative**
+**Response:**  
+HTTP code: 201  
+Body:
 
+    {
+        "success" : "narrative added"
+    }
+
+#### Update
 *Optional*
 
-Authentication via OAuth is required.
+Updates the description of the transaction TRANSACTION_ID.
 
-Deletes the account owner description of the transaction for a [view](#views).
+Authentication via OAuth is required if the view is not public.
 
-Response:
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative  
+Body:
 
-Header: 204
+    {
+        "narrative" : "text explaining the purpose of the transaction"
+    }
 
-Body: No content
+**Response:**  
+HTTP code: 200  
+Body:
+
+    {
+        "success" : "narrative updated"
+    }
+
+####Delete
+*Optional*
+
+Deletes the description of the transaction TRANSACTION_ID.
+
+Authentication via OAuth is required if the view is not public.
+
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/narrative  
+
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="comments"></span>
 ### Comments
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments**
-
+#### Get
 *Optional*
+
+Returns the transaction TRANSACTION_ID comments made on a [view](#views) (VIEW_ID).
 
 Authentication via OAuth is required if the view is not public.
 
-Returns comments about a specific transaction made on a [view](#views) (VIEW_ID).
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments  
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "comments": [
@@ -1496,24 +1602,23 @@ JSON:
 
 **Note**: user.provider + user.id is unique
 
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments**
-
+#### Create
 *Optional*
 
-Post a comment about a transaction on a specific [view](#views).
+Posts a comment about a transaction TRANSACTION_ID on a [view](#views) VIEW_ID.
 
-OAuth authentication is required since the comment are linked with the user.
+OAuth authentication is required since the comment is linked with the user.
 
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments  
+Body:
 
     {
         "value" : "the comment"
     }
-
-Response:
-
-Header: 201
-
+**Response:**  
+HTTP code: 201  
 Body:
 
     {
@@ -1527,33 +1632,37 @@ Body:
         }
     }
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments/COMMENT_ID**
-
+####Delete
 *Optional*
+
+Delete the comment COMMENT_ID about the transaction TRANSACTION_ID made on [view](#views).
 
 Authentication via OAuth is required. The user must either have owner privileges for this account, or must be the user that posted the comment.
 
-Delete a comment about a transaction on a specific [view](#views).
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/comments/COMMENT_ID  
 
-Response:
-
-Header: 204
-
-Body: No content
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="tags"></span>
 ### Tags
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/tags**
-
+#### Get
 *Optional*
+
+Returns the transaction TRANSACTION_ID tags made on a [view](#views) (VIEW_ID).
 
 Authentication via OAuth is required if the view is not public.
 
-Returns tags about a specific transaction made on a [view](#views) (VIEW_ID).
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/tags  
 
-
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "tags": [
@@ -1570,24 +1679,25 @@ JSON:
         ]
     }
 
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/tags**
+**Note**: user.provider + user.id is unique
 
+#### Create
 *Optional*
 
-OAuth Header is required since the tag is linked with the user.
+Posts a tag about a transaction TRANSACTION_ID on a [view](#views) VIEW_ID.
 
-Post a tag on a transaction in a [view](#views).
+OAuth authentication is required since the tag is linked with the user.
 
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/tags  
+Body:
 
     {
         "value": "a_tag"
     }
-
-Response:
-
-Header: 201
-
+**Response:**  
+HTTP code: 201  
 Body:
 
     {
@@ -1602,34 +1712,37 @@ Body:
     }
 
 **Note**: the value on the tag MUST NOT contain a white space.
-
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/tags/TAG_ID**
-
+####Delete
 *Optional*
+
+Deletes the tag TAG_ID about the transaction TRANSACTION_ID made on [view](#views).
 
 Authentication via OAuth is required. The user must either have owner privileges for this account, or must be the user that posted the tag.
 
-Delete a tag on a transaction in a [view](#views).
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/tags/TAG_ID  
 
-Response:
-
-Header: 204
-
-Body: No content
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="images"></span>
 ### Images
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images**
-
+#### Get
 *Optional*
+
+Returns the transaction TRANSACTION_ID images made on a [view](#views) (VIEW_ID).
 
 Authentication via OAuth is required if the view is not public.
 
-Returns the images added to a specific transaction made on a [view](#views) (VIEW_ID).
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images  
 
-
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "images": [
@@ -1647,25 +1760,26 @@ JSON:
         ]
     }
 
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images**
+**Note**: user.provider + user.id is unique
 
+#### Create
 *Optional*
 
-OAuth Header is required since the tag is linked with the user.
+Posts an image about a transaction TRANSACTION_ID on a [view](#views) VIEW_ID.
 
-Post an image on a transaction in a [view](#views).
+OAuth authentication is required since the image is linked with the user.
 
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images  
+Body:
 
     "image": {
         "label": "cool image",
         "URL":"http://www.mysuperimage.com"
     }
-
-Response:
-
-Header: 201
-
+**Response:**  
+HTTP code: 201  
 Body:
 
     {
@@ -1680,33 +1794,38 @@ Body:
         }
     }
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images/IMAGE_ID**
-
+####Delete
 *Optional*
+
+Deletes the image IMAGE_ID about the transaction TRANSACTION_ID made on [view](#views).
 
 Authentication via OAuth is required. The user must either have owner privileges for this account, or must be the user that posted the image.
 
-Delete an image on a transaction in a [view](#views).
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images/IMAGE_ID  
 
-Response:
-
-Header: 204
-
-Body: No content
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="where"></span>
 ### Where
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where**
-
+#### Get
 *Optional*
+
+Returns the "where" Geo tag added to the transaction TRANSACTION_ID made on a [view](#views) (VIEW_ID).  
+It represents the location where the transaction has been initiated.
 
 Authentication via OAuth is required if the view is not public.
 
-Returns the "where" Geo tag added to a specific transaction made on a [view](#views) (VIEW_ID).
-It represents the location where the transaction has been initiated.
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where  
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
         "where": {
@@ -1721,15 +1840,19 @@ JSON:
         }
     }
 
-**POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where**
+**Note**: user.provider + user.id is unique
 
+#### Create
 *Optional*
 
-OAuth Header is required since the tag is linked with the user.
+Creates a "where" Geo tag on a transaction TRANSACTION_ID in a [view](#views).
 
-Post the "where" Geo tag on a transaction in a [view](#views).
+OAuth authentication is required since the geo tag is linked with the user.
 
-JSON:
+**Request:**  
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where  
+Body:
 
     {
         "where": {
@@ -1737,17 +1860,25 @@ JSON:
             "longitude": -122.083739
         }
     }
+**Response:**  
+HTTP code: 201  
+Body:
 
+    {
+        "success": "where tag added"
+    }
 
-**PUT /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where**
-
+#### Update
 *Optional*
 
-OAuth Header is required since the tag is linked with the user.
+Updates the "where" Geo tag on a transaction TRANSACTION_ID in a [view](#views).
 
-Update the "where" Geo tag on a transaction in a [view](#views).
+OAuth authentication is required since the geo tag is linked with the user.
 
-JSON:
+**Request:**  
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where  
+Body:
 
     {
         "where": {
@@ -1755,33 +1886,44 @@ JSON:
             "longitude": -122.083739
         }
     }
+**Response:**  
+HTTP code: 201  
+Body:
 
-**DELETE /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where**
+    {
+        "success": "where tag updated"
+    }
 
+####Delete
 *Optional*
 
-Authentication via OAuth is required. The user must either have owner privileges for this account, or must be the user that posted the 'where'.
+Deletes the where tag of the transaction TRANSACTION_ID made on [view](#views).
 
-Delete the where on a transaction in a [view](#views).
+Authentication via OAuth is required. The user must either have owner privileges for this account, or must be the user that posted the geo tag.
 
-Response:
+**Request:**  
+Verb: DELETE  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/where  
 
-Header: 204
-
-Body: No content
+**Response:**  
+HTTP code: 204  
+Body: No Content
 
 <span id="transaction_other_account"></span>
 #Other account
-
-**GET /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/other_account**
-
 *Baseline*
+
+Returns details of the other party involved in the transaction, moderated by the [view](#views) (VIEW_ID).
 
 Authentication via OAuth is required if the view is not public.
 
-Returns account information, of the other party involved in the transaction, moderated by the [view](#views) (VIEW_ID).
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/other_account  
 
-JSON:
+**Response:**  
+HTTP code: 200  
+Body:
 
     {
       "id" : "the other account's id",
@@ -1835,9 +1977,9 @@ Views on accounts and transactions filter the underlying data to hide or blur ce
 
 There are currently two exceptions to this rule:
 
-1) The "holder" field in the JSon contains a value which is either an alias or the real name - indicated by the "is_alias" field.
+1) The "holder" field in the JSON contains a value which is either an alias or the real name - indicated by the "is_alias" field.
 
-2) The "balance" field (in a transaction or account details) may contain the real amount, a plus sign (+), a minus sign (-) or "unauthorized".
+2) The "balance" field (in a transaction or account details) may contain the real amount, a plus sign (+) or a minus sign (-).
 
 **action:** When a user performs an action like trying to post a comment (with POST API call), if he is not allowed, the repose will be an "unauthorized" HTTP code 401.
 
