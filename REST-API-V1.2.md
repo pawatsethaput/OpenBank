@@ -339,7 +339,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 
 **Request:**  
 Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/account/users
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users
 
 **Response:**  
 HTTP code: 200  
