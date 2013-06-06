@@ -422,6 +422,7 @@ Body:
 
 <span id="revoke-permission"></span>
 #Revoke Permission
+#### one view
 *Optional*
 
 Revokes the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
@@ -433,6 +434,21 @@ OAuth authentication is required and the user needs to have access to the owner 
 **Request:**
 Verb: DELETE
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID
+
+**Response:**
+HTTP code: 204
+Body: No content
+
+#### all views
+*Optional*
+
+Revokes the user USER_ID access to all the views at BANK_ID for account ACCOUNT_ID.
+
+OAuth authentication is required and the user needs to have access to the owner view.
+
+**Request:**
+Verb: DELETE
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID
 
 **Response:**
 HTTP code: 204
