@@ -15,6 +15,7 @@
     * [Public](#accounts-public)
     * [Private](#accounts-private)
     * [One](#account)
+    * [Views](#views)
     * Permissions
         * [All](#permissions)
         * [One](#permission)
@@ -43,7 +44,7 @@
         * [Images](#images)
         * [Where](#where)
     * [Other account](#transaction_other_account)
-* [The views](#views)
+* [How views works ?](#how-views)
 
 
 <span id="about"></span>
@@ -327,6 +328,32 @@ Body:
         "bank_id":"the id of the bank where the account is hosted"
     }
 
+<span id="views"></span>
+#Views
+*Optional*
+
+Returns the list of the views created for account ACCOUNT_ID at BANK_ID.
+
+OAuth authentication is required and the user needs to have access to the owner view.
+
+**Request:**
+Verb: GET
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/views
+
+**Response:**
+HTTP code: 200
+Body:
+
+    {
+        "views_available": [
+            {
+                "id": "A unique identifier used for VIEW_ID",
+                "short_name": "Public / Team / Auditors...",
+                "description": "e.g. this is the public view of the TESOBE account",
+                "is_public": "boolean. true if the public can see this view."
+            }
+        ]
+    }
 
 <span id="permissions"></span>
 #Permissions
@@ -1984,8 +2011,8 @@ Body:
         }
     }
 
-<span id="views"></span>
-### The views
+<span id="how-views"></span>
+### How views works ?
 
 Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public or replaced by + or -.
 
@@ -2003,4 +2030,3 @@ There are currently two exceptions to this rule:
 Transaction metadata like (images, tags, comments, etc.) will appears ONLY on the view where they have been created e.g. comments posted to the public view only appear on the public view.
 
 The other account metadata fields like image_URL, more_info, etc are unique through all the views. Example, if a user edit the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
-Except the two Geo tags corporate_location and physical_location which have the same behavior as the transaction metadata.
