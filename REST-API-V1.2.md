@@ -457,7 +457,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 **Request:**  
 Send a list of views Ids  
 Verb: POST  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views  
 Body: 
 
     {
