@@ -345,7 +345,7 @@ HTTP code: 200
 Body:
 
     {
-        "views_available": [
+        "views": [
                 {
                     "id": "A unique identifier used for VIEW_ID",
                     "short_name": "Public / Team / Auditors...",
