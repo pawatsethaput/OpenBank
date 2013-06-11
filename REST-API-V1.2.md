@@ -25,7 +25,6 @@
         * [All](#account-other-accounts)
         * [One](#account-other-account)
             * [Meta data](#other_account-metadata)
-                * [Holder](#holder)
                 * [Public Alias](#public-alias)
                 * [Private Alias](#private-alias)
                 * [More info](#more_info)
@@ -695,30 +694,6 @@ Body:
                 }
         }
     }
-
-<span id="holder"></span>
-### Holder
-*Optional*
-
-Returns the holder name of the other bank account OTHER_ACCOUNT_ID.
-
-OAuth authentication is required if the view is not public.
-
-**Request:**  
-Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/holder
-
-**Response:**  
-HTTP code: 200  
-Body:
-
-    {
-        "holder": {
-            "name": "Joe Bloggs",
-            "is_alias": true
-        }
-    }
-
 <span id="public-alias"></span>
 ### Public Alias
 ####Get the Public Alias
