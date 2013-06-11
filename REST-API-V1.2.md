@@ -366,7 +366,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 
 **Request:**  
 Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions
 
 **Response:**  
 HTTP code: 200  
@@ -402,7 +402,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 
 **Request:**  
 Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID
 
 **Response:**  
 HTTP code: 200  
@@ -432,7 +432,7 @@ Granting access to a public view will return an error message, as the user alrea
 
 **Request:**  
 Verb: POST  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views/VIEW_ID
 
 **Response:**  
 HTTP code: 201  
@@ -457,7 +457,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 **Request:**  
 Send a list of views Ids  
 Verb: POST  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views  
 Body: 
 
     {
@@ -508,7 +508,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 
 **Request:**  
 Verb: DELETE  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views/VIEW_ID
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views/VIEW_ID
 
 **Response:**  
 HTTP code: 204  
@@ -523,7 +523,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 
 **Request:**
 Verb: DELETE  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/users/USER_ID/views  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views  
 
 **Response:**
 HTTP code: 204
