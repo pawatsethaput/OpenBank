@@ -1,6 +1,6 @@
 ##Intro
 
-Hello and welcome to the Open Bank Project API sandbox wiki page!
+Hello and welcome to the OBP API sandbox wiki page!
 
 The following instructions will help you to use the Open Bank API sandbox.
 The purpose of the sandbox is to reproduce the same conditions of a production API with real banking data so the transition to a production environment will be easy.
