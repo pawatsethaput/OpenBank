@@ -43,7 +43,6 @@
         * [Images](#images)
         * [Where](#where)
     * [Other account](#transaction_other_account)
-* [How views works ?](#how-views)
 
 
 <span id="about"></span>
@@ -198,6 +197,68 @@ Body:
                         "short_name": "Public / Team / Auditors...",
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
+                        "alias": "public/private/empty",
+                        "hide_metadata_if_alias" : true/false,
+                        "can_see_transaction_this_bank_account" : true/false,
+                        "can_see_transaction_other_bank_account" : true/false,
+                        "can_see_transaction_metadata" : true/false,
+                        "can_see_transaction_label" : true/false,
+                        "can_see_transaction_amount" : true/false,
+                        "can_see_transaction_type" : true/false,
+                        "can_see_transaction_currency" : true/false,
+                        "can_see_transaction_start_date" : true/false,
+                        "can_see_transaction_finish_date" : true/false,
+                        "can_see_transaction_balance" : true/false,
+                        "can_see_comments" : true/false,
+                        "can_see_narrative" : true/false,
+                        "can_see_tags" : true/false,
+                        "can_see_images" : true/false,
+                        "can_see_bank_account_owners" : true/false,
+                        "can_see_bank_account_type" : true/false,
+                        "can_see_bank_account_balance" : true/false,
+                        "can_see_bank_account_currency" : true/false,
+                        "can_see_bank_account_label" : true/false,
+                        "can_see_bank_account_national_identifier" : true/false,
+                        "can_see_bank_account_swift_bic" : true/false,
+                        "can_see_bank_account_iban" : true/false,
+                        "can_see_bank_account_number" : true/false,
+                        "can_see_bank_account_bank_name" : true/false,
+                        "can_see_bank_account_bank_permalink" : true/false,
+                        "can_see_other_account_national_identifier" : true/false,
+                        "can_see_swift_bic" : true/false,
+                        "can_see_other_account_iban" : true/false,
+                        "can_see_other_account_bank_name" : true/false,
+                        "can_see_other_account_number" : true/false,
+                        "can_see_other_account_metadata" : true/false,
+                        "can_see_other_account_kind" : true/false,
+                        "can_see_more_info" : true/false,
+                        "can_see_url" : true/false,
+                        "can_see_image_url" : true/false,
+                        "can_see_open_corporates_url" : true/false,
+                        "can_see_corporate_location" : true/false,
+                        "can_see_physical_location" : true/false,
+                        "can_see_public_alias" : true/false,
+                        "can_see_private_alias" : true/false,
+                        "can_add_more_info" : true/false,
+                        "can_add_url" : true/false,
+                        "can_add_image_url" : true/false,
+                        "can_add_open_corporates_url" : true/false,
+                        "can_add_corporate_location" : true/false,
+                        "can_add_physical_location" : true/false,
+                        "can_add_public_alias" : true/false,
+                        "can_add_private_alias" : true/false,
+                        "can_delete_corporate_location" : true/false,
+                        "can_delete_physical_location" : true/false,
+                        "can_edit_narrative" : true/false,
+                        "can_add_comment" : true/false,
+                        "can_delete_comment" : true/false,
+                        "can_add_tag" : true/false,
+                        "can_delete_tag" : true/false,
+                        "can_add_image" : true/false,
+                        "can_delete_image" : true/false,
+                        "can_add_where_tag" : true/false,
+                        "can_see_where_tag" : true/false,
+                        "can_delete_where_tag" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -232,6 +293,68 @@ Body:
                         "short_name": "Public / Team / Auditors...",
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
+                        "alias": "public/private/empty",
+                        "hide_metadata_if_alias" : true/false,
+                        "can_see_transaction_this_bank_account" : true/false,
+                        "can_see_transaction_other_bank_account" : true/false,
+                        "can_see_transaction_metadata" : true/false,
+                        "can_see_transaction_label" : true/false,
+                        "can_see_transaction_amount" : true/false,
+                        "can_see_transaction_type" : true/false,
+                        "can_see_transaction_currency" : true/false,
+                        "can_see_transaction_start_date" : true/false,
+                        "can_see_transaction_finish_date" : true/false,
+                        "can_see_transaction_balance" : true/false,
+                        "can_see_comments" : true/false,
+                        "can_see_narrative" : true/false,
+                        "can_see_tags" : true/false,
+                        "can_see_images" : true/false,
+                        "can_see_bank_account_owners" : true/false,
+                        "can_see_bank_account_type" : true/false,
+                        "can_see_bank_account_balance" : true/false,
+                        "can_see_bank_account_currency" : true/false,
+                        "can_see_bank_account_label" : true/false,
+                        "can_see_bank_account_national_identifier" : true/false,
+                        "can_see_bank_account_swift_bic" : true/false,
+                        "can_see_bank_account_iban" : true/false,
+                        "can_see_bank_account_number" : true/false,
+                        "can_see_bank_account_bank_name" : true/false,
+                        "can_see_bank_account_bank_permalink" : true/false,
+                        "can_see_other_account_national_identifier" : true/false,
+                        "can_see_swift_bic" : true/false,
+                        "can_see_other_account_iban" : true/false,
+                        "can_see_other_account_bank_name" : true/false,
+                        "can_see_other_account_number" : true/false,
+                        "can_see_other_account_metadata" : true/false,
+                        "can_see_other_account_kind" : true/false,
+                        "can_see_more_info" : true/false,
+                        "can_see_url" : true/false,
+                        "can_see_image_url" : true/false,
+                        "can_see_open_corporates_url" : true/false,
+                        "can_see_corporate_location" : true/false,
+                        "can_see_physical_location" : true/false,
+                        "can_see_public_alias" : true/false,
+                        "can_see_private_alias" : true/false,
+                        "can_add_more_info" : true/false,
+                        "can_add_url" : true/false,
+                        "can_add_image_url" : true/false,
+                        "can_add_open_corporates_url" : true/false,
+                        "can_add_corporate_location" : true/false,
+                        "can_add_physical_location" : true/false,
+                        "can_add_public_alias" : true/false,
+                        "can_add_private_alias" : true/false,
+                        "can_delete_corporate_location" : true/false,
+                        "can_delete_physical_location" : true/false,
+                        "can_edit_narrative" : true/false,
+                        "can_add_comment" : true/false,
+                        "can_delete_comment" : true/false,
+                        "can_add_tag" : true/false,
+                        "can_delete_tag" : true/false,
+                        "can_add_image" : true/false,
+                        "can_delete_image" : true/false,
+                        "can_add_where_tag" : true/false,
+                        "can_see_where_tag" : true/false,
+                        "can_delete_where_tag" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -267,6 +390,68 @@ Body:
                         "short_name": "Public / Team / Auditors...",
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
+                        "alias": "public/private/empty",
+                        "hide_metadata_if_alias" : true/false,
+                        "can_see_transaction_this_bank_account" : true/false,
+                        "can_see_transaction_other_bank_account" : true/false,
+                        "can_see_transaction_metadata" : true/false,
+                        "can_see_transaction_label" : true/false,
+                        "can_see_transaction_amount" : true/false,
+                        "can_see_transaction_type" : true/false,
+                        "can_see_transaction_currency" : true/false,
+                        "can_see_transaction_start_date" : true/false,
+                        "can_see_transaction_finish_date" : true/false,
+                        "can_see_transaction_balance" : true/false,
+                        "can_see_comments" : true/false,
+                        "can_see_narrative" : true/false,
+                        "can_see_tags" : true/false,
+                        "can_see_images" : true/false,
+                        "can_see_bank_account_owners" : true/false,
+                        "can_see_bank_account_type" : true/false,
+                        "can_see_bank_account_balance" : true/false,
+                        "can_see_bank_account_currency" : true/false,
+                        "can_see_bank_account_label" : true/false,
+                        "can_see_bank_account_national_identifier" : true/false,
+                        "can_see_bank_account_swift_bic" : true/false,
+                        "can_see_bank_account_iban" : true/false,
+                        "can_see_bank_account_number" : true/false,
+                        "can_see_bank_account_bank_name" : true/false,
+                        "can_see_bank_account_bank_permalink" : true/false,
+                        "can_see_other_account_national_identifier" : true/false,
+                        "can_see_swift_bic" : true/false,
+                        "can_see_other_account_iban" : true/false,
+                        "can_see_other_account_bank_name" : true/false,
+                        "can_see_other_account_number" : true/false,
+                        "can_see_other_account_metadata" : true/false,
+                        "can_see_other_account_kind" : true/false,
+                        "can_see_more_info" : true/false,
+                        "can_see_url" : true/false,
+                        "can_see_image_url" : true/false,
+                        "can_see_open_corporates_url" : true/false,
+                        "can_see_corporate_location" : true/false,
+                        "can_see_physical_location" : true/false,
+                        "can_see_public_alias" : true/false,
+                        "can_see_private_alias" : true/false,
+                        "can_add_more_info" : true/false,
+                        "can_add_url" : true/false,
+                        "can_add_image_url" : true/false,
+                        "can_add_open_corporates_url" : true/false,
+                        "can_add_corporate_location" : true/false,
+                        "can_add_physical_location" : true/false,
+                        "can_add_public_alias" : true/false,
+                        "can_add_private_alias" : true/false,
+                        "can_delete_corporate_location" : true/false,
+                        "can_delete_physical_location" : true/false,
+                        "can_edit_narrative" : true/false,
+                        "can_add_comment" : true/false,
+                        "can_delete_comment" : true/false,
+                        "can_add_tag" : true/false,
+                        "can_delete_tag" : true/false,
+                        "can_add_image" : true/false,
+                        "can_delete_image" : true/false,
+                        "can_add_where_tag" : true/false,
+                        "can_see_where_tag" : true/false,
+                        "can_delete_where_tag" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -321,7 +506,69 @@ Body:
                 "id": "A unique identifier used for VIEW_ID",
                 "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
-                "is_public": "boolean. true if the public can see this view."
+                "is_public": "boolean. true if the public (user not logged in) can see this view."
+                "alias": "public/private/empty",
+                "hide_metadata_if_alias" : true/false,
+                "can_see_transaction_this_bank_account" : true/false,
+                "can_see_transaction_other_bank_account" : true/false,
+                "can_see_transaction_metadata" : true/false,
+                "can_see_transaction_label" : true/false,
+                "can_see_transaction_amount" : true/false,
+                "can_see_transaction_type" : true/false,
+                "can_see_transaction_currency" : true/false,
+                "can_see_transaction_start_date" : true/false,
+                "can_see_transaction_finish_date" : true/false,
+                "can_see_transaction_balance" : true/false,
+                "can_see_comments" : true/false,
+                "can_see_narrative" : true/false,
+                "can_see_tags" : true/false,
+                "can_see_images" : true/false,
+                "can_see_bank_account_owners" : true/false,
+                "can_see_bank_account_type" : true/false,
+                "can_see_bank_account_balance" : true/false,
+                "can_see_bank_account_currency" : true/false,
+                "can_see_bank_account_label" : true/false,
+                "can_see_bank_account_national_identifier" : true/false,
+                "can_see_bank_account_swift_bic" : true/false,
+                "can_see_bank_account_iban" : true/false,
+                "can_see_bank_account_number" : true/false,
+                "can_see_bank_account_bank_name" : true/false,
+                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_other_account_national_identifier" : true/false,
+                "can_see_swift_bic" : true/false,
+                "can_see_other_account_iban" : true/false,
+                "can_see_other_account_bank_name" : true/false,
+                "can_see_other_account_number" : true/false,
+                "can_see_other_account_metadata" : true/false,
+                "can_see_other_account_kind" : true/false,
+                "can_see_more_info" : true/false,
+                "can_see_url" : true/false,
+                "can_see_image_url" : true/false,
+                "can_see_open_corporates_url" : true/false,
+                "can_see_corporate_location" : true/false,
+                "can_see_physical_location" : true/false,
+                "can_see_public_alias" : true/false,
+                "can_see_private_alias" : true/false,
+                "can_add_more_info" : true/false,
+                "can_add_url" : true/false,
+                "can_add_image_url" : true/false,
+                "can_add_open_corporates_url" : true/false,
+                "can_add_corporate_location" : true/false,
+                "can_add_physical_location" : true/false,
+                "can_add_public_alias" : true/false,
+                "can_add_private_alias" : true/false,
+                "can_delete_corporate_location" : true/false,
+                "can_delete_physical_location" : true/false,
+                "can_edit_narrative" : true/false,
+                "can_add_comment" : true/false,
+                "can_delete_comment" : true/false,
+                "can_add_tag" : true/false,
+                "can_delete_tag" : true/false,
+                "can_add_image" : true/false,
+                "can_delete_image" : true/false,
+                "can_add_where_tag" : true/false,
+                "can_see_where_tag" : true/false,
+                "can_delete_where_tag" : true/false
             }
         ],
         "bank_id":"the id of the bank where the account is hosted"
@@ -329,6 +576,23 @@ Body:
 
 <span id="views"></span>
 #Views
+
+### How views works 
+
+Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public. The way to know what is possible on a view is determined in the following JSON.
+
+**data:** When a view moderates a set of data, some fields my contain the value null rather than the original value. This indicates either that the user is not allowed to see the original data or the field is empty.
+
+There is currently one exception to this rule, the "holder" field in the JSON contains always a value which is either an alias or the real name - indicated by the "is_alias" field.
+
+**action:** When a user performs an action like trying to post a comment (with POST API call), if he is not allowed, the body repose will contains an error message.
+
+**Metadata:**
+Transaction metadata like (images, tags, comments, etc.) will appears *ONLY* on the view where they have been created e.g. comments posted to the public view only appear on the public view.
+
+The other account metadata fields like image_URL, more_info, etc are unique through all the views. Example, if a user edit the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
+
+#### all
 *Optional*
 
 Returns the list of the views created for account ACCOUNT_ID at BANK_ID.
@@ -349,9 +613,246 @@ Body:
                     "id": "A unique identifier used for VIEW_ID",
                     "short_name": "Public / Team / Auditors...",
                     "description": "e.g. this is the public view of the TESOBE account",
-                    "is_public": "boolean. true if the public can see this view."
+                    "is_public": "boolean. true if the public (user not logged in) can see this view."
+                    "alias": "public/private/empty",
+                    "hide_metadata_if_alias" : true/false,
+                    "can_see_transaction_this_bank_account" : true/false,
+                    "can_see_transaction_other_bank_account" : true/false,
+                    "can_see_transaction_metadata" : true/false,
+                    "can_see_transaction_label" : true/false,
+                    "can_see_transaction_amount" : true/false,
+                    "can_see_transaction_type" : true/false,
+                    "can_see_transaction_currency" : true/false,
+                    "can_see_transaction_start_date" : true/false,
+                    "can_see_transaction_finish_date" : true/false,
+                    "can_see_transaction_balance" : true/false,
+                    "can_see_comments" : true/false,
+                    "can_see_narrative" : true/false,
+                    "can_see_tags" : true/false,
+                    "can_see_images" : true/false,
+                    "can_see_bank_account_owners" : true/false,
+                    "can_see_bank_account_type" : true/false,
+                    "can_see_bank_account_balance" : true/false,
+                    "can_see_bank_account_currency" : true/false,
+                    "can_see_bank_account_label" : true/false,
+                    "can_see_bank_account_national_identifier" : true/false,
+                    "can_see_bank_account_swift_bic" : true/false,
+                    "can_see_bank_account_iban" : true/false,
+                    "can_see_bank_account_number" : true/false,
+                    "can_see_bank_account_bank_name" : true/false,
+                    "can_see_bank_account_bank_permalink" : true/false,
+                    "can_see_other_account_national_identifier" : true/false,
+                    "can_see_swift_bic" : true/false,
+                    "can_see_other_account_iban" : true/false,
+                    "can_see_other_account_bank_name" : true/false,
+                    "can_see_other_account_number" : true/false,
+                    "can_see_other_account_metadata" : true/false,
+                    "can_see_other_account_kind" : true/false,
+                    "can_see_more_info" : true/false,
+                    "can_see_url" : true/false,
+                    "can_see_image_url" : true/false,
+                    "can_see_open_corporates_url" : true/false,
+                    "can_see_corporate_location" : true/false,
+                    "can_see_physical_location" : true/false,
+                    "can_see_public_alias" : true/false,
+                    "can_see_private_alias" : true/false,
+                    "can_add_more_info" : true/false,
+                    "can_add_url" : true/false,
+                    "can_add_image_url" : true/false,
+                    "can_add_open_corporates_url" : true/false,
+                    "can_add_corporate_location" : true/false,
+                    "can_add_physical_location" : true/false,
+                    "can_add_public_alias" : true/false,
+                    "can_add_private_alias" : true/false,
+                    "can_delete_corporate_location" : true/false,
+                    "can_delete_physical_location" : true/false,
+                    "can_edit_narrative" : true/false,
+                    "can_add_comment" : true/false,
+                    "can_delete_comment" : true/false,
+                    "can_add_tag" : true/false,
+                    "can_delete_tag" : true/false,
+                    "can_add_image" : true/false,
+                    "can_delete_image" : true/false,
+                    "can_add_where_tag" : true/false,
+                    "can_see_where_tag" : true/false,
+                    "can_delete_where_tag" : true/false
                 }
             ]
+    }
+
+#### Create a view 
+*Optional*
+
+Create a view on bank account
+
+OAuth authentication is required and the user needs to have access to the owner view.
+
+* The "alias" filed in the JSON can take there values:  
+_public_: to use the public alias if there is one specified for the other account.  
+_private_: to use the public alias if there is one specified for the other account.  
+_""(empty string)_: to use no alias, the view shows the real name of the other account.
+* The "hide_metadata_if_alias" field in the JSON can take boolean values.  
+If it is set to true and there is an alias on the other account then the other accounts 
+metadata like more_info, url, image_url, open_corporates_url, etc will be hidden.
+Otherwise the metadata will be shown.
+* the "allowed_actions" field is a list containing the name of the actions allowed on this view, 
+all the actions contained will be set to true on the view creation, the rest will be set to false.
+
+Here is action names that the list can contains:
+
+    can_see_transaction_this_bank_account  
+    can_see_transaction_other_bank_account  
+    can_see_transaction_label  
+    can_see_transaction_amount  
+    can_see_transaction_type  
+    can_see_transaction_currency  
+    can_see_transaction_start_date  
+    can_see_transaction_finish_date  
+    can_see_transaction_balance  
+    can_see_transaction_metadata  
+        can_see_narrative  
+        can_edit_narrative  
+        can_see_comments  
+        can_add_comment   
+        can_delete_comment  
+        can_see_tags  
+        can_add_tag   
+        can_delete_tag   
+        can_see_images  
+        can_add_image   
+        can_delete_image   
+        can_see_where_tag   
+        can_add_where_tag   
+        can_delete_where_tag  
+    can_see_bank_account_owners  
+    can_see_bank_account_type  
+    can_see_bank_account_balance  
+    can_see_bank_account_currency  
+    can_see_bank_account_label  
+    can_see_bank_account_national_identifier  
+    can_see_bank_account_swift_bic  
+    can_see_bank_account_iban  
+    can_see_bank_account_number  
+    can_see_bank_account_bank_name  
+    can_see_bank_account_bank_permalink  
+    can_see_other_account_national_identifier  
+    can_see_swift_bic  
+    can_see_other_account_iban  
+    can_see_other_account_bank_name  
+    can_see_other_account_number  
+    can_see_other_account_kind  
+    can_see_other_account_metadata  
+        can_see_more_info  
+        can_see_url  
+        can_see_image_url  
+        can_see_open_corporates_url  
+        can_see_corporate_location  
+        can_see_physical_location  
+        can_see_public_alias  
+        can_see_private_alias  
+        can_add_more_info  
+        can_add_url  
+        can_add_image_url  
+        can_add_open_corporates_url  
+        can_add_corporate_location  
+        can_add_physical_location  
+        can_add_public_alias  
+        can_add_private_alias  
+        can_delete_corporate_location  
+        can_delete_physical_location  
+
+**Notes:**  
+ - if the list contains some transaction metadata actions like can_see_narritive, can_add_comment, it **MUST** contain can_see_transaction_metadata.  
+ - if the list contains some other account metadata actions like can_see_more_info, can_see_physical_location, it **MUST** contain can_see_other_account_metadata.
+
+**Request:**
+Verb: POST  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/views  
+Body:
+
+    {
+        "name": "the view name",
+        "description": "a little description.",
+        "is_Public": "Boolean to specify if the view can be accessible to not logged in users",
+        "alias": "public, private or empty string. ",
+        "hide_metadata_if_alias": true,
+        "allowed_actions":  [
+            "can_see_transaction_this_bank_account", 
+            "can_see_transaction_label", 
+            "can_see_transaction_other_bank_account"
+        ]
+    }
+**Response:**  
+HTTP code: 200  
+Body:
+
+    {
+        "id": "A unique identifier used for VIEW_ID",
+        "short_name": "Public / Team / Auditors...",
+        "description": "e.g. this is the public view of the TESOBE account",
+        "is_public": "boolean. true if the public (user not logged in) can see this view."
+        "alias": "public/private/empty",
+        "hide_metadata_if_alias" : true/false,
+        "can_see_transaction_this_bank_account" : true/false,
+        "can_see_transaction_other_bank_account" : true/false,
+        "can_see_transaction_metadata" : true/false,
+        "can_see_transaction_label" : true/false,
+        "can_see_transaction_amount" : true/false,
+        "can_see_transaction_type" : true/false,
+        "can_see_transaction_currency" : true/false,
+        "can_see_transaction_start_date" : true/false,
+        "can_see_transaction_finish_date" : true/false,
+        "can_see_transaction_balance" : true/false,
+        "can_see_comments" : true/false,
+        "can_see_narrative" : true/false,
+        "can_see_tags" : true/false,
+        "can_see_images" : true/false,
+        "can_see_bank_account_owners" : true/false,
+        "can_see_bank_account_type" : true/false,
+        "can_see_bank_account_balance" : true/false,
+        "can_see_bank_account_currency" : true/false,
+        "can_see_bank_account_label" : true/false,
+        "can_see_bank_account_national_identifier" : true/false,
+        "can_see_bank_account_swift_bic" : true/false,
+        "can_see_bank_account_iban" : true/false,
+        "can_see_bank_account_number" : true/false,
+        "can_see_bank_account_bank_name" : true/false,
+        "can_see_bank_account_bank_permalink" : true/false,
+        "can_see_other_account_national_identifier" : true/false,
+        "can_see_swift_bic" : true/false,
+        "can_see_other_account_iban" : true/false,
+        "can_see_other_account_bank_name" : true/false,
+        "can_see_other_account_number" : true/false,
+        "can_see_other_account_metadata" : true/false,
+        "can_see_other_account_kind" : true/false,
+        "can_see_more_info" : true/false,
+        "can_see_url" : true/false,
+        "can_see_image_url" : true/false,
+        "can_see_open_corporates_url" : true/false,
+        "can_see_corporate_location" : true/false,
+        "can_see_physical_location" : true/false,
+        "can_see_public_alias" : true/false,
+        "can_see_private_alias" : true/false,
+        "can_add_more_info" : true/false,
+        "can_add_url" : true/false,
+        "can_add_image_url" : true/false,
+        "can_add_open_corporates_url" : true/false,
+        "can_add_corporate_location" : true/false,
+        "can_add_physical_location" : true/false,
+        "can_add_public_alias" : true/false,
+        "can_add_private_alias" : true/false,
+        "can_delete_corporate_location" : true/false,
+        "can_delete_physical_location" : true/false,
+        "can_edit_narrative" : true/false,
+        "can_add_comment" : true/false,
+        "can_delete_comment" : true/false,
+        "can_add_tag" : true/false,
+        "can_delete_tag" : true/false,
+        "can_add_image" : true/false,
+        "can_delete_image" : true/false,
+        "can_add_where_tag" : true/false,
+        "can_see_where_tag" : true/false,
+        "can_delete_where_tag" : true/false
     }
 
 <span id="permissions"></span>
@@ -381,10 +882,72 @@ Body:
                 },
                 "views": [
                     {
+                        "id": "A unique identifier used for VIEW_ID",
+                        "short_name": "Public / Team / Auditors...",
                         "description": "e.g. this is the public view of the TESOBE account",
-                        "id": "A unique identifier used for the view",
-                        "is_public": false,
-                        "short_name": "Public / Team / Auditors..."
+                        "is_public": "boolean. true if the public (user not logged in) can see this view."
+                        "alias": "public/private/empty",
+                        "hide_metadata_if_alias" : true/false,
+                        "can_see_transaction_this_bank_account" : true/false,
+                        "can_see_transaction_other_bank_account" : true/false,
+                        "can_see_transaction_metadata" : true/false,
+                        "can_see_transaction_label" : true/false,
+                        "can_see_transaction_amount" : true/false,
+                        "can_see_transaction_type" : true/false,
+                        "can_see_transaction_currency" : true/false,
+                        "can_see_transaction_start_date" : true/false,
+                        "can_see_transaction_finish_date" : true/false,
+                        "can_see_transaction_balance" : true/false,
+                        "can_see_comments" : true/false,
+                        "can_see_narrative" : true/false,
+                        "can_see_tags" : true/false,
+                        "can_see_images" : true/false,
+                        "can_see_bank_account_owners" : true/false,
+                        "can_see_bank_account_type" : true/false,
+                        "can_see_bank_account_balance" : true/false,
+                        "can_see_bank_account_currency" : true/false,
+                        "can_see_bank_account_label" : true/false,
+                        "can_see_bank_account_national_identifier" : true/false,
+                        "can_see_bank_account_swift_bic" : true/false,
+                        "can_see_bank_account_iban" : true/false,
+                        "can_see_bank_account_number" : true/false,
+                        "can_see_bank_account_bank_name" : true/false,
+                        "can_see_bank_account_bank_permalink" : true/false,
+                        "can_see_other_account_national_identifier" : true/false,
+                        "can_see_swift_bic" : true/false,
+                        "can_see_other_account_iban" : true/false,
+                        "can_see_other_account_bank_name" : true/false,
+                        "can_see_other_account_number" : true/false,
+                        "can_see_other_account_metadata" : true/false,
+                        "can_see_other_account_kind" : true/false,
+                        "can_see_more_info" : true/false,
+                        "can_see_url" : true/false,
+                        "can_see_image_url" : true/false,
+                        "can_see_open_corporates_url" : true/false,
+                        "can_see_corporate_location" : true/false,
+                        "can_see_physical_location" : true/false,
+                        "can_see_public_alias" : true/false,
+                        "can_see_private_alias" : true/false,
+                        "can_add_more_info" : true/false,
+                        "can_add_url" : true/false,
+                        "can_add_image_url" : true/false,
+                        "can_add_open_corporates_url" : true/false,
+                        "can_add_corporate_location" : true/false,
+                        "can_add_physical_location" : true/false,
+                        "can_add_public_alias" : true/false,
+                        "can_add_private_alias" : true/false,
+                        "can_delete_corporate_location" : true/false,
+                        "can_delete_physical_location" : true/false,
+                        "can_edit_narrative" : true/false,
+                        "can_add_comment" : true/false,
+                        "can_delete_comment" : true/false,
+                        "can_add_tag" : true/false,
+                        "can_delete_tag" : true/false,
+                        "can_add_image" : true/false,
+                        "can_delete_image" : true/false,
+                        "can_add_where_tag" : true/false,
+                        "can_see_where_tag" : true/false,
+                        "can_delete_where_tag" : true/false
                     }
                 ]
             }
@@ -410,10 +973,72 @@ Body:
     {
         "views": [
             {
-                "id": "A unique identifier used for the view",
-                "short_name": "Team / Auditors...",
+                "id": "A unique identifier used for VIEW_ID",
+                "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
-                "is_public": false
+                "is_public": "boolean. true if the public (user not logged in) can see this view."
+                "alias": "public/private/empty",
+                "hide_metadata_if_alias" : true/false,
+                "can_see_transaction_this_bank_account" : true/false,
+                "can_see_transaction_other_bank_account" : true/false,
+                "can_see_transaction_metadata" : true/false,
+                "can_see_transaction_label" : true/false,
+                "can_see_transaction_amount" : true/false,
+                "can_see_transaction_type" : true/false,
+                "can_see_transaction_currency" : true/false,
+                "can_see_transaction_start_date" : true/false,
+                "can_see_transaction_finish_date" : true/false,
+                "can_see_transaction_balance" : true/false,
+                "can_see_comments" : true/false,
+                "can_see_narrative" : true/false,
+                "can_see_tags" : true/false,
+                "can_see_images" : true/false,
+                "can_see_bank_account_owners" : true/false,
+                "can_see_bank_account_type" : true/false,
+                "can_see_bank_account_balance" : true/false,
+                "can_see_bank_account_currency" : true/false,
+                "can_see_bank_account_label" : true/false,
+                "can_see_bank_account_national_identifier" : true/false,
+                "can_see_bank_account_swift_bic" : true/false,
+                "can_see_bank_account_iban" : true/false,
+                "can_see_bank_account_number" : true/false,
+                "can_see_bank_account_bank_name" : true/false,
+                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_other_account_national_identifier" : true/false,
+                "can_see_swift_bic" : true/false,
+                "can_see_other_account_iban" : true/false,
+                "can_see_other_account_bank_name" : true/false,
+                "can_see_other_account_number" : true/false,
+                "can_see_other_account_metadata" : true/false,
+                "can_see_other_account_kind" : true/false,
+                "can_see_more_info" : true/false,
+                "can_see_url" : true/false,
+                "can_see_image_url" : true/false,
+                "can_see_open_corporates_url" : true/false,
+                "can_see_corporate_location" : true/false,
+                "can_see_physical_location" : true/false,
+                "can_see_public_alias" : true/false,
+                "can_see_private_alias" : true/false,
+                "can_add_more_info" : true/false,
+                "can_add_url" : true/false,
+                "can_add_image_url" : true/false,
+                "can_add_open_corporates_url" : true/false,
+                "can_add_corporate_location" : true/false,
+                "can_add_physical_location" : true/false,
+                "can_add_public_alias" : true/false,
+                "can_add_private_alias" : true/false,
+                "can_delete_corporate_location" : true/false,
+                "can_delete_physical_location" : true/false,
+                "can_edit_narrative" : true/false,
+                "can_add_comment" : true/false,
+                "can_delete_comment" : true/false,
+                "can_add_tag" : true/false,
+                "can_delete_tag" : true/false,
+                "can_add_image" : true/false,
+                "can_delete_image" : true/false,
+                "can_add_where_tag" : true/false,
+                "can_see_where_tag" : true/false,
+                "can_delete_where_tag" : true/false
             }
         ]
     }
@@ -439,10 +1064,72 @@ Body:
 
     {
         {
-            "id": "A unique identifier used for the view",
-            "short_name": "Team / Auditors...",
+            "id": "A unique identifier used for VIEW_ID",
+            "short_name": "Public / Team / Auditors...",
             "description": "e.g. this is the public view of the TESOBE account",
-            "is_public": false
+            "is_public": "boolean. true if the public (user not logged in) can see this view."
+            "alias": "public/private/empty",
+            "hide_metadata_if_alias" : true/false,
+            "can_see_transaction_this_bank_account" : true/false,
+            "can_see_transaction_other_bank_account" : true/false,
+            "can_see_transaction_metadata" : true/false,
+            "can_see_transaction_label" : true/false,
+            "can_see_transaction_amount" : true/false,
+            "can_see_transaction_type" : true/false,
+            "can_see_transaction_currency" : true/false,
+            "can_see_transaction_start_date" : true/false,
+            "can_see_transaction_finish_date" : true/false,
+            "can_see_transaction_balance" : true/false,
+            "can_see_comments" : true/false,
+            "can_see_narrative" : true/false,
+            "can_see_tags" : true/false,
+            "can_see_images" : true/false,
+            "can_see_bank_account_owners" : true/false,
+            "can_see_bank_account_type" : true/false,
+            "can_see_bank_account_balance" : true/false,
+            "can_see_bank_account_currency" : true/false,
+            "can_see_bank_account_label" : true/false,
+            "can_see_bank_account_national_identifier" : true/false,
+            "can_see_bank_account_swift_bic" : true/false,
+            "can_see_bank_account_iban" : true/false,
+            "can_see_bank_account_number" : true/false,
+            "can_see_bank_account_bank_name" : true/false,
+            "can_see_bank_account_bank_permalink" : true/false,
+            "can_see_other_account_national_identifier" : true/false,
+            "can_see_swift_bic" : true/false,
+            "can_see_other_account_iban" : true/false,
+            "can_see_other_account_bank_name" : true/false,
+            "can_see_other_account_number" : true/false,
+            "can_see_other_account_metadata" : true/false,
+            "can_see_other_account_kind" : true/false,
+            "can_see_more_info" : true/false,
+            "can_see_url" : true/false,
+            "can_see_image_url" : true/false,
+            "can_see_open_corporates_url" : true/false,
+            "can_see_corporate_location" : true/false,
+            "can_see_physical_location" : true/false,
+            "can_see_public_alias" : true/false,
+            "can_see_private_alias" : true/false,
+            "can_add_more_info" : true/false,
+            "can_add_url" : true/false,
+            "can_add_image_url" : true/false,
+            "can_add_open_corporates_url" : true/false,
+            "can_add_corporate_location" : true/false,
+            "can_add_physical_location" : true/false,
+            "can_add_public_alias" : true/false,
+            "can_add_private_alias" : true/false,
+            "can_delete_corporate_location" : true/false,
+            "can_delete_physical_location" : true/false,
+            "can_edit_narrative" : true/false,
+            "can_add_comment" : true/false,
+            "can_delete_comment" : true/false,
+            "can_add_tag" : true/false,
+            "can_delete_tag" : true/false,
+            "can_add_image" : true/false,
+            "can_delete_image" : true/false,
+            "can_add_where_tag" : true/false,
+            "can_see_where_tag" : true/false,
+            "can_delete_where_tag" : true/false
         }
     }
 
@@ -475,21 +1162,207 @@ Body:
         "views" : [
             {
                 "id": "view_one_id",
-                "short_name": "Team / Auditors...",
+                "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
-                "is_public": false
+                "is_public": "boolean. true if the public (user not logged in) can see this view."
+                "alias": "public/private/empty",
+                "hide_metadata_if_alias" : true/false,
+                "can_see_transaction_this_bank_account" : true/false,
+                "can_see_transaction_other_bank_account" : true/false,
+                "can_see_transaction_metadata" : true/false,
+                "can_see_transaction_label" : true/false,
+                "can_see_transaction_amount" : true/false,
+                "can_see_transaction_type" : true/false,
+                "can_see_transaction_currency" : true/false,
+                "can_see_transaction_start_date" : true/false,
+                "can_see_transaction_finish_date" : true/false,
+                "can_see_transaction_balance" : true/false,
+                "can_see_comments" : true/false,
+                "can_see_narrative" : true/false,
+                "can_see_tags" : true/false,
+                "can_see_images" : true/false,
+                "can_see_bank_account_owners" : true/false,
+                "can_see_bank_account_type" : true/false,
+                "can_see_bank_account_balance" : true/false,
+                "can_see_bank_account_currency" : true/false,
+                "can_see_bank_account_label" : true/false,
+                "can_see_bank_account_national_identifier" : true/false,
+                "can_see_bank_account_swift_bic" : true/false,
+                "can_see_bank_account_iban" : true/false,
+                "can_see_bank_account_number" : true/false,
+                "can_see_bank_account_bank_name" : true/false,
+                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_other_account_national_identifier" : true/false,
+                "can_see_swift_bic" : true/false,
+                "can_see_other_account_iban" : true/false,
+                "can_see_other_account_bank_name" : true/false,
+                "can_see_other_account_number" : true/false,
+                "can_see_other_account_metadata" : true/false,
+                "can_see_other_account_kind" : true/false,
+                "can_see_more_info" : true/false,
+                "can_see_url" : true/false,
+                "can_see_image_url" : true/false,
+                "can_see_open_corporates_url" : true/false,
+                "can_see_corporate_location" : true/false,
+                "can_see_physical_location" : true/false,
+                "can_see_public_alias" : true/false,
+                "can_see_private_alias" : true/false,
+                "can_add_more_info" : true/false,
+                "can_add_url" : true/false,
+                "can_add_image_url" : true/false,
+                "can_add_open_corporates_url" : true/false,
+                "can_add_corporate_location" : true/false,
+                "can_add_physical_location" : true/false,
+                "can_add_public_alias" : true/false,
+                "can_add_private_alias" : true/false,
+                "can_delete_corporate_location" : true/false,
+                "can_delete_physical_location" : true/false,
+                "can_edit_narrative" : true/false,
+                "can_add_comment" : true/false,
+                "can_delete_comment" : true/false,
+                "can_add_tag" : true/false,
+                "can_delete_tag" : true/false,
+                "can_add_image" : true/false,
+                "can_delete_image" : true/false,
+                "can_add_where_tag" : true/false,
+                "can_see_where_tag" : true/false,
+                "can_delete_where_tag" : true/false
             },
             {
                 "id": "view_two_id",
-                "short_name": "Team / Auditors...",
+                "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
-                "is_public": false
+                "is_public": "boolean. true if the public (user not logged in) can see this view."
+                "alias": "public/private/empty",
+                "hide_metadata_if_alias" : true/false,
+                "can_see_transaction_this_bank_account" : true/false,
+                "can_see_transaction_other_bank_account" : true/false,
+                "can_see_transaction_metadata" : true/false,
+                "can_see_transaction_label" : true/false,
+                "can_see_transaction_amount" : true/false,
+                "can_see_transaction_type" : true/false,
+                "can_see_transaction_currency" : true/false,
+                "can_see_transaction_start_date" : true/false,
+                "can_see_transaction_finish_date" : true/false,
+                "can_see_transaction_balance" : true/false,
+                "can_see_comments" : true/false,
+                "can_see_narrative" : true/false,
+                "can_see_tags" : true/false,
+                "can_see_images" : true/false,
+                "can_see_bank_account_owners" : true/false,
+                "can_see_bank_account_type" : true/false,
+                "can_see_bank_account_balance" : true/false,
+                "can_see_bank_account_currency" : true/false,
+                "can_see_bank_account_label" : true/false,
+                "can_see_bank_account_national_identifier" : true/false,
+                "can_see_bank_account_swift_bic" : true/false,
+                "can_see_bank_account_iban" : true/false,
+                "can_see_bank_account_number" : true/false,
+                "can_see_bank_account_bank_name" : true/false,
+                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_other_account_national_identifier" : true/false,
+                "can_see_swift_bic" : true/false,
+                "can_see_other_account_iban" : true/false,
+                "can_see_other_account_bank_name" : true/false,
+                "can_see_other_account_number" : true/false,
+                "can_see_other_account_metadata" : true/false,
+                "can_see_other_account_kind" : true/false,
+                "can_see_more_info" : true/false,
+                "can_see_url" : true/false,
+                "can_see_image_url" : true/false,
+                "can_see_open_corporates_url" : true/false,
+                "can_see_corporate_location" : true/false,
+                "can_see_physical_location" : true/false,
+                "can_see_public_alias" : true/false,
+                "can_see_private_alias" : true/false,
+                "can_add_more_info" : true/false,
+                "can_add_url" : true/false,
+                "can_add_image_url" : true/false,
+                "can_add_open_corporates_url" : true/false,
+                "can_add_corporate_location" : true/false,
+                "can_add_physical_location" : true/false,
+                "can_add_public_alias" : true/false,
+                "can_add_private_alias" : true/false,
+                "can_delete_corporate_location" : true/false,
+                "can_delete_physical_location" : true/false,
+                "can_edit_narrative" : true/false,
+                "can_add_comment" : true/false,
+                "can_delete_comment" : true/false,
+                "can_add_tag" : true/false,
+                "can_delete_tag" : true/false,
+                "can_add_image" : true/false,
+                "can_delete_image" : true/false,
+                "can_add_where_tag" : true/false,
+                "can_see_where_tag" : true/false,
+                "can_delete_where_tag" : true/false
             },
             {
-                "id": "view_theree_id",
-                "short_name": "Team / Auditors...",
+                "id": "A unique identifier used for VIEW_ID",
+                "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
-                "is_public": false
+                "is_public": "boolean. true if the public (user not logged in) can see this view."
+                "alias": "public/private/empty",
+                "hide_metadata_if_alias" : true/false,
+                "can_see_transaction_this_bank_account" : true/false,
+                "can_see_transaction_other_bank_account" : true/false,
+                "can_see_transaction_metadata" : true/false,
+                "can_see_transaction_label" : true/false,
+                "can_see_transaction_amount" : true/false,
+                "can_see_transaction_type" : true/false,
+                "can_see_transaction_currency" : true/false,
+                "can_see_transaction_start_date" : true/false,
+                "can_see_transaction_finish_date" : true/false,
+                "can_see_transaction_balance" : true/false,
+                "can_see_comments" : true/false,
+                "can_see_narrative" : true/false,
+                "can_see_tags" : true/false,
+                "can_see_images" : true/false,
+                "can_see_bank_account_owners" : true/false,
+                "can_see_bank_account_type" : true/false,
+                "can_see_bank_account_balance" : true/false,
+                "can_see_bank_account_currency" : true/false,
+                "can_see_bank_account_label" : true/false,
+                "can_see_bank_account_national_identifier" : true/false,
+                "can_see_bank_account_swift_bic" : true/false,
+                "can_see_bank_account_iban" : true/false,
+                "can_see_bank_account_number" : true/false,
+                "can_see_bank_account_bank_name" : true/false,
+                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_other_account_national_identifier" : true/false,
+                "can_see_swift_bic" : true/false,
+                "can_see_other_account_iban" : true/false,
+                "can_see_other_account_bank_name" : true/false,
+                "can_see_other_account_number" : true/false,
+                "can_see_other_account_metadata" : true/false,
+                "can_see_other_account_kind" : true/false,
+                "can_see_more_info" : true/false,
+                "can_see_url" : true/false,
+                "can_see_image_url" : true/false,
+                "can_see_open_corporates_url" : true/false,
+                "can_see_corporate_location" : true/false,
+                "can_see_physical_location" : true/false,
+                "can_see_public_alias" : true/false,
+                "can_see_private_alias" : true/false,
+                "can_add_more_info" : true/false,
+                "can_add_url" : true/false,
+                "can_add_image_url" : true/false,
+                "can_add_open_corporates_url" : true/false,
+                "can_add_corporate_location" : true/false,
+                "can_add_physical_location" : true/false,
+                "can_add_public_alias" : true/false,
+                "can_add_private_alias" : true/false,
+                "can_delete_corporate_location" : true/false,
+                "can_delete_physical_location" : true/false,
+                "can_edit_narrative" : true/false,
+                "can_add_comment" : true/false,
+                "can_delete_comment" : true/false,
+                "can_add_tag" : true/false,
+                "can_delete_tag" : true/false,
+                "can_add_image" : true/false,
+                "can_delete_image" : true/false,
+                "can_add_where_tag" : true/false,
+                "can_see_where_tag" : true/false,
+                "can_delete_where_tag" : true/false
             }
         ]
     }
@@ -2032,23 +2905,3 @@ Body:
             }
         }
     }
-
-<span id="how-views"></span>
-### How views works ?
-
-Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public or replaced by + or -.
-
-**data:** When a view moderates a set of data, some fields my contain the value null rather than the original value. This indicates either that the user is not allowed to see the original data or the field is empty.
-
-There are currently two exceptions to this rule:
-
-1) The "holder" field in the JSON contains a value which is either an alias or the real name - indicated by the "is_alias" field.
-
-2) The "balance" field (in a transaction or account details) may contain the real amount, a plus sign (+) or a minus sign (-).
-
-**action:** When a user performs an action like trying to post a comment (with POST API call), if he is not allowed, the repose will be an "unauthorized" HTTP code 401.
-
-**Metadata:**
-Transaction metadata like (images, tags, comments, etc.) will appears ONLY on the view where they have been created e.g. comments posted to the public view only appear on the public view.
-
-The other account metadata fields like image_URL, more_info, etc are unique through all the views. Example, if a user edit the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
