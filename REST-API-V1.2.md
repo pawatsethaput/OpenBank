@@ -197,8 +197,8 @@ Body:
                         "short_name": "Public / Team / Auditors...",
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
-                        "alias": "public/private/empty",
-                        "hide_metadata_if_alias" : true/false,
+                        "which_alias_to_use": "public/private/none",
+                        "hide_metadata_if_alias_used" : true/false,
                         "can_see_transaction_this_bank_account" : true/false,
                         "can_see_transaction_other_bank_account" : true/false,
                         "can_see_transaction_metadata" : true/false,
@@ -223,7 +223,6 @@ Body:
                         "can_see_bank_account_iban" : true/false,
                         "can_see_bank_account_number" : true/false,
                         "can_see_bank_account_bank_name" : true/false,
-                        "can_see_bank_account_bank_permalink" : true/false,
                         "can_see_other_account_national_identifier" : true/false,
                         "can_see_swift_bic" : true/false,
                         "can_see_other_account_iban" : true/false,
@@ -293,8 +292,8 @@ Body:
                         "short_name": "Public / Team / Auditors...",
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
-                        "alias": "public/private/empty",
-                        "hide_metadata_if_alias" : true/false,
+                        "which_alias_to_use": "public/private/none",
+                        "hide_metadata_if_alias_used" : true/false,
                         "can_see_transaction_this_bank_account" : true/false,
                         "can_see_transaction_other_bank_account" : true/false,
                         "can_see_transaction_metadata" : true/false,
@@ -319,7 +318,6 @@ Body:
                         "can_see_bank_account_iban" : true/false,
                         "can_see_bank_account_number" : true/false,
                         "can_see_bank_account_bank_name" : true/false,
-                        "can_see_bank_account_bank_permalink" : true/false,
                         "can_see_other_account_national_identifier" : true/false,
                         "can_see_swift_bic" : true/false,
                         "can_see_other_account_iban" : true/false,
@@ -390,8 +388,8 @@ Body:
                         "short_name": "Public / Team / Auditors...",
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
-                        "alias": "public/private/empty",
-                        "hide_metadata_if_alias" : true/false,
+                        "which_alias_to_use": "public/private/none",
+                        "hide_metadata_if_alias_used" : true/false,
                         "can_see_transaction_this_bank_account" : true/false,
                         "can_see_transaction_other_bank_account" : true/false,
                         "can_see_transaction_metadata" : true/false,
@@ -416,7 +414,6 @@ Body:
                         "can_see_bank_account_iban" : true/false,
                         "can_see_bank_account_number" : true/false,
                         "can_see_bank_account_bank_name" : true/false,
-                        "can_see_bank_account_bank_permalink" : true/false,
                         "can_see_other_account_national_identifier" : true/false,
                         "can_see_swift_bic" : true/false,
                         "can_see_other_account_iban" : true/false,
@@ -507,8 +504,8 @@ Body:
                 "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": "boolean. true if the public (user not logged in) can see this view."
-                "alias": "public/private/empty",
-                "hide_metadata_if_alias" : true/false,
+                "which_alias_to_use": "public/private/none",
+                "hide_metadata_if_alias_used" : true/false,
                 "can_see_transaction_this_bank_account" : true/false,
                 "can_see_transaction_other_bank_account" : true/false,
                 "can_see_transaction_metadata" : true/false,
@@ -532,8 +529,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : true/false,
-                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -577,7 +573,7 @@ Body:
 <span id="views"></span>
 #Views
 
-### How views works 
+### How views work  
 
 Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public. The way to know what is possible on a view is determined in the following JSON.
 
@@ -590,7 +586,7 @@ There is currently one exception to this rule, the "holder" field in the JSON co
 **Metadata:**
 Transaction metadata like (images, tags, comments, etc.) will appears *ONLY* on the view where they have been created e.g. comments posted to the public view only appear on the public view.
 
-The other account metadata fields like image_URL, more_info, etc are unique through all the views. Example, if a user edit the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
+The other account metadata fields like image_URL, more_info, etc are unique through all the views. Example, if a user edits the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
 
 #### all
 *Optional*
@@ -609,75 +605,74 @@ Body:
 
     {
         "views": [
-                {
-                    "id": "A unique identifier used for VIEW_ID",
-                    "short_name": "Public / Team / Auditors...",
-                    "description": "e.g. this is the public view of the TESOBE account",
-                    "is_public": "boolean. true if the public (user not logged in) can see this view."
-                    "alias": "public/private/empty",
-                    "hide_metadata_if_alias" : true/false,
-                    "can_see_transaction_this_bank_account" : true/false,
-                    "can_see_transaction_other_bank_account" : true/false,
-                    "can_see_transaction_metadata" : true/false,
-                    "can_see_transaction_label" : true/false,
-                    "can_see_transaction_amount" : true/false,
-                    "can_see_transaction_type" : true/false,
-                    "can_see_transaction_currency" : true/false,
-                    "can_see_transaction_start_date" : true/false,
-                    "can_see_transaction_finish_date" : true/false,
-                    "can_see_transaction_balance" : true/false,
-                    "can_see_comments" : true/false,
-                    "can_see_narrative" : true/false,
-                    "can_see_tags" : true/false,
-                    "can_see_images" : true/false,
-                    "can_see_bank_account_owners" : true/false,
-                    "can_see_bank_account_type" : true/false,
-                    "can_see_bank_account_balance" : true/false,
-                    "can_see_bank_account_currency" : true/false,
-                    "can_see_bank_account_label" : true/false,
-                    "can_see_bank_account_national_identifier" : true/false,
-                    "can_see_bank_account_swift_bic" : true/false,
-                    "can_see_bank_account_iban" : true/false,
-                    "can_see_bank_account_number" : true/false,
-                    "can_see_bank_account_bank_name" : true/false,
-                    "can_see_bank_account_bank_permalink" : true/false,
-                    "can_see_other_account_national_identifier" : true/false,
-                    "can_see_swift_bic" : true/false,
-                    "can_see_other_account_iban" : true/false,
-                    "can_see_other_account_bank_name" : true/false,
-                    "can_see_other_account_number" : true/false,
-                    "can_see_other_account_metadata" : true/false,
-                    "can_see_other_account_kind" : true/false,
-                    "can_see_more_info" : true/false,
-                    "can_see_url" : true/false,
-                    "can_see_image_url" : true/false,
-                    "can_see_open_corporates_url" : true/false,
-                    "can_see_corporate_location" : true/false,
-                    "can_see_physical_location" : true/false,
-                    "can_see_public_alias" : true/false,
-                    "can_see_private_alias" : true/false,
-                    "can_add_more_info" : true/false,
-                    "can_add_url" : true/false,
-                    "can_add_image_url" : true/false,
-                    "can_add_open_corporates_url" : true/false,
-                    "can_add_corporate_location" : true/false,
-                    "can_add_physical_location" : true/false,
-                    "can_add_public_alias" : true/false,
-                    "can_add_private_alias" : true/false,
-                    "can_delete_corporate_location" : true/false,
-                    "can_delete_physical_location" : true/false,
-                    "can_edit_narrative" : true/false,
-                    "can_add_comment" : true/false,
-                    "can_delete_comment" : true/false,
-                    "can_add_tag" : true/false,
-                    "can_delete_tag" : true/false,
-                    "can_add_image" : true/false,
-                    "can_delete_image" : true/false,
-                    "can_add_where_tag" : true/false,
-                    "can_see_where_tag" : true/false,
-                    "can_delete_where_tag" : true/false
-                }
-            ]
+            {
+                "id": "A unique identifier used for VIEW_ID",
+                "short_name": "Public / Team / Auditors...",
+                "description": "e.g. this is the public view of the TESOBE account",
+                "is_public": "boolean. true if the public (user not logged in) can see this view."
+                "which_alias_to_use": "public/private/none",
+                "hide_metadata_if_alias_used" : true/false,
+                "can_see_transaction_this_bank_account" : true/false,
+                "can_see_transaction_other_bank_account" : true/false,
+                "can_see_transaction_metadata" : true/false,
+                "can_see_transaction_label" : true/false,
+                "can_see_transaction_amount" : true/false,
+                "can_see_transaction_type" : true/false,
+                "can_see_transaction_currency" : true/false,
+                "can_see_transaction_start_date" : true/false,
+                "can_see_transaction_finish_date" : true/false,
+                "can_see_transaction_balance" : true/false,
+                "can_see_comments" : true/false,
+                "can_see_narrative" : true/false,
+                "can_see_tags" : true/false,
+                "can_see_images" : true/false,
+                "can_see_bank_account_owners" : true/false,
+                "can_see_bank_account_type" : true/false,
+                "can_see_bank_account_balance" : true/false,
+                "can_see_bank_account_currency" : true/false,
+                "can_see_bank_account_label" : true/false,
+                "can_see_bank_account_national_identifier" : true/false,
+                "can_see_bank_account_swift_bic" : true/false,
+                "can_see_bank_account_iban" : true/false,
+                "can_see_bank_account_number" : true/false,
+                "can_see_bank_account_bank_name" : tru
+                "can_see_other_account_national_identifier" : true/false,
+                "can_see_swift_bic" : true/false,
+                "can_see_other_account_iban" : true/false,
+                "can_see_other_account_bank_name" : true/false,
+                "can_see_other_account_number" : true/false,
+                "can_see_other_account_metadata" : true/false,
+                "can_see_other_account_kind" : true/false,
+                "can_see_more_info" : true/false,
+                "can_see_url" : true/false,
+                "can_see_image_url" : true/false,
+                "can_see_open_corporates_url" : true/false,
+                "can_see_corporate_location" : true/false,
+                "can_see_physical_location" : true/false,
+                "can_see_public_alias" : true/false,
+                "can_see_private_alias" : true/false,
+                "can_add_more_info" : true/false,
+                "can_add_url" : true/false,
+                "can_add_image_url" : true/false,
+                "can_add_open_corporates_url" : true/false,
+                "can_add_corporate_location" : true/false,
+                "can_add_physical_location" : true/false,
+                "can_add_public_alias" : true/false,
+                "can_add_private_alias" : true/false,
+                "can_delete_corporate_location" : true/false,
+                "can_delete_physical_location" : true/false,
+                "can_edit_narrative" : true/false,
+                "can_add_comment" : true/false,
+                "can_delete_comment" : true/false,
+                "can_add_tag" : true/false,
+                "can_delete_tag" : true/false,
+                "can_add_image" : true/false,
+                "can_delete_image" : true/false,
+                "can_add_where_tag" : true/false,
+                "can_see_where_tag" : true/false,
+                "can_delete_where_tag" : true/false
+            }
+        ]
     }
 
 #### Create a view 
@@ -698,7 +693,7 @@ Otherwise the metadata will be shown.
 * the "allowed_actions" field is a list containing the name of the actions allowed on this view, 
 all the actions contained will be set to true on the view creation, the rest will be set to false.
 
-Here is action names that the list can contains:
+Here are the action names that the list can contain:
 
     can_see_transaction_this_bank_account  
     can_see_transaction_other_bank_account  
@@ -733,9 +728,7 @@ Here is action names that the list can contains:
     can_see_bank_account_swift_bic  
     can_see_bank_account_iban  
     can_see_bank_account_number  
-    can_see_bank_account_bank_name  
-    can_see_bank_account_bank_permalink  
-    can_see_other_account_national_identifier  
+    can_see_bank_acother_account_national_identifier  
     can_see_swift_bic  
     can_see_other_account_iban  
     can_see_other_account_bank_name  
@@ -762,7 +755,7 @@ Here is action names that the list can contains:
         can_delete_physical_location  
 
 **Notes:**  
- - if the list contains some transaction metadata actions like can_see_narritive, can_add_comment, it **MUST** contain can_see_transaction_metadata.  
+ - if the list contains some transaction metadata actions like can_see_narrative, can_add_comment, it **MUST** contain can_see_transaction_metadata.  
  - if the list contains some other account metadata actions like can_see_more_info, can_see_physical_location, it **MUST** contain can_see_other_account_metadata.
 
 **Request:**
@@ -774,8 +767,8 @@ Body:
         "name": "the view name",
         "description": "a little description.",
         "is_Public": "Boolean to specify if the view can be accessible to not logged in users",
-        "alias": "public, private or empty string. ",
-        "hide_metadata_if_alias": true,
+        "which_alias_to_use": "public/private/none",
+        "hide_metadata_if_alias_used" : true/false,
         "allowed_actions":  [
             "can_see_transaction_this_bank_account", 
             "can_see_transaction_label", 
@@ -791,8 +784,8 @@ Body:
         "short_name": "Public / Team / Auditors...",
         "description": "e.g. this is the public view of the TESOBE account",
         "is_public": "boolean. true if the public (user not logged in) can see this view."
-        "alias": "public/private/empty",
-        "hide_metadata_if_alias" : true/false,
+        "which_alias_to_use": "public/private/none",
+        "hide_metadata_if_alias_used" : true/false,
         "can_see_transaction_this_bank_account" : true/false,
         "can_see_transaction_other_bank_account" : true/false,
         "can_see_transaction_metadata" : true/false,
@@ -816,8 +809,7 @@ Body:
         "can_see_bank_account_swift_bic" : true/false,
         "can_see_bank_account_iban" : true/false,
         "can_see_bank_account_number" : true/false,
-        "can_see_bank_account_bank_name" : true/false,
-        "can_see_bank_account_bank_permalink" : true/false,
+        "can_see_bank_account_bank_nam
         "can_see_other_account_national_identifier" : true/false,
         "can_see_swift_bic" : true/false,
         "can_see_other_account_iban" : true/false,
@@ -886,8 +878,8 @@ Body:
                         "short_name": "Public / Team / Auditors...",
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
-                        "alias": "public/private/empty",
-                        "hide_metadata_if_alias" : true/false,
+                        "which_alias_to_use": "public/private/none",
+                        "hide_metadata_if_alias_used" : true/false,
                         "can_see_transaction_this_bank_account" : true/false,
                         "can_see_transaction_other_bank_account" : true/false,
                         "can_see_transaction_metadata" : true/false,
@@ -912,7 +904,6 @@ Body:
                         "can_see_bank_account_iban" : true/false,
                         "can_see_bank_account_number" : true/false,
                         "can_see_bank_account_bank_name" : true/false,
-                        "can_see_bank_account_bank_permalink" : true/false,
                         "can_see_other_account_national_identifier" : true/false,
                         "can_see_swift_bic" : true/false,
                         "can_see_other_account_iban" : true/false,
@@ -977,8 +968,8 @@ Body:
                 "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": "boolean. true if the public (user not logged in) can see this view."
-                "alias": "public/private/empty",
-                "hide_metadata_if_alias" : true/false,
+                "which_alias_to_use": "public/private/none",
+                "hide_metadata_if_alias_used" : true/false,
                 "can_see_transaction_this_bank_account" : true/false,
                 "can_see_transaction_other_bank_account" : true/false,
                 "can_see_transaction_metadata" : true/false,
@@ -1002,8 +993,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : true/false,
-                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -1068,8 +1058,8 @@ Body:
             "short_name": "Public / Team / Auditors...",
             "description": "e.g. this is the public view of the TESOBE account",
             "is_public": "boolean. true if the public (user not logged in) can see this view."
-            "alias": "public/private/empty",
-            "hide_metadata_if_alias" : true/false,
+            "which_alias_to_use": "public/private/none",
+            "hide_metadata_if_alias_used" : true/false,
             "can_see_transaction_this_bank_account" : true/false,
             "can_see_transaction_other_bank_account" : true/false,
             "can_see_transaction_metadata" : true/false,
@@ -1093,8 +1083,7 @@ Body:
             "can_see_bank_account_swift_bic" : true/false,
             "can_see_bank_account_iban" : true/false,
             "can_see_bank_account_number" : true/false,
-            "can_see_bank_account_bank_name" : true/false,
-            "can_see_bank_account_bank_permalink" : true/false,
+            "can_see_bank_account_bank_name" :
             "can_see_other_account_national_identifier" : true/false,
             "can_see_swift_bic" : true/false,
             "can_see_other_account_iban" : true/false,
@@ -1165,8 +1154,8 @@ Body:
                 "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": "boolean. true if the public (user not logged in) can see this view."
-                "alias": "public/private/empty",
-                "hide_metadata_if_alias" : true/false,
+                "which_alias_to_use": "public/private/none",
+                "hide_metadata_if_alias_used" : true/false,
                 "can_see_transaction_this_bank_account" : true/false,
                 "can_see_transaction_other_bank_account" : true/false,
                 "can_see_transaction_metadata" : true/false,
@@ -1190,8 +1179,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : true/false,
-                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -1233,8 +1221,8 @@ Body:
                 "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": "boolean. true if the public (user not logged in) can see this view."
-                "alias": "public/private/empty",
-                "hide_metadata_if_alias" : true/false,
+                "which_alias_to_use": "public/private/none",
+                "hide_metadata_if_alias_used" : true/false,
                 "can_see_transaction_this_bank_account" : true/false,
                 "can_see_transaction_other_bank_account" : true/false,
                 "can_see_transaction_metadata" : true/false,
@@ -1258,8 +1246,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : true/false,
-                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -1301,8 +1288,8 @@ Body:
                 "short_name": "Public / Team / Auditors...",
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": "boolean. true if the public (user not logged in) can see this view."
-                "alias": "public/private/empty",
-                "hide_metadata_if_alias" : true/false,
+                "which_alias_to_use": "public/private/none",
+                "hide_metadata_if_alias_used" : true/false,
                 "can_see_transaction_this_bank_account" : true/false,
                 "can_see_transaction_other_bank_account" : true/false,
                 "can_see_transaction_metadata" : true/false,
@@ -1326,8 +1313,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : true/false,
-                "can_see_bank_account_bank_permalink" : true/false,
+                "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
