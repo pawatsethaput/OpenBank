@@ -224,7 +224,7 @@ Body:
                         "can_see_bank_account_number" : true/false,
                         "can_see_bank_account_bank_name" : true/false,
                         "can_see_other_account_national_identifier" : true/false,
-                        "can_see_swift_bic" : true/false,
+                        "can_see_other_account_swift_bic" : true/false,
                         "can_see_other_account_iban" : true/false,
                         "can_see_other_account_bank_name" : true/false,
                         "can_see_other_account_number" : true/false,
@@ -319,7 +319,7 @@ Body:
                         "can_see_bank_account_number" : true/false,
                         "can_see_bank_account_bank_name" : true/false,
                         "can_see_other_account_national_identifier" : true/false,
-                        "can_see_swift_bic" : true/false,
+                        "can_see_other_account_swift_bic" : true/false,
                         "can_see_other_account_iban" : true/false,
                         "can_see_other_account_bank_name" : true/false,
                         "can_see_other_account_number" : true/false,
@@ -415,7 +415,7 @@ Body:
                         "can_see_bank_account_number" : true/false,
                         "can_see_bank_account_bank_name" : true/false,
                         "can_see_other_account_national_identifier" : true/false,
-                        "can_see_swift_bic" : true/false,
+                        "can_see_other_account_swift_bic" : true/false,
                         "can_see_other_account_iban" : true/false,
                         "can_see_other_account_bank_name" : true/false,
                         "can_see_other_account_number" : true/false,
@@ -531,7 +531,7 @@ Body:
                 "can_see_bank_account_number" : true/false,
                 "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
-                "can_see_swift_bic" : true/false,
+                "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
                 "can_see_other_account_bank_name" : true/false,
                 "can_see_other_account_number" : true/false,
@@ -637,7 +637,7 @@ Body:
                 "can_see_bank_account_number" : true/false,
                 "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
-                "can_see_swift_bic" : true/false,
+                "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
                 "can_see_other_account_bank_name" : true/false,
                 "can_see_other_account_number" : true/false,
@@ -729,7 +729,7 @@ Here are the action names that the list can contain:
     can_see_bank_account_iban  
     can_see_bank_account_number  
     can_see_bank_acother_account_national_identifier  
-    can_see_swift_bic  
+    can_see_other_account_swift_bic  
     can_see_other_account_iban  
     can_see_other_account_bank_name  
     can_see_other_account_number  
@@ -811,7 +811,7 @@ Body:
         "can_see_bank_account_number" : true/false,
         "can_see_bank_account_bank_nam
         "can_see_other_account_national_identifier" : true/false,
-        "can_see_swift_bic" : true/false,
+        "can_see_other_account_swift_bic" : true/false,
         "can_see_other_account_iban" : true/false,
         "can_see_other_account_bank_name" : true/false,
         "can_see_other_account_number" : true/false,
@@ -905,7 +905,7 @@ Body:
                         "can_see_bank_account_number" : true/false,
                         "can_see_bank_account_bank_name" : true/false,
                         "can_see_other_account_national_identifier" : true/false,
-                        "can_see_swift_bic" : true/false,
+                        "can_see_other_account_swift_bic" : true/false,
                         "can_see_other_account_iban" : true/false,
                         "can_see_other_account_bank_name" : true/false,
                         "can_see_other_account_number" : true/false,
@@ -995,7 +995,7 @@ Body:
                 "can_see_bank_account_number" : true/false,
                 "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
-                "can_see_swift_bic" : true/false,
+                "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
                 "can_see_other_account_bank_name" : true/false,
                 "can_see_other_account_number" : true/false,
@@ -1085,7 +1085,7 @@ Body:
             "can_see_bank_account_number" : true/false,
             "can_see_bank_account_bank_name" :
             "can_see_other_account_national_identifier" : true/false,
-            "can_see_swift_bic" : true/false,
+            "can_see_other_account_swift_bic" : true/false,
             "can_see_other_account_iban" : true/false,
             "can_see_other_account_bank_name" : true/false,
             "can_see_other_account_number" : true/false,
@@ -1181,7 +1181,7 @@ Body:
                 "can_see_bank_account_number" : true/false,
                 "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
-                "can_see_swift_bic" : true/false,
+                "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
                 "can_see_other_account_bank_name" : true/false,
                 "can_see_other_account_number" : true/false,
@@ -1248,7 +1248,7 @@ Body:
                 "can_see_bank_account_number" : true/false,
                 "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
-                "can_see_swift_bic" : true/false,
+                "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
                 "can_see_other_account_bank_name" : true/false,
                 "can_see_other_account_number" : true/false,
@@ -1315,7 +1315,7 @@ Body:
                 "can_see_bank_account_number" : true/false,
                 "can_see_bank_account_bank_name" : tru
                 "can_see_other_account_national_identifier" : true/false,
-                "can_see_swift_bic" : true/false,
+                "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
                 "can_see_other_account_bank_name" : true/false,
                 "can_see_other_account_number" : true/false,
