@@ -1,4 +1,4 @@
-# Version: 1.2
+# Version: 1.2.1
 
 # Status: DRAFT
 
@@ -54,7 +54,7 @@ The protocol consists of *baseline* and *optional* end points.
 For baseline compliance, all the baseline URLs must be implemented.
 For full compliance, all the baseline and optional end points must be implemented.
 
- * All calls should be prefixed with /obp/v1.2
+ * All calls should be prefixed with /obp/v1.2.1
 
  * The OBP API returns JSON as specified [here](http://www.json.org/) and validated [here](http://jsonlint.com/).
 
@@ -84,7 +84,7 @@ For full compliance, all the baseline and optional end points must be implemente
 <span id="implementation-hints"></span>
 ### Implementation hints and notes.
 
-The implementation of V1.2 is work in progress
+The implementation of V1.2.1 is work in progress
 
 <span id="root"></span>
 #Root
@@ -498,6 +498,7 @@ Body:
             "amount": "number or +/-"
         },
         "IBAN": "123080FZAFA9124AZE",
+        "swift_bic":"",
         "views_available": [
             {
                 "id": "A unique identifier used for VIEW_ID",
@@ -1413,6 +1414,7 @@ Body:
                 "number": "",
                 "kind": "",
                 "IBAN": "",
+                "swift_bic":"",
                 "bank": {
                     "national_identifier": "",
                     "name": ""
@@ -1474,6 +1476,7 @@ Body:
         "number": "",
         "kind": "",
         "IBAN": "",
+        "swift_bic":"",
         "bank": {
             "national_identifier": "",
             "name": ""
@@ -2162,6 +2165,7 @@ Body:
                     "number": "",
                     "kind": "",
                     "IBAN": "",
+                    "swift_bic":"",
                     "bank": {
                         "national_identifier": "",
                         "name": ""
@@ -2176,6 +2180,7 @@ Body:
                     "number": "",
                     "kind": "",
                     "IBAN": "",
+                    "swift_bic":"",
                     "bank": {
                         "national_identifier": "",
                         "name": ""
@@ -2211,7 +2216,7 @@ Body:
                 },
                 "details": {
                     "type": "cash",
-                    "label": "transaction label",
+                    "description": "transaction description",
                     "posted": "2012-03-07T00:00:00.001Z",
                     "completed": "2012-03-07T00:00:00.001Z",
                     "new_balance": {
@@ -2300,6 +2305,7 @@ Body:
             "number": "",
             "kind": "",
             "IBAN": "",
+            "swift_bic":"",
             "bank": {
                 "national_identifier": "",
                 "name": ""
@@ -2314,6 +2320,7 @@ Body:
             "number": "",
             "kind": "",
             "IBAN": "",
+            "swift_bic":"",
             "bank": {
                 "national_identifier": "",
                 "name": ""
@@ -2349,7 +2356,7 @@ Body:
         },
         "details": {
             "type": "cash",
-            "label": "transaction label",
+            "description": "transaction description",
             "posted": "2012-03-07T00:00:00.001Z",
             "completed": "2012-03-07T00:00:00.001Z",
             "new_balance": {
@@ -2858,6 +2865,7 @@ Body:
         "number": "",
         "kind": "",
         "IBAN": "",
+        "swift_bic":"",
         "bank": {
             "national_identifier": "",
             "name": ""
