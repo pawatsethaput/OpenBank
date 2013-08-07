@@ -1,6 +1,6 @@
-# Version: 1.2
+### Version: 1.2
 
-# Status: DRAFT
+### Status: Stable
 
 # Index
 
@@ -84,7 +84,7 @@ For full compliance, all the baseline and optional end points must be implemente
 <span id="implementation-hints"></span>
 ### Implementation hints and notes.
 
-The implementation of V1.2 is work in progress
+The implementation of V1.2 is stable.
 
 <span id="root"></span>
 #Root
