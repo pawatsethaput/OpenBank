@@ -72,7 +72,7 @@ If the callback URL was not specified (oob) than the verifier will be shown in t
 # Step 3 : Converting the request token to an access token
 
 To convert the request token into a usable access token, the application must make a request to the POST oauth/token endpoint, containing the oauth_verifier value obtained in step 2. 
-The request token is also passed as oauth_token parameter  of the header. 
+The request token is also passed as oauth_token parameter  of the **header**. 
 
 **Note :** The oauth_callback_url parameter is not necessary any more.
 
@@ -103,11 +103,11 @@ The signature base string is a consistent, reproducible concatenation of several
 The signature base string includes the following components of the HTTP request:
 
 * The HTTP request method (e.g., "GET", "POST", etc.).
-* The authority as declared by the HTTP "Host" request header field.
+* The authority as declared by the HTTP "Host" request **header** field.
 * The path and query components of the request resource URI. 
 * The protocol parameters excluding the "oauth_signature".
 	
-The signature base string does not cover the entire HTTP request. Most notably, it does not include the entity-body in most requests, nor does it include most HTTP entity-headers. 
+The signature base string does not cover the entire HTTP request. Most notably, it does not include the entity-body in most requests, nor does it include most HTTP **entity-headers**. 
 
 The signature base string is constructed by concatenating together, in order, the following HTTP request elements: 
 
@@ -152,7 +152,7 @@ The signature that results from the signature process MUST be encoded in base 64
 
 # Step 4 : Accessing to protected resources :
 
-Once the application have an a access token an secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the header.
+Once the application have an a access token an secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
 
 Please see the API documentation for more details how to access protected resources. 
 
