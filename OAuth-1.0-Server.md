@@ -2,7 +2,7 @@ The following steps will explain how to connect to the [Open Bank project demo](
 
 The following documentation is based on the [OAuth 1.0 specification](http://tools.ietf.org/html/rfc5849) so if need more details your can refer to it.  
 
-Before to start interact with the API, third party applications needs to get OAuth keys (consumer key and secret key). You can register your application [here](https://api.openbankproject.com/consumer-registration) to get those keys. If you want to use the sandbox before handling real data, please register you application [here](https://apisandbox.openbankproject.com/consumer-registration) 
+Before to start interact with the API, third party applications needs to get OAuth keys (consumer key and secret key). You can register your application [here](https://api.openbankproject.com/consumer-registration) to get those keys for interacting with real data. If you want to use the **sandbox** before handling real data, please register your application [here](https://apisandbox.openbankproject.com/consumer-registration) 
 
 ## Step 1 : Obtaining a request token :
 To start a sign in flow, the application must obtain a request token by sending a signed message to : 
