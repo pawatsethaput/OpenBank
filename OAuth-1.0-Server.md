@@ -4,10 +4,12 @@ The following documentation is based on the [OAuth 1.0 specification](http://too
 
 Before to start interact with the API, third party applications needs to get OAuth keys (consumer key and secret key). You can register your application [here](https://api.openbankproject.com/consumer-registration) to get those keys for interacting with real data. If you want to use the **sandbox** before handling real data, please register your application [here](https://apisandbox.openbankproject.com/consumer-registration) 
 
+The **BASE-URL** alias in the following URLs must be replaced by __https://api.openbankproject.com__ or __https://apisandbox.openbankproject.com__ depending if you are accessing the real data or the sandbox.
+
 ## Step 1 : Obtaining a request token :
 To start a sign in flow, the application must obtain a request token by sending a signed message to : 
 
-_POST oauth/initiate_ with the following parameters : 
+_POST **BASE-URL**/oauth/initiate_ with the following parameters : 
 
 * **oauth_callback**:  an absolute URI back to witch the server will redirect the resource owner (user) when Authorization step is completed. If the application is unable to receive callbacks the parameter value MUST be set to “oob” (case sensitive), to indicate an out-of-band configuration.
 
@@ -60,9 +62,7 @@ Direct the user to : _GET oauth/authorize_ and the request token obtained in ste
 The most seamless way for a website to implement this would be to issue a HTTP 302 redirect as the response to the original request. Mobile and desktop applications should open a new browser window or direct to the URL via an embedded web view.
 
 **Example :** <br />
-https://api.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
-or
-https://apisandbox.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
+**BASE-URL**/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
 
 Upon a successful authentication, the callback URL would receive a request containing the oauth_token and oauth_verifier parameters. The application should verify that the token matches the request token received in step 1.
 
@@ -71,7 +71,8 @@ If the callback URL was not specified (oob) than the verifier will be shown in t
 
 # Step 3 : Converting the request token to an access token
 
-To convert the request token into a usable access token, the application must make a request to the POST oauth/token endpoint, containing the oauth_verifier value obtained in step 2. 
+To convert the request token into a usable access token, the application must make a:   
+_POST **BASE-URL**/oauth/token_ request containing the oauth_verifier value obtained in step 2. 
 The request token is also passed as oauth_token parameter  of the **header**. 
 
 **Note :** The oauth_callback_url parameter is not necessary any more.
