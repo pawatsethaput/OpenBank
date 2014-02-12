@@ -1,5 +1,3 @@
-# Add a bank account
-
 # Index
 
 * [Introduction](#introduction)
