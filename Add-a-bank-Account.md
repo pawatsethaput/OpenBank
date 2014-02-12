@@ -8,6 +8,7 @@
     * [Step 2: Redirecting the user](#user-authentication)
     * [Step 3: Obtaining an access token](#access-token)
 * [User authentication service](#user-authentication-service)
+* [Contact](#contact)
 
 <span id="introduction"></span>
 ### Introduction
@@ -15,7 +16,6 @@
 The following steps will explain how to connect to the Open Bank project API and add real bank accounts during the user authentication. The further described authentication mechanism is very similar to the one described [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server) so please refer to it for more details when needed.
 
 The **BASE_URL** alias in the following URLs must be replaced by __https://api.openbankproject.com/login__ 
-
 
 <span id="application-registration"></span>
 ### Application registration
@@ -81,3 +81,8 @@ _POST **BASE-URL**/oauth/callback_ plus two parameters **user_id** and **token**
 * token should contain the value present as a query parameter in the initial redirection (see upper).
 
 Please note that the call back to the Open Bank Project MUST be done with a **POST** request, so the parameters MUST be part of the body and not the URL.
+
+<span id="contact"></span>
+### Contact
+
+If you have any question about the Open Bank Project API or the previously described flow please don't hesitate to contact us at Ayoub@tesobe.com
