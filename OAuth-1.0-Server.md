@@ -94,6 +94,23 @@ Like the step 1, a successful response contains the oauth_token & oauth_token_s
 
 The application can know use the access token to access to protected resources. 
 
+# Step 4 : Accessing to protected resources :
+
+Once the application have an a access token an secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
+
+Please see the API documentation for more details how to access protected resources. 
+
+
+# Recommended OAuth 1.0 libraries:
+If you want to use a OAuth library to handle the OAuth process for your application, we have successfully tested these ones: 
+* JAVA: 
+   * [signpost](http://code.google.com/p/oauth-signpost/). **Warning** any version below 1.2.1.2 probably will not work. Version 1.2 which is the current Maven version seems to cause problems. 
+* PHP: 
+  * [OAuth Consumer And Server Library](https://code.google.com/p/oauth-php/)
+* Scala: 
+  * [Dispatch](http://dispatch.databinder.net/Dispatch.html)
+
+
 # Signature :
 According to the [section-3.4](http://tools.ietf.org/html/rfc5849#section-3.4) in the OAuth 1.0 protocol specification the signature computation is done following theses steps :
 
@@ -149,18 +166,4 @@ The Open Bank Project OAuth 1.0 implementation uses the “HMAC-SHA1” and “H
 The key to sign the base string is the concatenation of the consumer secret and the token secret with the “&” character in the middle like this: oauth_consumer_secret&oauth_token_secret, in the first step the application does not have yet a token so it will be an empty string.  
 
 The signature that results from the signature process MUST be encoded in base 64 also since the protocol requires encoding all the OAuth parameters.
-
-# Step 4 : Accessing to protected resources :
-
-Once the application have an a access token an secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
-
-Please see the API documentation for more details how to access protected resources. 
-
-
-# Recommended OAuth 1.0 libraries:
-If you want to use a OAuth library to handle the OAuth process for your application, we have successfully tested these ones: 
-* JAVA: 
-   * [signpost](http://code.google.com/p/oauth-signpost/). **Warning** any version below 1.2.1.2 probably will not work. Version 1.2 which is the current Maven version seems to cause problems. 
-* PHP: 
-  * [OAuth Consumer And Server Library](https://code.google.com/p/oauth-php/)
  
