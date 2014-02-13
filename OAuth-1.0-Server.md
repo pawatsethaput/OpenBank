@@ -97,7 +97,7 @@ The application can know use the access token to access to protected resources.
 
 # Step 4 : Accessing to protected resources :
 
-Once the application have an a access token an secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
+Once the application have an a access token and secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
 
 Please see the API documentation for more details how to access protected resources. 
 
