@@ -7,6 +7,7 @@
     * [Step 1: Obtaining a request token](#request-token)
     * [Step 2: Redirecting the user](#user-authentication)
     * [Step 3: Obtaining an access token](#access-token)
+    * [Step 4 : Accessing to protected resources](#access-protected-resources)
 * [User authentication service](#user-authentication-service)
 * [Contact](#contact)
 
@@ -67,7 +68,11 @@ TODO: add pictures
 This the final step of the OAuth flow, the application must make a:  
 _POST **BASE-URL**/oauth/token_ request with a header containing the oauth_verifier (value obtained in step 2) and the oauth_token (received after the step 1) parameters. More details [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server).
 
+<span id="access-protected-resources"></span>
+### Step 4 : Accessing to protected resources
+Once the application have an a access token and secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the header.
 
+Please see the API documentation for more details how to access protected resources.
 <span id="user-authentication-service"></span>
 ### User authentication service
 
