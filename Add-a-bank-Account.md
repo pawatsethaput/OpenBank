@@ -58,9 +58,9 @@ If the query parameter is present and set to true (like in the second URL) then 
 2. #### Banking details:  
 Once the user authentication done (either on the open bank login page or on a third party service then redirected back ), he will be asked to enter his banking credentials by selecting the country and the bank, also felling in the account number and the pin code fields.  
 Upon a successful authentication, the callback URL of the OAuth client would receive a request containing the oauth_token and oauth_verifier parameters. The application should verify that the token matches the request token received in [step 1](request-token).  
-If the callback URL was not specified (oob) than the verifier will be shown in the page and the user has to enter it into the application manually.
-
-TODO: add pictures
+If the callback URL was not specified (oob) than the verifier will be shown in the page and the user has to enter it into the application manually.  
+<img src="http://img4.hostingpics.net/pics/726203bankingdetails.png" width="50%" height="50%"/>  
+Screen shot of the banking credentials page.
 
 <span id="access-token"></span>
 ### Step 3: Obtaining an access token
