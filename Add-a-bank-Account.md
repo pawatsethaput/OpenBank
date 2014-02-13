@@ -90,4 +90,4 @@ Please note that the call back to the Open Bank Project MUST be done with a **PO
 <span id="contact"></span>
 ### Contact
 
-If you have any question about the Open Bank Project API or the previously described flow please don't hesitate to contact us at Ayoub@tesobe.com
+If you have any question about the Open Bank Project API or the previously described flow please don't hesitate to contact us at contact@openbankproject.com
