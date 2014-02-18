@@ -7,3 +7,5 @@ Welcome to the OBP-API wiki!
 * [OAuth 1.0 Server](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)
 
 * [Sandbox](https://github.com/OpenBankProject/OBP-API/wiki/Sandbox)
+
+* [Add a bank account](https://github.com/OpenBankProject/OBP-API/wiki/Add-a-bank-Account)
