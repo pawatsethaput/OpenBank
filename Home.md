@@ -1,5 +1,7 @@
 Welcome to the OBP-API wiki!
 
+* [Overview diagram of OBP Architecture](https://github.com/OpenBankProject/OBP-API/wiki/Open-Bank-Project-Architecture)
+
 * [REST API V1.2 Stable](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.2)
 
 * [REST API V1.2.1 Draft](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.2.1)
