@@ -870,7 +870,7 @@ Body:
             {
                 "user": {
                         "display_name": "display name of user",
-                        "id": "OBP UUID of the user making the comment",
+                        "id": "ID (given by the user's provider) of the user making the comment",
                         "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter"
                 },
                 "views": [
@@ -950,13 +950,13 @@ Body:
 #Permission
 *Optional*
 
-Returns the list of the views at BANK_ID for account ACCOUNT_ID that a USER_ID has access to.
+Returns the list of the views at BANK_ID for account ACCOUNT_ID that a USER_ID at their provider PROVIDER_ID has access to. All url parameters must be [%-encoded](http://en.wikipedia.org/wiki/Percent-encoding), which is often especially relevant for USER_ID and PROVIDER_ID.
 
 OAuth authentication is required and the user needs to have access to the owner view.
 
 **Request:**  
 Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/PROVIDER_ID/USER_ID
 
 **Response:**  
 HTTP code: 200  
@@ -1039,7 +1039,7 @@ Body:
 #### One
 *Optional*
 
-Grants the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
+Grants the user USER_ID at their provider PROVIDER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID. All url parameters must be [%-encoded](http://en.wikipedia.org/wiki/Percent-encoding), which is often especially relevant for USER_ID and PROVIDER_ID.
 
 OAuth authentication is required and the user needs to have access to the owner view.
 
@@ -1047,7 +1047,7 @@ Granting access to a public view will return an error message, as the user alrea
 
 **Request:**  
 Verb: POST  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views/VIEW_ID
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/PROVIDER_ID/USER_ID/views/VIEW_ID
 
 **Response:**  
 HTTP code: 201  
@@ -1126,14 +1126,14 @@ Body:
 #### Several
 *Optional*
 
-Grants the user USER_ID access to a list of views at BANK_ID for account ACCOUNT_ID.
+Grants the user USER_ID at their provider PROVIDER_ID access to a list of views at BANK_ID for account ACCOUNT_ID. All url parameters must be [%-encoded](http://en.wikipedia.org/wiki/Percent-encoding), which is often especially relevant for USER_ID and PROVIDER_ID.
 
 OAuth authentication is required and the user needs to have access to the owner view.
 
 **Request:**  
 Send a list of views Ids  
 Verb: POST  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/PROVIDER_ID/USER_ID/views  
 Body: 
 
     {
@@ -1359,7 +1359,7 @@ Body:
 #### one view
 *Optional*
 
-Revokes the user USER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
+Revokes the user USER_ID at their provider PROVIDER_ID access to the view VIEW_ID at BANK_ID for account ACCOUNT_ID.
 
 Revoking a user access to a public view will return an error message.
 
@@ -1367,7 +1367,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 
 **Request:**  
 Verb: DELETE  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views/VIEW_ID
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/PROVIDER_ID/USER_ID/views/VIEW_ID
 
 **Response:**  
 HTTP code: 204  
@@ -1376,13 +1376,13 @@ Body: No content
 #### all views
 *Optional*
 
-Revokes the user USER_ID access to all the views at BANK_ID for account ACCOUNT_ID.
+Revokes the user USER_ID at their provider PROVIDER_ID access to all the views at BANK_ID for account ACCOUNT_ID.
 
 OAuth authentication is required and the user needs to have access to the owner view.
 
 **Request:**
 Verb: DELETE  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/PROVIDER_ID/USER_ID/views  
 
 **Response:**
 HTTP code: 204
@@ -1432,7 +1432,7 @@ Body:
                             "date": "date of posting the geo tag",
                             "user": {
                                 "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                "id": "provider id of the user making the tag",
+                                "id": "ID (given by the user's provider) of the user making the comment",
                                 "display_name": "display name of user"
                             }
                     },
@@ -1442,7 +1442,7 @@ Body:
                             "date": "date of posting the geo tag",
                             "user": {
                                 "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                "id": "provider id of the user making the tag",
+                                "id": "ID (given by the user's provider) of the user making the comment",
                                 "display_name": "display name of user"
                             }
                     }
@@ -1494,7 +1494,7 @@ Body:
                     "date": "date of posting the geo tag",
                     "user": {
                         "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                        "id": "provider id of the user making the tag",
+                        "id": "ID (given by the user's provider) of the user making the comment",
                         "display_name": "display name of user"
                     }
             },
@@ -1504,7 +1504,7 @@ Body:
                     "date": "date of posting the geo tag",
                     "user": {
                         "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                        "id": "provider id of the user making the tag",
+                        "id": "ID (given by the user's provider) of the user making the comment",
                         "display_name": "display name of user"
                     }
             }
@@ -1541,7 +1541,7 @@ Body:
                 "date": "date of posting the geo tag",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "provider id of the user making the tag",
+                    "id": "ID (given by the user's provider) of the user making the comment",
                     "display_name": "display name of user"
                 }
         },
@@ -1551,7 +1551,7 @@ Body:
                 "date": "date of posting the geo tag",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "provider id of the user making the tag",
+                    "id": "ID (given by the user's provider) of the user making the comment",
                     "display_name": "display name of user"
                 }
         }
@@ -2198,7 +2198,7 @@ Body:
                                 "date": "date of posting the geo tag",
                                 "user": {
                                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                    "id": "provider id of the user making the tag",
+                                    "id": "ID (given by the user's provider) of the user making the comment",
                                     "display_name": "display name of user"
                                 }
                         },
@@ -2208,7 +2208,7 @@ Body:
                                 "date": "date of posting the geo tag",
                                 "user": {
                                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                    "id": "provider id of the user making the tag",
+                                    "id": "ID (given by the user's provider) of the user making the comment",
                                     "display_name": "display name of user"
                                 }
                         }
@@ -2237,7 +2237,7 @@ Body:
                             "value": "the comment",
                             "user": {
                                 "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                "id": "OBP UUID of the user making the comment",
+                                "id": "ID (given by the user's provider) of the user making the comment",
                                 "display_name": "display name of user"
                             }
                         }
@@ -2249,7 +2249,7 @@ Body:
                             "date": "date of posting the tag",
                             "user": {
                                 "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                                "id": "OBP UUID of the user making the comment",
+                                "id": "ID (given by the user's provider) of the user making the comment",
                                 "display_name": "display name of user"
                             }
                         }
@@ -2267,7 +2267,7 @@ Body:
                         "date": "date of posting the tag",
                         "user": {
                             "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                            "id": "provider id of the user making the tag",
+                            "id": "ID (given by the user's provider) of the user making the comment",
                             "display_name": "display name of user"
                         }
                     }
@@ -2338,7 +2338,7 @@ Body:
                         "date": "date of posting the geo tag",
                         "user": {
                             "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                            "id": "provider id of the user making the tag",
+                            "id": "ID (given by the user's provider) of the user making the comment",
                             "display_name": "display name of user"
                         }
                 },
@@ -2348,7 +2348,7 @@ Body:
                         "date": "date of posting the geo tag",
                         "user": {
                             "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                            "id": "provider id of the user making the tag",
+                            "id": "ID (given by the user's provider) of the user making the comment",
                             "display_name": "display name of user"
                         }
                 }
@@ -2377,7 +2377,7 @@ Body:
                     "value": "the comment",
                     "user": {
                         "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                        "id": "OBP UUID of the user making the comment",
+                        "id": "ID (given by the user's provider) of the user making the comment",
                         "display_name": "display name of user"
                     }
                 }
@@ -2389,7 +2389,7 @@ Body:
                     "date": "date of posting the tag",
                     "user": {
                         "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                        "id": "OBP UUID of the user making the comment",
+                        "id": "ID (given by the user's provider) of the user making the comment",
                         "display_name": "display name of user"
                     }
                 }
@@ -2407,7 +2407,7 @@ Body:
                 "date": "date of posting the tag",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "provider id of the user making the tag",
+                    "id": "ID (given by the user's provider) of the user making the comment",
                     "display_name": "display name of user"
                 }
             }
@@ -2524,7 +2524,7 @@ Body:
                 "value": "the comment",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "OBP UUID of the user making the comment",
+                    "id": "ID (given by the user's provider) of the user making the comment",
                     "display_name": "display name of user"
                 }
             }
@@ -2558,7 +2558,7 @@ Body:
         "value": "the comment",
         "user": {
             "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-            "id": "OBP UUID of the user making the comment",
+            "id": "ID (given by the user's provider) of the user making the comment",
             "display_name": "display name of user"
         }
     }
@@ -2603,7 +2603,7 @@ Body:
                 "date": "date of posting the tag",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "OBP UUID of the user making the comment",
+                    "id": "ID (given by the user's provider) of the user making the comment",
                     "display_name": "display name of user"
                 }
             }
@@ -2637,7 +2637,7 @@ Body:
         "date": "date of posting the tag",
         "user": {
             "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-            "id": "OBP UUID of the user making the comment",
+            "id": "ID (given by the user's provider) of the user making the comment",
             "display_name": "display name of user"
         }
     }
@@ -2684,7 +2684,7 @@ Body:
                 "date": "date of posting the image",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "OBP UUID of the user who have posted the image",
+                    "id": "ID (given by the user's provider) of the user making the comment",
                     "display_name": "display name of user"
                 }
             }
@@ -2720,7 +2720,7 @@ Body:
         "date": "date of posting the image",
         "user": {
             "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-            "id": "OBP UUID of the user posting the image",
+            "id": "ID (given by the user's provider) of the user making the comment",
             "display_name": "display name of user"
         }
     }
@@ -2765,7 +2765,7 @@ Body:
             "date": "date of posting the tag",
             "user": {
                 "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                "id": "provider id of the user making the tag",
+                "id": "ID (given by the user's provider) of the user making the comment",
                 "display_name": "display name of user"
             }
         }
@@ -2883,7 +2883,7 @@ Body:
                 "date": "date of posting the geo tag",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "provider id of the user making the tag",
+                    "id": "ID (given by the user's provider) of the user making the comment",
                     "display_name": "display name of user"
                 }
             },
@@ -2893,7 +2893,7 @@ Body:
                 "date": "date of posting the geo tag",
                 "user": {
                     "provider": "name of party that authorized the user e.g. bank_name/facebook/twitter",
-                    "id": "provider id of the user making the tag",
+                    "id": "ID (given by the user's provider) of the user making the comment",
                     "display_name": "display name of user"
                 }
             }
