@@ -1,3 +1,18 @@
+# Index
+
+* [Introduction](#introduction)
+* OAuth flow
+    * [Step 1: Obtaining a request token](#request-token)
+    * [Step 2: Redirecting the user](#user-authentication)
+    * [Step 3: Obtaining an access token](#access-token)
+    * [Step 4 : Accessing to protected resources](#access-protected-resources)
+* [Recommended OAuth 1.0 libraries](#lib)
+* [Signature](#signature)
+* [Integration Example](#integration)
+
+<span id="introduction"></span>
+# Introduction
+
 The following steps will explain how to connect to the [Open Bank project demo](https://openbankproject.com) OAuth Server 1.0. This authentication mechanism is necessary so a third party application can consume the Open Bank project API securely.    
 
 The following documentation is based on the [OAuth 1.0 specification](http://tools.ietf.org/html/rfc5849) so if need more details your can refer to it.  
@@ -6,6 +21,7 @@ Before to start interact with the API, third party applications needs to get OAu
 
 The **BASE-URL** alias in the following URLs must be replaced by __https://api.openbankproject.com__ or __https://apisandbox.openbankproject.com__ depending if you are accessing the real data or the sandbox.
 
+<span id="request-token"></span>
 ## Step 1 : Obtaining a request token :
 To start a sign in flow, the application must obtain a request token by sending a signed message to : 
 
@@ -54,7 +70,7 @@ The application should examine the HTTP status of the response. Any value other 
 a failure. The body of the response will contain the oauth_token, oauth_token_secret, 
 and oauth_callback_confirmed parameters. The application should verify that oauth_callback_confirmed is true and store the other two values for the next steps.
 
-
+<span id="user-authentication"></span>
 # Step 2 : Redirecting the user: 
 The next step is to direct the user to Open Bank Project so that he may complete the authentication. 
 Direct the user to : _GET oauth/authorize_ and the request token obtained in step 1 should be passed as the oauth_token parameter.
@@ -68,7 +84,7 @@ Upon a successful authentication, the callback URL would receive a request con
 
 If the callback URL was not specified (oob) than the verifier will be shown in the page and the user has to enter it into the application manually.  
 
-
+<span id="access-token"></span>
 # Step 3 : Converting the request token to an access token
 
 To convert the request token into a usable access token, the application must make a:   
@@ -83,7 +99,7 @@ POST /oauth/token HTTP/1.1 <br />
 Host: demo.openbankproject.com <br />
 Authorization: OAuth <br />
               oauth_verifier="9312832",<br />
-	      oauth_token=”aze2342352aze”,<br />
+        oauth_token=”aze2342352aze”,<br />
               oauth_consumer_key="cChZNFj6T5R0TigYB9yd1w",<br />
               oauth_nonce="ea9ec8429b68d6b77cd5600adbbb0456",<br />
               oauth_signature="F1Li3tvehgcraF8DMJ7OyxO4w9Y%3D",<br />
@@ -95,13 +111,14 @@ Like the step 1, a successful response contains the oauth_token & oauth_token_s
 
 The application can know use the access token to access to protected resources. 
 
+<span id="access-protected-resources"></span>
 # Step 4 : Accessing to protected resources :
 
 Once the application have an a access token and secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
 
 Please see the API documentation for more details how to access protected resources. 
 
-
+<span id="lib"></span>
 # Recommended OAuth 1.0 libraries:
 If you want to use a OAuth library to handle the OAuth process for your application, we have successfully tested these ones: 
 * JAVA: 
@@ -112,6 +129,7 @@ If you want to use a OAuth library to handle the OAuth process for your applicat
   * [Dispatch](http://dispatch.databinder.net/Dispatch.html)
 
 
+<span id="signature"></span>
 # Signature :
 According to the [section-3.4](http://tools.ietf.org/html/rfc5849#section-3.4) in the OAuth 1.0 protocol specification the signature computation is done following theses steps :
 
@@ -124,7 +142,7 @@ The signature base string includes the following components of the HTTP request:
 * The authority as declared by the HTTP "Host" request **header** field.
 * The path and query components of the request resource URI. 
 * The protocol parameters excluding the "oauth_signature".
-	
+  
 The signature base string does not cover the entire HTTP request. Most notably, it does not include the entity-body in most requests, nor does it include most HTTP **entity-headers**. 
 
 The signature base string is constructed by concatenating together, in order, the following HTTP request elements: 
@@ -158,8 +176,8 @@ POST&https%3A%2F%2Fdemo.openbankproject.com&oauth_consumer_key%3D91919%26oauth_n
 
    1.  The name and value of each parameter are **encoded** [Section 3.6](http://tools.ietf.org/html/rfc5849#section-3.6). 
    2.  The parameters are sorted by name, using ascending byte value ordering.
-   3.  The name of each parameter is concatenated to its corresponding value using an "=" character    	(ASCII code 61) as a separator, even if the value is empty. 
-   4.  The sorted name/value pairs are concatenated together into a single string by using an "&" 	character (ASCII code 38) as separator.
+   3.  The name of each parameter is concatenated to its corresponding value using an "=" character     (ASCII code 61) as a separator, even if the value is empty. 
+   4.  The sorted name/value pairs are concatenated together into a single string by using an "&"   character (ASCII code 38) as separator.
 
 ## B)  Signing the request :
 
@@ -167,4 +185,8 @@ The Open Bank Project OAuth 1.0 implementation uses the “HMAC-SHA1” and “H
 The key to sign the base string is the concatenation of the consumer secret and the token secret with the “&” character in the middle like this: oauth_consumer_secret&oauth_token_secret, in the first step the application does not have yet a token so it will be an empty string.  
 
 The signature that results from the signature process MUST be encoded in base 64 also since the protocol requires encoding all the OAuth parameters.
- 
+
+<span id="integration"></span>
+# Integration example with a bank bank-end :
+
+The following link show an example on how the integration of the OAuth process would be with a bank bank-end: [https://github.com/OpenBankProject/OBP-API/wiki/OAuth-Integration-Example](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-Integration-Example)
