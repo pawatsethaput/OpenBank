@@ -15,9 +15,9 @@
 
 The following steps will explain how to connect to the [Open Bank project demo](https://openbankproject.com) OAuth Server 1.0. This authentication mechanism is necessary so a third party application can consume the Open Bank project API securely.    
 
-The following documentation is based on the [OAuth 1.0 specification](http://tools.ietf.org/html/rfc5849) so if need more details your can refer to it.  
+The following documentation is based on the [OAuth 1.0 specification](http://tools.ietf.org/html/rfc5849) so if you need more details you can refer to it.  
 
-Before to start interact with the API, third party applications needs to get OAuth keys (consumer key and secret key). You can register your application [here](https://api.openbankproject.com/consumer-registration) to get those keys for interacting with real data. If you want to use the **sandbox** before handling real data, please register your application [here](https://apisandbox.openbankproject.com/consumer-registration) 
+Before starting to interact with the API, third party applications needs to get OAuth keys (consumer key and secret key). You can register your application [here](https://api.openbankproject.com/consumer-registration) to get those keys for interacting with real data. If you want to use the **sandbox** before handling real data, please register your application [here](https://apisandbox.openbankproject.com/consumer-registration) 
 
 The **BASE-URL** alias in the following URLs must be replaced by __https://api.openbankproject.com__ or __https://apisandbox.openbankproject.com__ depending if you are accessing the real data or the sandbox.
 
