@@ -54,7 +54,7 @@ The protocol consists of *baseline* and *optional* end points.
 For baseline compliance, all the baseline URLs must be implemented.
 For full compliance, all the baseline and optional end points must be implemented.
 
- * All calls should be prefixed with /obp/v1.2.1
+ * All calls should be prefixed with `/obp/v1.2.1`
 
  * The OBP API returns JSON as specified [here](http://www.json.org/) and validated [here](http://jsonlint.com/).
 
@@ -62,7 +62,7 @@ For full compliance, all the baseline and optional end points must be implemente
 
  * In some calls you will see the mention "OAuth authentication is required", that means that to access to the protected resource, the OAuth header is required with all the parameters like oauth_token, oauth_nonce, etc. ([See here for more details](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)).
 
- * If information is not available (whether missing or blocked by access control), its value will be null. This applies to normal values (Strings, Numbers, etc.) and to Arrays/Objects.
+ * If information is not available (whether missing or blocked by access control), its value will be `null`. This applies to normal values (Strings, Numbers, etc.) and to Arrays/Objects.
 
  Example:
 
@@ -176,7 +176,7 @@ Body:
 Returns the list of accounts at BANK_ID that the user has access to.  
 For each account the API returns the account ID and the available views.
 
-If the user is not authenticated via OAuth, the list will contains only the accounts providing public views.
+If the user is not authenticated via OAuth, the list will contain only the accounts providing public views.
 
 **Request:**  
 Verb: GET  
@@ -364,7 +364,7 @@ Body:
 #Private Accounts
 *Optional*
 
-Returns the list of accounts private (non-public) at BANK_ID that the user has access to.  
+Returns the list of private (non-public) accounts at BANK_ID that the user has access to.  
 For each account the API returns the ID and the available views.
 
 Authentication via OAuth is required.
@@ -460,7 +460,7 @@ Body:
 #Account
 *Baseline*
 
-Information returned about an account specified by ACCOUNT_ID as moderated by the view (VIEW_ID) :
+Information returned about an account specified by ACCOUNT_ID as moderated by the view (VIEW_ID):
 
 * Number
 * Owners
@@ -471,7 +471,7 @@ Information returned about an account specified by ACCOUNT_ID as moderated by th
 
 More details about the data moderation by the view [here](#views).
 
-OAuth authentication is required if the "is_public" field in view (VIEW_ID) is not set to "true".
+OAuth authentication is required if the "is_public" field in view (VIEW_ID) is not set to `true`.
 
 **Request:**  
 Verb: GET  
@@ -530,7 +530,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : tru
+                "can_see_bank_account_bank_name" : true/false,
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -578,16 +578,16 @@ Body:
 
 Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public. The way to know what is possible on a view is determined in the following JSON.
 
-**data:** When a view moderates a set of data, some fields my contain the value null rather than the original value. This indicates either that the user is not allowed to see the original data or the field is empty.
+**data:** When a view moderates a set of data, some fields my contain the value `null` rather than the original value. This indicates either that the user is not allowed to see the original data or the field is empty.
 
-There is currently one exception to this rule, the "holder" field in the JSON contains always a value which is either an alias or the real name - indicated by the "is_alias" field.
+There is currently one exception to this rule; the "holder" field in the JSON contains always a value which is either an alias or the real name - indicated by the "is_alias" field.
 
-**action:** When a user performs an action like trying to post a comment (with POST API call), if he is not allowed, the body repose will contains an error message.
+**action:** When a user performs an action like trying to post a comment (with POST API call), if he is not allowed, the body response will contain an error message.
 
 **Metadata:**
-Transaction metadata like (images, tags, comments, etc.) will appears *ONLY* on the view where they have been created e.g. comments posted to the public view only appear on the public view.
+Transaction metadata (like images, tags, comments, etc.) will appears *ONLY* on the view where they have been created e.g. comments posted to the public view only appear on the public view.
 
-The other account metadata fields like image_URL, more_info, etc are unique through all the views. Example, if a user edits the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
+The other account metadata fields (like image_URL, more_info, etc.) are unique through all the views. Example, if a user edits the "more_info" field in the "team" view, then the view "authorities" will show the new value (if it is allowed to do it).
 
 #### all
 *Optional*
@@ -636,7 +636,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : tru
+                "can_see_bank_account_bank_name" : true/false,
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -683,16 +683,16 @@ Create a view on bank account
 
 OAuth authentication is required and the user needs to have access to the owner view.
 
-* The "alias" filed in the JSON can take there values:  
+* The "alias" field in the JSON can take one of three values:  
 _public_: to use the public alias if there is one specified for the other account.  
 _private_: to use the public alias if there is one specified for the other account.  
-_""(empty string)_: to use no alias, the view shows the real name of the other account.
+_""(empty string)_: to use no alias; the view shows the real name of the other account.
 * The "hide_metadata_if_alias" field in the JSON can take boolean values.  
-If it is set to true and there is an alias on the other account then the other accounts 
-metadata like more_info, url, image_url, open_corporates_url, etc will be hidden.
+If it is set to `true` and there is an alias on the other account then the other accounts' 
+metadata (like more_info, url, image_url, open_corporates_url, etc.) will be hidden.
 Otherwise the metadata will be shown.
 * the "allowed_actions" field is a list containing the name of the actions allowed on this view, 
-all the actions contained will be set to true on the view creation, the rest will be set to false.
+all the actions contained will be set to `true` on the view creation, the rest will be set to `false`.
 
 Here are the action names that the list can contain:
 
@@ -729,7 +729,8 @@ Here are the action names that the list can contain:
     can_see_bank_account_swift_bic  
     can_see_bank_account_iban  
     can_see_bank_account_number  
-    can_see_bank_acother_account_national_identifier  
+    can_see_bank_account_bank_name
+    can_see_other_account_national_identifier  
     can_see_other_account_swift_bic  
     can_see_other_account_iban  
     can_see_other_account_bank_name  
@@ -810,7 +811,7 @@ Body:
         "can_see_bank_account_swift_bic" : true/false,
         "can_see_bank_account_iban" : true/false,
         "can_see_bank_account_number" : true/false,
-        "can_see_bank_account_bank_nam
+        "can_see_bank_account_bank_name" : true/false,
         "can_see_other_account_national_identifier" : true/false,
         "can_see_other_account_swift_bic" : true/false,
         "can_see_other_account_iban" : true/false,
@@ -994,7 +995,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : tru
+                "can_see_bank_account_bank_name" : true/false,
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -1084,7 +1085,7 @@ Body:
             "can_see_bank_account_swift_bic" : true/false,
             "can_see_bank_account_iban" : true/false,
             "can_see_bank_account_number" : true/false,
-            "can_see_bank_account_bank_name" :
+            "can_see_bank_account_bank_name" : true/false,
             "can_see_other_account_national_identifier" : true/false,
             "can_see_other_account_swift_bic" : true/false,
             "can_see_other_account_iban" : true/false,
@@ -1180,7 +1181,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : tru
+                "can_see_bank_account_bank_name" : true/false,
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -1247,7 +1248,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : tru
+                "can_see_bank_account_bank_name" : true/false,
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -1314,7 +1315,7 @@ Body:
                 "can_see_bank_account_swift_bic" : true/false,
                 "can_see_bank_account_iban" : true/false,
                 "can_see_bank_account_number" : true/false,
-                "can_see_bank_account_bank_name" : tru
+                "can_see_bank_account_bank_name" : true/false,
                 "can_see_other_account_national_identifier" : true/false,
                 "can_see_other_account_swift_bic" : true/false,
                 "can_see_other_account_iban" : true/false,
@@ -1409,7 +1410,7 @@ Body:
                 "id" : "the other account's id",
                 "holder": {
                     "name": "DEUTSCHEPOSTAG, SSCACCS",
-                    "is_alias": "true/false"
+                    "is_alias": true/false
                 },
                 "number": "",
                 "kind": "",
@@ -1673,7 +1674,7 @@ Body:
 **POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/private_alias**
 *Optional*
 
-Creates an private alias for the other account OTHER_ACCOUNT_ID.
+Creates a private alias for the other account OTHER_ACCOUNT_ID.
 
 OAuth authentication is required if the view is not public.
 
