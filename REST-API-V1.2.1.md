@@ -768,7 +768,7 @@ Body:
     {
         "name": "the view name",
         "description": "a little description.",
-        "is_Public": "Boolean to specify if the view can be accessible to not logged in users",
+        "is_public": "Boolean to specify if the view can be accessible to not logged in users",
         "which_alias_to_use": "public/private/none",
         "hide_metadata_if_alias_used" : true/false,
         "allowed_actions":  [
@@ -866,7 +866,7 @@ Body:
 
     {
         "description": "a little description.",
-        "is_Public": "Boolean to specify if the view can be accessible to not logged in users",
+        "is_public": "Boolean to specify if the view can be accessible to not logged in users",
         "which_alias_to_use": "public/private/none",
         "hide_metadata_if_alias_used" : true/false,
         "allowed_actions":  [
