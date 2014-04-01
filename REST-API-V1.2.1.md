@@ -849,6 +849,105 @@ Body:
         "can_delete_where_tag" : true/false
     }
 
+#### Update a view
+*Optional*
+
+Update an existing view on a bank account
+
+OAuth authentication is required and the user needs to have access to the owner view.
+
+The json sent is the same as during view creation (above), with one difference: the "name" field 
+of a view is not editable (it is only set when a view is created)
+
+**Request:**
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/views/VIEW_ID  
+Body:
+
+    {
+        "description": "a little description.",
+        "is_Public": "Boolean to specify if the view can be accessible to not logged in users",
+        "which_alias_to_use": "public/private/none",
+        "hide_metadata_if_alias_used" : true/false,
+        "allowed_actions":  [
+            "can_see_transaction_this_bank_account", 
+            "can_see_transaction_label", 
+            "can_see_transaction_other_bank_account"
+        ]
+    }
+
+**Response:**  
+HTTP code: 200  
+Body:
+
+    {
+        "id": "A unique identifier used for VIEW_ID",
+        "short_name": "Public / Team / Auditors...",
+        "description": "e.g. this is the public view of the TESOBE account",
+        "is_public": "boolean. true if the public (user not logged in) can see this view."
+        "which_alias_to_use": "public/private/none",
+        "hide_metadata_if_alias_used" : true/false,
+        "can_see_transaction_this_bank_account" : true/false,
+        "can_see_transaction_other_bank_account" : true/false,
+        "can_see_transaction_metadata" : true/false,
+        "can_see_transaction_label" : true/false,
+        "can_see_transaction_amount" : true/false,
+        "can_see_transaction_type" : true/false,
+        "can_see_transaction_currency" : true/false,
+        "can_see_transaction_start_date" : true/false,
+        "can_see_transaction_finish_date" : true/false,
+        "can_see_transaction_balance" : true/false,
+        "can_see_comments" : true/false,
+        "can_see_narrative" : true/false,
+        "can_see_tags" : true/false,
+        "can_see_images" : true/false,
+        "can_see_bank_account_owners" : true/false,
+        "can_see_bank_account_type" : true/false,
+        "can_see_bank_account_balance" : true/false,
+        "can_see_bank_account_currency" : true/false,
+        "can_see_bank_account_label" : true/false,
+        "can_see_bank_account_national_identifier" : true/false,
+        "can_see_bank_account_swift_bic" : true/false,
+        "can_see_bank_account_iban" : true/false,
+        "can_see_bank_account_number" : true/false,
+        "can_see_bank_account_bank_nam
+        "can_see_other_account_national_identifier" : true/false,
+        "can_see_other_account_swift_bic" : true/false,
+        "can_see_other_account_iban" : true/false,
+        "can_see_other_account_bank_name" : true/false,
+        "can_see_other_account_number" : true/false,
+        "can_see_other_account_metadata" : true/false,
+        "can_see_other_account_kind" : true/false,
+        "can_see_more_info" : true/false,
+        "can_see_url" : true/false,
+        "can_see_image_url" : true/false,
+        "can_see_open_corporates_url" : true/false,
+        "can_see_corporate_location" : true/false,
+        "can_see_physical_location" : true/false,
+        "can_see_public_alias" : true/false,
+        "can_see_private_alias" : true/false,
+        "can_add_more_info" : true/false,
+        "can_add_url" : true/false,
+        "can_add_image_url" : true/false,
+        "can_add_open_corporates_url" : true/false,
+        "can_add_corporate_location" : true/false,
+        "can_add_physical_location" : true/false,
+        "can_add_public_alias" : true/false,
+        "can_add_private_alias" : true/false,
+        "can_delete_corporate_location" : true/false,
+        "can_delete_physical_location" : true/false,
+        "can_edit_narrative" : true/false,
+        "can_add_comment" : true/false,
+        "can_delete_comment" : true/false,
+        "can_add_tag" : true/false,
+        "can_delete_tag" : true/false,
+        "can_add_image" : true/false,
+        "can_delete_image" : true/false,
+        "can_add_where_tag" : true/false,
+        "can_see_where_tag" : true/false,
+        "can_delete_where_tag" : true/false
+    }
+
 <span id="permissions"></span>
 #Permissions
 
