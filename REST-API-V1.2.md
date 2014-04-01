@@ -775,6 +775,34 @@ Body:
             "can_see_transaction_other_bank_account"
         ]
     }
+
+#### Update a view
+*Optional*
+
+Update an existing view on a bank account
+
+OAuth authentication is required and the user needs to have access to the owner view.
+
+The json sent is the same as during view creation (above), with one difference: the "name" field 
+of a view is not editable (it is only set when a view is created)
+
+**Request:**
+Verb: PUT  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/views/VIEW_ID  
+Body:
+
+    {
+        "description": "a little description.",
+        "is_Public": "Boolean to specify if the view can be accessible to not logged in users",
+        "which_alias_to_use": "public/private/none",
+        "hide_metadata_if_alias_used" : true/false,
+        "allowed_actions":  [
+            "can_see_transaction_this_bank_account", 
+            "can_see_transaction_label", 
+            "can_see_transaction_other_bank_account"
+        ]
+    }
+
 **Response:**  
 HTTP code: 200  
 Body:
@@ -846,6 +874,7 @@ Body:
         "can_see_where_tag" : true/false,
         "can_delete_where_tag" : true/false
     }
+
 
 <span id="permissions"></span>
 #Permissions
