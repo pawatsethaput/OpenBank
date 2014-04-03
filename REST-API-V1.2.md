@@ -178,6 +178,8 @@ For each account the API returns the account ID and the available views.
 
 If the user is not authenticated via OAuth, the list will contains only the accounts providing public views.
 
+NOTE: the view json returned from the API contains the field hide_metadata_if_alias, which does not match the field name of hide_metadata_if_alias_used that is expected when creating or updating a view. This is fixed in newer versions of the API.
+
 **Request:**  
 Verb: GET  
 URL: /banks/BANK_ID/accounts
@@ -198,7 +200,7 @@ Body:
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
                         "which_alias_to_use": "public/private/none",
-                        "hide_metadata_if_alias_used" : true/false,
+                        "hide_metadata_if_alias" : true/false,
                         "can_see_transaction_this_bank_account" : true/false,
                         "can_see_transaction_other_bank_account" : true/false,
                         "can_see_transaction_metadata" : true/false,
@@ -273,6 +275,8 @@ Returns a list of the public accounts at BANK_ID. For each account the API retur
 
 Authentication via OAuth is not required.
 
+NOTE: the view json returned from the API contains the field hide_metadata_if_alias, which does not match the field name of hide_metadata_if_alias_used that is expected when creating or updating a view. This is fixed in newer versions of the API.
+
 **Request:**  
 Verb: GET  
 URL: /banks/BANK_ID/accounts/public
@@ -293,7 +297,7 @@ Body:
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
                         "which_alias_to_use": "public/private/none",
-                        "hide_metadata_if_alias_used" : true/false,
+                        "hide_metadata_if_alias" : true/false,
                         "can_see_transaction_this_bank_account" : true/false,
                         "can_see_transaction_other_bank_account" : true/false,
                         "can_see_transaction_metadata" : true/false,
@@ -369,6 +373,8 @@ For each account the API returns the ID and the available views.
 
 Authentication via OAuth is required.
 
+NOTE: the view json returned from the API contains the field hide_metadata_if_alias, which does not match the field name of hide_metadata_if_alias_used that is expected when creating or updating a view. This is fixed in newer versions of the API.
+
 **Request:**  
 Verb: GET  
 URL: /banks/BANK_ID/accounts/private
@@ -389,7 +395,7 @@ Body:
                         "description": "e.g. this is the public view of the TESOBE account",
                         "is_public": "boolean. true if the public (user not logged in) can see this view."
                         "which_alias_to_use": "public/private/none",
-                        "hide_metadata_if_alias_used" : true/false,
+                        "hide_metadata_if_alias" : true/false,
                         "can_see_transaction_this_bank_account" : true/false,
                         "can_see_transaction_other_bank_account" : true/false,
                         "can_see_transaction_metadata" : true/false,
@@ -473,6 +479,8 @@ More details about the data moderation by the view [here](#views).
 
 OAuth authentication is required if the "is_public" field in view (VIEW_ID) is not set to "true".
 
+NOTE: the view json returned from the API contains the field hide_metadata_if_alias, which does not match the field name of hide_metadata_if_alias_used that is expected when creating or updating a view. This is fixed in newer versions of the API.
+
 **Request:**  
 Verb: GET  
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/account
@@ -505,7 +513,7 @@ Body:
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": "boolean. true if the public (user not logged in) can see this view."
                 "which_alias_to_use": "public/private/none",
-                "hide_metadata_if_alias_used" : true/false,
+                "hide_metadata_if_alias" : true/false,
                 "can_see_transaction_this_bank_account" : true/false,
                 "can_see_transaction_other_bank_account" : true/false,
                 "can_see_transaction_metadata" : true/false,
@@ -595,6 +603,8 @@ Returns the list of the views created for account ACCOUNT_ID at BANK_ID.
 
 OAuth authentication is required and the user needs to have access to the owner view.
 
+NOTE: the view json returned from the API contains the field hide_metadata_if_alias, which does not match the field name of hide_metadata_if_alias_used that is expected when creating or updating a view. This is fixed in newer versions of the API.
+
 **Request:**
 Verb: GET  
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/views  
@@ -611,7 +621,7 @@ Body:
                 "description": "e.g. this is the public view of the TESOBE account",
                 "is_public": "boolean. true if the public (user not logged in) can see this view."
                 "which_alias_to_use": "public/private/none",
-                "hide_metadata_if_alias_used" : true/false,
+                "hide_metadata_if_alias" : true/false,
                 "can_see_transaction_this_bank_account" : true/false,
                 "can_see_transaction_other_bank_account" : true/false,
                 "can_see_transaction_metadata" : true/false,
@@ -686,7 +696,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 _public_: to use the public alias if there is one specified for the other account.  
 _private_: to use the public alias if there is one specified for the other account.  
 _""(empty string)_: to use no alias, the view shows the real name of the other account.
-* The "hide_metadata_if_alias" field in the JSON can take boolean values.  
+* The "hide_metadata_if_alias_used" field in the JSON can take boolean values.  
 If it is set to true and there is an alias on the other account then the other accounts 
 metadata like more_info, url, image_url, open_corporates_url, etc will be hidden.
 Otherwise the metadata will be shown.
@@ -758,6 +768,8 @@ Here are the action names that the list can contain:
  - if the list contains some transaction metadata actions like can_see_narrative, can_add_comment, it **MUST** contain can_see_transaction_metadata.  
  - if the list contains some other account metadata actions like can_see_more_info, can_see_physical_location, it **MUST** contain can_see_other_account_metadata.
 
+NOTE: the view json returned from the API contains the field hide_metadata_if_alias, which does not match the field name of hide_metadata_if_alias_used that is expected when creating or updating a view. This is fixed in newer versions of the API.
+
 **Request:**
 Verb: POST  
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/views  
@@ -785,6 +797,8 @@ OAuth authentication is required and the user needs to have access to the owner 
 
 The json sent is the same as during view creation (above), with one difference: the "name" field 
 of a view is not editable (it is only set when a view is created)
+
+NOTE: the view json returned from the API contains the field hide_metadata_if_alias, which does not match the field name of hide_metadata_if_alias_used that is expected when creating or updating a view. This is fixed in newer versions of the API.
 
 **Request:**
 Verb: PUT  
