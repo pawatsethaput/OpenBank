@@ -687,7 +687,7 @@ OAuth authentication is required and the user needs to have access to the owner 
 _public_: to use the public alias if there is one specified for the other account.  
 _private_: to use the public alias if there is one specified for the other account.  
 _""(empty string)_: to use no alias; the view shows the real name of the other account.
-* The "hide_metadata_if_alias" field in the JSON can take boolean values.  
+* The "hide_metadata_if_alias_used" field in the JSON can take boolean values.  
 If it is set to `true` and there is an alias on the other account then the other accounts' 
 metadata (like more_info, url, image_url, open_corporates_url, etc.) will be hidden.
 Otherwise the metadata will be shown.
