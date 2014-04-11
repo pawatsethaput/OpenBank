@@ -7,6 +7,7 @@
     * [Step 3: Obtaining an access token](#access-token)
     * [Step 4 : Accessing to protected resources](#access-protected-resources)
 * [Recommended OAuth 1.0 libraries](#lib)
+* [Examples](#examples)
 * [Signature](#signature)
 * [Integration Example](#integration)
 
@@ -128,6 +129,10 @@ If you want to use a OAuth library to handle the OAuth process for your applicat
 * Scala: 
   * [Dispatch](http://dispatch.databinder.net/Dispatch.html)
 
+<span id="examples"></span>
+# Examples :
+To show the OAuth integration in concrete examples, please check out these projects:  
+[OAuth Example for NodeJS](https://github.com/OpenBankProject/Hello-OBP-OAuth1.0a-Node)
 
 <span id="signature"></span>
 # Signature :
