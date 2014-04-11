@@ -43,6 +43,7 @@
         * [Images](#images)
         * [Where](#where)
     * [Other account](#transaction_other_account)
+* [Payments](#payments)
 
 
 <span id="about"></span>
@@ -2998,4 +2999,32 @@ Body:
                 }
             }
         }
+    }
+
+<span id="payments"></span>
+#Payments
+*Optional*
+
+This is an experimental call, currently only implemented in the OBP sandbox instance. It is currently very minimal, and will almost certainly change.
+
+This will only work if account to pay exists at the bank specified in the json, and if that account has the same currency as that of the payee. 
+
+There are no checks for "sufficient funds" at the moment, so it is possible to go into unlimited overdraft.
+
+**Request:**  
+Verb: POST 
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions  
+Body:
+
+    {
+        "account_id" : "Id of the account to send the payment to (at bank_id)",
+        "bank_id": "Id of the bank of the account to send the payment to" ,
+        "amount": "The transaction amount as a string, e.g. 12.43"        
+    }
+**Response:**  
+HTTP code: 200  (This will be changed to 201 in the future. It will probably also return full transaction json in the future as well.)  
+Body:
+
+    {
+        "transaction_id": "the id of the transaction created for the account that has sent the payment, i.e. accessible via an api call using BANK_ID (from the payment post url above), ACCOUNT_ID (from the payment post url above), and transaction_id"
     }
