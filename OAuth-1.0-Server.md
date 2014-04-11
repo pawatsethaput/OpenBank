@@ -22,7 +22,7 @@ Before starting to interact with the API, third party applications needs to get 
 
 The **BASE-URL** alias in the following URLs must be replaced by __https://api.openbankproject.com__ or __https://apisandbox.openbankproject.com__ depending if you are accessing the real data or the sandbox.
 
-<span id="request-token"></span>
+<span id="wiki-request-token"></span>
 ## Step 1 : Obtaining a request token :
 To start a sign in flow, the application must obtain a request token by sending a signed message to : 
 
