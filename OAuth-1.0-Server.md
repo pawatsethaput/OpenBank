@@ -2,14 +2,14 @@
 
 * [Introduction](#introduction)
 * OAuth flow
-    * [Step 1: Obtaining a request token](#request-token)
-    * [Step 2: Redirecting the user](#user-authentication)
-    * [Step 3: Obtaining an access token](#access-token)
-    * [Step 4 : Accessing to protected resources](#access-protected-resources)
-* [Recommended OAuth 1.0 libraries](#lib)
-* [Examples](#examples)
-* [Signature](#signature)
-* [Integration Example](#integration)
+    * [Step 1: Obtaining a request token](#step-1--obtaining-a-request-token-)
+    * [Step 2: Redirecting the user](#step-2--redirecting-the-user)
+    * [Step 3: Obtaining an access token](#step-3--converting-the-request-token-to-an-access-token)
+    * [Step 4 : Accessing to protected resources](#step-4--accessing-to-protected-resources-)
+* [Recommended OAuth 1.0 libraries](#recommended-oauth-10-libraries)
+* [Examples](#examples-)
+* [Signature](#signature-)
+* [Integration Example](#integration-example-with-a-bank-bank-end-)
 
 <span id="introduction"></span>
 # Introduction
@@ -22,7 +22,7 @@ Before starting to interact with the API, third party applications needs to get 
 
 The **BASE-URL** alias in the following URLs must be replaced by __https://api.openbankproject.com__ or __https://apisandbox.openbankproject.com__ depending if you are accessing the real data or the sandbox.
 
-<span id="wiki-request-token"></span>
+
 ## Step 1 : Obtaining a request token :
 To start a sign in flow, the application must obtain a request token by sending a signed message to : 
 
@@ -71,7 +71,7 @@ The application should examine the HTTP status of the response. Any value other 
 a failure. The body of the response will contain the oauth_token, oauth_token_secret, 
 and oauth_callback_confirmed parameters. The application should verify that oauth_callback_confirmed is true and store the other two values for the next steps.
 
-<span id="user-authentication"></span>
+
 # Step 2 : Redirecting the user: 
 The next step is to direct the user to Open Bank Project so that he may complete the authentication. 
 Direct the user to : _GET oauth/authorize_ and the request token obtained in step 1 should be passed as the oauth_token parameter.
@@ -85,7 +85,7 @@ Upon a successful authentication, the callback URL would receive a request con
 
 If the callback URL was not specified (oob) than the verifier will be shown in the page and the user has to enter it into the application manually.  
 
-<span id="access-token"></span>
+
 # Step 3 : Converting the request token to an access token
 
 To convert the request token into a usable access token, the application must make a:   
@@ -112,14 +112,13 @@ Like the step 1, a successful response contains the oauth_token & oauth_token_s
 
 The application can know use the access token to access to protected resources. 
 
-<span id="access-protected-resources"></span>
+
 # Step 4 : Accessing to protected resources :
 
 Once the application have an a access token and secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
 
 Please see the API documentation for more details how to access protected resources. 
 
-<span id="lib"></span>
 # Recommended OAuth 1.0 libraries:
 If you want to use a OAuth library to handle the OAuth process for your application, we have successfully tested these ones: 
 * JAVA: 
@@ -129,14 +128,14 @@ If you want to use a OAuth library to handle the OAuth process for your applicat
 * Scala: 
   * [Dispatch](http://dispatch.databinder.net/Dispatch.html)
 
-<span id="examples"></span>
+
 # Examples :
 To show the OAuth integration in concrete examples, please check out these projects:  
 [OAuth Example for NodeJS](https://github.com/OpenBankProject/Hello-OBP-OAuth1.0a-Node)
 
-<span id="signature"></span>
 # Signature :
 According to the [section-3.4](http://tools.ietf.org/html/rfc5849#section-3.4) in the OAuth 1.0 protocol specification the signature computation is done following theses steps :
+
 
 ## a)  Signature Base String : 
 The signature base string is a consistent, reproducible concatenation of several of the HTTP request elements into a single string.  The string is used as an input to the signature methods.
@@ -191,7 +190,7 @@ The key to sign the base string is the concatenation of the consumer secret and 
 
 The signature that results from the signature process MUST be encoded in base 64 also since the protocol requires encoding all the OAuth parameters.
 
-<span id="integration"></span>
+
 # Integration example with a bank bank-end :
 
 The following link show an example on how the integration of the OAuth process would be with a bank bank-end: [https://github.com/OpenBankProject/OBP-API/wiki/OAuth-Integration-Example](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-Integration-Example)
