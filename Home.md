@@ -11,3 +11,5 @@ Welcome to the OBP-API wiki!
 * [Sandbox](https://github.com/OpenBankProject/OBP-API/wiki/Sandbox)
 
 * [Add a bank account](https://github.com/OpenBankProject/OBP-API/wiki/Add-a-bank-Account)
+
+Note: A good way to get started consuming the API with OAuth is to use our Hello-OBP.. starter repositories for Node, IOS and Mac. (Others coming soon) 
