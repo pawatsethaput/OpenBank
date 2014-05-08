@@ -45,7 +45,7 @@
     * [Other account](#transaction_other_account)
 
 
-<span id="about"></span>
+<a name="about"></a>>
 ### About
 
 The Open Bank Project API is a RESTful API for banks that supports multiple views on transaction data, data enrichment and data blurring.
@@ -81,12 +81,12 @@ For full compliance, all the baseline and optional end points must be implemente
     }
 
 
-<span id="implementation-hints"></span>
+<a name="implementation-hints"></a>>
 ### Implementation hints and notes.
 
 The implementation of V1.2 is stable.
 
-<span id="root"></span>
+<a name="root"></a>>
 #Root
 *Baseline*
 
@@ -113,7 +113,7 @@ Body:
         }
     }
 
-<span id="banks"></span>
+<a name="banks"></a>>
 #Banks
 *Baseline*
 
@@ -144,7 +144,7 @@ Body:
         ]
     }
 
-<span id="bank"></span>
+<a name="bank"></a>>
 #Bank
 *Optional*
 
@@ -169,7 +169,7 @@ Body:
         "website": "www.postbank.de"
     }
 
-<span id="accounts"></span>
+<a name="accounts"></a>>
 #Accounts
 *Baseline*
 
@@ -272,7 +272,7 @@ Body:
         ]
     }
 
-<span id="accounts-public"></span>
+<a name="accounts-public"></a>>
 #Public Accounts
 *Optional*
 
@@ -369,7 +369,7 @@ Body:
         ]
     }
 
-<span id="accounts-private"></span>
+<a name="accounts-private"></a>>
 #Private Accounts
 *Optional*
 
@@ -467,7 +467,7 @@ Body:
         ]
     }
 
-<span id="account"></span>
+<a name="account"></a>>
 #Account
 *Baseline*
 
@@ -583,7 +583,7 @@ Body:
         "bank_id":"the id of the bank where the account is hosted"
     }
 
-<span id="views"></span>
+<a name="views"></a>>
 #Views
 
 ### How views work
@@ -895,7 +895,7 @@ Body:
     }
 
 
-<span id="permissions"></span>
+<a name="permissions"></a>>
 #Permissions
 
 *Optional*
@@ -993,7 +993,7 @@ Body:
         ]
     }
 
-<span id="permission"></span>
+<a name="permission"></a>>
 #Permission
 *Optional*
 
@@ -1081,7 +1081,7 @@ Body:
         ]
     }
 
-<span id="grant-permission"></span>
+<a name="grant-permission"></a>>
 #Grant Permission
 #### One
 *Optional*
@@ -1401,7 +1401,7 @@ Body:
         ]
     }
 
-<span id="revoke-permission"></span>
+<a name="revoke-permission"></a>>
 #Revoke Permission
 #### one view
 *Optional*
@@ -1434,7 +1434,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/USER_ID/views
 **Response:**
 HTTP code: 204
 
-<span id="account-other-accounts"></span>
+<a name="account-other-accounts"></a>>
 #Other Accounts
 *Optional*
 
@@ -1497,7 +1497,7 @@ Body:
         ]
     }
 
-<span id="account-other-account"></span>
+<a name="account-other-account"></a>>
 #Other Account
 *Optional*
 
@@ -1557,7 +1557,7 @@ Body:
     }
 
 
-<span id="other_account-metadata"></span>
+<a name="other_account-metadata"></a>>
 ###Other account metadata
 *Optional*
 
@@ -1601,7 +1601,7 @@ Body:
                 }
         }
     }
-<span id="public-alias"></span>
+<a name="public-alias"></a>>
 ### Public Alias
 ####Get the Public Alias
 *Optional*
@@ -1693,7 +1693,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/
 HTTP code: 204
 Body: No Content
 
-<span id="private-alias"></span>
+<a name="private-alias"></a>>
 ### Private Alias
 ####Get the Private Alias
 *Optional*
@@ -1779,7 +1779,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/
 HTTP code: 204
 Body: No Content
 
-<span id="more_info"></span>
+<a name="more_info"></a>>
 ### More info
 ####Create
 *Optional*
@@ -1842,7 +1842,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/
 HTTP code: 204
 Body: No Content
 
-<span id="URL"></span>
+<a name="URL"></a>>
 ### URL
 ####Create
 *Optional*
@@ -1905,7 +1905,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/
 HTTP code: 204
 Body: No Content
 
-<span id="image_url"></span>
+<a name="image_url"></a>>
 ### Image URL
 ####Create
 *Optional*
@@ -1968,7 +1968,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/
 HTTP code: 204
 Body: No Content
 
-<span id="opencorporates-URL"></span>
+<a name="opencorporates-URL"></a>>
 ### Open corporates URL
 ####Create
 *Optional*
@@ -2031,7 +2031,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/
 HTTP code: 204
 Body: No Content
 
-<span id="corporate_location"></span>
+<a name="corporate_location"></a>>
 ### Corporate location
 ####Create
 *Optional*
@@ -2100,7 +2100,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/
 HTTP code: 204
 Body: No Content
 
-<span id="physical_location"></span>
+<a name="physical_location"></a>>
 ### Physical location
 ####Create
 *Optional*
@@ -2169,7 +2169,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/other_accounts/OTHER_ACCOUNT_ID/
 HTTP code: 204
 Body: No Content
 
-<span id="transactions"></span>
+<a name="transactions"></a>>
 #Transactions
 *Baseline*
 
@@ -2319,7 +2319,7 @@ Body:
         ]
     }
 
-<span id="transaction"></span>
+<a name="transaction"></a>>
 #Transaction
 *Optional*
 
@@ -2456,7 +2456,7 @@ Body:
     }
 
 #Transaction Metadata
-<span id="narrative"></span>
+<a name="narrative"></a>>
 ### Narrative
 #### Get
 *Optional*
@@ -2540,7 +2540,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/meta
 HTTP code: 204
 Body: No Content
 
-<span id="comments"></span>
+<a name="comments"></a>>
 ### Comments
 #### Get
 *Optional*
@@ -2619,7 +2619,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/meta
 HTTP code: 204
 Body: No Content
 
-<span id="tags"></span>
+<a name="tags"></a>>
 ### Tags
 #### Get
 *Optional*
@@ -2699,7 +2699,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/meta
 HTTP code: 204
 Body: No Content
 
-<span id="images"></span>
+<a name="images"></a>>
 ### Images
 #### Get
 *Optional*
@@ -2781,7 +2781,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/meta
 HTTP code: 204
 Body: No Content
 
-<span id="where"></span>
+<a name="where"></a>>
 ### Where
 #### Get
 *Optional*
@@ -2881,7 +2881,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/meta
 HTTP code: 204
 Body: No Content
 
-<span id="transaction_other_account"></span>
+<a name="transaction_other_account"></a>>
 #Other account
 *Baseline*
 
