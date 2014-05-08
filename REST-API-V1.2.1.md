@@ -175,9 +175,10 @@ Body:
         "website": "www.postbank.de"
     }
 
+<a name="accounts-all"></a>
+
 #Accounts (for all banks)
 
-<a name="accounts-all"></a>
 *Baseline*
 
 IMPORTANT NOTE FOR THOSE UPGRADING FROM V1.2 OF THE API:
