@@ -28,7 +28,7 @@ To start a sign in flow, the application must obtain a request token by sending 
 
 _POST **BASE-URL**/oauth/initiate_ with the following parameters : 
 
-* **oauth_callback**:  an absolute URI back to witch the server will redirect the resource owner (user) when Authorization step is completed. If the application is unable to receive callbacks the parameter value MUST be set to “oob” (case sensitive), to indicate an out-of-band configuration.
+* **oauth_callback**:  an absolute URI back to which the server will redirect the resource owner (user) when Authorization step is completed. If the application is unable to receive callbacks the parameter value MUST be set to “oob” (case sensitive), to indicate an out-of-band configuration.
 
 * **oauth_consumer_key** : The identifier portion of the client credentials (consumer key) which is obtained after application registration. 
 
