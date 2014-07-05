@@ -3318,6 +3318,9 @@ This will only work if account to pay exists at the bank specified in the json, 
 
 There are no checks for "sufficient funds" at the moment, so it is possible to go into unlimited overdraft.
 
+Security challenge responses may be required before the transaction can proceed leading to two work flows below.
+
+
 Step A: Post the transaction
 
 **Request:**
@@ -3334,6 +3337,7 @@ Body:
 **Case 1 - No security challenge is required**
 
 **Response:**    
+
 Headers:
 
       http code 201 Created
@@ -3397,7 +3401,7 @@ Body:
         "challenges" : [
                 {
                   "id": "jmlk-0091-mlox-8196",
-                  "challenge_type":"TAN",
+                  "question":"TAN",
                   "label": "Please provide TAN",
                   "start_date":date,
                   "expiration_date":date,
@@ -3405,7 +3409,7 @@ Body:
                 },
                 {
                   "id": "jmlk-0091-mlox-8196",
-                  "challenge_type":"FIRST_PET",
+                  "question":"FIRST_PET",
                   "label": "What was the name of your first pet?",
                   "start_date":date,
                   "expiration_date":date,
@@ -3422,9 +3426,10 @@ PATCH /challenges/jmlk-0091-mlox-8196
 
 Body:
 
-    {"response":"foo"}
+    {"answer":"Barney"}
 
-**Response 1 (challenge successfully answered):**
+**Response 1 (good answer):**
+
 Headers:
   
     http code: 200
@@ -3434,7 +3439,8 @@ Body:
 
     {}
 
-**Response 2 (challenge not answered):**
+**Response 2 (bad answer):**
+
 Headers:
 
     http code: 400
@@ -3444,7 +3450,8 @@ Body:
 
     {}
 
-**Response 3 (failed challenge):**
+**Response 3 (bad answer):**
+
 Headers:
   
     http code: 400
@@ -3453,5 +3460,4 @@ Headers:
 Body:
 
     {}
-
 
