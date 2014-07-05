@@ -3329,9 +3329,53 @@ Body:
         "amount": "The transaction amount as a string, e.g. 12.43"
     }
 
-Case 1 - where one or more security challenges must be fulfilled before the transaction can proceed
+
+
+
+
+**Case 1** - Where no security challenge are required (e.g. for a low value transaction)
+
+Response:
+    Headers
+      http code 201 Created
+      location: operations/8192-axmp-6125-xxui
+    Body: 
+
+{
+      "transaction":{
+        "id":0921-kjlo-1389-yyui,
+        ....
+      }
+    }
+
+B) check the operation status
+
+Request:
+GET operations/8192-axmp-6125-xxui
+
+Response:
+body: 
+
+{
+        "id":"8192-axmp-6125-xxui",
+        "action": "POST_TRANSACTION",
+        "status":"PROCESSING",
+        "start_date": Date,
+        "end_date": Date,
+        "challenge_id":null
+        "challenges" : null
+    }
+
+
+
+
+
+
+
+**Case 2** - where one or more security challenges must be fulfilled before the transaction can proceed
 
 **Response:**
+
 Headers:
       
     http code: 202 Accepted
@@ -3408,43 +3452,5 @@ headers:
 Body:
 
 {}
-
-
-
-Case 2 - Where no challenge is issued (e.g. for a low value transaction)
-
-Response:
-    Headers
-      http code 201 Created
-      location: operations/8192-axmp-6125-xxui
-    Body: 
-
-{
-      "transaction":{
-        "id":0921-kjlo-1389-yyui,
-        ....
-      }
-    }
-
-B) check the operation status
-
-Request:
-GET operations/8192-axmp-6125-xxui
-
-Response:
-body: 
-
-{
-        "id":"8192-axmp-6125-xxui",
-        "action": "POST_TRANSACTION",
-        "status":"PROCESSING",
-        "start_date": Date,
-        "end_date": Date,
-        "challenge_id":null
-        "challenges" : null
-    }
-
-
-
 
 
