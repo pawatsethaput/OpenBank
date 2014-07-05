@@ -3381,19 +3381,25 @@ RESPONSE 1 (successfull challenge):
 headers:
   http code: 200
   location: transactions/transaction_id
-body:
+Body:
+
+{}
 
 RESPONSE 2 (failed challenge):
 headers:
   http code: 400
   location: challenges/new_challenge_id
-body:{}
+Body:
+
+{}
 
 RESPONSE 3 (failed challenge):
 headers:
   http code: 400
   location: operations/8192-axmp-6125-xxui
-Body:{}
+Body:
+
+{}
 
 
 
@@ -3403,7 +3409,9 @@ Response:
     Headers
       http code 201 Created
       location: operations/8192-axmp-6125-xxui
-    Body: {
+    Body: 
+
+{
       "transaction":{
         "id":0921-kjlo-1389-yyui,
         ....
@@ -3416,7 +3424,9 @@ Request:
 GET operations/8192-axmp-6125-xxui
 
 Response:
-body: {
+body: 
+
+{
         "id":"8192-axmp-6125-xxui",
         "action": "POST_TRANSACTION",
         "status":"PROCESSING",
