@@ -3332,10 +3332,16 @@ Body:
 Case 1 - where one or more security challenges must be fulfilled before the transaction can proceed
 
 **Response:**
-    Headers
-      http code: 202 Accepted
-      location: operations/8192-axmp-6125-xxui
-    Body: {}
+Headers:
+      
+    http code: 202 Accepted
+    location: operations/8192-axmp-6125-xxui
+    
+Body: 
+
+    {
+
+    }
 
 B) check the operation status
 
@@ -3343,7 +3349,9 @@ Request:
 GET operations/8192-axmp-6125-xxui
 
 Response:
-body: {
+Body: 
+
+    {
         "id":"8192-axmp-6125-xxui",
         "action": "POST_TRANSACTION",
         "status":"CHALLENGE_PENDING",
@@ -3435,6 +3443,7 @@ body:
         "challenge_id":null
         "challenges" : null
     }
+
 
 
 
