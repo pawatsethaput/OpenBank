@@ -3328,39 +3328,19 @@ Body:
         "bank_id": "Id of the bank of the account to send the payment to" ,
         "amount": "The transaction amount as a string, e.g. 12.43"
     }
-**Response:**
-HTTP code: 200  (This will be changed to 201 in the future. It will probably also return full transaction json in the future as well.)
-Body:
 
-    {
-        "transaction_id": "the id of the transaction created for the account that has sent the payment, i.e. accessible via an api call using BANK_ID (from the payment post url above), ACCOUNT_ID (from the payment post url above), and transaction_id"
-    }
-
-
-
-
-A) Initiate a transaction
-
-REQUEST:
-POST /transactions
-body{
-    "amount":31.00,
-    "currency":"EUR",
-    ...
-}
-
-RESPONSE:
+**Response - Case 1 where challenge must be fulfilled:**
     Headers
       http code: 202 Accepted
       location: operations/8192-axmp-6125-xxui
-    body: {}
+    Body: {}
 
 B) check the operation status
 
-REQUEST:
+Request:
 GET operations/8192-axmp-6125-xxui
 
-RESPOSE:
+Response:
 body: {
         "id":"8192-axmp-6125-xxui",
         "action": "POST_TRANSACTION",
@@ -3411,26 +3391,17 @@ RESPONSE 3 (failed challenge):
 headers:
   http code: 400
   location: operations/8192-axmp-6125-xxui
-body:{}
+Body:{}
 
 
-##########################################################################
 
-A) Initiate a transaction
+Case 2 - Where no challenge is issued (e.g. for a low value transaction)
 
-REQUEST:
-POST /transactions
-body{
-    "amount":31.00,
-    "currency":"EUR",
-    ...
-}
-
-RESPONSE:
+Response:
     Headers
       http code 201 Created
       location: operations/8192-axmp-6125-xxui
-    body: {
+    Body: {
       "transaction":{
         "id":0921-kjlo-1389-yyui,
         ....
@@ -3439,10 +3410,10 @@ RESPONSE:
 
 B) check the operation status
 
-REQUEST:
+Request:
 GET operations/8192-axmp-6125-xxui
 
-RESPONSE:
+Response:
 body: {
         "id":"8192-axmp-6125-xxui",
         "action": "POST_TRANSACTION",
