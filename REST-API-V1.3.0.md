@@ -3318,6 +3318,8 @@ This will only work if account to pay exists at the bank specified in the json, 
 
 There are no checks for "sufficient funds" at the moment, so it is possible to go into unlimited overdraft.
 
+Step A: Post the transaction
+
 **Request:**
 Verb: POST
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions
@@ -3329,70 +3331,61 @@ Body:
         "amount": "The transaction amount as a string, e.g. 12.43"
     }
 
+**Case 1 - No security challenge is required**
 
+**Response:**    
+Headers:
 
-
-
-**Case 1** - Where no security challenge are required (e.g. for a low value transaction)
-
-Response:
-    Headers
       http code 201 Created
-      location: operations/8192-axmp-6125-xxui
-    Body: 
+      location: operations/8192-axmp-6125-xxui    
+Body: 
 
-{
+    {
       "transaction":{
         "id":0921-kjlo-1389-yyui,
         ....
       }
     }
 
-B) check the operation status
+Step B: Check the operation status
 
-Request:
+**Request:**
 GET operations/8192-axmp-6125-xxui
 
-Response:
-body: 
+**Response:**
 
-{
+Body: 
+
+    {
         "id":"8192-axmp-6125-xxui",
         "action": "POST_TRANSACTION",
         "status":"PROCESSING",
         "start_date": Date,
         "end_date": Date,
-        "challenge_id":null
         "challenges" : null
     }
 
 
-
-
-
-
-
-**Case 2** - where one or more security challenges must be fulfilled before the transaction can proceed
+**Case 2 - Security challenges required before the transaction can proceed**
 
 **Response:**
 
 Headers:
-      
+
     http code: 202 Accepted
     location: operations/8192-axmp-6125-xxui
     
 Body: 
 
     {
-
     }
 
-B) check the operation status
+Step B: Check the operation status
 
-Request:
+**Request:**
 GET operations/8192-axmp-6125-xxui
 
-Response:
+**Response:**
 Body: 
 
     {
@@ -3422,35 +3415,43 @@ Body:
     }
 
 
-C) Resolve challenge
+Step C: Resolve challenge(s)
 
-REQUEST:
+**Request:**
 PATCH /challenges/jmlk-0091-mlox-8196
-body:
-{"response":"foo"}
 
-RESPONSE 1 (successfull challenge):
-headers:
-  http code: 200
-  location: transactions/transaction_id
 Body:
 
-{}
+    {"response":"foo"}
 
-RESPONSE 2 (failed challenge):
-headers:
-  http code: 400
-  location: challenges/new_challenge_id
+**Response 1 (challenge successfully answered):**
+Headers:
+  
+    http code: 200
+    location: transactions/transaction_id
+
 Body:
 
-{}
+    {}
 
-RESPONSE 3 (failed challenge):
-headers:
-  http code: 400
-  location: operations/8192-axmp-6125-xxui
+**Response 2 (challenge not answered):**
+Headers:
+
+    http code: 400
+    location: challenges/new_challenge_id
+
 Body:
 
-{}
+    {}
+
+**Response 3 (failed challenge):**
+Headers:
+  
+    http code: 400
+    location: operations/8192-axmp-6125-xxui
+
+Body:
+
+    {}
 
 
