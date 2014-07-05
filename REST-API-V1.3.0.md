@@ -3329,7 +3329,9 @@ Body:
         "amount": "The transaction amount as a string, e.g. 12.43"
     }
 
-**Response - Case 1 where challenge must be fulfilled:**
+Case 1 - where one or more security challenges must be fulfilled before the transaction can proceed
+
+**Response:**
     Headers
       http code: 202 Accepted
       location: operations/8192-axmp-6125-xxui
