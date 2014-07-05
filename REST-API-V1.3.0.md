@@ -3335,3 +3335,124 @@ Body:
     {
         "transaction_id": "the id of the transaction created for the account that has sent the payment, i.e. accessible via an api call using BANK_ID (from the payment post url above), ACCOUNT_ID (from the payment post url above), and transaction_id"
     }
+
+
+
+
+A) Initiate a transaction
+
+REQUEST:
+POST /transactions
+body{
+    "amount":31.00,
+    "currency":"EUR",
+    ...
+}
+
+RESPONSE:
+    Headers
+      http code: 202 Accepted
+      location: operations/8192-axmp-6125-xxui
+    body: {}
+
+B) check the operation status
+
+REQUEST:
+GET operations/8192-axmp-6125-xxui
+
+RESPOSE:
+body: {
+        "id":"8192-axmp-6125-xxui",
+        "action": "POST_TRANSACTION",
+        "status":"CHALLENGE_PENDING",
+        "start_date": Date,
+        "end_date": null,
+        "challenges" : [
+                {
+                  "id": "jmlk-0091-mlox-8196",
+                  "challenge_type":"TAN",
+                  "label": "Please provide TAN",
+                  "start_date":date,
+                  "expiration_date":date,
+                  "allowed_attempts":1
+                },
+                {
+                  "id": "jmlk-0091-mlox-8196",
+                  "challenge_type":"FIRST_PET",
+                  "label": "What was the name of your first pet?",
+                  "start_date":date,
+                  "expiration_date":date,
+                  "allowed_attempts":2
+                }
+            ]
+    }
+
+
+C) Resolve challenge
+
+REQUEST:
+PATCH /challenges/jmlk-0091-mlox-8196
+body:
+{"response":"foo"}
+
+RESPONSE 1 (successfull challenge):
+headers:
+  http code: 200
+  location: transactions/transaction_id
+body:
+
+RESPONSE 2 (failed challenge):
+headers:
+  http code: 400
+  location: challenges/new_challenge_id
+body:{}
+
+RESPONSE 3 (failed challenge):
+headers:
+  http code: 400
+  location: operations/8192-axmp-6125-xxui
+body:{}
+
+
+##########################################################################
+
+A) Initiate a transaction
+
+REQUEST:
+POST /transactions
+body{
+    "amount":31.00,
+    "currency":"EUR",
+    ...
+}
+
+RESPONSE:
+    Headers
+      http code 201 Created
+      location: operations/8192-axmp-6125-xxui
+    body: {
+      "transaction":{
+        "id":0921-kjlo-1389-yyui,
+        ....
+      }
+    }
+
+B) check the operation status
+
+REQUEST:
+GET operations/8192-axmp-6125-xxui
+
+RESPONSE:
+body: {
+        "id":"8192-axmp-6125-xxui",
+        "action": "POST_TRANSACTION",
+        "status":"PROCESSING",
+        "start_date": Date,
+        "end_date": Date,
+        "challenge_id":null
+        "challenges" : null
+    }
+
+
+
+
