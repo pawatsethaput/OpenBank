@@ -1,6 +1,6 @@
 # Version: 1.3.0
 
-# Status: DRAFT
+# Status: DRAFT and Work in Progress!!
 
 # Index
 
@@ -60,7 +60,7 @@ The protocol consists of *baseline* and *optional* end points.
 For baseline compliance, all the baseline URLs must be implemented.
 For full compliance, all the baseline and optional end points must be implemented.
 
- * All calls should be prefixed with `/obp/v1.2.1`
+ * All calls should be prefixed with `/obp/v1.3.0`
 
  * The OBP API returns JSON as specified [here](http://www.json.org/) and validated [here](http://jsonlint.com/).
 
@@ -90,7 +90,7 @@ For full compliance, all the baseline and optional end points must be implemente
 <a name="implementation-hints"></a>
 ### Implementation hints and notes.
 
-The implementation of V1.2.1 is work in progress
+The implementation of V1.3.0 is work in progress
 
 <a name="root"></a>
 #Root
@@ -1014,20 +1014,20 @@ Here are the action names that the list can contain:
     can_see_transaction_finish_date
     can_see_transaction_balance
     can_see_transaction_metadata
-        can_see_narrative
-        can_edit_narrative
-        can_see_comments
-        can_add_comment
-        can_delete_comment
-        can_see_tags
-        can_add_tag
-        can_delete_tag
-        can_see_images
-        can_add_image
-        can_delete_image
-        can_see_where_tag
-        can_add_where_tag
-        can_delete_where_tag
+    can_see_narrative
+    can_edit_narrative
+    can_see_comments
+    can_add_comment
+    can_delete_comment
+    can_see_tags
+    can_add_tag
+    can_delete_tag
+    can_see_images
+    can_add_image
+    can_delete_image
+    can_see_where_tag
+    can_add_where_tag
+    can_delete_where_tag
     can_see_bank_account_owners
     can_see_bank_account_type
     can_see_bank_account_balance
@@ -1045,24 +1045,24 @@ Here are the action names that the list can contain:
     can_see_other_account_number
     can_see_other_account_kind
     can_see_other_account_metadata
-        can_see_more_info
-        can_see_url
-        can_see_image_url
-        can_see_open_corporates_url
-        can_see_corporate_location
-        can_see_physical_location
-        can_see_public_alias
-        can_see_private_alias
-        can_add_more_info
-        can_add_url
-        can_add_image_url
-        can_add_open_corporates_url
-        can_add_corporate_location
-        can_add_physical_location
-        can_add_public_alias
-        can_add_private_alias
-        can_delete_corporate_location
-        can_delete_physical_location
+    can_see_more_info
+    can_see_url
+    can_see_image_url
+    can_see_open_corporates_url
+    can_see_corporate_location
+    can_see_physical_location
+    can_see_public_alias
+    can_see_private_alias
+    can_add_more_info
+    can_add_url
+    can_add_image_url
+    can_add_open_corporates_url
+    can_add_corporate_location
+    can_add_physical_location
+    can_add_public_alias
+    can_add_private_alias
+    can_delete_corporate_location
+    can_delete_physical_location
 
 **Notes:**
  - if the list contains some transaction metadata actions like can_see_narrative, can_add_comment, it **MUST** contain can_see_transaction_metadata.
@@ -2623,6 +2623,15 @@ Body:
                     }
                 },
                 "details": {
+                    "status": "DRAFT, APPROVED, PAUSED, CANCELLED, COMPLETED",
+                    "posted_by_user_id": "user_id",
+                    "approved_by_user_id": "user_id",
+                    "paused_by_user_id": "user_id",
+                    "cancelled_by_user_id": "user_id",
+                    "posted_by_ip_address": "ip address",
+                    "approved_by_ip_address": "ip address",
+                    "paused_by_ip_address": "ip address",
+                    "cancelled_by_ip_address": "ip address",
                     "type": "cash",
                     "description": "transaction description",
                     "posted": "2012-03-07T00:00:00.001Z",
@@ -2763,6 +2772,15 @@ Body:
             }
         },
         "details": {
+            "status": "DRAFT, APPROVED, PAUSED, CANCELLED, COMPLETED",
+            "posted_by_user_id": "user_id",
+            "approved_by_user_id": "user_id",
+            "paused_by_user_id": "user_id",
+            "cancelled_by_user_id": "user_id",
+            "posted_by_ip_address": "ip address",
+            "approved_by_ip_address": "ip address",
+            "paused_by_ip_address": "ip address",
+            "cancelled_by_ip_address": "ip address",
             "type": "cash",
             "description": "transaction description",
             "posted": "2012-03-07T00:00:00.001Z",
