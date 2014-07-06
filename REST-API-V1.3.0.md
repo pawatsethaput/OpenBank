@@ -272,7 +272,11 @@ Body:
                         "can_delete_image" : true/false,
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
-                        "can_delete_where_tag" : true/false
+                        "can_delete_where_tag" : true/false,
+                        "can_post_transaction" : true/false,
+                        "can_approve_transaction" : true/false,
+                        "can_cancel_transaction" : true/false,
+                        "can_pause_transaction" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -367,7 +371,11 @@ Body:
                         "can_delete_image" : true/false,
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
-                        "can_delete_where_tag" : true/false
+                        "can_delete_where_tag" : true/false,
+                        "can_post_transaction" : true/false,
+                        "can_approve_transaction" : true/false,
+                        "can_cancel_transaction" : true/false,
+                        "can_pause_transaction" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -463,7 +471,11 @@ Body:
                         "can_delete_image" : true/false,
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
-                        "can_delete_where_tag" : true/false
+                        "can_delete_where_tag" : true/false,
+                        "can_post_transaction" : true/false,
+                        "can_approve_transaction" : true/false,
+                        "can_cancel_transaction" : true/false,
+                        "can_pause_transaction" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -565,7 +577,11 @@ Body:
                         "can_delete_image" : true/false,
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
-                        "can_delete_where_tag" : true/false
+                        "can_delete_where_tag" : true/false,
+                        "can_post_transaction" : true/false,
+                        "can_approve_transaction" : true/false,
+                        "can_cancel_transaction" : true/false,
+                        "can_pause_transaction" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -660,7 +676,11 @@ Body:
                         "can_delete_image" : true/false,
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
-                        "can_delete_where_tag" : true/false
+                        "can_delete_where_tag" : true/false,
+                        "can_post_transaction" : true/false,
+                        "can_approve_transaction" : true/false,
+                        "can_cancel_transaction" : true/false,
+                        "can_pause_transaction" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -756,7 +776,11 @@ Body:
                         "can_delete_image" : true/false,
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
-                        "can_delete_where_tag" : true/false
+                        "can_delete_where_tag" : true/false,
+                        "can_post_transaction" : true/false,
+                        "can_approve_transaction" : true/false,
+                        "can_cancel_transaction" : true/false,
+                        "can_pause_transaction" : true/false
                     }
                 ],
                 "bank_id":"the id of the bank where the account is hosted"
@@ -873,7 +897,11 @@ Body:
                 "can_delete_image" : true/false,
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
-                "can_delete_where_tag" : true/false
+                "can_delete_where_tag" : true/false,
+                "can_post_transaction" : true/false,
+                "can_approve_transaction" : true/false,
+                "can_cancel_transaction" : true/false,
+                "can_pause_transaction" : true/false
             }
         ],
         "bank_id":"the id of the bank where the account is hosted"
@@ -979,7 +1007,11 @@ Body:
                 "can_delete_image" : true/false,
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
-                "can_delete_where_tag" : true/false
+                "can_delete_where_tag" : true/false,
+                "can_post_transaction" : true/false,
+                "can_approve_transaction" : true/false,
+                "can_cancel_transaction" : true/false,
+                "can_pause_transaction" : true/false
             }
         ]
     }
@@ -1028,6 +1060,10 @@ Here are the action names that the list can contain:
     can_see_where_tag
     can_add_where_tag
     can_delete_where_tag
+    can_post_transaction
+    can_approve_transaction
+    can_cancel_transaction
+    can_pause_transaction
     can_see_bank_account_owners
     can_see_bank_account_type
     can_see_bank_account_balance
@@ -1154,7 +1190,11 @@ Body:
         "can_delete_image" : true/false,
         "can_add_where_tag" : true/false,
         "can_see_where_tag" : true/false,
-        "can_delete_where_tag" : true/false
+        "can_delete_where_tag" : true/false,
+        "can_post_transaction" : true/false,
+        "can_approve_transaction" : true/false,
+        "can_cancel_transaction" : true/false,
+        "can_pause_transaction" : true/false
     }
 
 #### Update a view
@@ -1253,7 +1293,11 @@ Body:
         "can_delete_image" : true/false,
         "can_add_where_tag" : true/false,
         "can_see_where_tag" : true/false,
-        "can_delete_where_tag" : true/false
+        "can_delete_where_tag" : true/false,
+        "can_post_transaction" : true/false,
+        "can_approve_transaction" : true/false,
+        "can_cancel_transaction" : true/false,
+        "can_pause_transaction" : true/false
     }
 
 <a name="permissions"></a>
@@ -1347,7 +1391,11 @@ Body:
                         "can_delete_image" : true/false,
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
-                        "can_delete_where_tag" : true/false
+                        "can_delete_where_tag" : true/false,
+                        "can_post_transaction" : true/false,
+                        "can_approve_transaction" : true/false,
+                        "can_cancel_transaction" : true/false,
+                        "can_pause_transaction" : true/false
                     }
                 ]
             }
@@ -1437,7 +1485,11 @@ Body:
                 "can_delete_image" : true/false,
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
-                "can_delete_where_tag" : true/false
+                "can_delete_where_tag" : true/false,
+                "can_post_transaction" : true/false,
+                "can_approve_transaction" : true/false,
+                "can_cancel_transaction" : true/false,
+                "can_pause_transaction" : true/false
             }
         ]
     }
@@ -1527,7 +1579,11 @@ Body:
             "can_delete_image" : true/false,
             "can_add_where_tag" : true/false,
             "can_see_where_tag" : true/false,
-            "can_delete_where_tag" : true/false
+            "can_delete_where_tag" : true/false,
+            "can_post_transaction" : true/false,
+            "can_approve_transaction" : true/false,
+            "can_cancel_transaction" : true/false,
+            "can_pause_transaction" : true/false
         }
     }
 
@@ -1623,7 +1679,11 @@ Body:
                 "can_delete_image" : true/false,
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
-                "can_delete_where_tag" : true/false
+                "can_delete_where_tag" : true/false,
+                "can_post_transaction" : true/false,
+                "can_approve_transaction" : true/false,
+                "can_cancel_transaction" : true/false,
+                "can_pause_transaction" : true/false
             },
             {
                 "id": "view_two_id",
@@ -1690,7 +1750,11 @@ Body:
                 "can_delete_image" : true/false,
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
-                "can_delete_where_tag" : true/false
+                "can_delete_where_tag" : true/false,
+                "can_post_transaction" : true/false,
+                "can_approve_transaction" : true/false,
+                "can_cancel_transaction" : true/false,
+                "can_pause_transaction" : true/false
             },
             {
                 "id": "A unique identifier used for VIEW_ID",
@@ -1757,7 +1821,11 @@ Body:
                 "can_delete_image" : true/false,
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
-                "can_delete_where_tag" : true/false
+                "can_delete_where_tag" : true/false,
+                "can_post_transaction" : true/false,
+                "can_approve_transaction" : true/false,
+                "can_cancel_transaction" : true/false,
+                "can_pause_transaction" : true/false
             }
         ]
     }
