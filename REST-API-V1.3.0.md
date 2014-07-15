@@ -273,7 +273,7 @@ Body:
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
                         "can_delete_where_tag" : true/false,
-                        "can_post_transaction" : true/false,
+                        "can_initiate_transaction" : true/false,
                         "can_approve_transaction" : true/false,
                         "can_cancel_transaction" : true/false,
                         "can_pause_transaction" : true/false
@@ -372,7 +372,7 @@ Body:
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
                         "can_delete_where_tag" : true/false,
-                        "can_post_transaction" : true/false,
+                        "can_initiate_transaction" : true/false,
                         "can_approve_transaction" : true/false,
                         "can_cancel_transaction" : true/false,
                         "can_pause_transaction" : true/false
