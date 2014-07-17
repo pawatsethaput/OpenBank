@@ -30,4 +30,4 @@ login: joe.bloggs@example.com
 password: qwerty
 
 6. ####Social Finance Application
-The sandbox data is available also available through the Social Finance Application [here](https://sofisandbox.openbankproject.com/sandbox/) and the default user credentials are the same as above.
+The sandbox data is available also available through the Social Finance Application [here](https://sofisandbox.openbankproject.com/) and the default user credentials are the same as above.
