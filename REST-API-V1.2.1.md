@@ -2560,7 +2560,6 @@ Body:
     {
         "transactions": [
             {
-                "uuid": "A universally unique id e.g. 4f5745f4e4b095974c0eeead",
                 "id": "The bank's id for the transaction",
                 "this_account": {
                     "id":"ACCOUNT_ID",
