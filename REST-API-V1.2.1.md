@@ -2546,14 +2546,16 @@ Possible custom headers for pagination:
 * obp_sort_direction=ASC/DESC ==> default value: DESC
 * obp_limit=NUMBER ==> default value: 50
 * obp_offset=NUMBER ==> default value: 0
-* obp_from_date=DATE => default value: date of the oldest transaction registered
-* obp_to_date=DATE => default value: date of the newest transaction registered
+* obp_from_date=DATE => default value: date of the oldest transaction registered (format below)
+* obp_to_date=DATE => default value: date of the newest transaction registered (format below)
+
+**Date format parameter**: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" (2014-07-01T00:00:00.000Z) ==> time zone is UTC.
 
 **Request:**
-Verb: GET
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions  
 
-**Response:**
+**Response:**  
 HTTP code: 200
 Body:
 
