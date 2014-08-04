@@ -472,7 +472,7 @@ Body:
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
                         "can_delete_where_tag" : true/false,
-                        "can_post_transaction" : true/false,
+                        "can_initiate_transaction" : true/false,
                         "can_approve_transaction" : true/false,
                         "can_cancel_transaction" : true/false,
                         "can_pause_transaction" : true/false
@@ -578,7 +578,7 @@ Body:
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
                         "can_delete_where_tag" : true/false,
-                        "can_post_transaction" : true/false,
+                        "can_initiate_transaction" : true/false,
                         "can_approve_transaction" : true/false,
                         "can_cancel_transaction" : true/false,
                         "can_pause_transaction" : true/false
@@ -677,7 +677,7 @@ Body:
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
                         "can_delete_where_tag" : true/false,
-                        "can_post_transaction" : true/false,
+                        "can_initiate_transaction" : true/false,
                         "can_approve_transaction" : true/false,
                         "can_cancel_transaction" : true/false,
                         "can_pause_transaction" : true/false
@@ -777,7 +777,7 @@ Body:
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
                         "can_delete_where_tag" : true/false,
-                        "can_post_transaction" : true/false,
+                        "can_initiate_transaction" : true/false,
                         "can_approve_transaction" : true/false,
                         "can_cancel_transaction" : true/false,
                         "can_pause_transaction" : true/false
@@ -898,7 +898,7 @@ Body:
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
                 "can_delete_where_tag" : true/false,
-                "can_post_transaction" : true/false,
+                "can_initiate_transaction" : true/false,
                 "can_approve_transaction" : true/false,
                 "can_cancel_transaction" : true/false,
                 "can_pause_transaction" : true/false
@@ -1008,7 +1008,7 @@ Body:
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
                 "can_delete_where_tag" : true/false,
-                "can_post_transaction" : true/false,
+                "can_initiate_transaction" : true/false,
                 "can_approve_transaction" : true/false,
                 "can_cancel_transaction" : true/false,
                 "can_pause_transaction" : true/false
@@ -1060,7 +1060,7 @@ Here are the action names that the list can contain:
     can_see_where_tag
     can_add_where_tag
     can_delete_where_tag
-    can_post_transaction
+    can_initiate_transaction
     can_approve_transaction
     can_cancel_transaction
     can_pause_transaction
@@ -1191,7 +1191,7 @@ Body:
         "can_add_where_tag" : true/false,
         "can_see_where_tag" : true/false,
         "can_delete_where_tag" : true/false,
-        "can_post_transaction" : true/false,
+        "can_initiate_transaction" : true/false,
         "can_approve_transaction" : true/false,
         "can_cancel_transaction" : true/false,
         "can_pause_transaction" : true/false
@@ -1294,7 +1294,7 @@ Body:
         "can_add_where_tag" : true/false,
         "can_see_where_tag" : true/false,
         "can_delete_where_tag" : true/false,
-        "can_post_transaction" : true/false,
+        "can_initiate_transaction" : true/false,
         "can_approve_transaction" : true/false,
         "can_cancel_transaction" : true/false,
         "can_pause_transaction" : true/false
@@ -1392,7 +1392,7 @@ Body:
                         "can_add_where_tag" : true/false,
                         "can_see_where_tag" : true/false,
                         "can_delete_where_tag" : true/false,
-                        "can_post_transaction" : true/false,
+                        "can_initiate_transaction" : true/false,
                         "can_approve_transaction" : true/false,
                         "can_cancel_transaction" : true/false,
                         "can_pause_transaction" : true/false
@@ -1486,7 +1486,7 @@ Body:
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
                 "can_delete_where_tag" : true/false,
-                "can_post_transaction" : true/false,
+                "can_initiate_transaction" : true/false,
                 "can_approve_transaction" : true/false,
                 "can_cancel_transaction" : true/false,
                 "can_pause_transaction" : true/false
@@ -1580,7 +1580,7 @@ Body:
             "can_add_where_tag" : true/false,
             "can_see_where_tag" : true/false,
             "can_delete_where_tag" : true/false,
-            "can_post_transaction" : true/false,
+            "can_initiate_transaction" : true/false,
             "can_approve_transaction" : true/false,
             "can_cancel_transaction" : true/false,
             "can_pause_transaction" : true/false
@@ -1680,7 +1680,7 @@ Body:
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
                 "can_delete_where_tag" : true/false,
-                "can_post_transaction" : true/false,
+                "can_initiate_transaction" : true/false,
                 "can_approve_transaction" : true/false,
                 "can_cancel_transaction" : true/false,
                 "can_pause_transaction" : true/false
@@ -1751,7 +1751,7 @@ Body:
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
                 "can_delete_where_tag" : true/false,
-                "can_post_transaction" : true/false,
+                "can_initiate_transaction" : true/false,
                 "can_approve_transaction" : true/false,
                 "can_cancel_transaction" : true/false,
                 "can_pause_transaction" : true/false
@@ -1822,7 +1822,7 @@ Body:
                 "can_add_where_tag" : true/false,
                 "can_see_where_tag" : true/false,
                 "can_delete_where_tag" : true/false,
-                "can_post_transaction" : true/false,
+                "can_initiate_transaction" : true/false,
                 "can_approve_transaction" : true/false,
                 "can_cancel_transaction" : true/false,
                 "can_pause_transaction" : true/false
