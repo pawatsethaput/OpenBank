@@ -49,7 +49,9 @@
         * [Where](#where)
     * [Other account](#transaction_other_account)
 * [Payments](#payments)
-
+* Physical cards
+  * [All] (#all-cards)
+  * [At one bank] (#cards-for-bank)
 
 <a name="about"></a>
 ### About
@@ -3547,3 +3549,114 @@ Body:
 
     {}
 
+<a name="all-cards"></a>
+#All Physical cards
+*Optional*
+
+Returns data about all the physical cards a user has been issued. These could be debit cards, credit cards, etc.
+
+**Request:**
+Verb: GET
+URL: /cards
+
+**Response:**
+HTTP code: 200
+Body:
+
+    {
+        "cards": [
+            {
+                "bank_card_number": "16 digit primary account number or PAN",
+                "name_on_card": "Joe Bloggs",
+                "issue_number": "1",
+                "serial_number": "56787265342",
+                "valid_from_date": "date",
+                "expires_date": "date",
+                "enabled": true,
+                "cancelled": false,
+                "on_hot_list": false,
+                "technology": "CHIPANDPIN",
+                "networks": [
+                    "VISA",
+                    "MAESTRO"
+                ],
+                "allows": [
+                    "CREDIT",
+                    "EC",
+                    "DEBIT",
+                    "CASH"
+                ],
+                "account": "account object",
+                "replacement": {
+                    "requested_date": "date",
+                    "reason_requested": "lost"
+                },
+                "pin_reset": [{
+                    "requested_date": "date",
+                    "reason_requested": "forgot"
+                }],
+                "collected": {
+                    "date": "date"
+                },
+                "posted": {
+                    "date": "date"
+                }
+            }
+        ]
+    }
+
+<a name="cards-for-bank"></a>
+#All Physical cards issued by a particular bank
+*Optional*
+
+Returns data about all the physical cards a user has been issued by bank BANK_ID. These could be debit cards, credit cards, etc.
+
+**Request:**
+Verb: GET
+URL: /cards/BANK_ID
+
+**Response:**
+HTTP code: 200
+Body:
+
+    {
+        "cards": [
+            {
+                "bank_card_number": "16 digit primary account number or PAN",
+                "name_on_card": "Joe Bloggs",
+                "issue_number": "1",
+                "serial_number": "56787265342",
+                "valid_from_date": "date",
+                "expires_date": "date",
+                "enabled": true,
+                "cancelled": false,
+                "on_hot_list": false,
+                "technology": "CHIPANDPIN",
+                "networks": [
+                    "VISA",
+                    "MAESTRO"
+                ],
+                "allows": [
+                    "CREDIT",
+                    "EC",
+                    "DEBIT",
+                    "CASH"
+                ],
+                "account": "account object",
+                "replacement": {
+                    "requested_date": "date",
+                    "reason_requested": "lost"
+                },
+                "pin_reset": [{
+                    "requested_date": "date",
+                    "reason_requested": "forgot"
+                }],
+                "collected": {
+                    "date": "date"
+                },
+                "posted": {
+                    "date": "date"
+                }
+            }
+        ]
+    }
