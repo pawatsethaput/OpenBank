@@ -3510,7 +3510,7 @@ Body:
 Step C: Resolve challenge(s)
 
 **Request:**
-PATCH /challenges/jmlk-0091-mlox-8196
+POST /challenges/jmlk-0091-mlox-8196/answers
 
 Body:
 
@@ -3520,7 +3520,7 @@ Body:
 
 Headers:
   
-    http code: 200
+    http code: 204
     location: transactions/transaction_id
 
 Body:
