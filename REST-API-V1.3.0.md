@@ -3400,16 +3400,65 @@ Body:
 #Transfers (Payments)
 *Optional*
 
+Getting transfers:
+
+**Request:**
+Verb: GET
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers
+
+
+
+
+TODO: add get challenges, answer challenges(?) requests to doc
+
+TODO: get transfer-methods
+
+
+
+
+
+**Response:**
+HTTP code: 200
+Body:
+
+    {
+      "id":"8192-axmp-6125-xxui",
+      "from": {
+        "bankId": "FROM_BANK_ID",
+        "accountId": "FROM_ACCOUNT_ID"
+      },
+      "transactionId": null | "9283-rerw-3ghs-4sfe",
+      "status":"INITIATED | COMPLETED | CHALLENGES_PENDING | FAILED",
+      "start_date": Date,
+      "end_date": Date,
+      "challenge_set" : {
+          "allowed_attempts" : 2
+          "challenges" : [
+              {
+                "id": "jmlk-0091-mlox-8196",
+                "question": "Please provide TAN"
+              },
+              {
+                "id": "osns-32sf-4faa-dds4",
+                "question": "What was the name of your first pet?",
+                "start_date":date
+              }
+          ]
+      }
+    }
+
+If status is not COMPLETED, transactionId will be null, as no transaction has been created.
+
+Initiating transfers:
+
+Security challenge responses may be required before the transaction can proceed leading to the two work flows below, illustrated with the case of sandbox transfers.
+Other transfer types will differ only in the content of the body of the initiation POST request.
+
+**Sandbox Transfers:**
+
 This is an experimental call, currently only implemented in the OBP sandbox instance. It is currently very minimal, and will almost certainly change.
 
 This will only work if account to pay exists at the bank specified in the json, and if that account has the same currency as that of the payee.
-
-There are no checks for "sufficient funds" at the moment, so it is possible to go into unlimited overdraft.
-
-Security challenge responses may be required before the transaction can proceed leading to two work flows below.
-
-
-Step A: Initiate the transfer
 
 **Request:**
 Verb: POST
@@ -3438,13 +3487,9 @@ Body:
     {
       "id":"8192-axmp-6125-xxui",
       "from": {
-        "bankId": "BANK_ID",
-        "accountId": "ACCOUNT_ID"
-      }
-      "to": {
-        "bankId": "TO_BANK_ID",
-        "accountId": "TO_ACCOUNT_ID"   
-      }
+        "bankId": "FROM_BANK_ID",
+        "accountId": "FROM_ACCOUNT_ID"
+      },
       "transactionId": null | "9283-rerw-3ghs-4sfe",
       "status":"INITIATED | COMPLETED",
       "start_date": Date,
@@ -3467,30 +3512,26 @@ Body:
     {
       "id":"8192-axmp-6125-xxui",
       "from": {
-        "bankId": "BANK_ID",
-        "accountId": "ACCOUNT_ID"
-      },
-      "to": {
-        "bankId": "TO_BANK_ID",
-        "accountId": "TO_ACCOUNT_ID"   
+        "bankId": "FROM_BANK_ID",
+        "accountId": "FROM_ACCOUNT_ID"
       },
       "transactionId": null,
       "status": "CHALLENGES_PENDING",
       "start_date": Date,
       "end_date": Date,
       "challenge_set" : {
-                "allowed_attempts" : 2
-                "challenges" : [
-                                {
-                                  "id": "jmlk-0091-mlox-8196",
-                                  "question": "Please provide TAN"
-                                },
-                                {
-                                  "id": "osns-32sf-4faa-dds4",
-                                  "question": "What was the name of your first pet?",
-                                  "start_date":date
-                                }
-                            ]
+        "allowed_attempts" : 2
+        "challenges" : [
+            {
+              "id": "jmlk-0091-mlox-8196",
+              "question": "Please provide TAN"
+            },
+            {
+              "id": "osns-32sf-4faa-dds4",
+              "question": "What was the name of your first pet?",
+              "start_date":date
+            }
+        ]
       }
     }
 
@@ -3543,8 +3584,6 @@ The possible values for the error code are:
 
 1 : Transfer failed.
 2 : Incorrect answer to one or more questions. You may try to answer the challenges again.
-
-
 
 <a name="all-cards"></a>
 #All Physical cards
