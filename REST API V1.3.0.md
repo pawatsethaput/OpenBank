@@ -3407,16 +3407,6 @@ Verb: GET
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers
 
 
-
-
-TODO: add get challenges, answer challenges(?) requests to doc
-
-TODO: get transfer-methods
-
-
-
-
-
 **Response:**
 HTTP code: 200
 Body:
