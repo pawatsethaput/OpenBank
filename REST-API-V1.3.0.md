@@ -3398,13 +3398,46 @@ Body:
 
 <a name="transfers"></a>
 #Transfers (Payments)
+
 *Optional*
 
-Getting transfers:
+Getting available transfer methods for an account
 
-**Request:**
-Verb: GET
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods
+
+**Response:**  
+HTTP code: 200  
+Body:
+    
+    {
+        "transfer_methods": [
+            {
+                "permalink": "sandbox",
+                "resource_URL": "http://localhost:8080/obp/1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox",
+                "description": "Transfers for the OBP sandbox",
+                "body": {
+                    "to" : {
+                        "account_id" : "Id of the OBP sandbox account to send the payment to (at bank_id specified below)",
+                        "bank_id": "Id of the OBP sandbox bank of the account to send the payment to"
+                    },
+                    "amount": "The transaction amount as a string, e.g. 12.43"
+                }
+            }, ...
+        ]
+    }
+
+
+The "body" parameter describes the JSON expected as an argument when initiating a transfer at ("resource_url" + "/transfers").
+
+*Optional*
+
+Getting sandbox transfers:
+
+**Request:**  
+Verb: GET  
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers  
 
 
 **Response:**
