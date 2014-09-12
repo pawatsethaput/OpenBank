@@ -3414,7 +3414,7 @@ Body:
     {
         "transfer_methods": [
             {
-                "permalink": "sandbox",
+                "id": "sandbox",
                 "resource_URL": "http://localhost:8080/obp/1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox",
                 "description": "Transfers for the OBP sandbox",
                 "body": {
@@ -3470,12 +3470,13 @@ Body:
       }
     }
 
-If status is not COMPLETED, transactionId will be null, as no transaction has been created.
+If status is not COMPLETED, transactionId will be null, as no transaction has been created.  
 
 Initiating transfers:
 
 Security challenge responses may be required before the transaction can proceed leading to the two work flows below, illustrated with the case of sandbox transfers.
-Other transfer types will differ only in the content of the body of the initiation POST request.
+Other transfer types will differ only in the content of the body of the initiation POST request.  
+
 
 **Sandbox Transfers:**
 
