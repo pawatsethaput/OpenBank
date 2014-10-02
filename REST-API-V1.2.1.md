@@ -110,7 +110,7 @@ HTTP code: 200
 Body:
 
     {
-        "version": "1.2",
+        "version": "1.2.1",
         "git_commit": "4ca0cdbe9e51e41d0105bf26cf463ac5225a50a1",
         "hosted_by": {
             "organisation": "TESOBE",
