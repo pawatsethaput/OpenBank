@@ -75,3 +75,6 @@ Notes:
 * transactions.counterparty: optional, but useful if specified.
 * transactions.details.new_balance: represented as a string (the balance of the account after this transaction)
 * transactions.details.value: represented as a string (the amount of the transaction, negative if money left the account, positive if it came in)
+
+
+Once the data has been imported you can view it / manage it using: https://sofisandbox.openbankproject.com
