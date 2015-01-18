@@ -56,7 +56,7 @@
 <a name="about"></a>
 ### About
 
-The Open Bank Project API is a RESTful API for banks that supports multiple views on transaction data, data enrichment and data blurring.
+The Open Bank Project API is a RESTful API for banks that provides a standardised interface to core banking resources such as accounts, transactions, counterparties, payments and cards as well as related meta data, views and entitlements.
 
 The protocol consists of *baseline* and *optional* end points.
 For baseline compliance, all the baseline URLs must be implemented.
