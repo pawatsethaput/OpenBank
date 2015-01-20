@@ -1,3 +1,1 @@
-* Payments in v1.3.0
-* Cards API
-* API calls to CRUD Accounts
+Our road map is here: [here](http://www.openbankproject.com/roadmap)
