@@ -1,6 +1,6 @@
 # Version: 1.3.0
 
-# Status: DRAFT & Work in Progress!
+# Status: DRAFT, WIP
 
 # Index
 
