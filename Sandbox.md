@@ -7,7 +7,7 @@ The purpose of the sandbox is to reproduce the same conditions of a production A
 
 1. ####Public Data
 Some sandbox data has a public view available, which does not require OAuth to access. For example, here is a list of transactions: 
-https://apisandbox.openbankproject.com/obp/v1.2/banks/rbs/accounts/savings-kids-john/public/transactions
+https://apisandbox.openbankproject.com/obp/v1.2.1/banks/rbs/accounts/savings-kids-john/public/transactions
 For other API calls, see API Documentation below.
 
 2. ####Application registration
