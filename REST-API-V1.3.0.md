@@ -26,7 +26,7 @@
         * [One](#permission)
         * [Grant](#grant-permission)
         * [Revoke](#revoke-permission)
-    * Other Accounts
+    * Other Accounts (Counterparties)
         * [All](#account-other-accounts)
         * [One](#account-other-account)
             * [Meta data](#other_account-metadata)
@@ -1866,7 +1866,7 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/permissions/PROVIDER_ID/USER_ID/views
 HTTP code: 204
 
 <a name="account-other-accounts"></a>
-#Other Accounts
+#Other Accounts (Counterparties)
 *Optional*
 
 Returns data about all the other bank accounts that have shared at least one transaction with the ACCOUNT_ID at BANK_ID.
@@ -1930,7 +1930,7 @@ Body:
     }
 
 <a name="account-other-account"></a>
-#Other Account
+#Other Account (Counterparty)
 *Optional*
 
 Returns data about one other bank account (OTHER_ACCOUNT_ID) that had shared at least one transaction with ACCOUNT_ID at BANK_ID.
