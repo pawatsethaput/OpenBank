@@ -23,11 +23,11 @@ More details about the OAuth requirements: getting a request token, redirecting 
 At time of writing, the current **stable** API version is [1.2.1](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.2.1). The active **draft** version is [1.3](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.3.0).
 
 5. ####Data access
-During the authentication process, the user will be redirected by the client application in order to login and grant access. For the sandbox you can use the following credentials:
+During the authentication process, the user is redirected by the client application to login and grant access. For the sandbox you can use the following credentials:
 <br />
 login: joe.bloggs@example.com
 <br />
 password: qwerty
 
 6. ####Social Finance Application
-The sandbox data is also available through the Social Finance Application [here](https://sofisandbox.openbankproject.com/) and the default user credentials are the same as above.
+The sandbox data is also available through a web application the Social Finance Application (also AGPL) [here](https://sofisandbox.openbankproject.com/) and the default user credentials are the same as above.
