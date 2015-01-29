@@ -11,6 +11,10 @@
     * [All](#banks)
     * [One](#bank)
         - [Branches](#branches)
+
+* [Customer](#customer)
+    * [Messages](#customer-messages)
+
 * Accounts
     * Global
         * [All](#accounts-all)
@@ -214,15 +218,6 @@ Body:
         "license": {"name": "PDDL", 
                     "url": "http://opendatacommons.org/licenses/pddl/"}
     }
-
-
-
-
-
-
-
-
-
 
 
 <a name="accounts-all"></a>
@@ -3768,3 +3763,59 @@ Body:
             }
         ]
     }
+
+
+<a name="customer"></a>
+#Customer Information
+*Optional*
+
+Information about the currently authenticated user. 
+
+Authentication via OAuth is required.
+
+**Request:**
+Verb: GET
+URL: /customer
+
+**Response:**
+HTTP code: 200
+Body:
+
+    {
+        "customer_number": "2938472893874"
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "mobile_phone_number": "+44 (0)798729874234",
+        "email": "someone@example.com"
+    }
+
+<a name="customer-messages"></a>
+#Customer Messages
+*Optional*
+
+Messages sent to the currently authenticated user. 
+
+Authentication via OAuth is required.
+
+**Request:**
+Verb: GET
+URL: /customer/messages
+
+**Response:**
+HTTP code: 200
+Body:
+
+    {
+        "id": "unique id of message",
+        "date": "date of messages",
+        "message": "Message text",
+        "from_department": "Department Name",
+        "from_person": "Name of Person",
+        "read_date": "Date this message was read"
+    }
+
+
+
+
+
+
