@@ -212,6 +212,7 @@ Body:
                 "address_line_4": "",
                 "address_line_5": "",
                 "postcode_zip": "",
+                "location_code" : "NI",
                 "country": ""
             }
         ],
