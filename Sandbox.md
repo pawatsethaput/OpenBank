@@ -20,10 +20,10 @@ More details about the OAuth requirements: getting a request token, redirecting 
 **Important**:You will find links to use the real data set,like [https://api.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0](https://api.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0) **you MUST replace the sub domain "api" with "apisandbox"** in the URL like this: [https://**apisandbox**.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0](https://apisandbox.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0) to use the proper set of data otherwise you will have error messages.
 
 4. ####API documentation
-The API specification is available for the version 1.1 [here](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.1) and for the version 1.2 [there](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.2).
+At time of writing, the current **stable** API version is [1.2.1](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.2.1). The active **draft** version is [1.3](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.3.0).
 
 5. ####Data access
-During the authentication process, the user will redirected by the client application to login and granting access, for the sandbox you can use the following credentials:
+During the authentication process, the user will be redirected by the client application in order to login and grant access. For the sandbox you can use the following credentials:
 <br />
 login: joe.bloggs@example.com
 <br />
