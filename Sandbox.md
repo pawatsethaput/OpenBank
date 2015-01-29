@@ -30,4 +30,6 @@ login: joe.bloggs@example.com
 password: qwerty
 
 6. ####Social Finance Application
-The sandbox data is also available through a web application the Social Finance Application (also AGPL) [here](https://sofisandbox.openbankproject.com/) and the default user credentials are the same as above.
+The sandbox data is also available through a web application called Social Finance Application [here](https://sofisandbox.openbankproject.com/) and the default user credentials are the same as above.
+
+Note: Social Finance is also on [github] (https://github.com/OpenBankProject/Social-Finance) and released under the AGPL. 
