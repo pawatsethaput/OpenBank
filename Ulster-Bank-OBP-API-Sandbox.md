@@ -5,8 +5,11 @@ Hello,
 This is a special page for the **Ulster Bank** OBP API sandbox instance created for the [Hack Make the Bank](http://www.hackmakethebank.com) hackathons in Dublin and Belfast.
  
 ####Public Data
-Some sandbox accounts have public views available, which do not require OAuth to access. For example, here is a list of transactions: 
-https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts/account1/public/transactions
+Some sandbox accounts have public views available, which do not require OAuth to access. For example, here is a list of public accounts on the sandbox: 
+[https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts](https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts)
+
+And here is a list of transactions from a dummy Charity account:
+[https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts/charity1/public/transactions](https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts/charity1/public/transactions)
 
 For other API calls, see API Documentation below.
 
