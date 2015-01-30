@@ -110,14 +110,14 @@ Authorization: OAuth <br />
 
 Like the step 1, a successful response contains the oauth_token & oauth_token_secret and they should be stored and used for future authenticated requests to the OBP API. 
 
-The application can know use the access token to access to protected resources. 
+The application can now use the access token to access protected resources. 
 
 
-# Step 4 : Accessing to protected resources :
+# Step 4 : Accessing protected resources :
 
-Once the application have an a access token and secret token, it can access to protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
+Once the application has an a access token and secret token, it can access protected resources. The request is the same as in step 3 except the oauth_verifer which MUST not be included in the **header**.
 
-Please see the API documentation for more details how to access protected resources. 
+Please see the API documentation for more details on how to access protected resources. 
 
 # Recommended OAuth 1.0 libraries:
 If you want to use a OAuth library to handle the OAuth process for your application, we have successfully tested these ones: 
@@ -130,8 +130,8 @@ If you want to use a OAuth library to handle the OAuth process for your applicat
 
 
 # Examples :
-To show the OAuth integration in concrete examples, please check out these projects:  
-[OAuth Example for NodeJS](https://github.com/OpenBankProject/Hello-OBP-OAuth1.0a-Node)
+To show the OAuth integration in concrete examples, please check out these projects listed here:  
+[Hello-OBP-OAuth1.0a-LANGUAGE/PLATFORM](https://github.com/OpenBankProject)
 
 # Signature :
 According to the [section-3.4](http://tools.ietf.org/html/rfc5849#section-3.4) in the OAuth 1.0 protocol specification the signature computation is done following theses steps :
