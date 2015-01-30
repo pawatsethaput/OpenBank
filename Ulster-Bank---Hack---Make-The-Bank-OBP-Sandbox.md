@@ -2,7 +2,7 @@
 
 Hello, 
 
-This page relates to the *Ulster Bank* OBP API sandbox created for the hackathons in Dublin and Belfast.
+This page relates to the *Ulster Bank* OBP API sandbox created for the [Hack Make the Bank hackathons](http://www.hackmakethebank.com) in Dublin and Belfast.
 
 The following instructions will help you to use the Open Bank API sandbox. 
 ####Public Data
