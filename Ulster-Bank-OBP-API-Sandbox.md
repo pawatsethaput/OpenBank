@@ -2,7 +2,7 @@
 
 Hello, 
 
-This is a special page for the **Ulster Bank** OBP API sandbox created for the [Hack Make the Bank](http://www.hackmakethebank.com) hackathons in Dublin and Belfast.
+This is a special page for the **Ulster Bank** OBP API sandbox instance created for the [Hack Make the Bank](http://www.hackmakethebank.com) hackathons in Dublin and Belfast.
  
 ####Public Data
 Some sandbox accounts have public views available, which do not require OAuth to access. For example, here is a list of transactions: 
@@ -11,11 +11,15 @@ https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts/account1
 For other API calls, see API Documentation below.
 
 ####Application registration
-First, so that the client application can communicate with the API (especially the calls requiring OAuth header), you will need to register your application [here](https://apisandbox.openbankproject.com/consumer-registration).
-You will get a consumer key and consumer secret, they are necessary for the calls requiring OAuth authentication.
+If your App needs access to private data and services, you will need to [register your application here]. (https://ulsterbank.openbankproject.com/consumer-registration).
+You will get a consumer key and consumer secret for the calls requiring OAuth authentication.
 
 ####OAuth
-More details about the OAuth requirements: getting a request token, redirecting the user, getting an access token and accessing protected resources are available [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server).
+Then, the best way to get started with OBP and OAuth is probably to fork one of our Starter SDKs for Python, Node, IOS, Mac or Android here:
+
+* [Starter SDKS Hello-OBP-OAuth1.0a-LANGUAGE/PLATFORM listed here](https://github.com/OpenBankProject)
+ 
+Many more details about the OAuth requirements: getting a request token, redirecting the user, getting an access token and accessing protected resources are available [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server).
 <br />
 **Important**: Make sure you use the correct domain in all calls e.g. [https://ulsterbank.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0](https://ulsterbank.openbankproject.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0)
 
@@ -29,7 +33,9 @@ Customer number: 0000094300000
 <br />
 Answers to PIN/password questions are: "1", "2", "3", "a", "b", "c"
 
+Other credentials are available on request.
+
 ####Social Finance Application
 The sandbox data is also available through a web application called Social Finance [here](https://ulsterbank-sofi.openbankproject.com/) and the default user credentials are the same as above.
 
-Note: Social Finance is also open sourced on [github] (https://github.com/OpenBankProject/Social-Finance).
+Note: Social Finance (Scala / Lift) is also open sourced on [github] (https://github.com/OpenBankProject/Social-Finance).
