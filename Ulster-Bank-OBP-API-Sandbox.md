@@ -2,18 +2,18 @@
 
 Hello, 
 
-This page relates to the *Ulster Bank* OBP API sandbox created for the [Hack Make the Bank](http://www.hackmakethebank.com) hackathons in Dublin and Belfast.
-
-The following instructions will help you to use the Open Bank API sandbox. 
+This is a special page for the **Ulster Bank** OBP API sandbox created for the [Hack Make the Bank](http://www.hackmakethebank.com) hackathons in Dublin and Belfast.
+ 
 ####Public Data
-
 Some sandbox accounts have public views available, which do not require OAuth to access. For example, here is a list of transactions: 
 https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts/account1/public/transactions
 
 For other API calls, see API Documentation below.
+
 ####Application registration
 First, so that the client application can communicate with the API (especially the calls requiring OAuth header), you will need to register your application [here](https://apisandbox.openbankproject.com/consumer-registration).
 You will get a consumer key and consumer secret, they are necessary for the calls requiring OAuth authentication.
+
 ####OAuth
 More details about the OAuth requirements: getting a request token, redirecting the user, getting an access token and accessing protected resources are available [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server).
 <br />
