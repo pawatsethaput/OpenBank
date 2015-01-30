@@ -10,4 +10,8 @@ Welcome to the OBP-API wiki!
 
 * [Add a bank account](https://github.com/OpenBankProject/OBP-API/wiki/Add-a-bank-Account)
 
-Note: A good way to get started consuming the API with OAuth is to use our Hello-OBP starter repositories for Node, IOS, Mac, Android and Python.
+Note: To get started with OAuth and OBP, you can fork a starter SDK for Python, Node, IOS, Mac or Android:
+
+* [Starter SDKS Hello-OBP-OAuth1.0a-LANGUAGE/PLATFORM listed here](https://github.com/OpenBankProject)
+
+
