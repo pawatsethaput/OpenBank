@@ -1,4 +1,4 @@
-##Intro
+##Ulster Bank OBP Sandbox
 
 Hello, 
 
@@ -7,6 +7,7 @@ This page relates to the *Ulster Bank* OBP API sandbox created for the hackathon
 The following instructions will help you to use the Open Bank API sandbox. 
 
 1. ####Public Data
+
 Some sandbox accounts have public views available, which do not require OAuth to access. For example, here is a list of transactions: 
 https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts/account1/public/transactions
 
