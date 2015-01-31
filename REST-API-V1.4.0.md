@@ -216,7 +216,7 @@ Body:
                 "country": ""
             }
         ],
-        "license": {"name": "PDDL", 
+        "license": {"name": "PDDL",
                     "url": "http://opendatacommons.org/licenses/pddl/"}
     }
 
@@ -3447,14 +3447,14 @@ Body:
 
 Getting available transfer methods for an account
 
-**Request:**  
-Verb: GET  
+**Request:**
+Verb: GET
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods
 
-**Response:**  
-HTTP code: 200  
+**Response:**
+HTTP code: 200
 Body:
-    
+
     {
         "transfer_methods": [
             {
@@ -3479,9 +3479,9 @@ The "body" parameter describes the JSON expected as an argument when initiating 
 
 Getting sandbox transfers:
 
-**Request:**  
-Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers  
+**Request:**
+Verb: GET
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers
 
 
 **Response:**
@@ -3514,12 +3514,12 @@ Body:
       }
     }
 
-If status is not COMPLETED, transactionId will be null, as no transaction has been created.  
+If status is not COMPLETED, transactionId will be null, as no transaction has been created.
 
 Initiating transfers:
 
 Security challenge responses may be required before the transaction can proceed leading to the two work flows below, illustrated with the case of sandbox transfers.
-Other transfer types will differ only in the content of the body of the initiation POST request.  
+Other transfer types will differ only in the content of the body of the initiation POST request.
 
 
 **Sandbox Transfers:**
@@ -3544,13 +3544,13 @@ Body:
 
 **Case 1 - No security challenge is required**
 
-**Response:**    
+**Response:**
 
 Headers:
 
-      http code 201 Created  
-      location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui/  
-Body: 
+      http code 201 Created
+      location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui/
+Body:
 
     {
       "id":"8192-axmp-6125-xxui",
@@ -3572,10 +3572,10 @@ Body:
 
 Headers:
 
-    http code: 202 Accepted   
-    location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui/  
-    
-Body: 
+    http code: 202 Accepted
+    location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui/
+
+Body:
 
     {
       "id":"8192-axmp-6125-xxui",
@@ -3625,7 +3625,7 @@ Body:
 **Response 1 (good answer):**
 
 Headers:
-  
+
     http code: 204
     location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui
 
@@ -3770,13 +3770,13 @@ Body:
 #Customer Information
 *Optional*
 
-Information about the currently authenticated user. 
+Information about the currently authenticated user.
 
 Authentication via OAuth is required.
 
 **Request:**
 Verb: GET
-URL: /customer
+URL: /banks/BANK_ID/customer
 
 **Response:**
 HTTP code: 200
@@ -3784,8 +3784,7 @@ Body:
 
 	{
 	    "customer_number": "2938472893874",
-	    "first_name": "Jane",
-	    "last_name": "Smith",
+	    "legal_name": "Jane Smith",
 	    "mobile_phone_number": "+44 (0)798729874234",
 	    "email": "someone@example.com",
 	    "face_image": {
@@ -3798,13 +3797,13 @@ Body:
 #Customer Messages
 *Optional*
 
-Messages sent to the currently authenticated user. 
+Messages sent to the currently authenticated user.
 
 Authentication via OAuth is required.
 
 **Request:**
 Verb: GET
-URL: /customer/messages
+URL: /banks/BANK_ID/customer/messages
 
 **Response:**
 HTTP code: 200
