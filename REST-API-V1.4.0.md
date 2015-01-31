@@ -3782,13 +3782,17 @@ URL: /customer
 HTTP code: 200
 Body:
 
-    {
-        "customer_number": "2938472893874"
-        "first_name": "Jane",
-        "last_name": "Smith",
-        "mobile_phone_number": "+44 (0)798729874234",
-        "email": "someone@example.com"
-    }
+	{
+	    "customer_number": "2938472893874",
+	    "first_name": "Jane",
+	    "last_name": "Smith",
+	    "mobile_phone_number": "+44 (0)798729874234",
+	    "email": "someone@example.com",
+	    "face_image": {
+	        "url": "url of image",
+	        "date": "date image taken"
+	    }
+	}
 
 <a name="customer-messages"></a>
 #Customer Messages
