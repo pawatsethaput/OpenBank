@@ -3814,8 +3814,7 @@ Body:
         "date": "date of messages",
         "message": "Message text",
         "from_department": "Department Name",
-        "from_person": "Name of Person",
-        "read_date": "Date this message was read"
+        "from_person": "Name of Person"
     }
 
 
