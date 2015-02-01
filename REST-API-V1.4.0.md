@@ -3768,7 +3768,7 @@ Body:
 
 <a name="customer"></a>
 #Customer Information
-*Optional*
+*Experimental*
 
 Information about the currently authenticated user.
 
@@ -3795,7 +3795,7 @@ Body:
 
 <a name="customer-messages"></a>
 #Customer Messages
-*Optional*
+*Experimental*
 
 Messages sent to the currently authenticated user.
 
@@ -3817,7 +3817,23 @@ Body:
         "from_person": "Name of Person"
     }
 
+**Request:**
+Verb: POST
+URL: /banks/BANK_ID/customer/CUSTOMER_NUMBER/messages
 
+**Response:**
+HTTP code: 201
+Body:
+
+    {
+        "message": "Message text",
+        "from_department": "Department Name",
+        "from_person": "Name of Person"
+    }
+
+This method is currently experimental and public in that anyone can send a message to any customer. It will be restricted in the future.
+
+Note: the CUSTOMER_NUMBER parameter can be retrieved via the GET Customer Information call
 
 
 
