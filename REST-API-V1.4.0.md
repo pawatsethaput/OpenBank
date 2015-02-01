@@ -3820,9 +3820,6 @@ Body:
 **Request:**
 Verb: POST
 URL: /banks/BANK_ID/customer/CUSTOMER_NUMBER/messages
-
-**Response:**
-HTTP code: 201
 Body:
 
     {
@@ -3830,6 +3827,9 @@ Body:
         "from_department": "Department Name",
         "from_person": "Name of Person"
     }
+
+**Response:**
+HTTP code: 201
 
 This method is currently experimental and public in that anyone can send a message to any customer. It will be restricted in the future.
 
