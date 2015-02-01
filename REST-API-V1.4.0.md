@@ -3810,11 +3810,13 @@ HTTP code: 200
 Body:
 
     {
-        "id": "unique id of message",
-        "date": "date of messages",
-        "message": "Message text",
-        "from_department": "Department Name",
-        "from_person": "Name of Person"
+        "messages" : [{
+            "id": "unique id of message",
+            "date": "date of messages",
+            "message": "Message text",
+            "from_department": "Department Name",
+            "from_person": "Name of Person"
+        }]
     }
 
 **Request:**
