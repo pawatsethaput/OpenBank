@@ -3201,7 +3201,7 @@ Verb: POST
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transactions/TRANSACTION_ID/metadata/images
 Body:
 
-    "image": {
+    {
         "label": "cool image",
         "URL":"http://www.mysuperimage.com"
     }
