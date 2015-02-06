@@ -206,14 +206,15 @@ Body:
             {
                 "id": "Unique id that identifies the branch in the bank",
                 "name": "Name that identifies the branch e.g. ANDERSONSTOWN",
-                "address_line_1": "ANDERSONSTOWN LEISURE CENTRE",
-                "address_line_2": "130 ANDERSONSTOWN ROAD",
-                "address_line_3": "",
-                "address_line_4": "",
-                "address_line_5": "",
-                "postcode_zip": "",
-                "location_code" : "NI",
-                "country": ""
+                "address" {
+                    "line_1": "ANDERSONSTOWN LEISURE CENTRE",
+                    "line_2": "130 ANDERSONSTOWN ROAD",
+                    "line_3": "",
+                    "line_4": "",
+                    "line_5": "",
+                    "postcode_zip": "",
+                    "country": "NZ"
+                }
             }
         ],
         "license": {"name": "PDDL",
