@@ -32,19 +32,17 @@ For the current **stable** API version [see 1.2.1](https://github.com/OpenBankPr
 ####Data access
 During the authentication process, the user is redirected by the client application to login and grant access to the App. For the sandbox you can use the following credentials:
 
-ROI
-
+Dublin
 <br />
 Customer number: 0000094300000
 <br />
 Answers to PIN/password questions are: "1", "2", "3", "a", "b", "c"
 
-
-NI
+Belfast
 <br />
-1161 (current, deposit)
+Customer Number: 1161 (current, deposit)
 <br />
-1520 (social business, deposit)
+Customer Number: 1520 (social business, deposit)
 
 Answers to PIN/password questions are: "1", "2", "3", "a", "b", "c"
 
