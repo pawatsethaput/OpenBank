@@ -21,7 +21,7 @@ Here is a list of Ulster Bank Branches (open data)
 For other API calls, see API Documentation below.
 
 ####Application registration
-If your App needs access to private data and services, you will need to [register your application here]. (https://ulsterbank.openbankproject.com/consumer-registration).
+If your App needs access to private data and services, you will need to [register your application here](https://ulsterbank.openbankproject.com/consumer-registration).
 You will get a consumer key and consumer secret for the calls requiring OAuth authentication.
 
 ####OAuth
