@@ -11,6 +11,10 @@ Some sandbox accounts have public views available. For example, here is a list o
 And here is a list of transactions from a sandbox charity account:
 [https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts/charity1/public/transactions](https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster/accounts/charity1/public/transactions)
 
+For hackathon purposes, here is an **owner** view that has been made **public**.
+[https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster-ni/accounts/current8/owner/transactions]
+(https://ulsterbank.openbankproject.com/obp/v1.2.1/banks/ulster-ni/accounts/current8/owner/transactions)
+
 Here is a list of Ulster Bank Branches (open data)
 [https://ulsterbank.openbankproject.com/obp/v1.4.0/banks/ulster/branches](https://ulsterbank.openbankproject.com/obp/v1.4.0/banks/ulster/branches)
 
