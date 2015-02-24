@@ -1,6 +1,4 @@
-####Intro
-
-Hello, 
+####Hello,
 
 This is a special page for the **Ulster Bank** OBP API sandbox instance created for the [Hack Make the Bank](http://www.hackmakethebank.com) hackathons in Dublin and Belfast.
  
