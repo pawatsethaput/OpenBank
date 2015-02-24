@@ -45,7 +45,7 @@ Customer number: 0000094300000
 <br />
 Answers to PIN/password questions are: "1", "2", "3", "a", "b", "c"
 
-NT Belfast
+NI Belfast
 
 <br />
 Customer Number: 9430 (charity, loan)
