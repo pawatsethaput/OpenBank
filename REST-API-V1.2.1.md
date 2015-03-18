@@ -90,7 +90,7 @@ For full compliance, all the baseline and optional end points must be implemente
 <a name="implementation-hints"></a>
 ### Implementation hints and notes.
 
-The implementation of V1.2.1 is work in progress
+The implementation of V1.2.1 is complete
 
 <a name="root"></a>
 #Root
