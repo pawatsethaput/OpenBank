@@ -209,7 +209,7 @@ Body:
             {
                 "id": "Unique id that identifies the branch in the bank",
                 "name": "Name that identifies the branch e.g. ANDERSONSTOWN",
-                "address" {
+                "address": {
                     "line_1": "ANDERSONSTOWN LEISURE CENTRE",
                     "line_2": "130 ANDERSONSTOWN ROAD",
                     "line_3": "",
@@ -253,7 +253,7 @@ Body:
             {
                 "id": "Unique id that identifies the atm",
                 "reference": "Reference / serial number that helps identify the ATM",
-                "address" {
+                "address": {
                     "line_1": "ANDERSONSTOWN LEISURE CENTRE",
                     "line_2": "130 ANDERSONSTOWN ROAD",
                     "line_3": "",
