@@ -3878,16 +3878,48 @@ URL: /banks/BANK_ID/customer
 HTTP code: 200
 Body:
 
-	{
-	    "customer_number": "2938472893874",
-	    "legal_name": "Jane Smith",
-	    "mobile_phone_number": "+44 (0)798729874234",
-	    "email": "someone@example.com",
-	    "face_image": {
-	        "url": "url of image",
-	        "date": "date image taken"
-	    }
-	}
+   {
+        "customer_number": "2938472893874",
+        "legal_name": "Jane Smith",
+        "mobile_phone_number": "+44 (0)798729874234",
+        "email": "someone@example.com",
+        "face_image": {
+            "url": "url of image",
+            "date": "date image taken"
+        },
+        "crm": {
+            "last_face_to_face_meeting": {
+                "date": "date",
+                "with": "name of person"
+            },
+            "last_phone_call": {
+                "date": "date",
+                "with": "name of person"
+            },
+            "last_login": {
+                "date": "date",
+                "ip_address": "IP address used for the login"
+            }
+        },
+        "string_values": [
+            {
+                "key": "key",
+                "string": "string"
+            }
+        ],
+        "date_values": [
+            {
+                "key": "key",
+                "date": "date"
+            }
+        ],
+        "numeric_values": [
+            {
+                "key": "key",
+                "number": "number"
+            }
+        ]
+    }
 
 <a name="customer-messages"></a>
 #Customer Messages
