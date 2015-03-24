@@ -3878,7 +3878,7 @@ URL: /banks/BANK_ID/customer
 HTTP code: 200
 Body:
 
-   {
+     {
         "customer_number": "2938472893874",
         "legal_name": "Jane Smith",
         "mobile_phone_number": "+44 (0)798729874234",
