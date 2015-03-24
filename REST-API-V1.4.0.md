@@ -191,6 +191,7 @@ Returns information about branches for a single bank specified by BANK_ID includ
 
 * Name
 * Address
+* Geo Location
 * License the data under this endpoint is released under
 
 **Request:**
@@ -214,12 +215,104 @@ Body:
                     "line_5": "",
                     "postcode_zip": "",
                     "country": "NZ"
-                }
+                },
+                "location": {
+                        "latitude": 37.423021,
+                        "longitude": -122.083739
+                        }
             }
         ],
         "license": {"name": "PDDL",
                     "url": "http://opendatacommons.org/licenses/pddl/"}
     }
+    
+    
+    
+<a name="atms"></name>
+#ATMs
+*Optional*
+
+Returns information about ATMs for a single bank specified by BANK_ID including:
+
+* Address
+* Geo Location
+* License the data under this endpoint is released under
+
+**Request:**
+Verb: GET
+URL: /banks/BANK_ID/atms
+
+**Response:**
+HTTP code: 200
+Body:
+
+    {
+        "atms": [
+            {
+                "id": "Unique id that identifies the atm",
+                "reference": "Reference / serial number that helps identify the ATM",
+                "address" {
+                    "line_1": "ANDERSONSTOWN LEISURE CENTRE",
+                    "line_2": "130 ANDERSONSTOWN ROAD",
+                    "line_3": "",
+                    "line_4": "",
+                    "line_5": "",
+                    "postcode_zip": "",
+                    "country": "NZ"
+                },
+                "location": {
+                        "latitude": 37.423021,
+                        "longitude": -122.083739
+                        }
+            }
+        ],
+        "license": {"name": "PDDL",
+                    "url": "http://opendatacommons.org/licenses/pddl/"}
+    } 
+    
+    
+<a name="products"></name>
+#Products
+*Optional*
+
+Returns information about financial products offered by a bank specified by BANK_ID including:
+
+* Name
+* Code
+* Category
+* Family
+* Super Family
+* More info URL
+* Description
+* Terms and Conditions
+* License the data under this endpoint is released under
+
+**Request:**
+Verb: GET
+URL: /banks/BANK_ID/products
+
+**Response:**
+HTTP code: 200
+Body:
+
+    {
+        "products": [
+            {
+                "id": "Unique id that identifies the product",
+                "code": "Code name / number of the product",
+                "name": "Publicly known name for the product",
+                "description": "Public description of the product",
+                "terms_and_conditions": "Product small print.",
+                "more_info_url": "A URL where the customer can see more information about this product and potentially buy it.",
+                "category": "Main category of the product",
+                "family": "The family of the category",
+                "super_family": "The super family of the category"
+            }
+        ],
+        "license": {"name": "PDDL",
+                    "url": "http://opendatacommons.org/licenses/pddl/"}
+    }    
+    
 
 
 <a name="accounts-all"></a>
