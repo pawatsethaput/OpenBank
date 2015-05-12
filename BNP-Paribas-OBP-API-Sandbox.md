@@ -13,16 +13,16 @@ Open Bank Project is an open source API for banks that provides a RESTful interf
 Customer facing retail banking and fintech applications for consumers, SMEs, associations, charities, governments and NGOs; including (but not limited to!) Personal Finance Management (PFM) Solutions, online accounting integration, financial widgets, Savings Apps, Education Apps, Gamification, Peace of Mind Apps, Transparency Apps, Crowd funding, onboarding, CRM etc.. 
 
 ####What data and services can I access?
-● Access account information, balance and transaction history of a bank account
-● Enrich bank transactions with metadata (tags, comments, urls and geolocation) for example to link a
+* Access account information, balance and transaction history of a bank account
+* Enrich bank transactions with metadata (tags, comments, urls and geolocation) for example to link a
 receipt or video to a transaction.
-● Create/Access different views on accounts. Each view grants a subset of the data to a restricted
+* Create/Access different views on accounts. Each view grants a subset of the data to a restricted
 group of users. For example, a customer could offer special views on his account to his
 accountants, auditors or regulators. A charity might open their accounts to the public.
-● Initiate payments
-● Send messages to Customers
-● List credit/debit cards held by a customer
-● Access open data related to branches, ATMs and financial products 
+* Initiate payments
+* Access Customer messages
+* List credit/debit cards held by a customer
+* Access open data related to branches, ATMs and financial products 
 
 Once complete this OBP instance will contain five banks: 
 * BNP Paribas - France
