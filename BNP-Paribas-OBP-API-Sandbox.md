@@ -1,6 +1,6 @@
 ####Hello,
 
-This is a special page for the **BNP Paribas** OBP API sandbox created for the [BNP Paribas International Hackathon](http://www.bnpparibas.com/) on June 12-14 2015 in Brussels, Istanbul, Paris, Rome and San Fransisco.   
+This is a special page for the **BNP Paribas** OBP API sandbox created for the [BNP Paribas International Hackathon](http://www.international-hackathon.com/) on June 12-14 2015 in Brussels, Istanbul, Paris, Rome and San Fransisco.   
 
 
 ####Status
@@ -89,6 +89,6 @@ Note: Social Finance (Scala / Lift) is also open sourced on [github](https://git
  
  		contact AT openbankproject DOT com 
  		
- 	or tweet us at **@OpenBankProject**
+ 	or tweet us at **[@OpenBankProject](https://twitter.com/openbankproject)**
 
  
