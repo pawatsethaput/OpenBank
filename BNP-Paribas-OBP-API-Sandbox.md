@@ -7,13 +7,13 @@ This is a special page for the **BNP Paribas** OBP API sandbox created for the [
 This document is DRAFT. The sandbox is in the process of being created and some data / endpoints will change prior to the hackathon!
 
 ####Overview
-Open Bank Project is an open source API for banks that provides a RESTful interface for developers to build customer facing applications without needing to code for each bank and/or account type differently. You can use it as a flexible toolbox of data and services to help realise (a.k.a. hack!) your ideas together. For the hackathons developers have access to *simulated* transaction data for imaginary customers that match certain customer profiles.   
+Open Bank Project is an open source API for banks that provides a RESTful interface for developers to build customer facing applications without needing to code for each bank and/or account type differently. You can use it as a flexible toolbox of data and services to help realise (a.k.a. hack!) your ideas together. For the hackathons, developers have access to *simulated* transaction data for imaginary customers that match certain customer profiles.   
 
 ####What sort of applications can I build with the OBP API?
-Customer facing retail banking and fintech applications for consumers, SMEs, associations, charities, governments and NGOs; including (but not limited to!) Personal Finance Management (PFM) Solutions, online accounting integration, financial widgets, Savings Apps, Education Apps, Gamification, Peace of Mind Apps, Transparency Apps, Crowd funding, onboarding, CRM etc.. 
+Customer facing retail banking and fintech applications for consumers, SMEs, associations, charities, governments and NGOs; including (but not limited to!) Personal Finance Management (PFM) Solutions, online accounting integration, financial widgets, Savings Apps, Education Apps, Gamification, Peace of Mind Apps, Transparency Apps, Crowd funding, on boarding, CRM etc.. 
 
 ####What data and services can I access?
-* Access account information, balance and transaction history of a bank account
+* Access account information, balance and transaction history of multiple bank accounts
 * Enrich bank transactions with metadata (tags, comments, urls and geolocation) for example to link a
 receipt or video to a transaction.
 * Create/Access different views on accounts. Each view grants a subset of the data to a restricted
