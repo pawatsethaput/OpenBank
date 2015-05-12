@@ -25,11 +25,11 @@ accountants, auditors or regulators. A charity might open their accounts to the 
 ● Access open data related to branches, ATMs and financial products 
 
 Once complete this OBP instance will contain five banks: 
-BNP Paribas - France
-BNP Paribas FORTIS - Belgium
-Bank of the West - USA
-TEB - Turkey 
-BNL - Italy
+* BNP Paribas - France
+* BNP Paribas FORTIS - Belgium
+* Bank of the West - USA
+* TEB - Turkey 
+* BNL - Italy
 
 Here is the current list of banks on the sandbox (will change before the hackathon):
 [https://bnp-paribas.openbankproject.com/obp/v1.2.1/banks](https://bnp-paribas.openbankproject.com/obp/v1.2.1/banks)
@@ -90,3 +90,5 @@ Note: Social Finance (Scala / Lift) is also open sourced on [github](https://git
  		contact AT openbankproject DOT com 
  		
  	or tweet us at **@OpenBankProject**
+
+ 
