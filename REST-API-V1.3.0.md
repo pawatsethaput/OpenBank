@@ -1,6 +1,6 @@
 # Version: 1.3.0
 
-# Status: DRAFT, WIP
+# Status: DRAFT
 
 # Index
 
@@ -48,7 +48,6 @@
         * [Images](#images)
         * [Where](#where)
     * [Other account](#transaction_other_account)
-* [Transfers (Payments)](#transfers)
 * Physical cards
   * [All] (#all-cards)
   * [At one bank] (#cards-for-bank)
