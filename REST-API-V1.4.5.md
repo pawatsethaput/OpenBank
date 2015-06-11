@@ -1,3 +1,6 @@
+V1.4.5 Transfers is work in progress: https://github.com/OpenBankProject/OBP-API/tree/challenge_payments
+
+
 <a name="transfers"></a>
 #Transfers (Payments)
 
