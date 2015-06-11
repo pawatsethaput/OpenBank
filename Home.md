@@ -8,7 +8,9 @@ Welcome to the OBP-API wiki!
 
 * [OAuth 1.0 Server](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)
 
-* [Add a bank account](https://github.com/OpenBankProject/OBP-API/wiki/Add-a-bank-Account)
+####Application registration
+You can use one of our sandboxes [register your application here](https://apisandbox.openbankproject.com/consumer-registration) to try out OAuth based calls.
+You will get a consumer key and consumer secret for the calls requiring OAuth authentication.
 
 ####OAuth
 The best way to get started with OBP and OAuth is probably to fork one of our Starter SDKs:
