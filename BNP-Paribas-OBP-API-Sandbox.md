@@ -1,6 +1,6 @@
 ####Hello!
 
-This is a special page for the **BNP Paribas** OBP API sandbox created for the [BNP Paribas International Hackathon](http://www.international-hackathon.com/) on June 12-14 2015 in Brussels, Istanbul, Paris, Rome and San Fransisco.   
+This is a special page for the **BNP Paribas** OBP API sandbox created for the [BNP Paribas International Hackathon](http://www.international-hackathon.com/) on June 12-14 2015 in Brussels, Istanbul, Paris, Rome and San Fransisco.  
 
 
 ####Status
