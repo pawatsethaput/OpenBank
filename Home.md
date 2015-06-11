@@ -13,7 +13,7 @@ OBP protected resources use OAuth. You can use one of our sandboxes [(register h
 You will get a consumer key and consumer secret for the calls requiring OAuth authentication.
 
 ####OAuth
-The best way to get started with OBP and OAuth is probably to fork one of our Starter SDKs:
+The best way to get started with OBP and OAuth is probably to fork one of our Starter SDKs. They take care of the basic OAuth flow:
 
 * [Hello-OBP-OAuth1.0a-Python](https://github.com/OpenBankProject/Hello-OBP-OAuth1.0a-Python)
 * [Hello-OBP-OAuth1.0a-Django](https://github.com/OpenBankProject/Hello-OBP-OAuth1.0a-Django)
