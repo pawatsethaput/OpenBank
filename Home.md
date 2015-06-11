@@ -9,7 +9,7 @@ Welcome to the OBP-API wiki!
 * [OAuth 1.0 Server](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server)
 
 ####Application registration
-You can use one of our sandboxes [register your application here](https://apisandbox.openbankproject.com/consumer-registration) to try out OAuth based calls.
+OBP protected resources use OAuth. You can use one of our sandboxes [(register here)](https://apisandbox.openbankproject.com/consumer-registration) to test.
 You will get a consumer key and consumer secret for the calls requiring OAuth authentication.
 
 ####OAuth
