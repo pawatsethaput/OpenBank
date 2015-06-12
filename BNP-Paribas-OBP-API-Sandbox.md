@@ -48,7 +48,13 @@ To get started with OBP and OAuth you can use (and fork) one of our Starter SDKs
  
 **Note**: Many examples in the docs / SDKs use the general OBP sandbox domain. Make sure you use the correct domain in all calls i.e. ***bnp-paribas.openbankproject.com*** !
 
-Also make sure to write https if you are using https etc. 
+FAQ:
+
+Q: I'm getting a 401 even if I enter the right consumer key and secret. Is the endpoint: apisandbox... correct ?
+A: No, its bnp-paribas.openbankproject.com
+
+Q: Why doesn't it work?
+A: Double check parameters are correct (including http vs https etc.) 
 
 Technical details about the OAuth flow including getting a request token, redirecting the user, getting an access token and accessing protected resources are available [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server). Please ask us (see below) if you are stuck with this.
 
