@@ -309,24 +309,23 @@ URL: /banks/BANK_ID/products
 **Response:**
 HTTP code: 200
 Body:
-
-   {
-    "products": [
-        {
-            "code": "9999999901",
-            "name": "TEST PRODUCT NAME",
-            "category": "TEST PRODUCT CATEGORY",
-            "family": "TEST PRODUCT FAMILY",
-            "super_family": "TEST PRODUCT SUPER FAMILY",
-            "more_info_url": "www.example.com",
-            "meta": {
-                "license": {
-                    "id": "copyright2015",
-                    "name": "Copyright 2015 BNP Paribas"
+    {
+        "products": [
+            {
+                "code": "9999999901",
+                "name": "TEST PRODUCT NAME",
+                "category": "TEST PRODUCT CATEGORY",
+                "family": "TEST PRODUCT FAMILY",
+                "super_family": "TEST PRODUCT SUPER FAMILY",
+                "more_info_url": "www.example.com",
+                "meta": {
+                    "license": {
+                        "id": "copyright2015",
+                        "name": "Copyright 2015 BNP Paribas"
+                    }
                 }
             }
-        }
-    ]
+        ]
     }
 
 
