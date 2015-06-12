@@ -196,6 +196,8 @@ Returns information about branches for a single bank specified by BANK_ID includ
 * Geo Location
 * License the data under this endpoint is released under
 
+Authentication via OAuth *may* be required.
+
 **Request:**
 Verb: GET
 URL: /banks/BANK_ID/branches
@@ -248,6 +250,8 @@ Returns information about ATMs for a single bank specified by BANK_ID including:
 * Address
 * Geo Location
 * License the data under this endpoint is released under
+
+Authentication via OAuth *may* be required.
 
 **Request:**
 Verb: GET
@@ -305,6 +309,8 @@ Returns information about financial products offered by a bank specified by BANK
 **Request:**
 Verb: GET
 URL: /banks/BANK_ID/products
+
+Authentication via OAuth *may* be required.
 
 **Response:**
 HTTP code: 200
