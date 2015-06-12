@@ -65,7 +65,7 @@ Here is an example login to test your OAuth flow:
     username : obptest.x.a1@example.com
     password : 2d7b7353
 
-Note: In order to access the proper simulated accounts, please ask a member Open Bank Project team for a login.
+Note: In order to access the proper simulated accounts, please ask a member of the Open Bank Project team for a login.
 
 ####Questions / Contact?
 * For questions about the hackathon events please see:
