@@ -204,30 +204,39 @@ URL: /banks/BANK_ID/branches
 HTTP code: 200
 Body:
 
-    {
-        "branches": [
-            {
-                "id": "Unique id that identifies the branch in the bank",
-                "name": "Name that identifies the branch e.g. ANDERSONSTOWN",
-                "address": {
-                    "line_1": "ANDERSONSTOWN LEISURE CENTRE",
-                    "line_2": "130 ANDERSONSTOWN ROAD",
-                    "line_3": "",
-                    "line_4": "",
-                    "line_5": "",
-                    "postcode_zip": "",
-                    "country": "NZ"
-                },
-                "location": {
-                        "latitude": 37.423021,
-                        "longitude": -122.083739
-                        }
+	{
+    "branches": [
+        {
+            "id": "2147483647",
+            "name": "Test Branch Name Şubesi",
+            "address": {
+                "line_1": "Test Branch Address",
+                "line_2": "",
+                "line_3": "",
+                "city": "Test City",
+                "state": "Test State",
+                "postcode": "Test Postcode",
+                "country": "XX"
+            },
+            "location": {
+                "latitude": 0,
+                "longitude": 0
+            },
+            "lobby": {
+                "hours": "Test Lobby Hours"
+            },
+            "drive_up": {
+                "hours": ""
+            },
+            "meta": {
+                "license": {
+                    "id": "copyright2015",
+                    "name": "Copyright 2015 BNP Paribas"
+                }
             }
-        ],
-        "license": {"name": "PDDL",
-                    "url": "http://opendatacommons.org/licenses/pddl/"}
-    }
-    
+        }
+    ]
+	}
     
     
 <a name="atms"></name>
@@ -248,29 +257,33 @@ URL: /banks/BANK_ID/atms
 HTTP code: 200
 Body:
 
-    {
-        "atms": [
-            {
-                "id": "Unique id that identifies the atm",
-                "reference": "Reference / serial number that helps identify the ATM",
-                "address": {
-                    "line_1": "ANDERSONSTOWN LEISURE CENTRE",
-                    "line_2": "130 ANDERSONSTOWN ROAD",
-                    "line_3": "",
-                    "line_4": "",
-                    "line_5": "",
-                    "postcode_zip": "",
-                    "country": "NZ"
-                },
-                "location": {
-                        "latitude": 37.423021,
-                        "longitude": -122.083739
-                        }
+	{
+    "atms": [
+        {
+            "id": "2147483647",
+            "name": "Test ATM Name",
+            "address": {
+                "line_1": "Test Address",
+                "line_2": "",
+                "line_3": "",
+                "city": "Test City",
+                "state": "",
+                "postcode": "Test Postcode",
+                "country": "XX"
+            },
+            "location": {
+                "latitude": 0,
+                "longitude": 0
+            },
+            "meta": {
+                "license": {
+                    "id": "copyright2015",
+                    "name": "Copyright 2015 BNP Paribas"
+                }
             }
-        ],
-        "license": {"name": "PDDL",
-                    "url": "http://opendatacommons.org/licenses/pddl/"}
-    } 
+        }
+    ]
+	}
     
     
 <a name="products"></name>
@@ -297,23 +310,39 @@ URL: /banks/BANK_ID/products
 HTTP code: 200
 Body:
 
-    {
-        "products": [
-            {
-                "id": "Unique id that identifies the product",
-                "code": "Code name / number of the product",
-                "name": "Publicly known name for the product",
-                "description": "Public description of the product",
-                "terms_and_conditions": "Product small print.",
-                "more_info_url": "A URL where the customer can see more information about this product and potentially buy it.",
-                "category": "Main category of the product",
-                "family": "The family of the category",
-                "super_family": "The super family of the category"
+	{
+    "branches": [
+        {
+            "id": "2147483647",
+            "name": "Test Branch Name Şubesi",
+            "address": {
+                "line_1": "Test Branch Address",
+                "line_2": "",
+                "line_3": "",
+                "city": "Test City",
+                "state": "Test State",
+                "postcode": "Test Postcode",
+                "country": "XX"
+            },
+            "location": {
+                "latitude": 0,
+                "longitude": 0
+            },
+            "lobby": {
+                "hours": "Test Lobby Hours"
+            },
+            "drive_up": {
+                "hours": ""
+            },
+            "meta": {
+                "license": {
+                    "id": "copyright2015",
+                    "name": "Copyright 2015 BNP Paribas"
+                }
             }
-        ],
-        "license": {"name": "PDDL",
-                    "url": "http://opendatacommons.org/licenses/pddl/"}
-    }    
+        }
+    ]
+	}   
     
 
 
