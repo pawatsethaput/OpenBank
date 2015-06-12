@@ -72,10 +72,12 @@ Note: In order to access the proper simulated accounts, please ask a member of t
  
  		http://www.international-hackathon.com/
 
-* To contact Open Bank Project please email:
- 
- 		bnpp@openbankproject.com 
+* To contact Open Bank Project use:
+
+    Email: bnpp@openbankproject.com 
+
+    Skype: OBP-Support
  		
- 		or tweet us at **[@OpenBankProject](https://twitter.com/openbankproject)**
+    Twitter **[@OpenBankProject](https://twitter.com/openbankproject)**
 
  
