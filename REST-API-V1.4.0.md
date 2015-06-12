@@ -310,30 +310,15 @@ URL: /banks/BANK_ID/products
 HTTP code: 200
 Body:
 
-	{
-    "branches": [
+   {
+    "products": [
         {
-            "id": "2147483647",
-            "name": "Test Branch Name Şubesi",
-            "address": {
-                "line_1": "Test Branch Address",
-                "line_2": "",
-                "line_3": "",
-                "city": "Test City",
-                "state": "Test State",
-                "postcode": "Test Postcode",
-                "country": "XX"
-            },
-            "location": {
-                "latitude": 0,
-                "longitude": 0
-            },
-            "lobby": {
-                "hours": "Test Lobby Hours"
-            },
-            "drive_up": {
-                "hours": ""
-            },
+            "code": "9999999901",
+            "name": "TEST PRODUCT NAME",
+            "category": "TEST PRODUCT CATEGORY",
+            "family": "TEST PRODUCT FAMILY",
+            "super_family": "TEST PRODUCT SUPER FAMILY",
+            "more_info_url": "www.example.com",
             "meta": {
                 "license": {
                     "id": "copyright2015",
@@ -342,8 +327,7 @@ Body:
             }
         }
     ]
-	}   
-    
+    }
 
 
 <a name="accounts-all"></a>
