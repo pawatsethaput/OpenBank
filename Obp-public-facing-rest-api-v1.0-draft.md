@@ -1,1 +1,0 @@
-* [REST API V1.0](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.0)
