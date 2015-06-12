@@ -78,6 +78,8 @@ Note: In order to access the proper simulated accounts, please ask a member of t
 
     Skype: OBP-Support
  		
-    Twitter **[@OpenBankProject](https://twitter.com/openbankproject)**
+    Twitter: **[@OpenBankProject](https://twitter.com/openbankproject)**
+
+    Hackpad (for notes): https://hackpad.com/OBP-BNPP-slveCQz1Ptt 
 
  
