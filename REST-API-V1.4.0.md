@@ -309,6 +309,7 @@ URL: /banks/BANK_ID/products
 **Response:**
 HTTP code: 200
 Body:
+
     {
         "products": [
             {
