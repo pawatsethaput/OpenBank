@@ -62,8 +62,8 @@ During the OAuth login, the user of your app will be asked for a customer userna
 
 Here is an example login to test your OAuth flow:
 
-	username : obptest.x.a1@example.com
-        password : 2d7b7353
+    username : obptest.x.a1@example.com
+    password : 2d7b7353
 
 Note: In order to access the proper simulated accounts, please ask a member Open Bank Project team for a login.
 
