@@ -60,13 +60,12 @@ Technical details about the OAuth flow including getting a request token, redire
 
 During the OAuth login, the user of your app will be asked for a customer username/password.
 
-Here are example logins to test your OAuth login:
+Here is an example login to test your OAuth flow:
 
-	These will be provided shortly.
+	username : obptest.x.a1@example.com
+        password : 2d7b7353
 
-
-Further logins that contain simulated transaction data will be sent by email and are available on request.
-
+Note: In order to access the proper simulated accounts, please ask a member Open Bank Project team for a login.
 
 ####Questions / Contact?
 * For questions about the hackathon events please see:
