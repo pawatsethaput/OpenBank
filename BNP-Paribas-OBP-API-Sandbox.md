@@ -83,7 +83,7 @@ To get started with OBP and OAuth you can use (and fork) one of our Starter SDKs
     -   xxxxx.b.p@example.com --> .be --> Brussels
     -   xxxxx.f.p@example.com --> .fr --> Paris
     -   xxxxx.i.p@example.com --> .it --> Rome
-    -   xxxxx.t.p@example.com --> .tr --> Paris
+    -   xxxxx.t.p@example.com --> .tr --> Istanbul
     -   xxxxx.u.p@example.com --> .us --> San Francisco
 
 *   Q: Why doesn't it work?
