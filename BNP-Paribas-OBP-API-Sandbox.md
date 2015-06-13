@@ -74,6 +74,15 @@ To get started with OBP and OAuth you can use (and fork) one of our Starter SDKs
     https://bnp-paribas.openbankproject.com/obp/v1.4.0/banks/bnpparibas-xx-a1/
     404 Not Found
 
+*   Q: Why am I not seeing any data for the test user?
+
+    A: You need to use a test user appropriate to your city. This is encoded in the email address as the first initial, so:
+
+    -   xxxxx.b.p@example.com --> .be --> Brussels
+    -   xxxxx.f.p@example.com --> .fr --> Paris
+    -   xxxxx.i.p@example.com --> .it --> Rome
+    -   xxxxx.t.p@example.com --> .tr --> Paris
+    -   xxxxx.u.p@example.com --> .us --> San Francisco
 
 *   Q: Why doesn't it work?
     A: Double check parameters are spelt correctly (including http vs https etc.) 
