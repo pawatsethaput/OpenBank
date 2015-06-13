@@ -51,9 +51,11 @@ To get started with OBP and OAuth you can use (and fork) one of our Starter SDKs
 ####FAQ:
 
 *   Q: I'm getting a 401 even if I enter the right consumer key and secret. Is the endpoint: apisandbox... correct ?
+
     A: No, its bnp-paribas.openbankproject.com
 
 *   Q: I'm getting 404's / errors
+
     A: Avoid trailing slashes:
 
     https://bnp-paribas.openbankproject.com/obp/v1.4.0
@@ -85,6 +87,7 @@ To get started with OBP and OAuth you can use (and fork) one of our Starter SDKs
     -   xxxxx.u.p@example.com --> .us --> San Francisco
 
 *   Q: Why doesn't it work?
+
     A: Double check parameters are spelt correctly (including http vs https etc.) 
 
 Technical details about the OAuth flow including getting a request token, redirecting the user, getting an access token and accessing protected resources are available [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server). Please ask us (see below) if you are stuck with this.
