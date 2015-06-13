@@ -117,8 +117,6 @@ Note: In order to access the proper simulated accounts, please ask a member of t
 * To contact Open Bank Project use:
 
     Email: bnpp@openbankproject.com 
-
-    Skype: OBP-Support
  		
     Twitter: **[@OpenBankProject](https://twitter.com/openbankproject)**
 
