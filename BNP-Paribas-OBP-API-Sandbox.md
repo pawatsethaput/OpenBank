@@ -58,16 +58,19 @@ To get started with OBP and OAuth you can use (and fork) one of our Starter SDKs
 
     https://bnp-paribas.openbankproject.com/obp/v1.4.0
     200 OK
+
     https://bnp-paribas.openbankproject.com/obp/v1.4.0/
     404 Not Found
 
     https://bnp-paribas.openbankproject.com/obp/v1.4.0/banks
     200 OK
+
     https://bnp-paribas.openbankproject.com/obp/v1.4.0/banks/
     200 OK {"error":"error"}
 
     https://bnp-paribas.openbankproject.com/obp/v1.4.0/banks/bnpparibas-xx-a1
     200 OK
+
     https://bnp-paribas.openbankproject.com/obp/v1.4.0/banks/bnpparibas-xx-a1/
     404 Not Found
 
