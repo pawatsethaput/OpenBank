@@ -88,7 +88,11 @@ To get started with OBP and OAuth you can use (and fork) one of our Starter SDKs
 
 *   Q: Why doesn't it work?
 
-    A: Double check parameters are spelt correctly (including http vs https etc.) 
+    A: Double check parameters are spelt correctly (including http vs https etc.)
+
+    A: Check your encoding (use UTF8)
+
+ 
 
 Technical details about the OAuth flow including getting a request token, redirecting the user, getting an access token and accessing protected resources are available [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server). Please ask us (see below) if you are stuck with this.
 
