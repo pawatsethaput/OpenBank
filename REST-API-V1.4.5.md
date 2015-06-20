@@ -1,12 +1,13 @@
 V1.4.5 
 
-**Developers: Do not use this on any current sandbox!**
+**Developers: This feature is not currently available on the sandboxs!**
 
 This is work in progress in this branch: https://github.com/OpenBankProject/OBP-API/tree/challenge_payments
 
-**This is not yet included in any sandboxes.**
+**Developers: This feature is not currently available on the sandboxs!**
 
 
+<a name="payments"></a>
 <a name="transfers"></a>
 #Transfers (Payments)
 
