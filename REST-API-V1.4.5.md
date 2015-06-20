@@ -1,5 +1,3 @@
-V1.4.5 
-
 **Developers: This feature is not currently available on the sandboxs!**
 
 This is work in progress in this branch: https://github.com/OpenBankProject/OBP-API/tree/challenge_payments
