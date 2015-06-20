@@ -1,8 +1,8 @@
-**Developers: This feature is not currently available on the sandboxs!**
+**Developers: This page specifies a Transfers approach that is work in progress. It is not currently available on the sandboxes!**
 
 This is work in progress in this branch: https://github.com/OpenBankProject/OBP-API/tree/challenge_payments
 
-**Developers: This feature is not currently available on the sandboxs!**
+**Developers: This feature is not currently available on the sandboxes!**
 
 
 <a name="payments"></a>
