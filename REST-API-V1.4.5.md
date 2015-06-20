@@ -28,13 +28,17 @@ Body:
                 "resource_URL": "http://localhost:8080/obp/1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox",
                 "description": "Transfers for the OBP sandbox",
                 "body": {
-                    "to" : {
-                        "account_id" : "Id of the OBP sandbox account to send the payment to (at bank_id specified below)",
+                    "to": {
+                        "account_id": "Id of the OBP sandbox account to send the payment to (at bank_id specified below)",
                         "bank_id": "Id of the OBP sandbox bank of the account to send the payment to"
                     },
-                    "amount": "The transaction amount as a string, e.g. 12.43"
+                    "value": {
+                        "currency": "EUR",
+                        "amount": "The transaction amount as a string, e.g. 12.43"
+                    },
+                    "description": "The basic description of the transaction"
                 }
-            }, ...
+            },...
         ]
     }
 
