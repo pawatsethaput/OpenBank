@@ -101,11 +101,15 @@ URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers
 Body:
 
     {
-        "to" : {
-          "account_id" : "Id of the account to send the payment to (at bank_id specified below)",
-          "bank_id": "Id of the bank of the account to send the payment to"
+        "to": {
+            "account_id": "Id of the account to send the payment to (at bank_id specified below)",
+            "bank_id": "Id of the bank of the account to send the payment to"
         },
-        "amount": "The transaction amount as a string, e.g. 12.43"
+        "value": {
+            "currency": "EUR",
+            "amount": "The transaction amount as a string, e.g. 12.43"
+        },
+        "description": "The basic description of the transaction"
     }
 
 **Case 1 - No security challenge is required**
