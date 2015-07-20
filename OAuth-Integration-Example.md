@@ -11,7 +11,7 @@
 <span id="introduction"></span>
 ### Introduction
 
-The following diagrams will show an integration example of the OBP API with a bank bank-end, it covers the OAuth steps and protected resources access. More details about the OBP API OAuth server could be found [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server).
+The following diagrams show an integration example of the OBP API with a bank back-end. It covers the OAuth steps and protected resources access. More details about the OBP API OAuth server can be found [here](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-1.0-Server).
 
 ### OAuth flow
 
