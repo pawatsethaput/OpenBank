@@ -191,6 +191,6 @@ The key to sign the base string is the concatenation of the consumer secret and 
 The signature that results from the signature process MUST be encoded in base 64 also since the protocol requires encoding all the OAuth parameters.
 
 
-# Integration example with a bank bank-end :
+# Illustration of integration with a bank back-end :
 
-The following link show an example on how the integration of the OAuth process would be with a bank bank-end: [https://github.com/OpenBankProject/OBP-API/wiki/OAuth-Integration-Example](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-Integration-Example)
+The following link shows how the integration of the OAuth process would be with a bank back-end: [https://github.com/OpenBankProject/OBP-API/wiki/OAuth-Integration-Illustration](https://github.com/OpenBankProject/OBP-API/wiki/OAuth-Integration-Illustration)
