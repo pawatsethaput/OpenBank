@@ -9,23 +9,33 @@ See this branch: https://github.com/OpenBankProject/OBP-API/tree/challenge_payme
 <a name="transfers"></a>
 #Transfers (Payments)
 
+**Overview:**
+
+In order to initiate a payment or transaction(s) we initiate a transfer request or "transfer" for short.
+
+A transfer may require security challenges to be answered before it proceeds.
+
+A successful transfer will result in one or more transactions being created.
+
+Different Transfer Types exist to allow a similar interface onto SEPA, BitCoin payments etc. The Transfer Types resource describes the url that must be used and the body that must be submitted for a transfer of that type to succeed. All other logic including security challenges should be common. 
+
 *Optional*
 
-Getting available transfer methods for an account
+Getting a list of the available transfer types / methods for an account
 
 **Request:**  
 Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types
 
 **Response:**  
 HTTP code: 200  
 Body:
     
     {
-        "transfer_methods": [
+        "transfer_types": [
             {
-                "id": "sandbox",
-                "resource_URL": "http://localhost:8080/obp/1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox",
+                "type": "sandbox",
+                "resource_url": "http://localhost:8080/obp/1.4.5/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox",
                 "description": "Transfers for the OBP sandbox",
                 "body": {
                     "to": {
@@ -47,60 +57,68 @@ The "body" parameter describes the JSON expected as an argument when initiating 
 
 *Optional*
 
-Getting sandbox transfers:
+Getting transfers:
 
 **Request:**  
 Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers  
 
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfers
 
 **Response:**
 HTTP code: 200
 Body:
 
     {
-      "id":"8192-axmp-6125-xxui",
-      "from": {
-        "bankId": "FROM_BANK_ID",
-        "accountId": "FROM_ACCOUNT_ID"
-      },
-      "transactionId": null | "9283-rerw-3ghs-4sfe",
-      "status":"INITIATED | COMPLETED | CHALLENGES_PENDING | FAILED",
-      "start_date": Date,
-      "end_date": Date,
-      "challenge_set" : {
-          "allowed_attempts" : 2
-          "challenges" : [
-              {
-                "id": "jmlk-0091-mlox-8196",
-                "question": "Please provide TAN"
-              },
-              {
-                "id": "osns-32sf-4faa-dds4",
-                "question": "What was the name of your first pet?",
-                "start_date":date
-              }
-          ]
-      }
+        "transfers": [
+            {
+                "id": "8192-axmp-6125-xxui",
+                "type": "sandbox",
+                "from": {
+                    "bank_id": "FROM_BANK_ID",
+                    "account_id": "FROM_ACCOUNT_ID"
+                },
+                "transaction_ids": [
+                    "9283-rerw-3ghs-4sfe"
+                ],
+                "status": "INITIATED | COMPLETED | CHALLENGES_PENDING | FAILED",
+                "start_date": "Date",
+                "end_date": "Date",
+                "challenge_set": {
+                    "allowed_attempts": 2,
+                    "challenges": [
+                        {
+                            "id": "jmlk-0091-mlox-8196",
+                            "question": "Please provide TAN"
+                        },
+                        {
+                            "id": "osns-32sf-4faa-dds4",
+                            "question": "What was the name of your first pet?",
+                            "start_date": "Date"
+                        }
+                    ]
+                }
+            }
+        ]
     }
 
-If status is not COMPLETED, transactionId will be null, as no transaction has been created.  
+
+If status is not COMPLETED, transaction_ids will be null, as no transaction(s) have been created.  
 
 Initiating transfers:
 
-Security challenge responses may be required before the transaction can proceed leading to the two work flows below, illustrated with the case of sandbox transfers.
+Security challenge responses may be required before the transaction(s) can proceed leading to the two work flows below, illustrated with the case of sandbox transfers.
 Other transfer types will differ only in the content of the body of the initiation POST request.  
 
 
 **Sandbox Transfers:**
 
-This is an experimental call, currently only implemented in the OBP sandbox instance. It is currently very minimal, and will almost certainly change.
+This is call is only implemented in the OBP sandbox instances.
 
 This will only work if account to pay exists at the bank specified in the json, and if that account has the same currency as that of the payee.
 
 **Request:**
 Verb: POST
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers
 
 Body:
 
@@ -123,16 +141,17 @@ Body:
 Headers:
 
       http code 201 Created  
-      location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui/  
+      location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui  
 Body: 
 
     {
       "id":"8192-axmp-6125-xxui",
+      "type" : "sandbox",
       "from": {
-        "bankId": "FROM_BANK_ID",
-        "accountId": "FROM_ACCOUNT_ID"
+        "bank_id": "FROM_BANK_ID",
+        "account_id": "FROM_ACCOUNT_ID"
       },
-      "transactionId": null | "9283-rerw-3ghs-4sfe",
+      "transaction_ids": ["9283-rerw-3ghs-4sfe"],
       "status":"INITIATED | COMPLETED",
       "start_date": Date,
       "end_date": Date,
@@ -140,24 +159,25 @@ Body:
     }
 
 
-**Case 2 - Security challenges required before the transaction can proceed**
+**Case 2 - Security challenges required before the transaction(s) can proceed**
 
 **Response:**
 
 Headers:
 
     http code: 202 Accepted   
-    location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui/  
+    location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui  
     
 Body: 
 
     {
       "id":"8192-axmp-6125-xxui",
+      "type" : "sandbox",
       "from": {
         "bankId": "FROM_BANK_ID",
-        "accountId": "FROM_ACCOUNT_ID"
+        "account_id": "FROM_ACCOUNT_ID"
       },
-      "transactionId": null,
+      "transaction_ids": null,
       "status": "CHALLENGES_PENDING",
       "start_date": Date,
       "end_date": Date,
@@ -180,7 +200,7 @@ Body:
 Step B: Resolve challenges
 
 **Request:**
-POST /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui/challenges/answers
+POST /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui/challenges/answers
 
 Body:
 
@@ -201,7 +221,7 @@ Body:
 Headers:
   
     http code: 204
-    location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-methods/sandbox/transfers/8192-axmp-6125-xxui
+    location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui
 
 Body:
 
