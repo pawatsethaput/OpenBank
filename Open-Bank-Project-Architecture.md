@@ -1,1 +1,1 @@
-![Open Bank Project Architecture](http://www.eviscape.com/static/uploads/2014/03/04/obp_architecture_4_march_2014_d-d4975c200b488a098bfcadf1127bbbf390b5605e.png)
+![Open Bank Project Architecture](https://drive.google.com/file/d/0B8X5xrStzQCRZnN3TXdMN3dsckU/view?pli=1)
