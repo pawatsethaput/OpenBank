@@ -95,14 +95,10 @@ Body:
                 "status": "INITIATED | COMPLETED | CHALLENGES_PENDING | FAILED",
                 "start_date": "Date",
                 "end_date": "Date",
-                "challenge_set": {
+                "challenge": {
+                    "id": "jmlk-0091-mlox-8196",
                     "allowed_attempts": 2,
-                    "challenges": [
-                        {
-                            "id": "jmlk-0091-mlox-8196",
-                            "challenge_type": "DUMMY_TAN"
-                        }
-                    ]
+                    "challenge_type": "DUMMY_TAN"
                 }
             }
         ]
@@ -166,7 +162,7 @@ Body:
       "status":"INITIATED | COMPLETED",
       "start_date": Date,
       "end_date": Date,
-      "challenge_set" : null
+      "challenge" : null
     }
 
 
@@ -182,51 +178,45 @@ Headers:
 Body: 
 
     {
-      "id":"8192-axmp-6125-xxui",
-      "type" : "sandbox",
-      "from": {
-        "bankId": "FROM_BANK_ID",
-        "account_id": "FROM_ACCOUNT_ID"
-      },
-      "body": {
-                    "to": {
-                        "account_id": "Id of the OBP sandbox account to send the payment to (at bank_id specified below)",
-                        "bank_id": "Id of the OBP sandbox bank of the account to send the payment to"
-                    },
-                    "value": {
-                        "currency": "EUR",
-                        "amount": "The transaction amount as a string, e.g. 12.43"
-                    },
-                    "description": "The basic description of the transaction"
-                },
-      "transaction_ids": null,
-      "status": "CHALLENGES_PENDING",
-      "start_date": Date,
-      "end_date": Date,
-      "challenge_set" : {
-        "allowed_attempts" : 2
-        "challenges" : [
-            {
-              "id": "jmlk-0091-mlox-8196",
-              "challenge_type" : "SANDBOX_TAN"
-            }
-        ]
-      }
+        "id": "8192-axmp-6125-xxui",
+        "type": "sandbox",
+        "from": {
+            "bankId": "FROM_BANK_ID",
+            "account_id": "FROM_ACCOUNT_ID"
+        },
+        "body": {
+            "to": {
+                "account_id": "Id of the OBP sandbox account to send the payment to (at bank_id specified below)",
+                "bank_id": "Id of the OBP sandbox bank of the account to send the payment to"
+            },
+            "value": {
+                "currency": "EUR",
+                "amount": "The transaction amount as a string, e.g. 12.43"
+            },
+            "description": "The basic description of the transaction"
+        },
+        "transaction_ids": null,
+        "status": "CHALLENGE_PENDING",
+        "start_date": "Date",
+        "end_date": "Date",
+        "challenge": {
+            "id": "jmlk-0091-mlox-8196",
+            "allowed_attempts": 2,
+            "challenge_type": "SANDBOX_TAN"
+        }
     }
 
-Step B: Resolve challenges
+Step B: Resolve challenge
 
 **Request:**
-POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui/challenges/answers
+POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui/challenge/answer
 
 Body:
 
-    [
       {
         "id": "jmlk-0091-mlox-8196",
         "answer": "19282"
       }
-    ]
 
 
 **Response 1 (good answer):**
@@ -258,4 +248,4 @@ Body:
 The possible values for the error code are:
 
 1 : Transfer failed.
-2 : Incorrect answer to one or more questions. You may try to answer the challenges again.
+2 : Incorrect answer to one or more questions. You may try to answer the challenge again.
