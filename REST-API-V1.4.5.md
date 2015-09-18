@@ -47,7 +47,8 @@ Body:
                         "amount": "The transaction amount as a string, e.g. 12.43"
                     },
                     "description": "The basic description of the transaction"
-                }
+                },
+                "supported_challenge_types": ["SMS_TAN", "INDEXED_TAN", "SANDBOX_TAN"]
             },...
         ]
     }
@@ -88,12 +89,7 @@ Body:
                     "challenges": [
                         {
                             "id": "jmlk-0091-mlox-8196",
-                            "question": "Please provide TAN"
-                        },
-                        {
-                            "id": "osns-32sf-4faa-dds4",
-                            "question": "What was the name of your first pet?",
-                            "start_date": "Date"
+                            "challenge_type": "DUMMY_TAN"
                         }
                     ]
                 }
@@ -131,7 +127,8 @@ Body:
             "currency": "EUR",
             "amount": "The transaction amount as a string, e.g. 12.43"
         },
-        "description": "The basic description of the transaction"
+        "description": "The sender's description of the transaction (e.g. My rent)",
+        "challenge_type" : "SANDBOX_TAN"
     }
 
 **Case 1 - No security challenge is required**
