@@ -123,6 +123,8 @@ This is call is only implemented in the OBP sandbox instances.
 
 This will only work if account to pay exists at the bank specified in the json, and if that account has the same currency as that of the payee.
 
+Step A
+
 **Request:**
 Verb: POST
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers
