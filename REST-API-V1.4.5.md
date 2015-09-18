@@ -13,7 +13,7 @@ See this branch: https://github.com/OpenBankProject/OBP-API/tree/challenge_payme
 
 In order to initiate a payment or transaction(s) we initiate a transfer request or "transfer" for short.
 
-A transfer may require security challenges to be answered before it proceeds.
+A transfer may require a security challenge to be answered before it proceeds.
 
 A successful transfer will result in one or more transactions being created.
 
