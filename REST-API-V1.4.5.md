@@ -78,6 +78,17 @@ Body:
                     "bank_id": "FROM_BANK_ID",
                     "account_id": "FROM_ACCOUNT_ID"
                 },
+                "body": {
+                    "to": {
+                        "account_id": "Id of the OBP sandbox account to send the payment to (at bank_id specified below)",
+                        "bank_id": "Id of the OBP sandbox bank of the account to send the payment to"
+                    },
+                    "value": {
+                        "currency": "EUR",
+                        "amount": "The transaction amount as a string, e.g. 12.43"
+                    },
+                    "description": "The basic description of the transaction"
+                },
                 "transaction_ids": [
                     "9283-rerw-3ghs-4sfe"
                 ],
@@ -148,6 +159,7 @@ Body:
         "bank_id": "FROM_BANK_ID",
         "account_id": "FROM_ACCOUNT_ID"
       },
+      
       "transaction_ids": ["9283-rerw-3ghs-4sfe"],
       "status":"INITIATED | COMPLETED",
       "start_date": Date,
@@ -174,6 +186,17 @@ Body:
         "bankId": "FROM_BANK_ID",
         "account_id": "FROM_ACCOUNT_ID"
       },
+      "body": {
+                    "to": {
+                        "account_id": "Id of the OBP sandbox account to send the payment to (at bank_id specified below)",
+                        "bank_id": "Id of the OBP sandbox bank of the account to send the payment to"
+                    },
+                    "value": {
+                        "currency": "EUR",
+                        "amount": "The transaction amount as a string, e.g. 12.43"
+                    },
+                    "description": "The basic description of the transaction"
+                },
       "transaction_ids": null,
       "status": "CHALLENGES_PENDING",
       "start_date": Date,
