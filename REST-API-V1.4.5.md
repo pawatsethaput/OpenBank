@@ -63,7 +63,7 @@ Getting transfers:
 **Request:**  
 Verb: GET  
 
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfers
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfers
 
 **Response:**
 HTTP code: 200
@@ -125,7 +125,7 @@ This will only work if account to pay exists at the bank specified in the json, 
 
 **Request:**
 Verb: POST
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers
 
 Body:
 
@@ -149,7 +149,7 @@ Body:
 Headers:
 
       http code 201 Created  
-      location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui  
+      location: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui  
 Body: 
 
     {
@@ -175,7 +175,7 @@ Body:
 Headers:
 
     http code: 202 Accepted   
-    location: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui  
+    location: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui  
     
 Body: 
 
@@ -215,7 +215,7 @@ Body:
 Step B: Resolve challenges
 
 **Request:**
-POST /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui/challenges/answers
+POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui/challenges/answers
 
 Body:
 
@@ -232,7 +232,7 @@ Body:
 Headers:
   
     http code: 204
-    location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui
+    location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui
 
 Body:
 
