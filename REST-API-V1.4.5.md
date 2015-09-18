@@ -183,12 +183,7 @@ Body:
         "challenges" : [
             {
               "id": "jmlk-0091-mlox-8196",
-              "question": "Please provide TAN"
-            },
-            {
-              "id": "osns-32sf-4faa-dds4",
-              "question": "What was the name of your first pet?",
-              "start_date":date
+              "challenge_type" : "SANDBOX_TAN"
             }
         ]
       }
@@ -205,10 +200,6 @@ Body:
       {
         "id": "jmlk-0091-mlox-8196",
         "answer": "19282"
-      },
-      {
-        "id": "osns-32sf-4faa-dds4",
-        "answer": "Tiddles",
       }
     ]
 
