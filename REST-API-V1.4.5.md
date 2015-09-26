@@ -115,7 +115,7 @@ Other transfer types will differ only in the content of the body of the initiati
 
 **Sandbox Transfers:**
 
-This is call is only implemented in the OBP sandbox instances.
+This call is only implemented in the OBP sandbox instances.
 
 This will only work if account to pay exists at the bank specified in the json, and if that account has the same currency as that of the payee.
 
