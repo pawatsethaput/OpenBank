@@ -21,7 +21,7 @@ Different Transfer Types exist to allow a similar interface onto SEPA, BitCoin p
 
 *Optional*
 
-Getting a list of the available transfer types / methods for an account
+### Getting a list of the available transfer types / methods for an account
 
 **Request:**  
 Verb: GET  
@@ -58,7 +58,7 @@ The "body" parameter describes the JSON expected as an argument when initiating 
 
 *Optional*
 
-Getting transfers:
+### Getting transfers:
 
 **Request:**  
 Verb: GET  
@@ -107,7 +107,7 @@ Body:
 
 If status is not COMPLETED, transaction_ids will be null, as no transaction(s) have been created.  
 
-Initiating transfers:
+### Initiating transfers:
 
 Security challenge responses may be required before the transaction(s) can proceed leading to the two work flows below, illustrated with the case of sandbox transfers.
 Other transfer types will differ only in the content of the body of the initiation POST request.  
