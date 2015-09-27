@@ -1,1 +1,1 @@
-![Open Bank Project Architecture](http://www.eviscape.com/static/uploads/2015/09/17/obp-system-pwc-14-sept-2015-new-page7-d9cc0295bab2724c4e76bc2d043501026ab56091.png)
+![Open Bank Project Architecture](http://www.eviscape.com/static/uploads/2015/09/27/obp-system-apidays-new-logo-sept-2015-d593666bc6853f6e915c96169603a44a1dc3039c.png)
