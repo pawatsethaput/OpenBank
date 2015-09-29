@@ -1,4 +1,4 @@
-**Developers: This page specifies a Transfers approach that is work in progress. It is not currently available on the sandboxes!**
+**Developers: This page specifies a Transaction Request approach that is work in progress. It is not currently available on the sandboxes!**
 
 See this branch: https://github.com/OpenBankProject/OBP-API/tree/challenge_payments
 
@@ -6,37 +6,37 @@ See this branch: https://github.com/OpenBankProject/OBP-API/tree/challenge_payme
 
 
 <a name="payments"></a>
-<a name="transfers"></a>
-#Transfers (Payments)
+<a name="transactionRequests"></a>
+#Transaction Requests (Payments)
 
 **Overview:**
 
-In order to initiate a payment or transaction(s) we initiate a transfer request or "transfer" for short.
+In order to initiate a payment or transaction(s) we initiate a transaction request.
 
-A transfer may require a security challenge to be answered before it proceeds.
+A transaction request may require a security challenge to be answered before it proceeds.
 
-A successful transfer will result in one or more transactions being created.
+A successful transaction request will result in one or more transactions being created.
 
-Different Transfer Types exist to allow a similar interface onto SEPA, BitCoin payments etc. The Transfer Types resource describes the url that must be used and the body that must be submitted for a transfer of that type to succeed. All other logic including security challenges should be common. 
+Different Transaction Request Types exist to allow a similar interface onto SEPA, BitCoin payments etc. The Transaction Request Types resource describes the url that must be used and the body that must be submitted for a transaction request of that type to succeed. All other logic including security challenges should be common. 
 
 *Optional*
 
-### Getting a list of the available transfer types / methods for an account
+### Getting a list of the available transaction request types (or methods) for an account
 
 **Request:**  
 Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transaction-request-types
 
 **Response:**  
 HTTP code: 200  
 Body:
     
     {
-        "transfer_types": [
+        "transaction_request_types": [
             {
                 "type": "sandbox",
-                "resource_url": "http://localhost:8080/obp/1.4.5/banks/BANK_ID/accounts/ACCOUNT_ID/transfer-types/sandbox",
-                "description": "Transfers for the OBP sandbox",
+                "resource_url": "http://localhost:8080/obp/1.4.5/banks/BANK_ID/accounts/ACCOUNT_ID/transaction-request-types/sandbox",
+                "description": "Transaction Requests for the OBP sandbox",
                 "body": {
                     "to": {
                         "account_id": "Id of the OBP sandbox account to send the payment to (at bank_id specified below)",
@@ -54,23 +54,23 @@ Body:
     }
 
 
-The "body" parameter describes the JSON expected as an argument when initiating a transfer at ("resource_url" + "/transfers").
+The "body" parameter describes the JSON expected as an argument when initiating a transaction request at ("resource_url" + "/transaction-requests").
 
 *Optional*
 
-### Getting transfers:
+### Getting transaction requests:
 
 **Request:**  
 Verb: GET  
 
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfers
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-requests
 
 **Response:**
 HTTP code: 200
 Body:
 
     {
-        "transfers": [
+        "transaction-requests": [
             {
                 "id": "8192-axmp-6125-xxui",
                 "type": "sandbox",
@@ -107,23 +107,23 @@ Body:
 
 If status is not COMPLETED, transaction_ids will be null, as no transaction(s) have been created.  
 
-### Initiating transfers:
+### Initiating transaction requests:
 
-Security challenge responses may be required before the transaction(s) can proceed leading to the two work flows below, illustrated with the case of sandbox transfers.
-Other transfer types will differ only in the content of the body of the initiation POST request.  
+Security challenge responses may be required before the creation of transaction(s) can proceed leading to the two work flows below, illustrated with the case of sandbox transaction requests.
+Other transaction request types will differ only in the content of the body of the initiation POST request.  
 
 
-**Sandbox Transfers:**
+**Sandbox Transaction Requests:**
 
 This call is only implemented in the OBP sandbox instances.
 
-This will only work if account to pay exists at the bank specified in the json, and if that account has the same currency as that of the payee.
+This will only work if account to pay exists at the bank specified in the JSON, and if that account has the same currency as that of the payee.
 
 Step A
 
 **Request:**
 Verb: POST
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests
 
 Body:
 
@@ -147,7 +147,7 @@ Body:
 Headers:
 
       http code 201 Created  
-      location: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui  
+      location: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui  
 Body: 
 
     {
@@ -159,7 +159,7 @@ Body:
       },
       
       "transaction_ids": ["9283-rerw-3ghs-4sfe"],
-      "status":"INITIATED | COMPLETED",
+      "status":"COMPLETED",
       "start_date": Date,
       "end_date": Date,
       "challenge" : null
@@ -173,7 +173,7 @@ Body:
 Headers:
 
     http code: 202 Accepted   
-    location: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui  
+    location: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui  
     
 Body: 
 
@@ -209,7 +209,7 @@ Body:
 Step B: Resolve challenge
 
 **Request:**
-POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui/challenge/answer
+POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui/challenge/answer
 
 Body:
 
@@ -224,7 +224,7 @@ Body:
 Headers:
   
     http code: 204
-    location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transfer-types/sandbox/transfers/8192-axmp-6125-xxui
+    location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui
 
 Body:
 
@@ -241,11 +241,11 @@ Body:
     {
       "error" : {
         "code" : 1
-        "message" : "Transfer failed."
+        "message" : "Transaction Request failed."
       }
     }
 
 The possible values for the error code are:
 
-1 : Transfer failed.
+1 : Transaction Request failed.
 2 : Incorrect answer to one or more questions. You may try to answer the challenge again.
