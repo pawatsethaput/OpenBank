@@ -237,10 +237,7 @@ Headers:
 Body:
 
     {
-      "error" : {
-        "code" : 1
-        "message" : "Transaction Request failed."
-      }
+      "error" : "Transaction Request failed."
     }
 
 The possible values for the error code are:
