@@ -1,7 +1,5 @@
 **Developers: This page specifies a Transaction Request approach that is work in progress. It is not currently available on the sandboxes!**
 
-See this branch: https://github.com/OpenBankProject/OBP-API/tree/challenge_payments
-
 **Developers: This feature is not currently available on the sandboxes!**
 
 
