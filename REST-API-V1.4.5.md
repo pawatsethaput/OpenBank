@@ -207,7 +207,7 @@ Body:
 Step B: Resolve challenge
 
 **Request:**
-POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui/challenge/answer
+POST /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui/challenge
 
 Body:
 
