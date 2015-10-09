@@ -111,21 +111,22 @@ Technical details about the OAuth flow including getting a request token, redire
 
 During the OAuth login, the user of your app will be asked for a customer username/password.
 
-Here are example logins to test your App / OAuth flow:
+Here are some simulated customer logins to test your App / OAuth flow:
 
-    Robert
+
+    Robert, married, retired 63, no mortgage runs a charity has savings.
     username : robert.r.c@example.com
     password : e9470e20
 
-    Susan
+    Susan 39 single mum of two  works a admin job. Rents. 
     username : susan.r.c@example.com
     password : e00ef2ca
 
-    Anil
+    Anil, single 21 has his own business, owns a house, nice car and disposable income.
     username : anil.r.c@example.com
     password : 40f2a819
 
-    Ellie
+    Ellie 26, works in retail, married. Husband has good job. Her money is all for luxuries.
     username : ellie.r.c@example.com
     password : f92b9eb4
 
