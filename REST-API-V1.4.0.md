@@ -56,6 +56,9 @@
         * [Where](#where)
     * [Other account](#transaction_other_account)
 * Payments (Creating Transactions)
+    * [Get Transaction Request Types] (#get-transaction-request-types)
+    * [Get Transaction Requests] (#create-transaction-request)
+    * [Initiating Transaction Request] (#create-transaction-request)
 * Physical cards
   * [All] (#all-cards)
   * [At one bank] (#cards-for-bank)
