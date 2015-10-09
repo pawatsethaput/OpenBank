@@ -221,12 +221,25 @@ Body:
 
 Headers:
   
-    http code: 204
+    http code: 201
     location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui
 
 Body:
 
-    {}
+    {
+      "id":"8192-axmp-6125-xxui",
+      "type" : "sandbox",
+      "from": {
+        "bank_id": "FROM_BANK_ID",
+        "account_id": "FROM_ACCOUNT_ID"
+      },
+      
+      "transaction_ids": ["9283-rerw-3ghs-4sfe"],
+      "status":"COMPLETED",
+      "start_date": Date,
+      "end_date": Date,
+      "challenge" : null
+    }
 
 **Response 2 (bad answer):**
 
