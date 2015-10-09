@@ -21,9 +21,9 @@ Customer facing retail banking and fintech applications for consumers, SMEs, ass
 Use the [OBP API Explorer](https://rbs-sofi.openbankproject.com/api-explorer) to browse and test the API.
 
 
-####This OBP instance contains test accounts for: 
-* Royal Bank of Scotland
-* Natwest Bank 
+####This OBP instance contains simulated test accounts for: 
+* [Royal Bank of Scotland](https://rbs-sofi.openbankproject.com/api-explorer?bank_id=rbs-rbs-c)
+* [Natwest Bank](https://rbs-sofi.openbankproject.com/api-explorer?bank_id=rbs-natwest-c) 
 
 
 
@@ -111,7 +111,7 @@ Technical details about the OAuth flow including getting a request token, redire
 
 During the OAuth login, the user of your app will be asked for a customer username/password.
 
-Here are example logins to test your OAuth flow:
+Here are example logins to test your App / OAuth flow:
 
     Robert
     username : robert.r.c@example.com
