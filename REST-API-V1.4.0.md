@@ -55,7 +55,7 @@
         * [Images](#images)
         * [Where](#where)
     * [Other account](#transaction_other_account)
-* [Transfers (Payments in 1.2.1)](https://github.com/OpenBankProject/OBP-API/wiki/REST-API-V1.2.1#payments)
+* Payments (Creating Transactions)
 * Physical cards
   * [All] (#all-cards)
   * [At one bank] (#cards-for-bank)
