@@ -1,7 +1,8 @@
 ####Hello!
 
-This is a special page for the **Royal Bank of Scotland** OBP API sandbox created for the [Hack Make the Bank Hackathon](http://www.hackmakethebank.com/hmtb/rbs1/) in Edinburgh, October 9th - 11th.  
+This is a special page for the **Royal Bank of Scotland** OBP API sandbox created for the [Hack Make the Bank Hackathon](http://www.hackmakethebank.com/hmtb/rbs1/) in Edinburgh, October 9th - 11th.
 
+Members of the Open Bank Project team are on site. If you have any questions, please ask us!  
 
 ####Overview
 Open Bank Project is an open source API for banks providing a common RESTful interface for developers to build customer facing applications. You can use it as a flexible toolbox of data and services to help realise (a.k.a. hack!) your ideas together. For the hackathons, developers have access to *simulated* transaction data for imaginary customers.   
@@ -17,8 +18,13 @@ Customer facing retail banking and fintech applications for consumers, SMEs, ass
 * Access Customer messages
 * Access data related to branches, ATMs and financial products
 
+
+####API Endpoint:
+[https://rbs.openbankproject.com/obp/v1.4.0](https://rbs.openbankproject.com/obp/v1.4.0)
+
 ####API Explorer:
 Use the [OBP API Explorer](https://rbs-sofi.openbankproject.com/api-explorer) to browse and test the API.
+
 
 
 ####This OBP instance contains simulated test accounts for: 
