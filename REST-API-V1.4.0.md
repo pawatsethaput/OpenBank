@@ -3834,13 +3834,13 @@ The "body" parameter describes the JSON expected as an argument when initiating 
 <a name="get-transaction-requests"></a>
 ### Getting transaction requests:
 
-**Request:**  
+**Request:**
 Verb: GET  
 
 URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-requests
 
 **Response:**
-HTTP code: 200
+HTTP code: 200  
 Body:
 
     {
@@ -3921,7 +3921,7 @@ Body:
 
 Headers:
 
-      http code 201 Created  
+      http code: 201 Created  
       location: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui  
 Body: 
 
