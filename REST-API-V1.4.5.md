@@ -222,7 +222,7 @@ Body:
 Headers:
   
     http code: 201
-    location: /obp/v1.3.0/banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui
+    location: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox/transaction-requests/8192-axmp-6125-xxui
 
 Body:
 
@@ -238,7 +238,11 @@ Body:
       "status":"COMPLETED",
       "start_date": Date,
       "end_date": Date,
-      "challenge" : null
+      "challenge": {
+         "id": "jmlk-0091-mlox-8196",
+         "allowed_attempts": 2,
+         "challenge_type": "SANDBOX_TAN"
+      }
     }
 
 **Response 2 (bad answer):**
