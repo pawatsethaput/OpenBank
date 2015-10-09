@@ -55,9 +55,9 @@
         * [Images](#images)
         * [Where](#where)
     * [Other account](#transaction_other_account)
-* Payments (Creating Transactions)
+* [Payments (Creating Transactions)] (#transactionRequests)
     * [Get Transaction Request Types] (#get-transaction-request-types)
-    * [Get Transaction Requests] (#create-transaction-request)
+    * [Get Transaction Requests] (#get-transaction-requests)
     * [Initiating Transaction Request] (#create-transaction-request)
 * Physical cards
   * [All] (#all-cards)
@@ -3793,6 +3793,7 @@ Different Transaction Request Types exist to allow a similar interface onto SEPA
 
 *Optional*
 
+<a name="get-transaction-request-types"></a>
 ### Getting a list of the available transaction request types (or methods) for an account
 
 **Request:**  
@@ -3830,6 +3831,7 @@ The "body" parameter describes the JSON expected as an argument when initiating 
 
 *Optional*
 
+<a name="get-transaction-requests"></a>
 ### Getting transaction requests:
 
 **Request:**  
@@ -3879,6 +3881,7 @@ Body:
 
 If status is not COMPLETED, transaction_ids will be null, as no transaction(s) have been created.  
 
+<a name="create-transaction-request"></a>
 ### Initiating transaction requests:
 
 Security challenge responses may be required before the creation of transaction(s) can proceed leading to the two work flows below, illustrated with the case of sandbox transaction requests.
