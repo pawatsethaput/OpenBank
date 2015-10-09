@@ -1,6 +1,6 @@
 ####Hello!
 
-This is a special page for the **Royal Bank of Scotland** OBP API sandbox created for the [Hack Make the Bank Hackathon](http://www.international-hackathon.com/) in Edinburgh, October 9th - 11th.  
+This is a special page for the **Royal Bank of Scotland** OBP API sandbox created for the [Hack Make the Bank Hackathon](http://www.hackmakethebank.com/hmtb/rbs1/) in Edinburgh, October 9th - 11th.  
 
 
 ####Overview
@@ -136,7 +136,7 @@ To get different logins just for you / your team please ask a member of the Open
 You can use this [application](https://rbs-sofi.openbankproject.com) which also uses OAuth to browse your transaction data (use the above username/password).
 
 ####Questions / Contact?
-* For questions about the hackathon event please see:
+* For questions about the hackathon events please see:
  
  		http://www.hackmakethebank.com/
 
