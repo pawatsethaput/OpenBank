@@ -3798,7 +3798,7 @@ Different Transaction Request Types exist to allow a similar interface onto SEPA
 
 **Request:**  
 Verb: GET  
-URL: /banks/BANK_ID/accounts/ACCOUNT_ID/transaction-request-types
+URL: /banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types
 
 **Response:**  
 HTTP code: 200  
@@ -3808,7 +3808,7 @@ Body:
         "transaction_request_types": [
             {
                 "type": "sandbox",
-                "resource_url": "http://localhost:8080/obp/1.4.0/banks/BANK_ID/accounts/ACCOUNT_ID/transaction-request-types/sandbox",
+                "resource_url": "http://localhost:8080/obp/1.4.0/banks/BANK_ID/accounts/ACCOUNT_ID/VIEW_ID/transaction-request-types/sandbox",
                 "description": "Transaction Requests for the OBP sandbox",
                 "body": {
                     "to": {
