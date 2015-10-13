@@ -1074,9 +1074,11 @@ Body:
 <a name="views"></a>
 #Views
 
-### How views work
+### Delegation, Entitlements (Permissions)
 
-Views on accounts and transactions filter the underlying data to hide or blur certain fields from certain users. For instance the balance on an account may be hidden from the public. The way to know what is possible on a view is determined in the following JSON.
+Views in Open Bank Project provide a mechanism for fine grained access control and delegation. Account holders use the 'owner' view by default. Delegated access is made through other views for example 'accountants', 'share-holders' or 'tagging-application'. Views can be created via the API and each view has a list of entitlements.
+  
+Views on accounts and transactions filter the underlying data to redact certain fields from certain users. For instance the balance on an account may be hidden from the public. The way to know what is possible on a view is determined in the following JSON.
 
 **data:** When a view moderates a set of data, some fields my contain the value `null` rather than the original value. This indicates either that the user is not allowed to see the original data or the field is empty.
 
